@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>www.sulishibaobei.com/archives/index.html</loc>
+    
+    <lastmod>2017-09-05T05:27:35.184Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>www.sulishibaobei.com/categories/index.html</loc>
+    
+    <lastmod>2017-09-05T05:27:26.526Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>www.sulishibaobei.com/something/index.html</loc>
+    
+    <lastmod>2017-09-05T05:26:56.008Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>www.sulishibaobei.com/tags/index.html</loc>
+    
+    <lastmod>2017-09-05T05:25:51.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>www.sulishibaobei.com/about/index.html</loc>
     
     <lastmod>2017-09-05T05:20:58.886Z</lastmod>
@@ -23,37 +51,9 @@
   </url>
   
   <url>
-    <loc>www.sulishibaobei.com/categories/index.html</loc>
-    
-    <lastmod>2017-09-01T05:17:21.767Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>www.sulishibaobei.com/tags/index.html</loc>
-    
-    <lastmod>2017-09-01T05:17:03.564Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>www.sulishibaobei.com/something/index.html</loc>
-    
-    <lastmod>2017-09-01T03:44:22.924Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>www.sulishibaobei.com/schedule/index.html</loc>
     
     <lastmod>2017-09-01T03:10:16.272Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>www.sulishibaobei.com/archives/index.html</loc>
-    
-    <lastmod>2017-09-01T03:10:03.636Z</lastmod>
     
   </url>
   
