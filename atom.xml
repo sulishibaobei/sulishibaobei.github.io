@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="www.sulishibaobei.com/"/>
-  <updated>2017-09-05T05:07:28.000Z</updated>
+  <updated>2017-09-05T05:10:47.000Z</updated>
   <id>www.sulishibaobei.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="www.sulishibaobei.com/blog/title20170901/"/>
     <id>www.sulishibaobei.com/blog/title20170901/</id>
     <published>2017-09-01T03:08:53.000Z</published>
-    <updated>2017-09-05T05:07:28.000Z</updated>
+    <updated>2017-09-05T05:10:47.000Z</updated>
     
     <content type="html"><![CDATA[<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;路由的作用就是（导航）：会加载与请求路由相关联的组件，并获取特定路由的相关数据，这允许我们通过控制不同的路由，获取不同的数据，从而渲染不同的页面；</p>
 <h2 id="几种常见的路由配置："><a href="#几种常见的路由配置：" class="headerlink" title="几种常见的路由配置："></a>几种常见的路由配置：</h2><blockquote>
@@ -86,7 +86,7 @@
       <category term="Angular 2+" scheme="www.sulishibaobei.com/categories/Angular-2/"/>
     
     
-      <category term="--Angular 2+ --router --懒加载" scheme="www.sulishibaobei.com/tags/Angular-2-router-%E6%87%92%E5%8A%A0%E8%BD%BD/"/>
+      <category term="-- Angular 2+ -- router -- 懒加载" scheme="www.sulishibaobei.com/tags/Angular-2-router-%E6%87%92%E5%8A%A0%E8%BD%BD/"/>
     
   </entry>
   

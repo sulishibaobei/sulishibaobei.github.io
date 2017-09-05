@@ -4,14 +4,28 @@
 
     
   <url>
+    <loc>www.sulishibaobei.com/about/index.html</loc>
+    <lastmod>2017-09-05T05:15:36.433Z</lastmod>
+    <data>
+        <display>
+        <title>关于sulishibaobei的一些事</title>
+        <pubTime>2017-09-01T03:08:53.000Z</pubTime>
+        
+         
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>www.sulishibaobei.com/blog/title20170901/</loc>
-    <lastmod>2017-09-05T05:07:28.000Z</lastmod>
+    <lastmod>2017-09-05T05:10:47.000Z</lastmod>
     <data>
         <display>
         <title>Angular 2+ 路由的那些事</title>
         <pubTime>2017-09-01T03:08:53.000Z</pubTime>
         
-        <tag>--Angular 2+ --router --懒加载</tag>
+        <tag>-- Angular 2+ -- router -- 懒加载</tag>
          
          
            
@@ -22,7 +36,6 @@
     </data>
     </url>
 
-    
     
     
     
