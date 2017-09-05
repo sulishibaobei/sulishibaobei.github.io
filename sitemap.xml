@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>www.sulishibaobei.com/something/index.html</loc>
+    
+    <lastmod>2017-09-05T06:45:27.720Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>www.sulishibaobei.com/categories/index.html</loc>
     
     <lastmod>2017-09-05T06:24:43.329Z</lastmod>
@@ -33,20 +40,6 @@
     <loc>www.sulishibaobei.com/archives/index.html</loc>
     
     <lastmod>2017-09-05T05:27:35.184Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>www.sulishibaobei.com/something/index.html</loc>
-    
-    <lastmod>2017-09-05T05:26:56.008Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>www.sulishibaobei.com/search/index.html</loc>
-    
-    <lastmod>2017-09-01T08:21:36.032Z</lastmod>
     
   </url>
   
