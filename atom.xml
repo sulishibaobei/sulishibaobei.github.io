@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="www.sulishibaobei.com/"/>
-  <updated>2017-09-05T03:45:27.145Z</updated>
+  <updated>2017-09-05T03:46:40.210Z</updated>
   <id>www.sulishibaobei.com/</id>
   
   <author>
@@ -20,10 +20,10 @@
     <link href="www.sulishibaobei.com/blog/title20170905/"/>
     <id>www.sulishibaobei.com/blog/title20170905/</id>
     <published>2017-09-05T00:51:35.811Z</published>
-    <updated>2017-09-05T03:45:27.145Z</updated>
+    <updated>2017-09-05T03:46:40.210Z</updated>
     
     <content type="html"><![CDATA[<hr>
-<p>title : “Angular4+路由”<br>date : 2017-09-01 11:08:53<br>tag :<br> – Angular 2+<br> – router<br> – 懒加载</p>
+<p>title : Angular4+路由<br>date : 2017-09-01 11:08:53<br>tag :<br> – Angular 2+<br> – router<br> – 懒加载</p>
 <h2 id="categories-“Angular-2-”"><a href="#categories-“Angular-2-”" class="headerlink" title="categories : “Angular 2+”"></a>categories : “Angular 2+”</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;路由的作用就是（导航）：会加载与请求路由相关联的组件，并获取特定路由的相关数据，这允许我们通过控制不同的路由，获取不同的数据，从而渲染不同的页面；</p>
 <h2 id="几种常见的路由配置："><a href="#几种常见的路由配置：" class="headerlink" title="几种常见的路由配置："></a>几种常见的路由配置：</h2><blockquote>
 <ul>
@@ -62,8 +62,8 @@
     <summary type="html">
     
       &lt;hr&gt;
-&lt;p&gt;title : “Angular4+路由”&lt;br&gt;date : 2017-09-01 11:08:53&lt;br&gt;tag :&lt;br&gt; – Angular 2+&lt;br&gt; – router&lt;br&gt; – 懒加载&lt;/p&gt;
-&lt;h2 id=&quot;categories-“Angular
+&lt;p&gt;title : Angular4+路由&lt;br&gt;date : 2017-09-01 11:08:53&lt;br&gt;tag :&lt;br&gt; – Angular 2+&lt;br&gt; – router&lt;br&gt; – 懒加载&lt;/p&gt;
+&lt;h2 id=&quot;categories-“Angular-2
     
     </summary>
     
