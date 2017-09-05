@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="www.sulishibaobei.com/"/>
-  <updated>2017-09-05T02:30:49.000Z</updated>
+  <updated>2017-09-05T02:36:28.000Z</updated>
   <id>www.sulishibaobei.com/</id>
   
   <author>
@@ -16,20 +16,24 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>少女雨</title>
+    <title>Angular 2+ 路由的那些事</title>
     <link href="www.sulishibaobei.com/blog/title20170901/"/>
     <id>www.sulishibaobei.com/blog/title20170901/</id>
     <published>2017-09-01T03:08:53.000Z</published>
-    <updated>2017-09-05T02:30:49.000Z</updated>
+    <updated>2017-09-05T02:36:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Angular4-路由"><a href="#Angular4-路由" class="headerlink" title="Angular4+路由"></a>Angular4+路由</h2>]]></content>
     
     <summary type="html">
     
+      &lt;h2 id=&quot;Angular4-路由&quot;&gt;&lt;a href=&quot;#Angular4-路由&quot; class=&quot;headerlink&quot; title=&quot;Angular4+路由&quot;&gt;&lt;/a&gt;Angular4+路由&lt;/h2&gt;
+    
     </summary>
     
-      <category term="一个文艺女青年的自述" scheme="www.sulishibaobei.com/categories/%E4%B8%80%E4%B8%AA%E6%96%87%E8%89%BA%E5%A5%B3%E9%9D%92%E5%B9%B4%E7%9A%84%E8%87%AA%E8%BF%B0/"/>
+      <category term="Angular 2+" scheme="www.sulishibaobei.com/categories/Angular-2/"/>
     
     
-      <category term="-- 苏黎世宝贝 -- 关于我" scheme="www.sulishibaobei.com/tags/%E8%8B%8F%E9%BB%8E%E4%B8%96%E5%AE%9D%E8%B4%9D-%E5%85%B3%E4%BA%8E%E6%88%91/"/>
+      <category term="-- Angular 2+ -- router -- 懒加载" scheme="www.sulishibaobei.com/tags/Angular-2-router-%E6%87%92%E5%8A%A0%E8%BD%BD/"/>
     
   </entry>
   
