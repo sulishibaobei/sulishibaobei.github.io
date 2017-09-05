@@ -115,17 +115,21 @@
 
 
 
-<meta name="description" content="12级毕业生，南方姑娘，前端程序媛，前途堪忧的代码洁癖者 。">
+<meta name="description" content="title : “Angular4+路由“date : 2017-09-01 11:08:53tag : – Angular 2+ – router – 懒加载 categories : “Angular 2+”&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;路由的作用就是（导航）：会加载与请求路由相关联的组件，并获取特定路由的相关数据，这允许我们通过控制不同的路由，获取">
 <meta name="keywords" content="前端,js,jquery,javascript,html5,开发者,程序媛，typescript,angular，校园java醋虐者">
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:title" content="少女雨的博客">
-<meta property="og:url" content="www.sulishibaobei.com/index.html">
+<meta property="og:url" content="www.sulishibaobei.com/blog/title20170905/index.html">
 <meta property="og:site_name" content="少女雨的博客">
-<meta property="og:description" content="12级毕业生，南方姑娘，前端程序媛，前途堪忧的代码洁癖者 。">
+<meta property="og:description" content="title : “Angular4+路由“date : 2017-09-01 11:08:53tag : – Angular 2+ – router – 懒加载 categories : “Angular 2+”&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;路由的作用就是（导航）：会加载与请求路由相关联的组件，并获取特定路由的相关数据，这允许我们通过控制不同的路由，获取">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="/images/router-1.png">
+<meta property="og:image" content="/images/router-2.png">
+<meta property="og:updated_time" content="2017-09-05T03:36:30.665Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="少女雨的博客">
-<meta name="twitter:description" content="12级毕业生，南方姑娘，前端程序媛，前途堪忧的代码洁癖者 。">
+<meta name="twitter:description" content="title : “Angular4+路由“date : 2017-09-01 11:08:53tag : – Angular 2+ – router – 懒加载 categories : “Angular 2+”&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;路由的作用就是（导航）：会加载与请求路由相关联的组件，并获取特定路由的相关数据，这允许我们通过控制不同的路由，获取">
+<meta name="twitter:image" content="/images/router-1.png">
 
 
 
@@ -155,13 +159,13 @@
 
 
 
-  <link rel="canonical" href="www.sulishibaobei.com/"/>
+  <link rel="canonical" href="www.sulishibaobei.com/blog/title20170905/"/>
 
 
 
 
 
-  <title>少女雨的博客</title>
+  <title> | 少女雨的博客</title>
   
 
 
@@ -190,8 +194,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -334,9 +337,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -366,9 +369,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/blog/title20170905/" itemprop="url">未命名</a></h1>
+          <h1 class="post-title" itemprop="name headline"></h1>
         
 
         <div class="post-meta">
@@ -418,9 +419,7 @@
       
 
       
-        
-          
-            <hr>
+        <hr>
 <p>title : “<font color="#0099ff">Angular4+路由</font>“<br>date : 2017-09-01 11:08:53<br>tag :<br> – Angular 2+<br> – router<br> – 懒加载</p>
 <h2 id="categories-“Angular-2-”"><a href="#categories-“Angular-2-”" class="headerlink" title="categories : “Angular 2+”"></a>categories : “Angular 2+”</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;路由的作用就是（导航）：会加载与请求路由相关联的组件，并获取特定路由的相关数据，这允许我们通过控制不同的路由，获取不同的数据，从而渲染不同的页面；</p>
 <h2 id="几种常见的路由配置："><a href="#几种常见的路由配置：" class="headerlink" title="几种常见的路由配置："></a>几种常见的路由配置：</h2><blockquote>
@@ -465,8 +464,6 @@
 <p>imports:中导入这个就可以啦<br>  <strong> AppRoutingModule </strong><br>这种用法和上面这种用法是一样的还有一点：如何解决第二次刷新出现404问题：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[RouterModule.forRoot(routes,&#123;useHash:true&#125;)]</div></pre></td></tr></table></figure></p>
 <p>配置后面这一点，通过添加一个#，防止刷新第二次出现404；<br><em><a href="http://localhost:4201/#" target="_blank" rel="external">http://localhost:4201/#</a> </em></p>
 
-          
-        
       
     </div>
     
@@ -476,6 +473,35 @@
     
 
     
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>谢谢你给我的支持，坚持原创技术分享，共同成长</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/zhifubao.jpg" alt="少女雨 WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/weixin.jpg" alt="少女雨 Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
 
     
 
@@ -483,12 +509,12 @@
       
 
       
+      
+      
 
       
 
       
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -498,10 +524,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -509,6 +536,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="uyan_frame"></div>
+    
+  </div>
+
 
         </div>
         
@@ -529,8 +562,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           
             <img class="site-author-image" itemprop="image"
@@ -652,6 +694,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#categories-“Angular-2-”"><span class="nav-number">1.</span> <span class="nav-text">categories : “Angular 2+”</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#几种常见的路由配置："><span class="nav-number">2.</span> <span class="nav-text">几种常见的路由配置：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#详细解析："><span class="nav-number">2.1.</span> <span class="nav-text">详细解析：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#路由定义包括下面部分："><span class="nav-number">2.1.1.</span> <span class="nav-text">路由定义包括下面部分：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意："><span class="nav-number">2.2.</span> <span class="nav-text">注意：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二种写法："><span class="nav-number">3.</span> <span class="nav-text">第二种写法：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意：-1"><span class="nav-number">4.</span> <span class="nav-text">注意：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -793,6 +851,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
 
   
 
@@ -818,6 +880,10 @@
   
     
 
+    
+      <!-- UY BEGIN -->
+      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2142986"></script>
+      <!-- UY END -->
     
   
 
