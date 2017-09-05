@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="www.sulishibaobei.com/"/>
-  <updated>2017-09-05T03:52:41.000Z</updated>
+  <updated>2017-09-05T04:11:37.000Z</updated>
   <id>www.sulishibaobei.com/</id>
   
   <author>
@@ -16,15 +16,13 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
-    <link href="www.sulishibaobei.com/blog/title20170905/"/>
-    <id>www.sulishibaobei.com/blog/title20170905/</id>
-    <published>2017-09-05T00:51:35.811Z</published>
-    <updated>2017-09-05T03:52:41.000Z</updated>
+    <title>Angular 2+ 路由的那些事</title>
+    <link href="www.sulishibaobei.com/blog/title20170901/"/>
+    <id>www.sulishibaobei.com/blog/title20170901/</id>
+    <published>2017-09-01T03:08:53.000Z</published>
+    <updated>2017-09-05T04:11:37.000Z</updated>
     
-    <content type="html"><![CDATA[<hr>
-<p>title : “Angular4+路由”<br>date : 2017-09-01 11:08:53<br>tag :<br> – Angular 2+<br> – router<br> – 懒加载</p>
-<h2 id="categories-“Angular-2-”"><a href="#categories-“Angular-2-”" class="headerlink" title="categories : “Angular 2+”"></a>categories : “Angular 2+”</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;路由的作用就是（导航）：会加载与请求路由相关联的组件，并获取特定路由的相关数据，这允许我们通过控制不同的路由，获取不同的数据，从而渲染不同的页面；</p>
+    <content type="html"><![CDATA[<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;路由的作用就是（导航）：会加载与请求路由相关联的组件，并获取特定路由的相关数据，这允许我们通过控制不同的路由，获取不同的数据，从而渲染不同的页面；</p>
 <h2 id="几种常见的路由配置："><a href="#几种常见的路由配置：" class="headerlink" title="几种常见的路由配置："></a>几种常见的路由配置：</h2><blockquote>
 <ul>
 <li>Angular路由器是一个可选的外部Angular NgModule ，叫RouterModule;</li>
@@ -61,12 +59,15 @@
     
     <summary type="html">
     
-      &lt;hr&gt;
-&lt;p&gt;title : “Angular4+路由”&lt;br&gt;date : 2017-09-01 11:08:53&lt;br&gt;tag :&lt;br&gt; – Angular 2+&lt;br&gt; – router&lt;br&gt; – 懒加载&lt;/p&gt;
-&lt;h2 id=&quot;categories-“Angular
+      &lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;路由的作用就是（导航）：会加载与请求路由相关联的组件，并获取特定路由的相关数据，这允许我们通过控制不同的路由，获取不同的数据，从而渲染不同的页面；&lt;/p&gt;
+&lt;h2 id=&quot;几种常见的路由配置：&quot;&gt;&lt;a 
     
     </summary>
     
+      <category term="Angular 2+" scheme="www.sulishibaobei.com/categories/Angular-2/"/>
+    
+    
+      <category term="--Angular 2+ --router" scheme="www.sulishibaobei.com/tags/Angular-2-router/"/>
     
   </entry>
   
