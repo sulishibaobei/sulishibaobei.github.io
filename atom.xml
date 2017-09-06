@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="www.sulishibaobei.com/"/>
-  <updated>2017-09-05T14:23:56.000Z</updated>
+  <updated>2017-09-06T01:22:27.000Z</updated>
   <id>www.sulishibaobei.com/</id>
   
   <author>
@@ -20,9 +20,10 @@
     <link href="www.sulishibaobei.com/title20170901/"/>
     <id>www.sulishibaobei.com/title20170901/</id>
     <published>2017-09-01T03:08:53.000Z</published>
-    <updated>2017-09-05T14:23:56.000Z</updated>
+    <updated>2017-09-06T01:22:27.000Z</updated>
     
     <content type="html"><![CDATA[<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;路由的作用就是（导航）：会加载与请求路由相关联的组件，并获取特定路由的相关数据，这允许我们通过控制不同的路由，获取不同的数据，从而渲染不同的页面；</p>
+<p><meta name="google-site-verification" content="3tk1JDTx2boawb5pbtnCtDiBYOi7SGqMJsgLhX0uHlw"></p>
 <h2 id="几种常见的路由配置："><a href="#几种常见的路由配置：" class="headerlink" title="几种常见的路由配置："></a>几种常见的路由配置：</h2><blockquote>
 <ul>
 <li>Angular路由器是一个可选的外部Angular NgModule ，叫RouterModule;</li>
@@ -234,6 +235,7 @@
     <summary type="html">
     
       &lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;路由的作用就是（导航）：会加载与请求路由相关联的组件，并获取特定路由的相关数据，这允许我们通过控制不同的路由，获取不同的数据，从而渲染不同的页面；&lt;/p&gt;
+&lt;p&gt;&lt;meta name=&quot;google-site-verification&quot; content=&quot;3tk1JDTx2boawb5pbtnCtDiBYOi7SGqMJsgLhX0uHlw&quot;&gt;&lt;/p&gt;
 &lt;h2 id=&quot;几种常见的路由配置：&quot;&gt;&lt;a href=&quot;#几种常见的路由配置：&quot; class=&quot;headerlink&quot; title=&quot;几种常见的路由配置：&quot;&gt;&lt;/a&gt;几种常见的路由配置：&lt;/h2&gt;&lt;blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;Angular路由器是一个可选的外部Angular NgModule ，叫RouterModule;&lt;/li&gt;
