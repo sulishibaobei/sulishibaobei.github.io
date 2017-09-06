@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="www.sulishibaobei.com/"/>
-  <updated>2017-09-06T02:14:28.101Z</updated>
+  <updated>2017-09-06T02:34:53.294Z</updated>
   <id>www.sulishibaobei.com/</id>
   
   <author>
@@ -16,16 +16,52 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>简述alert和console.log的区别</title>
+    <link href="www.sulishibaobei.com/console20170905/"/>
+    <id>www.sulishibaobei.com/console20170905/</id>
+    <published>2017-09-05T03:08:53.000Z</published>
+    <updated>2017-09-06T02:34:53.294Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>生活中还是得有发现美好和差别的眼睛~~ 学习前端那么久既然还不知道alert和console.log的差别<figure class="highlight plain"><figcaption><span>;</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&gt;* 本菜鸟一直以为alert和console.log其实是一样的用法，只是alert以弹出框形式呈现，而console.log在控制台输出而已。 </div><div class="line">&gt;* 知道昨天输出一段代码，结果发现alert和console.log输出结果不一样~~~~~本宝宝可算涨见识了~~~ 然后就是各种查阅资料，百度查看，终于发现点眉目啦~~~~~ ;</div><div class="line"></div><div class="line">**我写了这样一段代码：**</div><div class="line">&lt;img src=&quot;http://images2015.cnblogs.com/blog/923330/201610/923330-20161012090847890-399704642.png&quot;/&gt; </div><div class="line">alert输出的结果为： </div><div class="line">&lt;img src=&quot;http://images2015.cnblogs.com/blog/923330/201610/923330-20161012090918718-1167050434.png&quot; width=&quot;559&quot; height=&quot;168&quot;/&gt; </div><div class="line">console.log输出的结果为：  </div><div class="line">&lt;img src=&quot;http://images2015.cnblogs.com/blog/923330/201610/923330-20161012090946078-72928790.png&quot; /&gt; </div><div class="line">然后我就尴尬了~</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>原来console.log() 可以打印任何类型的数据。而 alert() 只能输出string，如果alert输出是对象会自动调用 toString() 方法。如果想 console.log() 输出的与alert相同，需要调用 toString()。<br>所以将后面的改写成&nbsp;console.log(hmac.toString()) 就可以啦<del>~</del>~~<br>下面再来总结下两者的差别：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">alert()</div><div class="line">   <span class="number">1.1</span> 有阻塞作用，不点击确定，后续代码无法继续执行</div><div class="line">   <span class="number">1.2</span> alert()只能输出string,如果alert输出的是对象会自动调用toString()方法 </div><div class="line">      e.g. alert([a,b,c]); <span class="comment">//a,b,c  </span></div><div class="line">   <span class="number">1.3</span> alert不支持多个参数的写法,只能输出第一个值</div><div class="line">      e.g. alert(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>); <span class="comment">// 1</span></div><div class="line"><span class="built_in">console</span>.log()</div><div class="line">   <span class="number">2.1</span> 在打印台输出</div><div class="line">   <span class="number">2.2</span> 可以打印任何类型的数据</div><div class="line">        e.g. console.log([a,b,c]); <span class="comment">//[a,b,c]</span></div><div class="line">   <span class="number">2.3</span> 支持多个参数的写法</div><div class="line">        e.g. console.log(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>) <span class="comment">// 1 2 3</span></div></pre></td></tr></table></figure></p>
+<blockquote>
+<ul>
+<li>好啦~~~就是这样啦。 </li>
+</ul>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;生活中还是得有发现美好和差别的眼睛~~ 学习前端那么久既然还不知道alert和console.log的差别&lt;figure class=&quot;highlight plain&quot;&gt;&lt;figcaption&gt;&lt;span&gt;;&lt;/span&gt;&lt;/figcaption&gt;
+    
+    </summary>
+    
+      <category term="前端那些微小事" scheme="www.sulishibaobei.com/categories/%E5%89%8D%E7%AB%AF%E9%82%A3%E4%BA%9B%E5%BE%AE%E5%B0%8F%E4%BA%8B/"/>
+    
+    
+      <category term="console.log" scheme="www.sulishibaobei.com/tags/console-log/"/>
+    
+      <category term="alert" scheme="www.sulishibaobei.com/tags/alert/"/>
+    
+      <category term="javascript" scheme="www.sulishibaobei.com/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Angular 2+ 设置组件样式的那些事</title>
-    <link href="www.sulishibaobei.com/component-style20170901/"/>
-    <id>www.sulishibaobei.com/component-style20170901/</id>
-    <published>2017-09-01T03:08:53.000Z</published>
-    <updated>2017-09-06T02:14:28.101Z</updated>
+    <link href="www.sulishibaobei.com/component-style20170902/"/>
+    <id>www.sulishibaobei.com/component-style20170902/</id>
+    <published>2017-09-02T03:05:53.000Z</published>
+    <updated>2017-09-06T02:19:49.589Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://upload-images.jianshu.io/upload_images/4116930-f0723db00f54a079.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"> </p>
 <div class="image-caption">你用Angular吗？</div>
 
-<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><h3 id="如何只改动最简单的css代码，呈现完全不一样的视图效果。"><a href="#如何只改动最简单的css代码，呈现完全不一样的视图效果。" class="headerlink" title="如何只改动最简单的css代码，呈现完全不一样的视图效果。"></a>如何只改动最简单的css代码，呈现完全不一样的视图效果。<p></p></h3><h4 id="第一种：最基本的设置："><a href="#第一种：最基本的设置：" class="headerlink" title="第一种：最基本的设置："></a>第一种：最基本的设置：<p></p></h4><a id="more"></a>
+<h2 id="介绍-如何只改动最简单的css代码，呈现完全不一样的视图效果。"><a href="#介绍-如何只改动最简单的css代码，呈现完全不一样的视图效果。" class="headerlink" title="介绍 :如何只改动最简单的css代码，呈现完全不一样的视图效果。"></a>介绍 :如何只改动最简单的css代码，呈现完全不一样的视图效果。</h2><h3 id="第一种：最基本的设置："><a href="#第一种：最基本的设置：" class="headerlink" title="第一种：最基本的设置："></a>第一种：最基本的设置：</h3><a id="more"></a>
 <p><img src="http://upload-images.jianshu.io/upload_images/4116930-982f4ad0d5fd7408.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"> </p>
 <div class="image-caption">&nbsp; 图1 代码</div><br><img src="http://upload-images.jianshu.io/upload_images/4116930-66db768ea2abfff5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"><br><div class="image-caption">图2 界面运行效果图</div>
 
@@ -39,7 +75,7 @@
 <p><img src="http://upload-images.jianshu.io/upload_images/4116930-84cb5a9a2291484d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"></p>
 <div class="image-caption">&nbsp; renderer.class 图</div>
 
-<h4 id="第二种-我们可以这样用"><a href="#第二种-我们可以这样用" class="headerlink" title="第二种:我们可以这样用"></a>第二种:我们可以这样用</h4><p><img src="http://upload-images.jianshu.io/upload_images/4116930-a174137d1ddabdf5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"></p>
+<h3 id="第二种-我们可以这样用"><a href="#第二种-我们可以这样用" class="headerlink" title="第二种:我们可以这样用"></a>第二种:我们可以这样用</h3><p><img src="http://upload-images.jianshu.io/upload_images/4116930-a174137d1ddabdf5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"></p>
 <div class="image-caption">&nbsp; label.html</div><br><img src="http://upload-images.jianshu.io/upload_images/4116930-047f9e0a9248b70d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"><br><div class="image-caption">&nbsp; label.ts</div>
 
 <blockquote>
@@ -51,7 +87,7 @@
 </li>
 </ul>
 </blockquote>
-<h4 id="第三种：我们可以获取到元素的节点进行操作"><a href="#第三种：我们可以获取到元素的节点进行操作" class="headerlink" title="第三种：我们可以获取到元素的节点进行操作?"></a>第三种：我们可以获取到元素的节点进行操作?</h4><p><img src="http://upload-images.jianshu.io/upload_images/4116930-12c5b5c2c91e5027.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"></p>
+<h3 id="第三种：我们可以获取到元素的节点进行操作"><a href="#第三种：我们可以获取到元素的节点进行操作" class="headerlink" title="第三种：我们可以获取到元素的节点进行操作?"></a>第三种：我们可以获取到元素的节点进行操作?</h3><p><img src="http://upload-images.jianshu.io/upload_images/4116930-12c5b5c2c91e5027.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"></p>
 <div class="image-caption">&nbsp; label.ts</div>
 
 <blockquote>
@@ -73,7 +109,7 @@
       &lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/4116930-f0723db00f54a079.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot;&gt; &lt;/p&gt;
 &lt;div class=&quot;image-caption&quot;&gt;你用Angular吗？&lt;/div&gt;
 
-&lt;h2 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h2&gt;&lt;h3 id=&quot;如何只改动最简单的css代码，呈现完全不一样的视图效果。&quot;&gt;&lt;a href=&quot;#如何只改动最简单的css代码，呈现完全不一样的视图效果。&quot; class=&quot;headerlink&quot; title=&quot;如何只改动最简单的css代码，呈现完全不一样的视图效果。&quot;&gt;&lt;/a&gt;如何只改动最简单的css代码，呈现完全不一样的视图效果。&lt;p&gt;&lt;/p&gt;&lt;/h3&gt;&lt;h4 id=&quot;第一种：最基本的设置：&quot;&gt;&lt;a href=&quot;#第一种：最基本的设置：&quot; class=&quot;headerlink&quot; title=&quot;第一种：最基本的设置：&quot;&gt;&lt;/a&gt;第一种：最基本的设置：&lt;p&gt;&lt;/p&gt;&lt;/h4&gt;
+&lt;h2 id=&quot;介绍-如何只改动最简单的css代码，呈现完全不一样的视图效果。&quot;&gt;&lt;a href=&quot;#介绍-如何只改动最简单的css代码，呈现完全不一样的视图效果。&quot; class=&quot;headerlink&quot; title=&quot;介绍 :如何只改动最简单的css代码，呈现完全不一样的视图效果。&quot;&gt;&lt;/a&gt;介绍 :如何只改动最简单的css代码，呈现完全不一样的视图效果。&lt;/h2&gt;&lt;h3 id=&quot;第一种：最基本的设置：&quot;&gt;&lt;a href=&quot;#第一种：最基本的设置：&quot; class=&quot;headerlink&quot; title=&quot;第一种：最基本的设置：&quot;&gt;&lt;/a&gt;第一种：最基本的设置：&lt;/h3&gt;
     
     </summary>
     

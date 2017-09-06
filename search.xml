@@ -1,9 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[简述alert和console.log的区别]]></title>
+    <url>%2Fconsole20170905%2F</url>
+    <content type="text"><![CDATA[生活中还是得有发现美好和差别的眼睛~~ 学习前端那么久既然还不知道alert和console.log的差别;1234567891011&gt;* 本菜鸟一直以为alert和console.log其实是一样的用法，只是alert以弹出框形式呈现，而console.log在控制台输出而已。 &gt;* 知道昨天输出一段代码，结果发现alert和console.log输出结果不一样~~~~~本宝宝可算涨见识了~~~ 然后就是各种查阅资料，百度查看，终于发现点眉目啦~~~~~ ;**我写了这样一段代码：**&lt;img src=&quot;http://images2015.cnblogs.com/blog/923330/201610/923330-20161012090847890-399704642.png&quot;/&gt; alert输出的结果为： &lt;img src=&quot;http://images2015.cnblogs.com/blog/923330/201610/923330-20161012090918718-1167050434.png&quot; width=&quot;559&quot; height=&quot;168&quot;/&gt; console.log输出的结果为： &lt;img src=&quot;http://images2015.cnblogs.com/blog/923330/201610/923330-20161012090946078-72928790.png&quot; /&gt; 然后我就尴尬了~ 原来console.log() 可以打印任何类型的数据。而 alert() 只能输出string，如果alert输出是对象会自动调用 toString() 方法。如果想 console.log() 输出的与alert相同，需要调用 toString()。所以将后面的改写成&nbsp;console.log(hmac.toString()) 就可以啦~~~下面再来总结下两者的差别：123456789101112alert() 1.1 有阻塞作用，不点击确定，后续代码无法继续执行 1.2 alert()只能输出string,如果alert输出的是对象会自动调用toString()方法 e.g. alert([a,b,c]); //a,b,c 1.3 alert不支持多个参数的写法,只能输出第一个值 e.g. alert(1,2,3); // 1console.log() 2.1 在打印台输出 2.2 可以打印任何类型的数据 e.g. console.log([a,b,c]); //[a,b,c] 2.3 支持多个参数的写法 e.g. console.log(1,2,3) // 1 2 3 好啦~~~就是这样啦。]]></content>
+      <categories>
+        <category>前端那些微小事</category>
+      </categories>
+      <tags>
+        <tag>console.log</tag>
+        <tag>alert</tag>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Angular 2+ 设置组件样式的那些事]]></title>
-    <url>%2Fcomponent-style20170901%2F</url>
-    <content type="text"><![CDATA[你用Angular吗？ 介绍如何只改动最简单的css代码，呈现完全不一样的视图效果。第一种：最基本的设置： &nbsp; 图1 代码图2 界面运行效果图 平常，想给一个label或者p等标签添加样式，我们就是这样操作，在Angular中也是一样的。 现在，如果我想要将字体换成红色呢，首先想到的就是去修改.label里的color属性值，可如果样式表是封装的或者外部引用的，不方便修改呢？ 这时候就要用到ElementRef 和Renderer2了。可以去Angular 官网里搜索哟。 &nbsp; renderer.class 图 第二种:我们可以这样用 &nbsp; label.html&nbsp; label.ts 当然ElementRef和renderer2都引用自@angular/core库里面的。 至于ViewChild 和ngAfterViewInit()可以自行去了解。 &nbsp;&nbsp;&nbsp; 修改效果图 当然，你说这样修改的弊端有没有呢？肯定是有的，因为，this.el.nativeElement获取的是当前元素，如果用*ngFor生成了一系列的label的话，它只会给你修改第一个label的。那有没有其他的办法可以修改呢。当然也是有的！ 第三种：我们可以获取到元素的节点进行操作? &nbsp; label.ts 获取元素节点，还是用上面的elementref。 如果要改变所有的，For循环皆可以啦。可是，这样做又有问题了？如果想不同的label不同字体颜色怎么办呢？当然Angular也提供了方法呀？ ngStyle和ngClass可以用呀！ &nbsp;ngStyle [ngStyle]=”{color:’&nbsp; ‘}”&nbsp; 和[style.color]是一样的意思。你的label想变成什么颜色，你就给我传那个值进来，0就是green……这种适用于只需要修改少量属性的标签。如果你需要修改颜色，字体大小，间距….这种方式显然太繁琐，这时候ngclass就来了。&nbsp;ngclass注意ngClass后面的字样。label为什么没有用单引号呢，而后面的text-primary却有呢？.label是一个变量，我们的样式是可以传参的。也就是你的html标签不需要改动，需要什么样式就在ts离传入即可。ngClass也可以利用这个特性去修改。其实这几种用的地方也挺多的，不过得根据实际需求去采用不同形式。欢迎来找我交流Angular 或前端技术哟。]]></content>
+    <url>%2Fcomponent-style20170902%2F</url>
+    <content type="text"><![CDATA[你用Angular吗？ 介绍 :如何只改动最简单的css代码，呈现完全不一样的视图效果。第一种：最基本的设置： &nbsp; 图1 代码图2 界面运行效果图 平常，想给一个label或者p等标签添加样式，我们就是这样操作，在Angular中也是一样的。 现在，如果我想要将字体换成红色呢，首先想到的就是去修改.label里的color属性值，可如果样式表是封装的或者外部引用的，不方便修改呢？ 这时候就要用到ElementRef 和Renderer2了。可以去Angular 官网里搜索哟。 &nbsp; renderer.class 图 第二种:我们可以这样用 &nbsp; label.html&nbsp; label.ts 当然ElementRef和renderer2都引用自@angular/core库里面的。 至于ViewChild 和ngAfterViewInit()可以自行去了解。 &nbsp;&nbsp;&nbsp; 修改效果图 当然，你说这样修改的弊端有没有呢？肯定是有的，因为，this.el.nativeElement获取的是当前元素，如果用*ngFor生成了一系列的label的话，它只会给你修改第一个label的。那有没有其他的办法可以修改呢。当然也是有的！ 第三种：我们可以获取到元素的节点进行操作? &nbsp; label.ts 获取元素节点，还是用上面的elementref。 如果要改变所有的，For循环皆可以啦。可是，这样做又有问题了？如果想不同的label不同字体颜色怎么办呢？当然Angular也提供了方法呀？ ngStyle和ngClass可以用呀！ &nbsp;ngStyle [ngStyle]=”{color:’&nbsp; ‘}”&nbsp; 和[style.color]是一样的意思。你的label想变成什么颜色，你就给我传那个值进来，0就是green……这种适用于只需要修改少量属性的标签。如果你需要修改颜色，字体大小，间距….这种方式显然太繁琐，这时候ngclass就来了。&nbsp;ngclass注意ngClass后面的字样。label为什么没有用单引号呢，而后面的text-primary却有呢？.label是一个变量，我们的样式是可以传参的。也就是你的html标签不需要改动，需要什么样式就在ts离传入即可。ngClass也可以利用这个特性去修改。其实这几种用的地方也挺多的，不过得根据实际需求去采用不同形式。欢迎来找我交流Angular 或前端技术哟。]]></content>
       <categories>
         <category>Angular 2+</category>
       </categories>

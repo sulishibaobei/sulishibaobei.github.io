@@ -4,12 +4,36 @@
 
     
   <url>
-    <loc>www.sulishibaobei.com/component-style20170901/</loc>
-    <lastmod>2017-09-06T02:14:28.101Z</lastmod>
+    <loc>www.sulishibaobei.com/console20170905/</loc>
+    <lastmod>2017-09-06T02:34:53.294Z</lastmod>
+    <data>
+        <display>
+        <title>简述alert和console.log的区别</title>
+        <pubTime>2017-09-05T03:08:53.000Z</pubTime>
+        
+        <tag>console.log</tag>
+         
+        <tag>alert</tag>
+         
+        <tag>javascript</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端那些微小事" url="www.sulishibaobei.com/categories/%E5%89%8D%E7%AB%AF%E9%82%A3%E4%BA%9B%E5%BE%AE%E5%B0%8F%E4%BA%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>www.sulishibaobei.com/component-style20170902/</loc>
+    <lastmod>2017-09-06T02:19:49.589Z</lastmod>
     <data>
         <display>
         <title>Angular 2+ 设置组件样式的那些事</title>
-        <pubTime>2017-09-01T03:08:53.000Z</pubTime>
+        <pubTime>2017-09-02T03:05:53.000Z</pubTime>
         
         <tag>Angular 2+</tag>
          
