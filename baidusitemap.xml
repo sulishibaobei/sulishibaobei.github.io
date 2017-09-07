@@ -4,22 +4,8 @@
 
     
   <url>
-    <loc>http://www.sulishibaobei.com/site/index.html</loc>
-    <lastmod>2017-09-07T01:22:09.000Z</lastmod>
-    <data>
-        <display>
-        <title>一个程序媛的简单网站展示</title>
-        <pubTime>2017-09-06T08:34:54.000Z</pubTime>
-        
-         
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://www.sulishibaobei.com/js120170905/</loc>
-    <lastmod>2017-09-06T14:33:28.000Z</lastmod>
+    <lastmod>2017-09-07T01:38:35.704Z</lastmod>
     <data>
         <display>
         <title>前端面试中遇见的那些纯js题</title>
@@ -32,8 +18,22 @@
          
            
              
-              <breadCrumb title="前端那些微小事" url="http://www.sulishibaobei.com/categories/%E5%89%8D%E7%AB%AF%E9%82%A3%E4%BA%9B%E5%BE%AE%E5%B0%8F%E4%BA%8B/"/>
+              <breadCrumb title="前端面试题整理" url="http://www.sulishibaobei.com/categories/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86/"/>
           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.sulishibaobei.com/site/index.html</loc>
+    <lastmod>2017-09-07T01:22:09.000Z</lastmod>
+    <data>
+        <display>
+        <title>一个程序媛的简单网站展示</title>
+        <pubTime>2017-09-06T08:34:54.000Z</pubTime>
+        
+         
         </display>
     </data>
     </url>
