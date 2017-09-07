@@ -4,6 +4,52 @@
 
     
   <url>
+    <loc>http://www.sulishibaobei.com/websocket/wb-120170907/</loc>
+    <lastmod>2017-09-07T03:19:05.620Z</lastmod>
+    <data>
+        <display>
+        <title>nodejs+websocket实时聊天系统</title>
+        <pubTime>2017-09-07T01:08:53.000Z</pubTime>
+        
+        <tag>nodejs</tag>
+         
+        <tag>websocket</tag>
+         
+         
+           
+             
+              <breadCrumb title="html5" url="http://www.sulishibaobei.com/categories/html5/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.sulishibaobei.com/angular/angular-cli/angular-120170906/</loc>
+    <lastmod>2017-09-07T03:03:20.198Z</lastmod>
+    <data>
+        <display>
+        <title>Angular 2+ 关于新版angular-cli的应用</title>
+        <pubTime>2017-09-06T03:08:53.000Z</pubTime>
+        
+        <tag>Angular 2+</tag>
+         
+        <tag>Angular-cli</tag>
+         
+        <tag>工具</tag>
+         
+         
+           
+             
+              <breadCrumb title="Angular 2+" url="http://www.sulishibaobei.com/categories/Angular-2/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.sulishibaobei.com/angular/pipe/pipe-120170907/</loc>
     <lastmod>2017-09-07T02:59:09.610Z</lastmod>
     <data>
@@ -18,30 +64,6 @@
         <tag>管道</tag>
          
         <tag>日期</tag>
-         
-         
-           
-             
-              <breadCrumb title="Angular 2+" url="http://www.sulishibaobei.com/categories/Angular-2/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.sulishibaobei.com/angular/angular-cli/angular-120170906/</loc>
-    <lastmod>2017-09-07T02:49:10.000Z</lastmod>
-    <data>
-        <display>
-        <title>Angular 2+ 关于新版angular-cli的应用</title>
-        <pubTime>2017-09-06T03:08:53.000Z</pubTime>
-        
-        <tag>Angular 2+</tag>
-         
-        <tag>Angular-cli</tag>
-         
-        <tag>工具</tag>
          
          
            
