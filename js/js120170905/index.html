@@ -98,7 +98,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="面试,javascript," />
+  <meta name="keywords" content="javascript,面试," />
 
 
 
@@ -117,7 +117,7 @@
 
 
 <meta name="description" content="js 定义类有哪些常用的方法？1.工厂方式12345678910111213function Car()&amp;#123;    var ocar=new Obejct;  //不用括号    ocar.color=&apos;blue&apos;;    ocar.doors=4;    ocar.showColor=function()&amp;#123;        this.color;    &amp;#125;    ret">
-<meta name="keywords" content="面试,javascript">
+<meta name="keywords" content="javascript,面试">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端面试中遇见的那些纯js题">
 <meta property="og:url" content="http://www.sulishibaobei.com/js/js120170905/index.html">
@@ -330,26 +330,22 @@
   
     <div class="site-search">
       
-  
-  <div class="algolia-popup popup search-popup">
-    <div class="algolia-search">
-      <div class="algolia-search-input-icon">
-        <i class="fa fa-search"></i>
-      </div>
-      <div class="algolia-search-input" id="algolia-search-input"></div>
-    </div>
-
-    <div class="algolia-results">
-      <div id="algolia-stats"></div>
-      <div id="algolia-hits"></div>
-      <div id="algolia-pagination" class="algolia-pagination"></div>
-    </div>
-
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
     <span class="popup-btn-close">
       <i class="fa fa-times-circle"></i>
     </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
   </div>
-
+  <div id="local-search-result"></div>
+</div>
 
 
 
@@ -638,9 +634,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/面试/" rel="tag"># 面试</a>
-          
             <a href="/tags/javascript/" rel="tag"># javascript</a>
+          
+            <a href="/tags/面试/" rel="tag"># 面试</a>
           
         </div>
       
@@ -1443,19 +1439,6 @@
   </script>
 
 
-
-
-  
-  
-  
-  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
-
-  
-  
-  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
-  
-
-  <script src="/js/src/algolia-search.js?v=5.1.2"></script>
 
 
 

@@ -326,26 +326,22 @@
   
     <div class="site-search">
       
-  
-  <div class="algolia-popup popup search-popup">
-    <div class="algolia-search">
-      <div class="algolia-search-input-icon">
-        <i class="fa fa-search"></i>
-      </div>
-      <div class="algolia-search-input" id="algolia-search-input"></div>
-    </div>
-
-    <div class="algolia-results">
-      <div id="algolia-stats"></div>
-      <div id="algolia-hits"></div>
-      <div id="algolia-pagination" class="algolia-pagination"></div>
-    </div>
-
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
     <span class="popup-btn-close">
       <i class="fa fa-times-circle"></i>
     </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
   </div>
-
+  <div id="local-search-result"></div>
+</div>
 
 
 
@@ -693,163 +689,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.sulishibaobei.com/bootstrap/bt-120170908/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="少女雨">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/a.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="少女雨的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/bootstrap/bt-120170908/" itemprop="url">bootstrap简单图文环绕效果</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-08T09:08:53+08:00">
-                2017-09-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Bootstrap/" itemprop="url" rel="index">
-                    <span itemprop="name">Bootstrap</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/bootstrap/bt-120170908/" class="leancloud_visitors" data-flag-title="bootstrap简单图文环绕效果">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>一.下载bootstrap-3.3.7<br>二.在html页面引入css,js;<br>eg:<br><code>&lt;link src=”bootstrap-3.3.7-dist/css/bootstrap.min.css”&gt;</code><br><code>&lt;script type=”text/javascript” src=”jquery.min.js”&gt;&lt;/ script&gt; </code><br><code>&lt; script type=”text/javascript” src=”bootstrap-3.3.7-dist/js/bootstrap.min.js”&gt;&lt;/ script&gt; </code> </p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/bootstrap/bt-120170908/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://www.sulishibaobei.com/angular/pg-120170908/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -958,6 +797,163 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/angular/pg-120170908/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.sulishibaobei.com/bootstrap/bt-120170908/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="少女雨">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/a.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="少女雨的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/bootstrap/bt-120170908/" itemprop="url">bootstrap简单图文环绕效果</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-08T09:08:53+08:00">
+                2017-09-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Bootstrap/" itemprop="url" rel="index">
+                    <span itemprop="name">Bootstrap</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/bootstrap/bt-120170908/" class="leancloud_visitors" data-flag-title="bootstrap简单图文环绕效果">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>一.下载bootstrap-3.3.7<br>二.在html页面引入css,js;<br>eg:<br><code>&lt;link src=”bootstrap-3.3.7-dist/css/bootstrap.min.css”&gt;</code><br><code>&lt;script type=”text/javascript” src=”jquery.min.js”&gt;&lt;/ script&gt; </code><br><code>&lt; script type=”text/javascript” src=”bootstrap-3.3.7-dist/js/bootstrap.min.js”&gt;&lt;/ script&gt; </code> </p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/bootstrap/bt-120170908/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1166,7 +1162,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.sulishibaobei.com/angular/pipe/pipe-120170907/">
+    <link itemprop="mainEntityOfPage" href="http://www.sulishibaobei.com/git/git-120170907/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="少女雨">
@@ -1185,7 +1181,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/angular/pipe/pipe-120170907/" itemprop="url">滑稽的下午--Angular 2+管道的使用</a></h1>
+                <a class="post-title-link" href="/git/git-120170907/" itemprop="url">git 打卡的第一天</a></h1>
         
 
         <div class="post-meta">
@@ -1220,8 +1216,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Angular-2/" itemprop="url" rel="index">
-                    <span itemprop="name">Angular 2+</span>
+                  <a href="/categories/Git/" itemprop="url" rel="index">
+                    <span itemprop="name">Git</span>
                   </a>
                 </span>
 
@@ -1237,7 +1233,7 @@
 
           
           
-             <span id="/angular/pipe/pipe-120170907/" class="leancloud_visitors" data-flag-title="滑稽的下午--Angular 2+管道的使用">
+             <span id="/git/git-120170907/" class="leancloud_visitors" data-flag-title="git 打卡的第一天">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1269,11 +1265,11 @@
 
       
         
-          <p>注:所有的angular 2+ 其实就包含了4,是向上兼容的；</p>
-<p><img src="/images/pipe-1.png" alt="pipe"><br>让一个component组件里的时间显示当前时间并自动刷新。<br><strong>过程:</strong><br>1.首先获取当前时间 new Date();<br>2.弄个定时器隔一秒刷新呀；</p>
+          <p>因为某种原因，所以不得不重新巩固下前端的基础知识，从最基本的学习还得额外的学习新知识，倍感压力之大。 昨天初略学习下git，算是自己学习的一个新知识。简单记录下，希望四海八荒的大神看过来，有错的请指导。</p>
+<h2 id="git下载安装"><a href="#git下载安装" class="headerlink" title="git下载安装"></a>git下载安装</h2><p><a href="https://git-for-windows.github.io/" target="_blank" rel="external">git下载安装地址</a>下载好之后记得配置环境变量。<br><strong>git的作用主要是将项目保存到git目录中</strong><br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/angular/pipe/pipe-120170907/#more" rel="contents">
+            <a class="btn" href="/git/git-120170907/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1481,7 +1477,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.sulishibaobei.com/git/git-120170907/">
+    <link itemprop="mainEntityOfPage" href="http://www.sulishibaobei.com/websocket/wb-120170907/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="少女雨">
@@ -1500,7 +1496,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/git/git-120170907/" itemprop="url">git 打卡的第一天</a></h1>
+                <a class="post-title-link" href="/websocket/wb-120170907/" itemprop="url">nodejs+websocket实时聊天系统</a></h1>
         
 
         <div class="post-meta">
@@ -1535,8 +1531,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Git/" itemprop="url" rel="index">
-                    <span itemprop="name">Git</span>
+                  <a href="/categories/html5/" itemprop="url" rel="index">
+                    <span itemprop="name">html5</span>
                   </a>
                 </span>
 
@@ -1552,7 +1548,7 @@
 
           
           
-             <span id="/git/git-120170907/" class="leancloud_visitors" data-flag-title="git 打卡的第一天">
+             <span id="/websocket/wb-120170907/" class="leancloud_visitors" data-flag-title="nodejs+websocket实时聊天系统">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1584,11 +1580,11 @@
 
       
         
-          <p>因为某种原因，所以不得不重新巩固下前端的基础知识，从最基本的学习还得额外的学习新知识，倍感压力之大。 昨天初略学习下git，算是自己学习的一个新知识。简单记录下，希望四海八荒的大神看过来，有错的请指导。</p>
-<h2 id="git下载安装"><a href="#git下载安装" class="headerlink" title="git下载安装"></a>git下载安装</h2><p><a href="https://git-for-windows.github.io/" target="_blank" rel="external">git下载安装地址</a>下载好之后记得配置环境变量。<br><strong>git的作用主要是将项目保存到git目录中</strong><br>
+          <h2 id="介绍下websocket："><a href="#介绍下websocket：" class="headerlink" title="介绍下websocket："></a>介绍下websocket：</h2><p>  webSocket协议本质上是一个基于tcp的协议; </p>
+<h2 id="建立一个websocket连接，大体的过程："><a href="#建立一个websocket连接，大体的过程：" class="headerlink" title="建立一个websocket连接，大体的过程："></a>建立一个websocket连接，大体的过程：</h2><p> 1.客户端浏览器首先向服务器发起一个http请求，这个请求和平常的请求有什么不同呢？<br> 多了一点附加头信息：”upgrade:web Socket” 表明我这申请的是一个websocket的http请求；<br> 2.服务器收到请求后，解析这些附加的头信息，然后产生应答信息返回给客户端，这样，连接就建立了；<br> 3.双方就可以通过这个连接通道自由的信息传递，这个连接会一直存在，直到一方自动关闭连接； </p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/git/git-120170907/#more" rel="contents">
+            <a class="btn" href="/websocket/wb-120170907/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2351,19 +2347,6 @@
   </script>
 
 
-
-
-  
-  
-  
-  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
-
-  
-  
-  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
-  
-
-  <script src="/js/src/algolia-search.js?v=5.1.2"></script>
 
 
 

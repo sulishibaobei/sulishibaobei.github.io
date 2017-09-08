@@ -98,7 +98,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="javascript,console.log,alert," />
+  <meta name="keywords" content="console.log,alert,javascript," />
 
 
 
@@ -117,7 +117,7 @@
 
 
 <meta name="description" content="生活中还是得有发现美好和差别的眼睛, 学习前端那么久既然还不知道alert和console.log的差别;本菜鸟一直以为alert和console.log其实是一样的用法，只是alert以弹出框形式呈现，而console.log在控制台输出而已。只到道昨天输出一段代码，结果发现alert和console.log输出结果不一样,本宝宝可算涨见识了, 然后就是各种查阅资料，百度查看，终于发现点眉目啦">
-<meta name="keywords" content="javascript,console.log,alert">
+<meta name="keywords" content="console.log,alert,javascript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="简述alert和console.log的区别">
 <meta property="og:url" content="http://www.sulishibaobei.com/js/console20170905/index.html">
@@ -330,26 +330,22 @@
   
     <div class="site-search">
       
-  
-  <div class="algolia-popup popup search-popup">
-    <div class="algolia-search">
-      <div class="algolia-search-input-icon">
-        <i class="fa fa-search"></i>
-      </div>
-      <div class="algolia-search-input" id="algolia-search-input"></div>
-    </div>
-
-    <div class="algolia-results">
-      <div id="algolia-stats"></div>
-      <div id="algolia-hits"></div>
-      <div id="algolia-pagination" class="algolia-pagination"></div>
-    </div>
-
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
     <span class="popup-btn-close">
       <i class="fa fa-times-circle"></i>
     </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
   </div>
-
+  <div id="local-search-result"></div>
+</div>
 
 
 
@@ -540,11 +536,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/javascript/" rel="tag"># javascript</a>
-          
             <a href="/tags/console-log/" rel="tag"># console.log</a>
           
             <a href="/tags/alert/" rel="tag"># alert</a>
+          
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
           
         </div>
       
@@ -1322,19 +1318,6 @@
   </script>
 
 
-
-
-  
-  
-  
-  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
-
-  
-  
-  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
-  
-
-  <script src="/js/src/algolia-search.js?v=5.1.2"></script>
 
 
 

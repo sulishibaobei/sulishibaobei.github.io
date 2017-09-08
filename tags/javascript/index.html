@@ -325,26 +325,22 @@
   
     <div class="site-search">
       
-  
-  <div class="algolia-popup popup search-popup">
-    <div class="algolia-search">
-      <div class="algolia-search-input-icon">
-        <i class="fa fa-search"></i>
-      </div>
-      <div class="algolia-search-input" id="algolia-search-input"></div>
-    </div>
-
-    <div class="algolia-results">
-      <div id="algolia-stats"></div>
-      <div id="algolia-hits"></div>
-      <div id="algolia-pagination" class="algolia-pagination"></div>
-    </div>
-
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
     <span class="popup-btn-close">
       <i class="fa fa-times-circle"></i>
     </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
   </div>
-
+  <div id="local-search-result"></div>
+</div>
 
 
 
@@ -382,9 +378,9 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/js/js120170905/" itemprop="url">
+            <a class="post-title-link" href="/js/console20170905/" itemprop="url">
               
-                <span itemprop="name">前端面试中遇见的那些纯js题</span>
+                <span itemprop="name">简述alert和console.log的区别</span>
               
             </a>
         
@@ -410,9 +406,9 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/js/console20170905/" itemprop="url">
+            <a class="post-title-link" href="/js/js120170905/" itemprop="url">
               
-                <span itemprop="name">简述alert和console.log的区别</span>
+                <span itemprop="name">前端面试中遇见的那些纯js题</span>
               
             </a>
         
@@ -1157,19 +1153,6 @@
   </script>
 
 
-
-
-  
-  
-  
-  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
-
-  
-  
-  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
-  
-
-  <script src="/js/src/algolia-search.js?v=5.1.2"></script>
 
 
 
