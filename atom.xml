@@ -265,6 +265,47 @@
   </entry>
   
   <entry>
+    <title>滑稽的下午--Angular 2+管道的使用</title>
+    <link href="http://www.sulishibaobei.com/angular/pipe/pipe-120170907/"/>
+    <id>http://www.sulishibaobei.com/angular/pipe/pipe-120170907/</id>
+    <published>2017-09-07T01:08:53.000Z</published>
+    <updated>2017-09-07T09:32:57.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>注:所有的angular 2+ 其实就包含了4,是向上兼容的；</p>
+<p><img src="/images/pipe-1.png" alt="pipe"><br>让一个component组件里的时间显示当前时间并自动刷新。<br><strong>过程:</strong><br>1.首先获取当前时间 new Date();<br>2.弄个定时器隔一秒刷新呀；</p>
+<a id="more"></a>
+<p> <code>app.component.ts中这样写到：</code></p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">InitialTime= <span class="keyword">new</span>  <span class="built_in">Date</span>();  <span class="comment">// 获取当前时间  </span></div><div class="line">data:string;</div><div class="line"> getTime(m)&#123;   <span class="comment">// 判断获取的分钟数是否小于10，小于10只会显示一位数，前面自动补0 </span></div><div class="line">      <span class="keyword">if</span> (m&amp;lt;<span class="number">10</span> )&#123;</div><div class="line">        m =<span class="string">"0"</span>+ m;</div><div class="line">         <span class="keyword">this</span> .data= <span class="keyword">this</span> .InitialTime.getHours()+<span class="string">":"</span>+m;   <span class="comment">// 显示时间(小时+分钟) eg   17:15 </span></div><div class="line">   &#125;</div><div class="line">     <span class="keyword">else</span>  &#123;</div><div class="line">         <span class="keyword">this</span> .data= <span class="keyword">this</span> .InitialTime.getHours()+<span class="string">":"</span>+ <span class="keyword">this</span> .InitialTime.getMinutes();     <span class="comment">// 显示时间(小时+分钟) eg   17:15 </span></div><div class="line">   &#125; </div><div class="line"> &#125;</div><div class="line"> <span class="keyword">constructor</span>()&#123;</div><div class="line">      <span class="keyword">this</span> .getTime( <span class="keyword">this</span> .InitialTime.getMinutes()); <span class="comment">// 运行上面方法让时间显示 </span></div><div class="line">    setInterval(()=&amp;gt;&#123;  <span class="comment">// 设置定时器，隔1秒刷新一次，好实时监控时间 </span></div><div class="line">              <span class="keyword">this</span> .InitialTime= <span class="keyword">new</span>  <span class="built_in">Date</span>();</div><div class="line">               <span class="keyword">this</span> .getTime( <span class="keyword">this</span>  .InitialTime.getMinutes());                              </div><div class="line">             &#125;, <span class="number">1000</span> );                </div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p><code>app.component.html中这样写：</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&amp;lt;span class="time"&amp;gt; &#123;&#123; date &#125;&#125;&amp;lt;/span&amp;gt;</div></pre></td></tr></table></figure>
+<p>然后变成我想要的效果了，可是代码我自己都嫌长，而且还是用传统js方法写的。后来就想不是angular里面有Pipe管道吗，是不是可以试试。<br><code>app.component.ts是这样写的。</code> </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">time:any=<span class="built_in">Date</span>.now();  <span class="comment">// 获取当前时间 </span></div><div class="line"> <span class="keyword">constructor</span>()&#123;</div><div class="line">    setInterval(() =&amp;gt;&#123;  <span class="comment">// 设置定时器，隔1秒刷新一次，好实时监控时间 </span></div><div class="line">          <span class="comment">//   this.birthday = new Date();       </span></div><div class="line">           <span class="keyword">this</span> .time=<span class="built_in">Date</span>.now();   <span class="comment">// Date里面自带方法                   </span></div><div class="line">              &#125;,<span class="number">1000</span> );  </div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<p><code>app.component.html是这样写的：</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&amp;lt;span class="time"&amp;gt; &#123;&#123;time | date:"HH:mm" &#125;&#125;&amp;lt;/span&amp;gt;</div></pre></td></tr></table></figure>
+<p><strong>注：</strong><br>|是管道标示符。angular里面提供了内置的datePipe管道可以供我们使用<br>  HH：mm 表示输出小时和分钟；yy:MM:dd&nbsp; 表示输出年月日<br>  详情可以看看官网的管道介绍里面关于DatePipe Api的介绍。<br>  同样的效果，代码量就大大减少，所以学习还是在完成的基础上多尝试。耶~~~<br>  后续会有详细的关于管道学习的<a href="">更多文章</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;注:所有的angular 2+ 其实就包含了4,是向上兼容的；&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/pipe-1.png&quot; alt=&quot;pipe&quot;&gt;&lt;br&gt;让一个component组件里的时间显示当前时间并自动刷新。&lt;br&gt;&lt;strong&gt;过程:&lt;/strong&gt;&lt;br&gt;1.首先获取当前时间 new Date();&lt;br&gt;2.弄个定时器隔一秒刷新呀；&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Angular 2+" scheme="http://www.sulishibaobei.com/categories/Angular-2/"/>
+    
+    
+      <category term="Angular 2+" scheme="http://www.sulishibaobei.com/tags/Angular-2/"/>
+    
+      <category term="pipe" scheme="http://www.sulishibaobei.com/tags/pipe/"/>
+    
+      <category term="管道" scheme="http://www.sulishibaobei.com/tags/%E7%AE%A1%E9%81%93/"/>
+    
+      <category term="日期" scheme="http://www.sulishibaobei.com/tags/%E6%97%A5%E6%9C%9F/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Css3雪碧图</title>
     <link href="http://www.sulishibaobei.com/css/sp-120170907/"/>
     <id>http://www.sulishibaobei.com/css/sp-120170907/</id>
@@ -421,47 +462,6 @@
   </entry>
   
   <entry>
-    <title>滑稽的下午--Angular 2+管道的使用</title>
-    <link href="http://www.sulishibaobei.com/angular/pipe/pipe-120170907/"/>
-    <id>http://www.sulishibaobei.com/angular/pipe/pipe-120170907/</id>
-    <published>2017-09-07T01:08:53.000Z</published>
-    <updated>2017-09-07T09:32:57.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>注:所有的angular 2+ 其实就包含了4,是向上兼容的；</p>
-<p><img src="/images/pipe-1.png" alt="pipe"><br>让一个component组件里的时间显示当前时间并自动刷新。<br><strong>过程:</strong><br>1.首先获取当前时间 new Date();<br>2.弄个定时器隔一秒刷新呀；</p>
-<a id="more"></a>
-<p> <code>app.component.ts中这样写到：</code></p>
- <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">InitialTime= <span class="keyword">new</span>  <span class="built_in">Date</span>();  <span class="comment">// 获取当前时间  </span></div><div class="line">data:string;</div><div class="line"> getTime(m)&#123;   <span class="comment">// 判断获取的分钟数是否小于10，小于10只会显示一位数，前面自动补0 </span></div><div class="line">      <span class="keyword">if</span> (m&amp;lt;<span class="number">10</span> )&#123;</div><div class="line">        m =<span class="string">"0"</span>+ m;</div><div class="line">         <span class="keyword">this</span> .data= <span class="keyword">this</span> .InitialTime.getHours()+<span class="string">":"</span>+m;   <span class="comment">// 显示时间(小时+分钟) eg   17:15 </span></div><div class="line">   &#125;</div><div class="line">     <span class="keyword">else</span>  &#123;</div><div class="line">         <span class="keyword">this</span> .data= <span class="keyword">this</span> .InitialTime.getHours()+<span class="string">":"</span>+ <span class="keyword">this</span> .InitialTime.getMinutes();     <span class="comment">// 显示时间(小时+分钟) eg   17:15 </span></div><div class="line">   &#125; </div><div class="line"> &#125;</div><div class="line"> <span class="keyword">constructor</span>()&#123;</div><div class="line">      <span class="keyword">this</span> .getTime( <span class="keyword">this</span> .InitialTime.getMinutes()); <span class="comment">// 运行上面方法让时间显示 </span></div><div class="line">    setInterval(()=&amp;gt;&#123;  <span class="comment">// 设置定时器，隔1秒刷新一次，好实时监控时间 </span></div><div class="line">              <span class="keyword">this</span> .InitialTime= <span class="keyword">new</span>  <span class="built_in">Date</span>();</div><div class="line">               <span class="keyword">this</span> .getTime( <span class="keyword">this</span>  .InitialTime.getMinutes());                              </div><div class="line">             &#125;, <span class="number">1000</span> );                </div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<p><code>app.component.html中这样写：</code></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&amp;lt;span class="time"&amp;gt; &#123;&#123; date &#125;&#125;&amp;lt;/span&amp;gt;</div></pre></td></tr></table></figure>
-<p>然后变成我想要的效果了，可是代码我自己都嫌长，而且还是用传统js方法写的。后来就想不是angular里面有Pipe管道吗，是不是可以试试。<br><code>app.component.ts是这样写的。</code> </p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">time:any=<span class="built_in">Date</span>.now();  <span class="comment">// 获取当前时间 </span></div><div class="line"> <span class="keyword">constructor</span>()&#123;</div><div class="line">    setInterval(() =&amp;gt;&#123;  <span class="comment">// 设置定时器，隔1秒刷新一次，好实时监控时间 </span></div><div class="line">          <span class="comment">//   this.birthday = new Date();       </span></div><div class="line">           <span class="keyword">this</span> .time=<span class="built_in">Date</span>.now();   <span class="comment">// Date里面自带方法                   </span></div><div class="line">              &#125;,<span class="number">1000</span> );  </div><div class="line"> &#125;</div></pre></td></tr></table></figure>
-<p><code>app.component.html是这样写的：</code></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&amp;lt;span class="time"&amp;gt; &#123;&#123;time | date:"HH:mm" &#125;&#125;&amp;lt;/span&amp;gt;</div></pre></td></tr></table></figure>
-<p><strong>注：</strong><br>|是管道标示符。angular里面提供了内置的datePipe管道可以供我们使用<br>  HH：mm 表示输出小时和分钟；yy:MM:dd&nbsp; 表示输出年月日<br>  详情可以看看官网的管道介绍里面关于DatePipe Api的介绍。<br>  同样的效果，代码量就大大减少，所以学习还是在完成的基础上多尝试。耶~~~<br>  后续会有详细的关于管道学习的<a href="">更多文章</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;注:所有的angular 2+ 其实就包含了4,是向上兼容的；&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/images/pipe-1.png&quot; alt=&quot;pipe&quot;&gt;&lt;br&gt;让一个component组件里的时间显示当前时间并自动刷新。&lt;br&gt;&lt;strong&gt;过程:&lt;/strong&gt;&lt;br&gt;1.首先获取当前时间 new Date();&lt;br&gt;2.弄个定时器隔一秒刷新呀；&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Angular 2+" scheme="http://www.sulishibaobei.com/categories/Angular-2/"/>
-    
-    
-      <category term="Angular 2+" scheme="http://www.sulishibaobei.com/tags/Angular-2/"/>
-    
-      <category term="pipe" scheme="http://www.sulishibaobei.com/tags/pipe/"/>
-    
-      <category term="管道" scheme="http://www.sulishibaobei.com/tags/%E7%AE%A1%E9%81%93/"/>
-    
-      <category term="日期" scheme="http://www.sulishibaobei.com/tags/%E6%97%A5%E6%9C%9F/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Angular 2+ 关于新版angular-cli的应用</title>
     <link href="http://www.sulishibaobei.com/angular/angular-cli/angular-120170906/"/>
     <id>http://www.sulishibaobei.com/angular/angular-cli/angular-120170906/</id>
@@ -515,6 +515,39 @@
       <category term="Angular-cli" scheme="http://www.sulishibaobei.com/tags/Angular-cli/"/>
     
       <category term="工具" scheme="http://www.sulishibaobei.com/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>简述alert和console.log的区别</title>
+    <link href="http://www.sulishibaobei.com/js/console20170905/"/>
+    <id>http://www.sulishibaobei.com/js/console20170905/</id>
+    <published>2017-09-05T03:08:53.000Z</published>
+    <updated>2017-09-08T00:53:32.138Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>生活中还是得有发现美好和差别的眼睛, 学习前端那么久既然还不知道alert和console.log的差别;</strong><br>本菜鸟一直以为alert和console.log其实是一样的用法，只是alert以弹出框形式呈现，而console.log在控制台输出而已。只到道昨天输出一段代码，结果发现alert和console.log输出结果不一样,本宝宝可算涨见识了, 然后就是各种查阅资料，百度查看，终于发现点眉目啦 ;</p>
+<a id="more"></a>
+<p><strong>我写了这样一段代码：</strong><br><img src="/images/console-3.png" alt="cmd-markdown-logo"><br>alert输出的结果为：<br><img src="/images/console-1.png" alt="cmd-markdown-logo"><br>console.log输出的结果为：<br><img src="/images/console-2.png" alt="cmd-markdown-logo"></p>
+<p><strong>然后我就尴尬了</strong></p>
+<p>[1]原来console.log() 可以打印任何类型的数据。而 alert() 只能输出string，<br>[2]如果alert输出是对象会自动调用 toString() 方法。如果想 console.log() 输出的与alert相同，需要调用 toString()。<br>[3]所以将后面的改写成&nbsp;console.log(hmac.toString()) 就可以啦</p>
+<p><strong>下面再来总结下两者的差别</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">alert()</div><div class="line">   <span class="number">1.1</span> 有阻塞作用，不点击确定，后续代码无法继续执行</div><div class="line">   <span class="number">1.2</span> alert()只能输出string,如果alert输出的是对象会自动调用toString()方法 </div><div class="line">      e.g. alert([a,b,c]); <span class="comment">//a,b,c  </span></div><div class="line">   <span class="number">1.3</span> alert不支持多个参数的写法,只能输出第一个值</div><div class="line">      e.g. alert(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>); <span class="comment">// 1</span></div><div class="line"><span class="built_in">console</span>.log()</div><div class="line">   <span class="number">2.1</span> 在打印台输出</div><div class="line">   <span class="number">2.2</span> 可以打印任何类型的数据</div><div class="line">        e.g. console.log([a,b,c]); <span class="comment">//[a,b,c]</span></div><div class="line">   <span class="number">2.3</span> 支持多个参数的写法</div><div class="line">        e.g. console.log(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>) <span class="comment">// 1 2 3</span></div></pre></td></tr></table></figure></p>
+<p>好啦~~~就是这样啦。 </p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;生活中还是得有发现美好和差别的眼睛, 学习前端那么久既然还不知道alert和console.log的差别;&lt;/strong&gt;&lt;br&gt;本菜鸟一直以为alert和console.log其实是一样的用法，只是alert以弹出框形式呈现，而console.log在控制台输出而已。只到道昨天输出一段代码，结果发现alert和console.log输出结果不一样,本宝宝可算涨见识了, 然后就是各种查阅资料，百度查看，终于发现点眉目啦 ;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="前端那些微小事" scheme="http://www.sulishibaobei.com/categories/%E5%89%8D%E7%AB%AF%E9%82%A3%E4%BA%9B%E5%BE%AE%E5%B0%8F%E4%BA%8B/"/>
+    
+    
+      <category term="javascript" scheme="http://www.sulishibaobei.com/tags/javascript/"/>
+    
+      <category term="console.log" scheme="http://www.sulishibaobei.com/tags/console-log/"/>
+    
+      <category term="alert" scheme="http://www.sulishibaobei.com/tags/alert/"/>
     
   </entry>
   
@@ -641,40 +674,7 @@
       <category term="前端面试题整理" scheme="http://www.sulishibaobei.com/categories/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86/"/>
     
     
-      <category term="javascript" scheme="http://www.sulishibaobei.com/tags/javascript/"/>
-    
       <category term="面试" scheme="http://www.sulishibaobei.com/tags/%E9%9D%A2%E8%AF%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>简述alert和console.log的区别</title>
-    <link href="http://www.sulishibaobei.com/js/console20170905/"/>
-    <id>http://www.sulishibaobei.com/js/console20170905/</id>
-    <published>2017-09-05T03:08:53.000Z</published>
-    <updated>2017-09-08T00:53:32.138Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong>生活中还是得有发现美好和差别的眼睛, 学习前端那么久既然还不知道alert和console.log的差别;</strong><br>本菜鸟一直以为alert和console.log其实是一样的用法，只是alert以弹出框形式呈现，而console.log在控制台输出而已。只到道昨天输出一段代码，结果发现alert和console.log输出结果不一样,本宝宝可算涨见识了, 然后就是各种查阅资料，百度查看，终于发现点眉目啦 ;</p>
-<a id="more"></a>
-<p><strong>我写了这样一段代码：</strong><br><img src="/images/console-3.png" alt="cmd-markdown-logo"><br>alert输出的结果为：<br><img src="/images/console-1.png" alt="cmd-markdown-logo"><br>console.log输出的结果为：<br><img src="/images/console-2.png" alt="cmd-markdown-logo"></p>
-<p><strong>然后我就尴尬了</strong></p>
-<p>[1]原来console.log() 可以打印任何类型的数据。而 alert() 只能输出string，<br>[2]如果alert输出是对象会自动调用 toString() 方法。如果想 console.log() 输出的与alert相同，需要调用 toString()。<br>[3]所以将后面的改写成&nbsp;console.log(hmac.toString()) 就可以啦</p>
-<p><strong>下面再来总结下两者的差别</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">alert()</div><div class="line">   <span class="number">1.1</span> 有阻塞作用，不点击确定，后续代码无法继续执行</div><div class="line">   <span class="number">1.2</span> alert()只能输出string,如果alert输出的是对象会自动调用toString()方法 </div><div class="line">      e.g. alert([a,b,c]); <span class="comment">//a,b,c  </span></div><div class="line">   <span class="number">1.3</span> alert不支持多个参数的写法,只能输出第一个值</div><div class="line">      e.g. alert(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>); <span class="comment">// 1</span></div><div class="line"><span class="built_in">console</span>.log()</div><div class="line">   <span class="number">2.1</span> 在打印台输出</div><div class="line">   <span class="number">2.2</span> 可以打印任何类型的数据</div><div class="line">        e.g. console.log([a,b,c]); <span class="comment">//[a,b,c]</span></div><div class="line">   <span class="number">2.3</span> 支持多个参数的写法</div><div class="line">        e.g. console.log(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>) <span class="comment">// 1 2 3</span></div></pre></td></tr></table></figure></p>
-<p>好啦~~~就是这样啦。 </p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;生活中还是得有发现美好和差别的眼睛, 学习前端那么久既然还不知道alert和console.log的差别;&lt;/strong&gt;&lt;br&gt;本菜鸟一直以为alert和console.log其实是一样的用法，只是alert以弹出框形式呈现，而console.log在控制台输出而已。只到道昨天输出一段代码，结果发现alert和console.log输出结果不一样,本宝宝可算涨见识了, 然后就是各种查阅资料，百度查看，终于发现点眉目啦 ;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="前端那些微小事" scheme="http://www.sulishibaobei.com/categories/%E5%89%8D%E7%AB%AF%E9%82%A3%E4%BA%9B%E5%BE%AE%E5%B0%8F%E4%BA%8B/"/>
-    
-    
-      <category term="console.log" scheme="http://www.sulishibaobei.com/tags/console-log/"/>
-    
-      <category term="alert" scheme="http://www.sulishibaobei.com/tags/alert/"/>
     
       <category term="javascript" scheme="http://www.sulishibaobei.com/tags/javascript/"/>
     
