@@ -114,36 +114,6 @@
   </entry>
   
   <entry>
-    <title>angular4 中自定义pagination组件</title>
-    <link href="http://www.sulishibaobei.com/angular/pg-120170908/"/>
-    <id>http://www.sulishibaobei.com/angular/pg-120170908/</id>
-    <published>2017-09-08T01:08:53.000Z</published>
-    <updated>2017-09-08T02:08:51.704Z</updated>
-    
-    <content type="html"><![CDATA[<p><div class="image-package"><img src="http://upload-images.jianshu.io/upload_images/4116930-7800a10c4dbd367d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" data-original-src="http://upload-images.jianshu.io/upload_images/4116930-7800a10c4dbd367d.jpg?imageMogr2/auto-orient/strip" data-image-slug="7800a10c4dbd367d" data-width="360" data-height="200"> </div></p>
-<p><div class="image-caption">你用Angular 吗?</div><br><a id="more"></a><br><br>一.介绍<br>一个基于angular4 开发的可以分页的组件。组件的好处就是可以复用，复用…..作为一个前端码农，开始的分页功能实现是我用jquery写的，其他同事用的时候都要将我的代码拷贝过去，于是我被鄙视了。为了不继续被鄙视就开始了尝试。<br>二.基本功能<br>1.根据规定的每页数据条数，分页显示数据 </p>
-<ol>
-<li>上下页操作数据<br>直接上界面图可能清晰点：<br><div class="image-package"><img src="http://upload-images.jianshu.io/upload_images/4116930-2fe57ab69ccdcb87.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" data-original-src="http://upload-images.jianshu.io/upload_images/4116930-2fe57ab69ccdcb87.png?imageMogr2/auto-orient/strip" data-image-slug="2fe57ab69ccdcb87" data-width="1338" data-height="655"><br><div class="image-caption">项目截图</div><br></div><br>根据图片进行讲解下：<br>根据你总数据条数:totalNum; 每页显示条数:pageSize,通过组件会自动给你分页显示。<br>eg：总数41 条数据,每页显示10条数据，则是分成5页。如果想每页显示7条，则会分成6页。<br>三.简要代码<br>架构目录图：<br><div class="image-package"><img src="http://upload-images.jianshu.io/upload_images/4116930-fed7af4e2c9f5530.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" data-original-src="http://upload-images.jianshu.io/upload_images/4116930-fed7af4e2c9f5530.png?imageMogr2/auto-orient/strip" data-image-slug="fed7af4e2c9f5530" data-width="360" data-height="351"><br><div class="image-caption">项目目录</div><br></div><br>有两个组件：pagination和page;&nbsp; pagination是用来显示前面数据的，page是用来下面分页的。<br>pagination.html示例代码：<br><div class="image-package"><img src="http://upload-images.jianshu.io/upload_images/4116930-7fc90a6263bba71b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" data-original-src="http://upload-images.jianshu.io/upload_images/4116930-7fc90a6263bba71b.png?imageMogr2/auto-orient/strip" data-image-slug="7fc90a6263bba71b" data-width="1517" data-height="603"><br><div class="image-caption">数据显示部分代码</div><br></div><br>ngb-xxx不用在意，是用的ng-bootstrap，只是为了让界面好看点。其实就是一个简单的table用来显示数据。*ngFor用来取数据，懂Angular 的人应该都会，这不是重点就不介绍了。<br>&lt;page&gt;&lt;/page&gt;&nbsp;<br>这里是引入page组件。但是传入了一些属性值；关于模板语法，依赖注入，自定义事件就不介绍了。只要知道这里是：pagination组件向page组件传入了几个值：pageSize(页面显示数据条数)，totalNum(总数据条数),curPage(当前页码 ），totalPage(总页码),pageData(每页显示数据)<br>其中pageSize和pageData是一样的，只是后面为了操作，多传了一个值；<br>那么：pageSize等值都是哪里来的呢，当然是pagination.ts里定义的：<br><div class="image-package"><img src="http://upload-images.jianshu.io/upload_images/4116930-a003c8ca2a6946ae.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" data-original-src="http://upload-images.jianshu.io/upload_images/4116930-a003c8ca2a6946ae.png?imageMogr2/auto-orient/strip" data-image-slug="a003c8ca2a6946ae" data-width="948" data-height="296"><br><div class="image-caption">pagination.ts代码</div><br></div><br>代码中的page就是你获得到得数据，自然totalNum就会等于数据的长度。依次算出来就好了。<br>pagination组件算是完成了，现在就来看看page是怎么接收到数据并进行操作的。<br>page.html页面的代码：<br><div class="image-package"><img src="http://upload-images.jianshu.io/upload_images/4116930-bdee3bc2c0eaf98c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" data-original-src="http://upload-images.jianshu.io/upload_images/4116930-bdee3bc2c0eaf98c.png?imageMogr2/auto-orient/strip" data-image-slug="bdee3bc2c0eaf98c" data-width="1753" data-height="404"><br><div class="image-caption">page.ts 分页数据的html</div><br></div><br>其实很简单：就一个a标签显示条数，页数的，三个button,一个显示上一页，一个页数，一个下一页。每个按钮都绑定了一个changePage事件；<br>看一下实现部分的代码：<br><div class="image-package"><img src="http://upload-images.jianshu.io/upload_images/4116930-012ecce551a391ef.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" data-original-src="http://upload-images.jianshu.io/upload_images/4116930-012ecce551a391ef.png?imageMogr2/auto-orient/strip" data-image-slug="012ecce551a391ef" data-width="1664" data-height="1269"><br><div class="image-caption">page.ts分页实现部分代码</div><br></div><br>@Input是接收pagination.html组件传过来的数据。@Output是定义pagination.html页面定义的changeCurPage事件。<br>通过三个if else判断，对传多来的数据进行处理。其实就分为：数据只够显示一页；数据显示到最后一页；数据刷新到中间页码；这三种情况下的操作。<br>好了，基本就完成了。有些东西也是借助网友的想法，但是思路大致都是这样。现在我改变条数和数据量看看：<br><div class="image-package"><img src="http://upload-images.jianshu.io/upload_images/4116930-a5a797d4493a0cb9.png" alt="" data-original-src="http://upload-images.jianshu.io/upload_images/4116930-a5a797d4493a0cb9.png" data-image-slug="a5a797d4493a0cb9"><br><div class="image-caption">&nbsp; 项目截图</div><br>详情代码及效果：<a href="https://github.com/sulishibaobei/pagination" target="_blank" rel="external">https://github.com/sulishibaobei/pagination</a></div></li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;div class=&quot;image-package&quot;&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/4116930-7800a10c4dbd367d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot; data-original-src=&quot;http://upload-images.jianshu.io/upload_images/4116930-7800a10c4dbd367d.jpg?imageMogr2/auto-orient/strip&quot; data-image-slug=&quot;7800a10c4dbd367d&quot; data-width=&quot;360&quot; data-height=&quot;200&quot;&gt; &lt;/div&gt;&lt;/p&gt;
-&lt;p&gt;&lt;div class=&quot;image-caption&quot;&gt;你用Angular 吗?&lt;/div&gt;&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Angular 2+" scheme="http://www.sulishibaobei.com/categories/Angular-2/"/>
-    
-    
-      <category term="Angular2+" scheme="http://www.sulishibaobei.com/tags/Angular2/"/>
-    
-      <category term="分页组件" scheme="http://www.sulishibaobei.com/tags/%E5%88%86%E9%A1%B5%E7%BB%84%E4%BB%B6/"/>
-    
-  </entry>
-  
-  <entry>
     <title>bootstrap简单图文环绕效果</title>
     <link href="http://www.sulishibaobei.com/bootstrap/bt-120170908/"/>
     <id>http://www.sulishibaobei.com/bootstrap/bt-120170908/</id>
@@ -207,6 +177,36 @@
       <category term="bootstrap" scheme="http://www.sulishibaobei.com/tags/bootstrap/"/>
     
       <category term="图文环绕" scheme="http://www.sulishibaobei.com/tags/%E5%9B%BE%E6%96%87%E7%8E%AF%E7%BB%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>angular4 中自定义pagination组件</title>
+    <link href="http://www.sulishibaobei.com/angular/pg-120170908/"/>
+    <id>http://www.sulishibaobei.com/angular/pg-120170908/</id>
+    <published>2017-09-08T01:08:53.000Z</published>
+    <updated>2017-09-08T02:08:51.704Z</updated>
+    
+    <content type="html"><![CDATA[<p><div class="image-package"><img src="http://upload-images.jianshu.io/upload_images/4116930-7800a10c4dbd367d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" data-original-src="http://upload-images.jianshu.io/upload_images/4116930-7800a10c4dbd367d.jpg?imageMogr2/auto-orient/strip" data-image-slug="7800a10c4dbd367d" data-width="360" data-height="200"> </div></p>
+<p><div class="image-caption">你用Angular 吗?</div><br><a id="more"></a><br><br>一.介绍<br>一个基于angular4 开发的可以分页的组件。组件的好处就是可以复用，复用…..作为一个前端码农，开始的分页功能实现是我用jquery写的，其他同事用的时候都要将我的代码拷贝过去，于是我被鄙视了。为了不继续被鄙视就开始了尝试。<br>二.基本功能<br>1.根据规定的每页数据条数，分页显示数据 </p>
+<ol>
+<li>上下页操作数据<br>直接上界面图可能清晰点：<br><div class="image-package"><img src="http://upload-images.jianshu.io/upload_images/4116930-2fe57ab69ccdcb87.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" data-original-src="http://upload-images.jianshu.io/upload_images/4116930-2fe57ab69ccdcb87.png?imageMogr2/auto-orient/strip" data-image-slug="2fe57ab69ccdcb87" data-width="1338" data-height="655"><br><div class="image-caption">项目截图</div><br></div><br>根据图片进行讲解下：<br>根据你总数据条数:totalNum; 每页显示条数:pageSize,通过组件会自动给你分页显示。<br>eg：总数41 条数据,每页显示10条数据，则是分成5页。如果想每页显示7条，则会分成6页。<br>三.简要代码<br>架构目录图：<br><div class="image-package"><img src="http://upload-images.jianshu.io/upload_images/4116930-fed7af4e2c9f5530.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" data-original-src="http://upload-images.jianshu.io/upload_images/4116930-fed7af4e2c9f5530.png?imageMogr2/auto-orient/strip" data-image-slug="fed7af4e2c9f5530" data-width="360" data-height="351"><br><div class="image-caption">项目目录</div><br></div><br>有两个组件：pagination和page;&nbsp; pagination是用来显示前面数据的，page是用来下面分页的。<br>pagination.html示例代码：<br><div class="image-package"><img src="http://upload-images.jianshu.io/upload_images/4116930-7fc90a6263bba71b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" data-original-src="http://upload-images.jianshu.io/upload_images/4116930-7fc90a6263bba71b.png?imageMogr2/auto-orient/strip" data-image-slug="7fc90a6263bba71b" data-width="1517" data-height="603"><br><div class="image-caption">数据显示部分代码</div><br></div><br>ngb-xxx不用在意，是用的ng-bootstrap，只是为了让界面好看点。其实就是一个简单的table用来显示数据。*ngFor用来取数据，懂Angular 的人应该都会，这不是重点就不介绍了。<br>&lt;page&gt;&lt;/page&gt;&nbsp;<br>这里是引入page组件。但是传入了一些属性值；关于模板语法，依赖注入，自定义事件就不介绍了。只要知道这里是：pagination组件向page组件传入了几个值：pageSize(页面显示数据条数)，totalNum(总数据条数),curPage(当前页码 ），totalPage(总页码),pageData(每页显示数据)<br>其中pageSize和pageData是一样的，只是后面为了操作，多传了一个值；<br>那么：pageSize等值都是哪里来的呢，当然是pagination.ts里定义的：<br><div class="image-package"><img src="http://upload-images.jianshu.io/upload_images/4116930-a003c8ca2a6946ae.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" data-original-src="http://upload-images.jianshu.io/upload_images/4116930-a003c8ca2a6946ae.png?imageMogr2/auto-orient/strip" data-image-slug="a003c8ca2a6946ae" data-width="948" data-height="296"><br><div class="image-caption">pagination.ts代码</div><br></div><br>代码中的page就是你获得到得数据，自然totalNum就会等于数据的长度。依次算出来就好了。<br>pagination组件算是完成了，现在就来看看page是怎么接收到数据并进行操作的。<br>page.html页面的代码：<br><div class="image-package"><img src="http://upload-images.jianshu.io/upload_images/4116930-bdee3bc2c0eaf98c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" data-original-src="http://upload-images.jianshu.io/upload_images/4116930-bdee3bc2c0eaf98c.png?imageMogr2/auto-orient/strip" data-image-slug="bdee3bc2c0eaf98c" data-width="1753" data-height="404"><br><div class="image-caption">page.ts 分页数据的html</div><br></div><br>其实很简单：就一个a标签显示条数，页数的，三个button,一个显示上一页，一个页数，一个下一页。每个按钮都绑定了一个changePage事件；<br>看一下实现部分的代码：<br><div class="image-package"><img src="http://upload-images.jianshu.io/upload_images/4116930-012ecce551a391ef.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" data-original-src="http://upload-images.jianshu.io/upload_images/4116930-012ecce551a391ef.png?imageMogr2/auto-orient/strip" data-image-slug="012ecce551a391ef" data-width="1664" data-height="1269"><br><div class="image-caption">page.ts分页实现部分代码</div><br></div><br>@Input是接收pagination.html组件传过来的数据。@Output是定义pagination.html页面定义的changeCurPage事件。<br>通过三个if else判断，对传多来的数据进行处理。其实就分为：数据只够显示一页；数据显示到最后一页；数据刷新到中间页码；这三种情况下的操作。<br>好了，基本就完成了。有些东西也是借助网友的想法，但是思路大致都是这样。现在我改变条数和数据量看看：<br><div class="image-package"><img src="http://upload-images.jianshu.io/upload_images/4116930-a5a797d4493a0cb9.png" alt="" data-original-src="http://upload-images.jianshu.io/upload_images/4116930-a5a797d4493a0cb9.png" data-image-slug="a5a797d4493a0cb9"><br><div class="image-caption">&nbsp; 项目截图</div><br>详情代码及效果：<a href="https://github.com/sulishibaobei/pagination" target="_blank" rel="external">https://github.com/sulishibaobei/pagination</a></div></li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;div class=&quot;image-package&quot;&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/4116930-7800a10c4dbd367d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot; data-original-src=&quot;http://upload-images.jianshu.io/upload_images/4116930-7800a10c4dbd367d.jpg?imageMogr2/auto-orient/strip&quot; data-image-slug=&quot;7800a10c4dbd367d&quot; data-width=&quot;360&quot; data-height=&quot;200&quot;&gt; &lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&quot;image-caption&quot;&gt;你用Angular 吗?&lt;/div&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Angular 2+" scheme="http://www.sulishibaobei.com/categories/Angular-2/"/>
+    
+    
+      <category term="Angular2+" scheme="http://www.sulishibaobei.com/tags/Angular2/"/>
+    
+      <category term="分页组件" scheme="http://www.sulishibaobei.com/tags/%E5%88%86%E9%A1%B5%E7%BB%84%E4%BB%B6/"/>
     
   </entry>
   
@@ -299,6 +299,47 @@
       <category term="雪碧图" scheme="http://www.sulishibaobei.com/tags/%E9%9B%AA%E7%A2%A7%E5%9B%BE/"/>
     
       <category term="gulp" scheme="http://www.sulishibaobei.com/tags/gulp/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>滑稽的下午--Angular 2+管道的使用</title>
+    <link href="http://www.sulishibaobei.com/angular/pipe/pipe-120170907/"/>
+    <id>http://www.sulishibaobei.com/angular/pipe/pipe-120170907/</id>
+    <published>2017-09-07T01:08:53.000Z</published>
+    <updated>2017-09-07T09:32:57.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>注:所有的angular 2+ 其实就包含了4,是向上兼容的；</p>
+<p><img src="/images/pipe-1.png" alt="pipe"><br>让一个component组件里的时间显示当前时间并自动刷新。<br><strong>过程:</strong><br>1.首先获取当前时间 new Date();<br>2.弄个定时器隔一秒刷新呀；</p>
+<a id="more"></a>
+<p> <code>app.component.ts中这样写到：</code></p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">InitialTime= <span class="keyword">new</span>  <span class="built_in">Date</span>();  <span class="comment">// 获取当前时间  </span></div><div class="line">data:string;</div><div class="line"> getTime(m)&#123;   <span class="comment">// 判断获取的分钟数是否小于10，小于10只会显示一位数，前面自动补0 </span></div><div class="line">      <span class="keyword">if</span> (m&amp;lt;<span class="number">10</span> )&#123;</div><div class="line">        m =<span class="string">"0"</span>+ m;</div><div class="line">         <span class="keyword">this</span> .data= <span class="keyword">this</span> .InitialTime.getHours()+<span class="string">":"</span>+m;   <span class="comment">// 显示时间(小时+分钟) eg   17:15 </span></div><div class="line">   &#125;</div><div class="line">     <span class="keyword">else</span>  &#123;</div><div class="line">         <span class="keyword">this</span> .data= <span class="keyword">this</span> .InitialTime.getHours()+<span class="string">":"</span>+ <span class="keyword">this</span> .InitialTime.getMinutes();     <span class="comment">// 显示时间(小时+分钟) eg   17:15 </span></div><div class="line">   &#125; </div><div class="line"> &#125;</div><div class="line"> <span class="keyword">constructor</span>()&#123;</div><div class="line">      <span class="keyword">this</span> .getTime( <span class="keyword">this</span> .InitialTime.getMinutes()); <span class="comment">// 运行上面方法让时间显示 </span></div><div class="line">    setInterval(()=&amp;gt;&#123;  <span class="comment">// 设置定时器，隔1秒刷新一次，好实时监控时间 </span></div><div class="line">              <span class="keyword">this</span> .InitialTime= <span class="keyword">new</span>  <span class="built_in">Date</span>();</div><div class="line">               <span class="keyword">this</span> .getTime( <span class="keyword">this</span>  .InitialTime.getMinutes());                              </div><div class="line">             &#125;, <span class="number">1000</span> );                </div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p><code>app.component.html中这样写：</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&amp;lt;span class="time"&amp;gt; &#123;&#123; date &#125;&#125;&amp;lt;/span&amp;gt;</div></pre></td></tr></table></figure>
+<p>然后变成我想要的效果了，可是代码我自己都嫌长，而且还是用传统js方法写的。后来就想不是angular里面有Pipe管道吗，是不是可以试试。<br><code>app.component.ts是这样写的。</code> </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">time:any=<span class="built_in">Date</span>.now();  <span class="comment">// 获取当前时间 </span></div><div class="line"> <span class="keyword">constructor</span>()&#123;</div><div class="line">    setInterval(() =&amp;gt;&#123;  <span class="comment">// 设置定时器，隔1秒刷新一次，好实时监控时间 </span></div><div class="line">          <span class="comment">//   this.birthday = new Date();       </span></div><div class="line">           <span class="keyword">this</span> .time=<span class="built_in">Date</span>.now();   <span class="comment">// Date里面自带方法                   </span></div><div class="line">              &#125;,<span class="number">1000</span> );  </div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<p><code>app.component.html是这样写的：</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&amp;lt;span class="time"&amp;gt; &#123;&#123;time | date:"HH:mm" &#125;&#125;&amp;lt;/span&amp;gt;</div></pre></td></tr></table></figure>
+<p><strong>注：</strong><br>|是管道标示符。angular里面提供了内置的datePipe管道可以供我们使用<br>  HH：mm 表示输出小时和分钟；yy:MM:dd&nbsp; 表示输出年月日<br>  详情可以看看官网的管道介绍里面关于DatePipe Api的介绍。<br>  同样的效果，代码量就大大减少，所以学习还是在完成的基础上多尝试。耶~~~<br>  后续会有详细的关于管道学习的<a href="">更多文章</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;注:所有的angular 2+ 其实就包含了4,是向上兼容的；&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/pipe-1.png&quot; alt=&quot;pipe&quot;&gt;&lt;br&gt;让一个component组件里的时间显示当前时间并自动刷新。&lt;br&gt;&lt;strong&gt;过程:&lt;/strong&gt;&lt;br&gt;1.首先获取当前时间 new Date();&lt;br&gt;2.弄个定时器隔一秒刷新呀；&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Angular 2+" scheme="http://www.sulishibaobei.com/categories/Angular-2/"/>
+    
+    
+      <category term="Angular 2+" scheme="http://www.sulishibaobei.com/tags/Angular-2/"/>
+    
+      <category term="pipe" scheme="http://www.sulishibaobei.com/tags/pipe/"/>
+    
+      <category term="管道" scheme="http://www.sulishibaobei.com/tags/%E7%AE%A1%E9%81%93/"/>
+    
+      <category term="日期" scheme="http://www.sulishibaobei.com/tags/%E6%97%A5%E6%9C%9F/"/>
     
   </entry>
   
@@ -421,47 +462,6 @@
   </entry>
   
   <entry>
-    <title>滑稽的下午--Angular 2+管道的使用</title>
-    <link href="http://www.sulishibaobei.com/angular/pipe/pipe-120170907/"/>
-    <id>http://www.sulishibaobei.com/angular/pipe/pipe-120170907/</id>
-    <published>2017-09-07T01:08:53.000Z</published>
-    <updated>2017-09-07T09:32:57.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>注:所有的angular 2+ 其实就包含了4,是向上兼容的；</p>
-<p><img src="/images/pipe-1.png" alt="pipe"><br>让一个component组件里的时间显示当前时间并自动刷新。<br><strong>过程:</strong><br>1.首先获取当前时间 new Date();<br>2.弄个定时器隔一秒刷新呀；</p>
-<a id="more"></a>
-<p> <code>app.component.ts中这样写到：</code></p>
- <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">InitialTime= <span class="keyword">new</span>  <span class="built_in">Date</span>();  <span class="comment">// 获取当前时间  </span></div><div class="line">data:string;</div><div class="line"> getTime(m)&#123;   <span class="comment">// 判断获取的分钟数是否小于10，小于10只会显示一位数，前面自动补0 </span></div><div class="line">      <span class="keyword">if</span> (m&amp;lt;<span class="number">10</span> )&#123;</div><div class="line">        m =<span class="string">"0"</span>+ m;</div><div class="line">         <span class="keyword">this</span> .data= <span class="keyword">this</span> .InitialTime.getHours()+<span class="string">":"</span>+m;   <span class="comment">// 显示时间(小时+分钟) eg   17:15 </span></div><div class="line">   &#125;</div><div class="line">     <span class="keyword">else</span>  &#123;</div><div class="line">         <span class="keyword">this</span> .data= <span class="keyword">this</span> .InitialTime.getHours()+<span class="string">":"</span>+ <span class="keyword">this</span> .InitialTime.getMinutes();     <span class="comment">// 显示时间(小时+分钟) eg   17:15 </span></div><div class="line">   &#125; </div><div class="line"> &#125;</div><div class="line"> <span class="keyword">constructor</span>()&#123;</div><div class="line">      <span class="keyword">this</span> .getTime( <span class="keyword">this</span> .InitialTime.getMinutes()); <span class="comment">// 运行上面方法让时间显示 </span></div><div class="line">    setInterval(()=&amp;gt;&#123;  <span class="comment">// 设置定时器，隔1秒刷新一次，好实时监控时间 </span></div><div class="line">              <span class="keyword">this</span> .InitialTime= <span class="keyword">new</span>  <span class="built_in">Date</span>();</div><div class="line">               <span class="keyword">this</span> .getTime( <span class="keyword">this</span>  .InitialTime.getMinutes());                              </div><div class="line">             &#125;, <span class="number">1000</span> );                </div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<p><code>app.component.html中这样写：</code></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&amp;lt;span class="time"&amp;gt; &#123;&#123; date &#125;&#125;&amp;lt;/span&amp;gt;</div></pre></td></tr></table></figure>
-<p>然后变成我想要的效果了，可是代码我自己都嫌长，而且还是用传统js方法写的。后来就想不是angular里面有Pipe管道吗，是不是可以试试。<br><code>app.component.ts是这样写的。</code> </p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">time:any=<span class="built_in">Date</span>.now();  <span class="comment">// 获取当前时间 </span></div><div class="line"> <span class="keyword">constructor</span>()&#123;</div><div class="line">    setInterval(() =&amp;gt;&#123;  <span class="comment">// 设置定时器，隔1秒刷新一次，好实时监控时间 </span></div><div class="line">          <span class="comment">//   this.birthday = new Date();       </span></div><div class="line">           <span class="keyword">this</span> .time=<span class="built_in">Date</span>.now();   <span class="comment">// Date里面自带方法                   </span></div><div class="line">              &#125;,<span class="number">1000</span> );  </div><div class="line"> &#125;</div></pre></td></tr></table></figure>
-<p><code>app.component.html是这样写的：</code></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&amp;lt;span class="time"&amp;gt; &#123;&#123;time | date:"HH:mm" &#125;&#125;&amp;lt;/span&amp;gt;</div></pre></td></tr></table></figure>
-<p><strong>注：</strong><br>|是管道标示符。angular里面提供了内置的datePipe管道可以供我们使用<br>  HH：mm 表示输出小时和分钟；yy:MM:dd&nbsp; 表示输出年月日<br>  详情可以看看官网的管道介绍里面关于DatePipe Api的介绍。<br>  同样的效果，代码量就大大减少，所以学习还是在完成的基础上多尝试。耶~~~<br>  后续会有详细的关于管道学习的<a href="">更多文章</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;注:所有的angular 2+ 其实就包含了4,是向上兼容的；&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/images/pipe-1.png&quot; alt=&quot;pipe&quot;&gt;&lt;br&gt;让一个component组件里的时间显示当前时间并自动刷新。&lt;br&gt;&lt;strong&gt;过程:&lt;/strong&gt;&lt;br&gt;1.首先获取当前时间 new Date();&lt;br&gt;2.弄个定时器隔一秒刷新呀；&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Angular 2+" scheme="http://www.sulishibaobei.com/categories/Angular-2/"/>
-    
-    
-      <category term="Angular 2+" scheme="http://www.sulishibaobei.com/tags/Angular-2/"/>
-    
-      <category term="pipe" scheme="http://www.sulishibaobei.com/tags/pipe/"/>
-    
-      <category term="管道" scheme="http://www.sulishibaobei.com/tags/%E7%AE%A1%E9%81%93/"/>
-    
-      <category term="日期" scheme="http://www.sulishibaobei.com/tags/%E6%97%A5%E6%9C%9F/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Angular 2+ 关于新版angular-cli的应用</title>
     <link href="http://www.sulishibaobei.com/angular/angular-cli/angular-120170906/"/>
     <id>http://www.sulishibaobei.com/angular/angular-cli/angular-120170906/</id>
@@ -515,39 +515,6 @@
       <category term="Angular-cli" scheme="http://www.sulishibaobei.com/tags/Angular-cli/"/>
     
       <category term="工具" scheme="http://www.sulishibaobei.com/tags/%E5%B7%A5%E5%85%B7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>简述alert和console.log的区别</title>
-    <link href="http://www.sulishibaobei.com/js/console20170905/"/>
-    <id>http://www.sulishibaobei.com/js/console20170905/</id>
-    <published>2017-09-05T03:08:53.000Z</published>
-    <updated>2017-09-08T00:53:32.138Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong>生活中还是得有发现美好和差别的眼睛, 学习前端那么久既然还不知道alert和console.log的差别;</strong><br>本菜鸟一直以为alert和console.log其实是一样的用法，只是alert以弹出框形式呈现，而console.log在控制台输出而已。只到道昨天输出一段代码，结果发现alert和console.log输出结果不一样,本宝宝可算涨见识了, 然后就是各种查阅资料，百度查看，终于发现点眉目啦 ;</p>
-<a id="more"></a>
-<p><strong>我写了这样一段代码：</strong><br><img src="/images/console-3.png" alt="cmd-markdown-logo"><br>alert输出的结果为：<br><img src="/images/console-1.png" alt="cmd-markdown-logo"><br>console.log输出的结果为：<br><img src="/images/console-2.png" alt="cmd-markdown-logo"></p>
-<p><strong>然后我就尴尬了</strong></p>
-<p>[1]原来console.log() 可以打印任何类型的数据。而 alert() 只能输出string，<br>[2]如果alert输出是对象会自动调用 toString() 方法。如果想 console.log() 输出的与alert相同，需要调用 toString()。<br>[3]所以将后面的改写成&nbsp;console.log(hmac.toString()) 就可以啦</p>
-<p><strong>下面再来总结下两者的差别</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">alert()</div><div class="line">   <span class="number">1.1</span> 有阻塞作用，不点击确定，后续代码无法继续执行</div><div class="line">   <span class="number">1.2</span> alert()只能输出string,如果alert输出的是对象会自动调用toString()方法 </div><div class="line">      e.g. alert([a,b,c]); <span class="comment">//a,b,c  </span></div><div class="line">   <span class="number">1.3</span> alert不支持多个参数的写法,只能输出第一个值</div><div class="line">      e.g. alert(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>); <span class="comment">// 1</span></div><div class="line"><span class="built_in">console</span>.log()</div><div class="line">   <span class="number">2.1</span> 在打印台输出</div><div class="line">   <span class="number">2.2</span> 可以打印任何类型的数据</div><div class="line">        e.g. console.log([a,b,c]); <span class="comment">//[a,b,c]</span></div><div class="line">   <span class="number">2.3</span> 支持多个参数的写法</div><div class="line">        e.g. console.log(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>) <span class="comment">// 1 2 3</span></div></pre></td></tr></table></figure></p>
-<p>好啦~~~就是这样啦。 </p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;生活中还是得有发现美好和差别的眼睛, 学习前端那么久既然还不知道alert和console.log的差别;&lt;/strong&gt;&lt;br&gt;本菜鸟一直以为alert和console.log其实是一样的用法，只是alert以弹出框形式呈现，而console.log在控制台输出而已。只到道昨天输出一段代码，结果发现alert和console.log输出结果不一样,本宝宝可算涨见识了, 然后就是各种查阅资料，百度查看，终于发现点眉目啦 ;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="前端那些微小事" scheme="http://www.sulishibaobei.com/categories/%E5%89%8D%E7%AB%AF%E9%82%A3%E4%BA%9B%E5%BE%AE%E5%B0%8F%E4%BA%8B/"/>
-    
-    
-      <category term="console.log" scheme="http://www.sulishibaobei.com/tags/console-log/"/>
-    
-      <category term="alert" scheme="http://www.sulishibaobei.com/tags/alert/"/>
-    
-      <category term="javascript" scheme="http://www.sulishibaobei.com/tags/javascript/"/>
     
   </entry>
   
@@ -677,6 +644,39 @@
       <category term="javascript" scheme="http://www.sulishibaobei.com/tags/javascript/"/>
     
       <category term="面试" scheme="http://www.sulishibaobei.com/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>简述alert和console.log的区别</title>
+    <link href="http://www.sulishibaobei.com/js/console20170905/"/>
+    <id>http://www.sulishibaobei.com/js/console20170905/</id>
+    <published>2017-09-05T03:08:53.000Z</published>
+    <updated>2017-09-08T00:53:32.138Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>生活中还是得有发现美好和差别的眼睛, 学习前端那么久既然还不知道alert和console.log的差别;</strong><br>本菜鸟一直以为alert和console.log其实是一样的用法，只是alert以弹出框形式呈现，而console.log在控制台输出而已。只到道昨天输出一段代码，结果发现alert和console.log输出结果不一样,本宝宝可算涨见识了, 然后就是各种查阅资料，百度查看，终于发现点眉目啦 ;</p>
+<a id="more"></a>
+<p><strong>我写了这样一段代码：</strong><br><img src="/images/console-3.png" alt="cmd-markdown-logo"><br>alert输出的结果为：<br><img src="/images/console-1.png" alt="cmd-markdown-logo"><br>console.log输出的结果为：<br><img src="/images/console-2.png" alt="cmd-markdown-logo"></p>
+<p><strong>然后我就尴尬了</strong></p>
+<p>[1]原来console.log() 可以打印任何类型的数据。而 alert() 只能输出string，<br>[2]如果alert输出是对象会自动调用 toString() 方法。如果想 console.log() 输出的与alert相同，需要调用 toString()。<br>[3]所以将后面的改写成&nbsp;console.log(hmac.toString()) 就可以啦</p>
+<p><strong>下面再来总结下两者的差别</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">alert()</div><div class="line">   <span class="number">1.1</span> 有阻塞作用，不点击确定，后续代码无法继续执行</div><div class="line">   <span class="number">1.2</span> alert()只能输出string,如果alert输出的是对象会自动调用toString()方法 </div><div class="line">      e.g. alert([a,b,c]); <span class="comment">//a,b,c  </span></div><div class="line">   <span class="number">1.3</span> alert不支持多个参数的写法,只能输出第一个值</div><div class="line">      e.g. alert(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>); <span class="comment">// 1</span></div><div class="line"><span class="built_in">console</span>.log()</div><div class="line">   <span class="number">2.1</span> 在打印台输出</div><div class="line">   <span class="number">2.2</span> 可以打印任何类型的数据</div><div class="line">        e.g. console.log([a,b,c]); <span class="comment">//[a,b,c]</span></div><div class="line">   <span class="number">2.3</span> 支持多个参数的写法</div><div class="line">        e.g. console.log(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>) <span class="comment">// 1 2 3</span></div></pre></td></tr></table></figure></p>
+<p>好啦~~~就是这样啦。 </p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;生活中还是得有发现美好和差别的眼睛, 学习前端那么久既然还不知道alert和console.log的差别;&lt;/strong&gt;&lt;br&gt;本菜鸟一直以为alert和console.log其实是一样的用法，只是alert以弹出框形式呈现，而console.log在控制台输出而已。只到道昨天输出一段代码，结果发现alert和console.log输出结果不一样,本宝宝可算涨见识了, 然后就是各种查阅资料，百度查看，终于发现点眉目啦 ;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="前端那些微小事" scheme="http://www.sulishibaobei.com/categories/%E5%89%8D%E7%AB%AF%E9%82%A3%E4%BA%9B%E5%BE%AE%E5%B0%8F%E4%BA%8B/"/>
+    
+    
+      <category term="console.log" scheme="http://www.sulishibaobei.com/tags/console-log/"/>
+    
+      <category term="alert" scheme="http://www.sulishibaobei.com/tags/alert/"/>
+    
+      <category term="javascript" scheme="http://www.sulishibaobei.com/tags/javascript/"/>
     
   </entry>
   
