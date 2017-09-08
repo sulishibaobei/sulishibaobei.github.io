@@ -64,19 +64,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Css3雪碧图]]></title>
-    <url>%2Fcss%2Fsp-120170907%2F</url>
-    <content type="text"><![CDATA[Css雪碧图： CSS雪碧 即CSS Sprite，也有人叫它CSS精灵，是一种CSS图像合并技术，该方法是将小图标和背景图像合并到一张图片上，然后利用css的背景定位来显示需要显示的图片部分。原理：CSS雪碧的基本原理是把你的网站上用到的一些图片整合到一张单独的图片中，从而减少你的网站的HTTP请求数量。该图片使用CSS background和background-position属性渲染，这也就意味着你的标签变得更加复杂了，图片是在CSS中定义，而非&lt;img&gt;标签。如何生成雪碧图？安装gulp插件： npm install –g gulp安装制作雪碧图需要的插件 npm install –g gulp.spritesmith最好全局和本地各装一遍； 新建一个Gulpfile.js文件，将下列代码放进去： 1234567891011121314151617 var gulp=require('gulp'); //引入这两个gulp gulp.spritesmith spritesmith=require('gulp.spritesmith'); gulp.task('default',function()&#123; //新建名为sprite的任务 gulp.src('images/*.png') //需要合成的图片路径 *为通配符 表示这个文件夹下面所有后缀为.png的文件都会被应用 .pipe(spritesmith(&#123; imgName:'sprite.png',//合成后需要保存图片的路径 cssName:'sprite.css', //合成后需要保存的css的路径 padding:5, //表示两个图片间的空隙 algorithm:'binary-tree', // Algorithm 有四个可选值分别为top-down、left-right、diagonal、alt-diagonal、binary-tree // cssTemplate:'dist/handlebarsStr.css' //生成的css模板文件，可以是函数也可以是字符串 &#125;)) .pipe(gulp.dest('dist/')) //将生成的文件放到dist文件夹下 &#125;) ``` 或者： 进入项目 npm init 输入需要的信息，创建一个package.json文件: { “name”: “package.json”, “version”: “1.0.0”, “description”: “”, “main”: “Gulpfile.js”, “dependencies”: { “gulp”: “^3.9.1”, “gulp.spritesmith”: “^6.5.1” }, “devDependencies”: {}, “scripts”: { “test”: “echo \”Error: no test specified\” &amp;&amp; exit 1” }, “author”: “”, “license”: “ISC”}12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455这里提几点需要注意的： 需要一个Gulpfile.js（首字母小写也可以） ，运行时执行 gulp default（defaullt是你新建的任务名，不是固定的，你写成其他也行）`imgName:'sprite.png'`//合成后需要保存图片的路径`cssName:'sprite.css'` 这两个文件需要你先创建，里面的文件都要预先创建； 我这里是放在dist下面就要在dis下面创建这两个文件 合成的雪碧图； ![sp](/images/sp-1.png)css样式：```css.icon-1 &#123; background-image: url(sprite.png); background-position: 0px 0px; width: 33px; height: 33px;&#125;.icon-2 &#123; background-image: url(sprite.png); background-position: -38px 0px; width: 33px; height: 33px;&#125;.icon-3 &#123; background-image: url(sprite.png); background-position: 0px -38px; width: 33px; height: 33px;&#125;.icon-4 &#123; background-image: url(sprite.png); background-position: -38px -38px; width: 33px; height: 33px;&#125;.icon-5 &#123; background-image: url(sprite.png); background-position: -76px 0px; width: 33px; height: 33px;&#125;.icon-6 &#123; background-image: url(sprite.png); background-position: -76px -38px; width: 33px; height: 33px;&#125;.icon-7 &#123; background-image: url(sprite.png); background-position: 0px -76px; width: 33px; height: 33px;&#125; algorithm：四个参数只是决定图片的排列顺序；top-down：具体的参数可以看这里：好了,雪碧图就合成啦；下面会讲讲如何使用雪碧图；创建一个文件：index.html引入生成的css &lt;link rel=”stylesheet” type=”text/css” href=”./dist/sprite.css” /&gt;写基本架构：class=&quot;icon-1&quot; 这里是css里生成的样式名；按顺序写好就行; 123456789101112131415161718192021222324252627282930&lt;ul class="sprite"&gt; &lt;li&gt; &lt;s class="icon-1"&gt;&lt;/s&gt; &lt;a href=""&gt;衣服&lt;/a&gt; &lt;/li&gt; &lt;li&gt; &lt;s class="icon-2"&gt;&lt;/s&gt; &lt;a href=""&gt;鞋子&lt;/a&gt; &lt;/li&gt; &lt;li&gt; &lt;s class="icon-3"&gt;&lt;/s&gt; &lt;a href=""&gt;背包&lt;/a&gt; &lt;/li&gt; &lt;li&gt; &lt;s class="icon-4"&gt;&lt;/s&gt; &lt;a href=""&gt;双肩包&lt;/a&gt; &lt;/li&gt; &lt;li&gt; &lt;s class="icon-5"&gt;&lt;/s&gt; &lt;a href=""&gt;裤子&lt;/a&gt; &lt;/li&gt; &lt;li&gt; &lt;s class="icon-6"&gt;&lt;/s&gt; &lt;a href=""&gt;羽绒服&lt;/a&gt; &lt;/li&gt; &lt;li&gt; &lt;s class="icon-7"&gt;&lt;/s&gt; &lt;a href=""&gt;外套&lt;/a&gt; &lt;/li&gt; &lt;/ul&gt; 给他们新增加一些样式： 1234567891011121314151617181920212223242526ul &#123; list-style: none; margin: 0; padding: 0;&#125;.sprite &#123; margin: 10px auto; width: 206px; border: 1px solid #b51600;&#125;.sprite li &#123; cursor: pointer; height: 42px; width: 206px; background-color: #b51600; border-bottom: 1px solid #911001; border-top: 1px solid #c11e08;&#125;.sprite li a &#123; color: #fff; line-height: 42px; font-size: 14px;&#125; 效果就是这样：引入了css文件，class也改动了，怎么没有图标呢？生成的css文件里面就告诉你了，让标签dispay:block; 12345.sprite li s&#123; display: inline-block; margin-left: 10px; margin-right: 8px; &#125; 看看效果：]]></content>
-      <categories>
-        <category>CSS</category>
-      </categories>
-      <tags>
-        <tag>CSS</tag>
-        <tag>雪碧图</tag>
-        <tag>gulp</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[git 打卡的第一天]]></title>
     <url>%2Fgit%2Fgit-120170907%2F</url>
     <content type="text"><![CDATA[因为某种原因，所以不得不重新巩固下前端的基础知识，从最基本的学习还得额外的学习新知识，倍感压力之大。 昨天初略学习下git，算是自己学习的一个新知识。简单记录下，希望四海八荒的大神看过来，有错的请指导。 git下载安装git下载安装地址下载好之后记得配置环境变量。git的作用主要是将项目保存到git目录中 git介绍主要分为三个块：[1] working directory(工作目录） 本地上存放项目的目录。[2] staging area 暂存放区域 更新暂未提交的项目。[3] git directory git上存放项目的地方。1.一般我们使用git都会将一些修改的文件保存在暂存区域，然后一并提交更新到git目录中。2.安装好git之后，网页打开github，注册信息。登陆进去，接下来配置信息。3.打开右上角，如下图点击settings。然后点击SSH and GPG keys ,配置SSH。打开cmd或者git bash。找不到git.bash的就在开始那里搜索或者在你安装的git文件里面打开git.bash.exe就一样。4.在命令行输入：ssh-keygen -t rsa -C “你注册github时的邮箱名” 然后会提示你生产的key在id_rsa.pub文件中找。5.在电脑中一个叫.ssh的文件里，然后复制黏贴在右边的key框里面，title就随便打。 此时git的安装目录就为你的根目录。 配置用户信息：git config --global user.name &quot;你注册时的用户名&quot;;git config --global user.email &quot;你的邮箱&quot;;git里面提供了一个git config的命令专门用来配置或者读取相应的工作环境变量。这些变量可以存放在三个地方：etc/gitconfig文件， git config –system读写的就是此文件；~/.gitconfig文件，git config –global 读写的就是此文件；配置好信息后，可以通过git config –list 命令查看&nbsp;&nbsp; 如果git config user.name就是具体的查看某个环境变量的设定。若不知道如何使用git命令，可以git help看看。 git使用。 新建一个git 仓库，也可以导入一个本地项目。进入仓库 复制这个地址 然后打开cmd或者git.bash.exe， 输入git clone git@github.com:sulishibaobei/a.github.io.git （上面复制的这串地址) 就会在你的本地建立一个名为a.github.io的仓库，进入仓库，将你需要上传的代码拷贝进去 123git add *（*是上传所有的本件，若是想具体的就写文件名）git commit -m "version" 提交文件git push 这三步就完成git项目的提交。 可以用git status命令查看当前文件的状态。 所有的文件都可以先add到暂存区域，然后最后再一起commit。]]></content>
@@ -116,6 +103,19 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[Css3雪碧图]]></title>
+    <url>%2Fcss%2Fsp-120170907%2F</url>
+    <content type="text"><![CDATA[Css雪碧图： CSS雪碧 即CSS Sprite，也有人叫它CSS精灵，是一种CSS图像合并技术，该方法是将小图标和背景图像合并到一张图片上，然后利用css的背景定位来显示需要显示的图片部分。原理：CSS雪碧的基本原理是把你的网站上用到的一些图片整合到一张单独的图片中，从而减少你的网站的HTTP请求数量。该图片使用CSS background和background-position属性渲染，这也就意味着你的标签变得更加复杂了，图片是在CSS中定义，而非&lt;img&gt;标签。如何生成雪碧图？安装gulp插件： npm install –g gulp安装制作雪碧图需要的插件 npm install –g gulp.spritesmith最好全局和本地各装一遍； 新建一个Gulpfile.js文件，将下列代码放进去： 1234567891011121314151617 var gulp=require('gulp'); //引入这两个gulp gulp.spritesmith spritesmith=require('gulp.spritesmith'); gulp.task('default',function()&#123; //新建名为sprite的任务 gulp.src('images/*.png') //需要合成的图片路径 *为通配符 表示这个文件夹下面所有后缀为.png的文件都会被应用 .pipe(spritesmith(&#123; imgName:'sprite.png',//合成后需要保存图片的路径 cssName:'sprite.css', //合成后需要保存的css的路径 padding:5, //表示两个图片间的空隙 algorithm:'binary-tree', // Algorithm 有四个可选值分别为top-down、left-right、diagonal、alt-diagonal、binary-tree // cssTemplate:'dist/handlebarsStr.css' //生成的css模板文件，可以是函数也可以是字符串 &#125;)) .pipe(gulp.dest('dist/')) //将生成的文件放到dist文件夹下 &#125;) ``` 或者： 进入项目 npm init 输入需要的信息，创建一个package.json文件: { “name”: “package.json”, “version”: “1.0.0”, “description”: “”, “main”: “Gulpfile.js”, “dependencies”: { “gulp”: “^3.9.1”, “gulp.spritesmith”: “^6.5.1” }, “devDependencies”: {}, “scripts”: { “test”: “echo \”Error: no test specified\” &amp;&amp; exit 1” }, “author”: “”, “license”: “ISC”}12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455这里提几点需要注意的： 需要一个Gulpfile.js（首字母小写也可以） ，运行时执行 gulp default（defaullt是你新建的任务名，不是固定的，你写成其他也行）`imgName:'sprite.png'`//合成后需要保存图片的路径`cssName:'sprite.css'` 这两个文件需要你先创建，里面的文件都要预先创建； 我这里是放在dist下面就要在dis下面创建这两个文件 合成的雪碧图； ![sp](/images/sp-1.png)css样式：```css.icon-1 &#123; background-image: url(sprite.png); background-position: 0px 0px; width: 33px; height: 33px;&#125;.icon-2 &#123; background-image: url(sprite.png); background-position: -38px 0px; width: 33px; height: 33px;&#125;.icon-3 &#123; background-image: url(sprite.png); background-position: 0px -38px; width: 33px; height: 33px;&#125;.icon-4 &#123; background-image: url(sprite.png); background-position: -38px -38px; width: 33px; height: 33px;&#125;.icon-5 &#123; background-image: url(sprite.png); background-position: -76px 0px; width: 33px; height: 33px;&#125;.icon-6 &#123; background-image: url(sprite.png); background-position: -76px -38px; width: 33px; height: 33px;&#125;.icon-7 &#123; background-image: url(sprite.png); background-position: 0px -76px; width: 33px; height: 33px;&#125; algorithm：四个参数只是决定图片的排列顺序；top-down：具体的参数可以看这里：好了,雪碧图就合成啦；下面会讲讲如何使用雪碧图；创建一个文件：index.html引入生成的css &lt;link rel=”stylesheet” type=”text/css” href=”./dist/sprite.css” /&gt;写基本架构：class=&quot;icon-1&quot; 这里是css里生成的样式名；按顺序写好就行; 123456789101112131415161718192021222324252627282930&lt;ul class="sprite"&gt; &lt;li&gt; &lt;s class="icon-1"&gt;&lt;/s&gt; &lt;a href=""&gt;衣服&lt;/a&gt; &lt;/li&gt; &lt;li&gt; &lt;s class="icon-2"&gt;&lt;/s&gt; &lt;a href=""&gt;鞋子&lt;/a&gt; &lt;/li&gt; &lt;li&gt; &lt;s class="icon-3"&gt;&lt;/s&gt; &lt;a href=""&gt;背包&lt;/a&gt; &lt;/li&gt; &lt;li&gt; &lt;s class="icon-4"&gt;&lt;/s&gt; &lt;a href=""&gt;双肩包&lt;/a&gt; &lt;/li&gt; &lt;li&gt; &lt;s class="icon-5"&gt;&lt;/s&gt; &lt;a href=""&gt;裤子&lt;/a&gt; &lt;/li&gt; &lt;li&gt; &lt;s class="icon-6"&gt;&lt;/s&gt; &lt;a href=""&gt;羽绒服&lt;/a&gt; &lt;/li&gt; &lt;li&gt; &lt;s class="icon-7"&gt;&lt;/s&gt; &lt;a href=""&gt;外套&lt;/a&gt; &lt;/li&gt; &lt;/ul&gt; 给他们新增加一些样式： 1234567891011121314151617181920212223242526ul &#123; list-style: none; margin: 0; padding: 0;&#125;.sprite &#123; margin: 10px auto; width: 206px; border: 1px solid #b51600;&#125;.sprite li &#123; cursor: pointer; height: 42px; width: 206px; background-color: #b51600; border-bottom: 1px solid #911001; border-top: 1px solid #c11e08;&#125;.sprite li a &#123; color: #fff; line-height: 42px; font-size: 14px;&#125; 效果就是这样：引入了css文件，class也改动了，怎么没有图标呢？生成的css文件里面就告诉你了，让标签dispay:block; 12345.sprite li s&#123; display: inline-block; margin-left: 10px; margin-right: 8px; &#125; 看看效果：]]></content>
+      <categories>
+        <category>CSS</category>
+      </categories>
+      <tags>
+        <tag>CSS</tag>
+        <tag>雪碧图</tag>
+        <tag>gulp</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Angular 2+ 关于新版angular-cli的应用]]></title>
     <url>%2Fangular%2Fangular-cli%2Fangular-120170906%2F</url>
     <content type="text"><![CDATA[以前写过一个webstorm借助angular-cli搭建angular2.0项目的博客。 后来许久没有接触过angular，现在拾起来的时候发现已经更新，用法变了。所以来记录下，以免其他友看到照成误区。这也是说明一个道理，别人写下的东西你不一定适用，因为技术的东西说变就变，谁知道的。 [1]基于Node环境，安装angular-cli。&nbsp; 新版的已经变成安装@angular/cli。所以安装时：npm install -d @angular/cli 那么问题来了，一大堆错误，说缺少pathon和visual studio。还有说版本不兼容的，所以建议node的版本不要太高，也不用太低。第一次我用的7以上的版本说不支持。然后换成6.0以上也是不支持。最后换成6.9几用的好好的。并不是所有人的电脑安装都会出问题的。 既然说缺少pathon那就安装吧。推荐一个网友的解决办法，我也是参照这个解决的，就不重复啰嗦看这里;说到底会出错的原因都是因为npm是国外的，需要FQ，会有那么一丝丝不稳定。不过建议大家先安装cnpm在装，就什么问题都，没有了。npm install -g cnpmcnpm install -g @angular/cli ng命令 安装好angular/cli之后，就可以用ng命令啦。例如：ng –version 查看版本号ng help 帮助 当然最重要的还是用它创建工程。ng new 工程名;然后会自动帮你创建所有的依赖，搭建成一个简单的模板，大概这样 node-modules会自动帮你创建，只是耗时比较长，建议一次下载多次copy。运行项目试试，进入你的工程目录下，然后ng serve; 默认是开启localhost:4200的。所以浏览器里打开localhost:4200就可以啦。 这是最简单的项目啦，当然你可以继续创建命令 例如运行ng g c user 它是四个四个创建的，配套吗！！ 后续介绍一篇文章专门讲angular-cli的这些文件工程太大了，运行时可以打压，ng serve --prod --aot 也是可以的。好了就介绍这些基础的，其实后面的使用并没有改变太多啦之前在博客园中也介绍过关于在webstorm中如何开发angular项目，如果想在webstorm中使用，可以去看看目前我使用VScode ，觉得挺好的！！]]></content>
@@ -136,9 +136,9 @@
         <category>前端那些微小事</category>
       </categories>
       <tags>
-        <tag>javascript</tag>
         <tag>console.log</tag>
         <tag>alert</tag>
+        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -149,8 +149,8 @@
         <category>前端面试题整理</category>
       </categories>
       <tags>
-        <tag>面试</tag>
         <tag>javascript</tag>
+        <tag>面试</tag>
       </tags>
   </entry>
   <entry>
