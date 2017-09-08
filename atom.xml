@@ -286,57 +286,6 @@
   </entry>
   
   <entry>
-    <title>简述alert和console.log的区别</title>
-    <link href="http://www.sulishibaobei.com/js/console20170905/"/>
-    <id>http://www.sulishibaobei.com/js/console20170905/</id>
-    <published>2017-09-05T03:08:53.000Z</published>
-    <updated>2017-09-07T02:27:26.101Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong>生活中还是得有发现美好和差别的眼睛, 学习前端那么久既然还不知道alert和console.log的差别;</strong></p>
-<blockquote>
-<ul>
-<li>本菜鸟一直以为alert和console.log其实是一样的用法，只是alert以弹出框形式呈现，而console.log在控制台输出而已。 </li>
-<li>知道昨天输出一段代码，结果发现alert和console.log输出结果不一样,本宝宝可算涨见识了, 然后就是各种查阅资料，百度查看，终于发现点眉目啦 ;</li>
-</ul>
-</blockquote>
-<a id="more"></a>
-<p><strong>我写了这样一段代码：</strong><br><img src="http://images2015.cnblogs.com/blog/923330/201610/923330-20161012090847890-399704642.png"><br>alert输出的结果为：<br><img src="/images/console-1.png" alt="cmd-markdown-logo"><br>console.log输出的结果为：<br><img src="/images/console-2.png" alt="cmd-markdown-logo"></p>
-<p><strong>然后我就尴尬了</strong></p>
-<blockquote>
-<p>[1]原来console.log() 可以打印任何类型的数据。而 alert() 只能输出string，<br>[2]如果alert输出是对象会自动调用 toString() 方法。如果想 console.log() 输出的与alert相同，需要调用 toString()。<br>[3]所以将后面的改写成&nbsp;console.log(hmac.toString()) 就可以啦</p>
-</blockquote>
-<p><strong>下面再来总结下两者的差别</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">alert()</div><div class="line">   <span class="number">1.1</span> 有阻塞作用，不点击确定，后续代码无法继续执行</div><div class="line">   <span class="number">1.2</span> alert()只能输出string,如果alert输出的是对象会自动调用toString()方法 </div><div class="line">      e.g. alert([a,b,c]); <span class="comment">//a,b,c  </span></div><div class="line">   <span class="number">1.3</span> alert不支持多个参数的写法,只能输出第一个值</div><div class="line">      e.g. alert(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>); <span class="comment">// 1</span></div><div class="line"><span class="built_in">console</span>.log()</div><div class="line">   <span class="number">2.1</span> 在打印台输出</div><div class="line">   <span class="number">2.2</span> 可以打印任何类型的数据</div><div class="line">        e.g. console.log([a,b,c]); <span class="comment">//[a,b,c]</span></div><div class="line">   <span class="number">2.3</span> 支持多个参数的写法</div><div class="line">        e.g. console.log(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>) <span class="comment">// 1 2 3</span></div></pre></td></tr></table></figure></p>
-<blockquote>
-<ul>
-<li>好啦~~~就是这样啦。 </li>
-</ul>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;生活中还是得有发现美好和差别的眼睛, 学习前端那么久既然还不知道alert和console.log的差别;&lt;/strong&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;本菜鸟一直以为alert和console.log其实是一样的用法，只是alert以弹出框形式呈现，而console.log在控制台输出而已。 &lt;/li&gt;
-&lt;li&gt;知道昨天输出一段代码，结果发现alert和console.log输出结果不一样,本宝宝可算涨见识了, 然后就是各种查阅资料，百度查看，终于发现点眉目啦 ;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="前端那些微小事" scheme="http://www.sulishibaobei.com/categories/%E5%89%8D%E7%AB%AF%E9%82%A3%E4%BA%9B%E5%BE%AE%E5%B0%8F%E4%BA%8B/"/>
-    
-    
-      <category term="console.log" scheme="http://www.sulishibaobei.com/tags/console-log/"/>
-    
-      <category term="alert" scheme="http://www.sulishibaobei.com/tags/alert/"/>
-    
-      <category term="javascript" scheme="http://www.sulishibaobei.com/tags/javascript/"/>
-    
-  </entry>
-  
-  <entry>
     <title>前端面试中遇见的那些纯js题</title>
     <link href="http://www.sulishibaobei.com/js/js120170905/"/>
     <id>http://www.sulishibaobei.com/js/js120170905/</id>
@@ -459,9 +408,42 @@
       <category term="前端面试题整理" scheme="http://www.sulishibaobei.com/categories/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86/"/>
     
     
+      <category term="面试" scheme="http://www.sulishibaobei.com/tags/%E9%9D%A2%E8%AF%95/"/>
+    
       <category term="javascript" scheme="http://www.sulishibaobei.com/tags/javascript/"/>
     
-      <category term="面试" scheme="http://www.sulishibaobei.com/tags/%E9%9D%A2%E8%AF%95/"/>
+  </entry>
+  
+  <entry>
+    <title>简述alert和console.log的区别</title>
+    <link href="http://www.sulishibaobei.com/js/console20170905/"/>
+    <id>http://www.sulishibaobei.com/js/console20170905/</id>
+    <published>2017-09-05T03:08:53.000Z</published>
+    <updated>2017-09-08T00:53:32.138Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>生活中还是得有发现美好和差别的眼睛, 学习前端那么久既然还不知道alert和console.log的差别;</strong><br>本菜鸟一直以为alert和console.log其实是一样的用法，只是alert以弹出框形式呈现，而console.log在控制台输出而已。只到道昨天输出一段代码，结果发现alert和console.log输出结果不一样,本宝宝可算涨见识了, 然后就是各种查阅资料，百度查看，终于发现点眉目啦 ;</p>
+<a id="more"></a>
+<p><strong>我写了这样一段代码：</strong><br><img src="/images/console-3.png" alt="cmd-markdown-logo"><br>alert输出的结果为：<br><img src="/images/console-1.png" alt="cmd-markdown-logo"><br>console.log输出的结果为：<br><img src="/images/console-2.png" alt="cmd-markdown-logo"></p>
+<p><strong>然后我就尴尬了</strong></p>
+<p>[1]原来console.log() 可以打印任何类型的数据。而 alert() 只能输出string，<br>[2]如果alert输出是对象会自动调用 toString() 方法。如果想 console.log() 输出的与alert相同，需要调用 toString()。<br>[3]所以将后面的改写成&nbsp;console.log(hmac.toString()) 就可以啦</p>
+<p><strong>下面再来总结下两者的差别</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">alert()</div><div class="line">   <span class="number">1.1</span> 有阻塞作用，不点击确定，后续代码无法继续执行</div><div class="line">   <span class="number">1.2</span> alert()只能输出string,如果alert输出的是对象会自动调用toString()方法 </div><div class="line">      e.g. alert([a,b,c]); <span class="comment">//a,b,c  </span></div><div class="line">   <span class="number">1.3</span> alert不支持多个参数的写法,只能输出第一个值</div><div class="line">      e.g. alert(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>); <span class="comment">// 1</span></div><div class="line"><span class="built_in">console</span>.log()</div><div class="line">   <span class="number">2.1</span> 在打印台输出</div><div class="line">   <span class="number">2.2</span> 可以打印任何类型的数据</div><div class="line">        e.g. console.log([a,b,c]); <span class="comment">//[a,b,c]</span></div><div class="line">   <span class="number">2.3</span> 支持多个参数的写法</div><div class="line">        e.g. console.log(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>) <span class="comment">// 1 2 3</span></div></pre></td></tr></table></figure></p>
+<p>好啦~~~就是这样啦。 </p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;生活中还是得有发现美好和差别的眼睛, 学习前端那么久既然还不知道alert和console.log的差别;&lt;/strong&gt;&lt;br&gt;本菜鸟一直以为alert和console.log其实是一样的用法，只是alert以弹出框形式呈现，而console.log在控制台输出而已。只到道昨天输出一段代码，结果发现alert和console.log输出结果不一样,本宝宝可算涨见识了, 然后就是各种查阅资料，百度查看，终于发现点眉目啦 ;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="前端那些微小事" scheme="http://www.sulishibaobei.com/categories/%E5%89%8D%E7%AB%AF%E9%82%A3%E4%BA%9B%E5%BE%AE%E5%B0%8F%E4%BA%8B/"/>
+    
+    
+      <category term="javascript" scheme="http://www.sulishibaobei.com/tags/javascript/"/>
+    
+      <category term="console.log" scheme="http://www.sulishibaobei.com/tags/console-log/"/>
+    
+      <category term="alert" scheme="http://www.sulishibaobei.com/tags/alert/"/>
     
   </entry>
   
@@ -470,45 +452,23 @@
     <link href="http://www.sulishibaobei.com/angular/style/component-style20170902/"/>
     <id>http://www.sulishibaobei.com/angular/style/component-style20170902/</id>
     <published>2017-09-02T03:05:53.000Z</published>
-    <updated>2017-09-07T02:48:49.000Z</updated>
+    <updated>2017-09-08T00:51:35.021Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://upload-images.jianshu.io/upload_images/4116930-f0723db00f54a079.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"> </p>
 <div class="image-caption">你用Angular吗？</div>
 
 <h2 id="介绍-如何只改动最简单的css代码，呈现完全不一样的视图效果。"><a href="#介绍-如何只改动最简单的css代码，呈现完全不一样的视图效果。" class="headerlink" title="介绍 :如何只改动最简单的css代码，呈现完全不一样的视图效果。"></a>介绍 :如何只改动最简单的css代码，呈现完全不一样的视图效果。</h2><h3 id="第一种：最基本的设置："><a href="#第一种：最基本的设置：" class="headerlink" title="第一种：最基本的设置："></a>第一种：最基本的设置：</h3><a id="more"></a>
 <p><img src="http://upload-images.jianshu.io/upload_images/4116930-982f4ad0d5fd7408.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"> </p>
-<div class="image-caption">&nbsp; 图1 代码</div><br><img src="http://upload-images.jianshu.io/upload_images/4116930-66db768ea2abfff5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"><br><div class="image-caption">图2 界面运行效果图</div>
-
-<blockquote>
-<ul>
-<li>平常，想给一个label或者p等标签添加样式，我们就是这样操作，在Angular中也是一样的。<p></p></li>
-<li>现在，如果我想要将字体换成红色呢，首先想到的就是去修改.label里的color属性值，可如果样式表是封装的或者外部引用的，不方便修改呢？<p></p></li>
-<li>这时候就要用到ElementRef 和Renderer2了。可以去Angular 官网里搜索哟。<p></p></li>
-</ul>
-</blockquote>
-<p><img src="http://upload-images.jianshu.io/upload_images/4116930-84cb5a9a2291484d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"></p>
-<div class="image-caption">&nbsp; renderer.class 图</div>
+<div class="image-caption">&nbsp; 图1 代码</div><br><img src="http://upload-images.jianshu.io/upload_images/4116930-66db768ea2abfff5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"><br><div class="image-caption">图2 界面运行效果图</div><br>平常，想给一个label或者p等标签添加样式，我们就是这样操作，在Angular中也是一样的。<br>现在，如果我想要将字体换成红色呢，首先想到的就是去修改.label里的color属性值，可如果样式表是封装的或者外部引用的，不方便修改呢？<br>这时候就要用到ElementRef 和Renderer2了。可以去Angular 官网里搜索哟。<br><img src="http://upload-images.jianshu.io/upload_images/4116930-84cb5a9a2291484d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"><br><div class="image-caption">&nbsp; renderer.class 图</div>
 
 <h3 id="第二种-我们可以这样用"><a href="#第二种-我们可以这样用" class="headerlink" title="第二种:我们可以这样用"></a>第二种:我们可以这样用</h3><p><img src="http://upload-images.jianshu.io/upload_images/4116930-a174137d1ddabdf5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"></p>
-<div class="image-caption">&nbsp; label.html</div><br><img src="http://upload-images.jianshu.io/upload_images/4116930-047f9e0a9248b70d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"><br><div class="image-caption">&nbsp; label.ts</div>
+<div class="image-caption">&nbsp; label.html</div><br><img src="http://upload-images.jianshu.io/upload_images/4116930-047f9e0a9248b70d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"><br><div class="image-caption">&nbsp; label.ts</div><br>当然ElementRef和renderer2都引用自@angular/core库里面的。 至于ViewChild 和ngAfterViewInit()可以自行去了解。<br><img src="http://upload-images.jianshu.io/upload_images/4116930-062a49888ff8ea87.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"><br><div class="image-caption">&nbsp;&nbsp;&nbsp; 修改效果图</div>
 
-<blockquote>
-<ul>
-<li><p>当然ElementRef和renderer2都引用自@angular/core库里面的。 至于ViewChild 和ngAfterViewInit()可以自行去了解。<br><img src="http://upload-images.jianshu.io/upload_images/4116930-062a49888ff8ea87.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"> </p>
-<div class="image-caption">&nbsp;&nbsp;&nbsp; 修改效果图</div>
-</li>
-<li><p>当然，你说这样修改的弊端有没有呢？肯定是有的，因为，this.el.nativeElement获取的是当前元素，如果用*ngFor生成了一系列的label的话，它只会给你修改第一个label的。那有没有其他的办法可以修改呢。当然也是有的！</p>
-</li>
-</ul>
-</blockquote>
+<p>当然，你说这样修改的弊端有没有呢？肯定是有的，因为，this.el.nativeElement获取的是当前元素，如果用*ngFor生成了一系列的label的话，它只会给你修改第一个label的。那有没有其他的办法可以修改呢。当然也是有的！</p>
 <h3 id="第三种：我们可以获取到元素的节点进行操作"><a href="#第三种：我们可以获取到元素的节点进行操作" class="headerlink" title="第三种：我们可以获取到元素的节点进行操作?"></a>第三种：我们可以获取到元素的节点进行操作?</h3><p><img src="http://upload-images.jianshu.io/upload_images/4116930-12c5b5c2c91e5027.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"></p>
 <div class="image-caption">&nbsp; label.ts</div>
 
-<blockquote>
-<ul>
-<li>获取元素节点，还是用上面的elementref。 如果要改变所有的，For循环皆可以啦。可是，这样做又有问题了？如果想不同的label不同字体颜色怎么办呢？<br><strong>当然Angular也提供了方法呀？ ngStyle和ngClass可以用呀！</strong></li>
-</ul>
-</blockquote>
+<p>获取元素节点，还是用上面的elementref。 如果要改变所有的，For循环皆可以啦。可是，这样做又有问题了？如果想不同的label不同字体颜色怎么办呢？<br><strong>当然Angular也提供了方法呀？ ngStyle和ngClass可以用呀！</strong></p>
 <p><img src="http://upload-images.jianshu.io/upload_images/4116930-9812d0ae51e1617b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"></p>
 <p><div class="image-caption">&nbsp;ngStyle</div></p>
 <p>[ngStyle]=”{color:’&nbsp; ‘}”&nbsp; 和[style.color]是一样的意思。<br>你的label想变成什么颜色，你就给我传那个值进来，0就是green……<br>这种适用于只需要修改少量属性的标签。<br>如果你需要修改颜色，字体大小，间距….这种方式显然太繁琐，这时候ngclass就来了。</p><br><img src="http://upload-images.jianshu.io/upload_images/4116930-9e8fc68d79cdd836.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"><br><div class="image-caption">&nbsp;ngclass</div><br><p>注意ngClass后面的字样。label为什么没有用单引号呢，而后面的text-primary却有呢？<br>.label是一个变量，我们的样式是可以传参的。</p><br><img src="http://upload-images.jianshu.io/upload_images/4116930-09c7142d6bee0a3d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240"><br><p>也就是你的html标签不需要改动，需要什么样式就在ts离传入即可。ngClass也可以利用这个特性去修改。<br>其实这几种用的地方也挺多的，不过得根据实际需求去采用不同形式。<br>欢迎来找我交流Angular 或前端技术哟。</p>
@@ -543,7 +503,7 @@
     <link href="http://www.sulishibaobei.com/angular/route/title20170901/"/>
     <id>http://www.sulishibaobei.com/angular/route/title20170901/</id>
     <published>2017-09-01T03:08:53.000Z</published>
-    <updated>2017-09-07T09:35:37.000Z</updated>
+    <updated>2017-09-08T00:56:56.478Z</updated>
     
     <content type="html"><![CDATA[<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;路由的作用就是（导航）：会加载与请求路由相关联的组件，并获取特定路由的相关数据，这允许我们通过控制不同的路由，获取不同的数据，从而渲染不同的页面；</p>
 <h2 id="几种常见的路由配置："><a href="#几种常见的路由配置：" class="headerlink" title="几种常见的路由配置："></a>几种常见的路由配置：</h2><p>Angular路由器是一个可选的外部Angular NgModule ，叫RouterModule;<br>路由器里面包含多种服务(RouterModule)，多种指令（RouterOutlet，RouterLink,RouterLinkActive），和一套配置（Routes）;</p>
@@ -644,16 +604,10 @@
 <li>需要直接访问参数，主要获取初始值，不用订阅的情况下用snapshot；</li>
 <li>需要连续导航多次的用params;</li>
 </ol>
-<p>##总结 ,路由主要是用到了这些方面啦：<br> <img src="/images/router-7.png" alt="cmd-markdown-logo"></p>
-<h2 id="给路由添加一些新特性："><a href="#给路由添加一些新特性：" class="headerlink" title="给路由添加一些新特性："></a>给路由添加一些新特性：</h2><h3 id="添加动画"><a href="#添加动画" class="headerlink" title="添加动画"></a>添加动画</h3><ul>
-<li><p>[1] 在app.module.ts中引入启用Angular动画必备的, 记得在imports中导入：</p>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; BrowserAnimationsModule &#125; from <span class="string">'@angular/platform-browser/animations'</span>;</div></pre></td></tr></table></figure>
-</li>
-<li><p>[2] 在app.component.ts同级下创建一个animation.ts文件，用来存放我们的动画效果；</p>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"> <span class="keyword">import</span> &#123; animate, AnimationEntryMetadata, state, style, transition, trigger &#125; from <span class="string">'@angular/core'</span>;</div><div class="line"><span class="keyword">export</span> <span class="keyword">const</span> slideInDownAnimation: AnimationEntryMetadata =</div><div class="line">  trigger(<span class="string">'routeAnimation'</span>, [</div><div class="line">    state(<span class="string">'*'</span>,</div><div class="line">      style(&#123;</div><div class="line">        opacity: <span class="number">1</span>,</div><div class="line">        transform: <span class="string">'translateX(0)'</span></div><div class="line">      &#125;)</div><div class="line">    ),</div><div class="line">    transition(<span class="string">':enter'</span>, [</div><div class="line">      style(&#123;</div><div class="line">        opacity: <span class="number">0</span>,</div><div class="line">        transform: <span class="string">'translateX(-100%)'</span></div><div class="line">      &#125;),</div><div class="line">      animate(<span class="string">'0.2s ease-in'</span>)</div><div class="line">    ]),</div><div class="line">    transition(<span class="string">':leave'</span>, [</div><div class="line">      animate(<span class="string">'0.5s ease-out'</span>, style(&#123;</div><div class="line">        opacity: <span class="number">0</span>,</div><div class="line">        transform: <span class="string">'translateY(100%)'</span></div><div class="line">      &#125;))</div><div class="line">    ])</div><div class="line">  ]);</div></pre></td></tr></table></figure>
-<p>假定我有以上代码，视图进场和出场；</p>
-</li>
-</ul>
+<h2 id="总结-路由主要是用到了这些方面啦："><a href="#总结-路由主要是用到了这些方面啦：" class="headerlink" title="总结 ,路由主要是用到了这些方面啦："></a>总结 ,路由主要是用到了这些方面啦：</h2><p> <img src="/images/router-7.png" alt="cmd-markdown-logo"></p>
+<h2 id="给路由添加一些新特性："><a href="#给路由添加一些新特性：" class="headerlink" title="给路由添加一些新特性："></a>给路由添加一些新特性：</h2><h3 id="添加动画"><a href="#添加动画" class="headerlink" title="添加动画"></a>添加动画</h3><p>[1] 在app.module.ts中引入启用Angular动画必备的, 记得在imports中导入：<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; BrowserAnimationsModule &#125; from <span class="string">'@angular/platform-browser/animations'</span>;</div></pre></td></tr></table></figure></p>
+<p>[2] 在app.component.ts同级下创建一个animation.ts文件，用来存放我们的动画效果；<br> <figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"> <span class="keyword">import</span> &#123; animate, AnimationEntryMetadata, state, style, transition, trigger &#125; from <span class="string">'@angular/core'</span>;</div><div class="line"><span class="keyword">export</span> <span class="keyword">const</span> slideInDownAnimation: AnimationEntryMetadata =</div><div class="line">  trigger(<span class="string">'routeAnimation'</span>, [</div><div class="line">    state(<span class="string">'*'</span>,</div><div class="line">      style(&#123;</div><div class="line">        opacity: <span class="number">1</span>,</div><div class="line">        transform: <span class="string">'translateX(0)'</span></div><div class="line">      &#125;)</div><div class="line">    ),</div><div class="line">    transition(<span class="string">':enter'</span>, [</div><div class="line">      style(&#123;</div><div class="line">        opacity: <span class="number">0</span>,</div><div class="line">        transform: <span class="string">'translateX(-100%)'</span></div><div class="line">      &#125;),</div><div class="line">      animate(<span class="string">'0.2s ease-in'</span>)</div><div class="line">    ]),</div><div class="line">    transition(<span class="string">':leave'</span>, [</div><div class="line">      animate(<span class="string">'0.5s ease-out'</span>, style(&#123;</div><div class="line">        opacity: <span class="number">0</span>,</div><div class="line">        transform: <span class="string">'translateY(100%)'</span></div><div class="line">      &#125;))</div><div class="line">    ])</div><div class="line">  ]);</div></pre></td></tr></table></figure></p>
+<p> 假定我有以上代码，视图进场和出场；</p>
 <ol>
 <li>构建动画需要的库；</li>
 <li>导出了一个名叫slideInDownAnimation的常量，并把它设置为一个名，用于外部引入此ts文件；</li>
@@ -661,39 +615,24 @@
 <li>指定了一个通配符状态 —— *，它匹配该路由组件存在时的任何动画状态。</li>
 <li>定义两个过渡效果，其中一个（:enter）在组件进入应用视图时让它从屏幕左侧缓动进入（ease-in），另一个（:leave）在组件离开应用视图时让它向下飞出。</li>
 </ol>
-<ul>
-<li>[3] 如何使用动画；</li>
-</ul>
+<p>[3] 如何使用动画；</p>
 <ol>
 <li>在需要的组件中引入变量名为：slideInDownAnimation的文件animation.ts；</li>
 </ol>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;slideInDownAnimation&#125; from <span class="string">'../animation'</span>;</div></pre></td></tr></table></figure>
-<ul>
-<li><p>[4]组件中配置</p>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">templateUrl: <span class="string">'hero-detail.component.html'</span>,</div><div class="line">animations: [slideInDownAnimation]</div></pre></td></tr></table></figure>
-</li>
-<li><p>[5]html模板中这样引入：    </p>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div *ngIf=<span class="string">"hero"</span> [<span class="meta">@routeAnimation</span>]=<span class="string">"'active'"</span>&gt;</div></pre></td></tr></table></figure>
-<p>@routeAnimation 动画触发器名<br><img src="/images/router-8.png" alt="cmd-markdown-logo"><br>点击之后会自动加载动画的；</p>
+<p>[4]组件中配置<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">templateUrl: <span class="string">'hero-detail.component.html'</span>,</div><div class="line">animations: [slideInDownAnimation]</div></pre></td></tr></table></figure></p>
+<p>[5]html模板中这样引入：<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div *ngIf=<span class="string">"hero"</span> [<span class="meta">@routeAnimation</span>]=<span class="string">"'active'"</span>&gt;</div></pre></td></tr></table></figure></p>
+<p> @routeAnimation 动画触发器名<br><img src="/images/router-8.png" alt="cmd-markdown-logo"><br> 点击之后会自动加载动画的；</p>
 <h3 id="多重路由出口"><a href="#多重路由出口" class="headerlink" title="多重路由出口"></a>多重路由出口</h3><p><strong>一般情况下：我们使用一个路由出口就行啦，什么情况下会使用第二路由呢？</strong></p>
-</li>
-</ul>
-<ol>
-<li>创建一个新组件ComposemessageComponent</li>
-<li><p>路由配置：</p>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    path:<span class="string">'compose'</span>,</div><div class="line">    component:ComposemessageComponent,</div><div class="line">    outlet:<span class="string">'popup'</span></div><div class="line">  &#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>html页面这样配置：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;nav&gt;</div><div class="line">   &lt;a routerLink="dashboard" routerLinkActive="active"  [routerLinkActiveOptions]="&#123;exact: true&#125;"&gt;Dashboard&lt;/a&gt;</div><div class="line">   &lt;a (click)="go()" &gt;Heroes&lt;/a&gt;</div><div class="line">   &lt;a routerLink="test"  routerLinkActive="active"  [routerLinkActiveOptions]="&#123;exact: true&#125;"&gt;Test&lt;/a&gt;</div><div class="line">    &lt;a routerLink="loadtest"  routerLinkActive="active"&gt;loadTest&lt;/a&gt; </div><div class="line">    &lt;a [routerLink]="[&#123; outlets: &#123; popup: ['compose'] &#125; &#125;]"&gt;Contact&lt;/a&gt;</div><div class="line"> &lt;/nav&gt;</div><div class="line">&lt;router-outlet&gt;&lt;/router-outlet&gt;</div><div class="line">&lt;router-outlet name="popup"&gt;&lt;/router-outlet&gt;</div></pre></td></tr></table></figure>
-</li>
-</ol>
+<p>1.创建一个新组件ComposemessageComponent<br>2.路由配置：<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    path:<span class="string">'compose'</span>,</div><div class="line">    component:ComposemessageComponent,</div><div class="line">    outlet:<span class="string">'popup'</span></div><div class="line">  &#125;</div></pre></td></tr></table></figure></p>
+<p>3.html页面这样配置：<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;nav&gt;</div><div class="line">   &lt;a routerLink="dashboard" routerLinkActive="active"  [routerLinkActiveOptions]="&#123;exact: true&#125;"&gt;Dashboard&lt;/a&gt;</div><div class="line">   &lt;a (click)="go()" &gt;Heroes&lt;/a&gt;</div><div class="line">   &lt;a routerLink="test"  routerLinkActive="active"  [routerLinkActiveOptions]="&#123;exact: true&#125;"&gt;Test&lt;/a&gt;</div><div class="line">    &lt;a routerLink="loadtest"  routerLinkActive="active"&gt;loadTest&lt;/a&gt; </div><div class="line">    &lt;a [routerLink]="[&#123; outlets: &#123; popup: ['compose'] &#125; &#125;]"&gt;Contact&lt;/a&gt;</div><div class="line"> &lt;/nav&gt;</div><div class="line">&lt;router-outlet&gt;&lt;/router-outlet&gt;</div><div class="line">&lt;router-outlet name="popup"&gt;&lt;/router-outlet&gt;</div></pre></td></tr></table></figure></p>
 <p>这是我的页面所有的路由配置；<br><img src="/images/router-9.png" alt="cmd-markdown-logo"><br>点击Contact 不会替换其他的组件信息，注意看<code>Url:<a href="http://localhost:4200/dashboard(popup:compose" target="_blank" rel="external">http://localhost:4200/dashboard(popup:compose</a>)</code><br>点击Contact url地址没有变成<code><a href="http://localhost:4200/contact" target="_blank" rel="external">http://localhost:4200/contact</a></code>而是采用圆括号加载</p>
 <ul>
 <li>圆括号包裹的部分是第二路由。</li>
-<li>第二路由包括一个出口名称（popup）、一个冒号分隔符和第二路由的路径（compose）<br>而是显示在下面，点击test也是一样：<br><img src="/images/router-10.png" alt="cmd-markdown-logo"><br>Contact路由加载的组件不会被清除，一直显示在下面，状态一直被激活；<br>这里我们就能知道第二路由的用处：即使在应用中的不同页面之间切换，这个组件也应该始终保持打开状态，多重出口可以在同一时间根据不同的路由来显示不同的内容；<br>但是什么时候清除我们的第二路由呢？如果我页面不需要呢？<br>注意：<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> (<span class="attr">click</span>)=<span class="string">"go()"</span> &gt;</span>Heroes<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">go() &#123;</div><div class="line">   this.router.navigateByUrl('heroes');</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
-</li>
+<li>第二路由包括一个出口名称（popup）、一个冒号分隔符和第二路由的路径（compose）<br>而是显示在下面，点击test也是一样：<br><img src="/images/router-10.png" alt="cmd-markdown-logo"></li>
 </ul>
-<p>当点击Heroes时，Contact路由加载的内容就不会被显示：<br><img src="/images/router-1`.png" alt="cmd-markdown-logo"><br>原因是这样的：<br>它使用Router.navigateNyUrl()方法进行强制导航,所以路由清除啦；<br>还可以这样清除：</p>
+<p>Contact路由加载的组件不会被清除，一直显示在下面，状态一直被激活；<br>这里我们就能知道第二路由的用处：即使在应用中的不同页面之间切换，这个组件也应该始终保持打开状态，多重出口可以在同一时间根据不同的路由来显示不同的内容；<br>但是什么时候清除我们的第二路由呢？如果我页面不需要呢？<br>注意：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">a</span> (<span class="attr">click</span>)=<span class="string">"go()"</span> &gt;</span>Heroes<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">go() &#123;</div><div class="line">   this.router.navigateByUrl('heroes');</div><div class="line"> &#125;</div></pre></td></tr></table></figure></p>
+<p>当点击Heroes时，Contact路由加载的内容就不会被显示：<br><img src="/images/router-1.png" alt="cmd-markdown-logo"><br>原因是这样的：<br>它使用Router.navigateNyUrl()方法进行强制导航,所以路由清除啦；<br>还可以这样清除：</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">this</span>.router.navigate([&#123; outlets: &#123; popup: <span class="literal">null</span> &#125;&#125;]);</div><div class="line">outlets属性的值是另一个对象，该对象用一些出口名称作为属性名。 唯一的命名出口是<span class="string">'popup'</span>。但这里，<span class="string">'popup'</span>的值是<span class="literal">null</span>。<span class="literal">null</span>不是一个路由，</div><div class="line">但却是一个合法的值。 把popup这个RouterOutlet设置为<span class="literal">null</span>会清除该出口，并且从当前URL中移除第二路由popup</div></pre></td></tr></table></figure>
 <h3 id="路由守卫"><a href="#路由守卫" class="headerlink" title="路由守卫"></a>路由守卫</h3><p>按照上面所说：任何用户都能在任何时候导航到任何地方，这样就有问题，可能此用户并没有权限切换到此路由，<br>可能用户未登陆不能切换，或者做一些友好提示之后再切换；<br>所以路由守卫就来了：<br>守卫返回一个值，以控制路由器的行为：</p>
 <ol>
