@@ -4,8 +4,56 @@
 
     
   <url>
+    <loc>http://www.sulishibaobei.com/css/fb-120170908/</loc>
+    <lastmod>2017-09-08T02:48:36.566Z</lastmod>
+    <data>
+        <display>
+        <title>Flexible Box布局基础知识详解</title>
+        <pubTime>2017-09-08T02:08:53.000Z</pubTime>
+        
+        <tag>CSS</tag>
+         
+        <tag>弹性布局</tag>
+         
+        <tag>Flexible</tag>
+         
+         
+           
+             
+              <breadCrumb title="CSS" url="http://www.sulishibaobei.com/categories/CSS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.sulishibaobei.com/angular/style/component-120170908/</loc>
+    <lastmod>2017-09-08T02:31:33.046Z</lastmod>
+    <data>
+        <display>
+        <title>Angular 4 自定义组件封装遇见的一些事儿</title>
+        <pubTime>2017-09-08T03:05:53.000Z</pubTime>
+        
+        <tag>Angular 2+</tag>
+         
+        <tag>自定义</tag>
+         
+        <tag>component</tag>
+         
+         
+           
+             
+              <breadCrumb title="Angular 2+" url="http://www.sulishibaobei.com/categories/Angular-2/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.sulishibaobei.com/angular/pg-120170908/</loc>
-    <lastmod>2017-09-08T02:02:56.000Z</lastmod>
+    <lastmod>2017-09-08T02:08:51.704Z</lastmod>
     <data>
         <display>
         <title>angular4 中自定义pagination组件</title>
