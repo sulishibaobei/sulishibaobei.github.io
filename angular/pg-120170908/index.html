@@ -371,124 +371,24 @@
 
   <div id="posts" class="posts-expand">
     
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.sulishibaobei.com/angular/pg-120170908/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="少女雨">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/a.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="少女雨的博客">
-    </span>
-
     
+    
+    <div class="post-block page">
       <header class="post-header">
 
-        
-        
-          <h1 class="post-title" itemprop="name headline">angular4 中自定义pagination组件</h1>
-        
+	<h1 class="post-title" itemprop="name headline">angular4 中自定义pagination组件</h1>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-08T09:08:53+08:00">
-                2017-09-08
-              </time>
-            
 
-            
 
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Angular-2/" itemprop="url" rel="index">
-                    <span itemprop="name">Angular 2+</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/angular/pg-120170908/" class="leancloud_visitors" data-flag-title="angular4 中自定义pagination组件">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-            <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-file-o"></i> 本文总阅读量
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
-            </span>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+</header>
 
       
       
-
       
-        <p><img src="/images/fengjing-3.jpg" alt="fengjing"></p>
+      <div class="post-body">
+        
+        
+          <p><img src="/images/fengjing-3.jpg" alt="fengjing"></p>
 <p><div class="image-caption">你用Angular 吗?</div><br><a id="more"></a><br><br>一.介绍<br>一个基于angular4 开发的可以分页的组件。组件的好处就是可以复用，复用…..作为一个前端码农，开始的分页功能实现是我用jquery写的，其他同事用的时候都要将我的代码拷贝过去，于是我被鄙视了。为了不继续被鄙视就开始了尝试。<br>二.基本功能<br>1.根据规定的每页数据条数，分页显示数据<br>2.上下页操作数据<br>直接上界面图可能清晰点：<br><img src="http://upload-images.jianshu.io/upload_images/4116930-2fe57ab69ccdcb87.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" data-original-src="http://upload-images.jianshu.io/upload_images/4116930-2fe57ab69ccdcb87.png?imageMogr2/auto-orient/strip" data-image-slug="2fe57ab69ccdcb87" data-width="1338" data-height="655"> </p>
 <p><div class="image-caption">项目截图</div><br>根据图片进行讲解下：根据你总数据条数:totalNum; 每页显示条数:pageSize,通过组件会自动给你分页显示。<br>eg：总数41 条数据,每页显示10条数据，则是分成5页。如果想每页显示7条，则会分成6页。<br>三.简要代码<br>架构目录图：<br><img src="http://upload-images.jianshu.io/upload_images/4116930-fed7af4e2c9f5530.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" data-original-src="http://upload-images.jianshu.io/upload_images/4116930-fed7af4e2c9f5530.png?imageMogr2/auto-orient/strip" data-image-slug="fed7af4e2c9f5530" data-width="360" data-height="351"> </p>
 <p><div class="image-caption">项目目录</div><br>有两个组件：pagination和page;&nbsp; pagination是用来显示前面数据的，page是用来下面分页的。<br>pagination.html示例代码：<br><img src="http://upload-images.jianshu.io/upload_images/4116930-7fc90a6263bba71b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" data-original-src="http://upload-images.jianshu.io/upload_images/4116930-7fc90a6263bba71b.png?imageMogr2/auto-orient/strip" data-image-slug="7fc90a6263bba71b" data-width="1517" data-height="603"> </p>
@@ -498,98 +398,15 @@
 <p><div class="image-caption">page.ts分页实现部分代码</div><br>@Input是接收pagination.html组件传过来的数据。@Output是定义pagination.html页面定义的changeCurPage事件。<br>通过三个if else判断，对传多来的数据进行处理。其实就分为：数据只够显示一页；数据显示到最后一页；数据刷新到中间页码；这三种情况下的操作。<br>好了，基本就完成了。有些东西也是借助网友的想法，但是思路大致都是这样。现在我改变条数和数据量看看：<br><img src="http://upload-images.jianshu.io/upload_images/4116930-a5a797d4493a0cb9.png" alt="" data-original-src="http://upload-images.jianshu.io/upload_images/4116930-a5a797d4493a0cb9.png" data-image-slug="a5a797d4493a0cb9"> </p>
 <p><div class="image-caption">&nbsp; 项目截图</div><br>详情代码及效果：<a href="https://github.com/sulishibaobei/pagination" target="_blank" rel="external">https://github.com/sulishibaobei/pagination</a></p>
 
+        
+      </div>
+      
+      
       
     </div>
     
     
     
-
-    
-
-    
-      <div>
-        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-  <div>谢谢你给我的支持，坚持原创技术分享，共同成长</div>
-  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
-    <span>Donate</span>
-  </button>
-  <div id="QR" style="display: none;">
-
-    
-      <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/images/zhifubao.jpg" alt="少女雨 WeChat Pay"/>
-        <p>WeChat Pay</p>
-      </div>
-    
-
-    
-      <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="/images/weixin.jpg" alt="少女雨 Alipay"/>
-        <p>Alipay</p>
-      </div>
-    
-
-    
-
-  </div>
-</div>
-
-      </div>
-    
-
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/Angular2/" rel="tag"><i class="fa fa-tag"></i> Angular2+</a>
-          
-            <a href="/tags/分页组件/" rel="tag"><i class="fa fa-tag"></i> 分页组件</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/angular/http/http-120170908/" rel="next" title="Angular 4+ Http">
-                <i class="fa fa-chevron-left"></i> Angular 4+ Http
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/css/fb-120170908/" rel="prev" title="Flexible Box布局基础知识详解">
-                Flexible Box布局基础知识详解 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-
-    <div class="post-spread">
-      
-    </div>
   </div>
 
 
@@ -934,10 +751,6 @@
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
-
-
 
   
 

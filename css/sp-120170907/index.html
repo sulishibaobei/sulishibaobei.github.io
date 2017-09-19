@@ -369,124 +369,24 @@
 
   <div id="posts" class="posts-expand">
     
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.sulishibaobei.com/css/sp-120170907/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="少女雨">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/a.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="少女雨的博客">
-    </span>
-
     
+    
+    <div class="post-block page">
       <header class="post-header">
 
-        
-        
-          <h1 class="post-title" itemprop="name headline">Css3雪碧图</h1>
-        
+	<h1 class="post-title" itemprop="name headline">Css3雪碧图</h1>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-07T09:08:53+08:00">
-                2017-09-07
-              </time>
-            
 
-            
 
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CSS/" itemprop="url" rel="index">
-                    <span itemprop="name">CSS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/css/sp-120170907/" class="leancloud_visitors" data-flag-title="Css3雪碧图">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-            <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-file-o"></i> 本文总阅读量
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
-            </span>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+</header>
 
       
       
-
       
-        <p>Css雪碧图： CSS雪碧 即CSS Sprite，也有人叫它CSS精灵，是一种CSS图像合并技术，该方法是将小图标和背景图像合并到一张图片上，然后利用css的背景定位来显示需要显示的图片部分。<br>原理：CSS雪碧的基本原理是把你的网站上用到的一些图片整合到一张单独的图片中，从而减少你的网站的HTTP请求数量。该图片使用CSS background和background-position属性渲染，这也就意味着你的标签变得更加复杂了，图片是在CSS中定义，而非&lt;img&gt;标签。<br>如何生成雪碧图？<br>安装gulp插件： <code>npm install –g gulp</code><br>安装制作雪碧图需要的插件 <code>npm install –g gulp.spritesmith</code><br>最好全局和本地各装一遍；</p>
+      <div class="post-body">
+        
+        
+          <p>Css雪碧图： CSS雪碧 即CSS Sprite，也有人叫它CSS精灵，是一种CSS图像合并技术，该方法是将小图标和背景图像合并到一张图片上，然后利用css的背景定位来显示需要显示的图片部分。<br>原理：CSS雪碧的基本原理是把你的网站上用到的一些图片整合到一张单独的图片中，从而减少你的网站的HTTP请求数量。该图片使用CSS background和background-position属性渲染，这也就意味着你的标签变得更加复杂了，图片是在CSS中定义，而非&lt;img&gt;标签。<br>如何生成雪碧图？<br>安装gulp插件： <code>npm install –g gulp</code><br>安装制作雪碧图需要的插件 <code>npm install –g gulp.spritesmith</code><br>最好全局和本地各装一遍；</p>
 <a id="more"></a> 
 <p>新建一个Gulpfile.js文件，将下列代码放进去：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> gulp=<span class="built_in">require</span>(<span class="string">'gulp'</span>);   <span class="comment">//引入这两个gulp  gulp.spritesmith</span></div><div class="line">    spritesmith=<span class="built_in">require</span>(<span class="string">'gulp.spritesmith'</span>);   </div><div class="line">      gulp.task(<span class="string">'default'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;   <span class="comment">//新建名为sprite的任务</span></div><div class="line">         gulp.src(<span class="string">'images/*.png'</span>)  <span class="comment">//需要合成的图片路径  *为通配符  表示这个文件夹下面所有后缀为.png的文件都会被应用</span></div><div class="line">            .pipe(spritesmith(&#123;  </div><div class="line">    <span class="attr">imgName</span>:<span class="string">'sprite.png'</span>,<span class="comment">//合成后需要保存图片的路径 </span></div><div class="line">    cssName:<span class="string">'sprite.css'</span>,  <span class="comment">//合成后需要保存的css的路径</span></div><div class="line">    padding:<span class="number">5</span>,  <span class="comment">//表示两个图片间的空隙</span></div><div class="line">    algorithm:<span class="string">'binary-tree'</span>, <span class="comment">// Algorithm 有四个可选值分别为top-down、left-right、diagonal、alt-diagonal、binary-tree</span></div><div class="line">    <span class="comment">// cssTemplate:'dist/handlebarsStr.css' //生成的css模板文件，可以是函数也可以是字符串</span></div><div class="line">    &#125;))  </div><div class="line">    .pipe(gulp.dest(<span class="string">'dist/'</span>)) <span class="comment">//将生成的文件放到dist文件夹下 </span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
@@ -503,100 +403,15 @@
 <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.sprite</span> <span class="selector-tag">li</span> <span class="selector-tag">s</span>&#123;      </div><div class="line">          <span class="attribute">display</span>: inline-block;</div><div class="line">          <span class="attribute">margin-left</span>: <span class="number">10px</span>;</div><div class="line">          <span class="attribute">margin-right</span>: <span class="number">8px</span>;</div><div class="line">      &#125;</div></pre></td></tr></table></figure>
 <p>看看效果：<br><img src="/images/sp-5.png" alt="sp"></p>
 
+        
+      </div>
+      
+      
       
     </div>
     
     
     
-
-    
-
-    
-      <div>
-        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-  <div>谢谢你给我的支持，坚持原创技术分享，共同成长</div>
-  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
-    <span>Donate</span>
-  </button>
-  <div id="QR" style="display: none;">
-
-    
-      <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/images/zhifubao.jpg" alt="少女雨 WeChat Pay"/>
-        <p>WeChat Pay</p>
-      </div>
-    
-
-    
-      <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="/images/weixin.jpg" alt="少女雨 Alipay"/>
-        <p>Alipay</p>
-      </div>
-    
-
-    
-
-  </div>
-</div>
-
-      </div>
-    
-
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/CSS/" rel="tag"><i class="fa fa-tag"></i> CSS</a>
-          
-            <a href="/tags/雪碧图/" rel="tag"><i class="fa fa-tag"></i> 雪碧图</a>
-          
-            <a href="/tags/gulp/" rel="tag"><i class="fa fa-tag"></i> gulp</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/angular/angular-cli/angular-120170906/" rel="next" title="Angular 2+ 关于新版angular-cli的应用">
-                <i class="fa fa-chevron-left"></i> Angular 2+ 关于新版angular-cli的应用
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/wb/wb-120170907/" rel="prev" title="nodejs+websocket实时聊天系统">
-                nodejs+websocket实时聊天系统 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-
-    <div class="post-spread">
-      
-    </div>
   </div>
 
 
@@ -941,10 +756,6 @@
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
-
-
 
   
 

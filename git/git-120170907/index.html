@@ -368,124 +368,24 @@
 
   <div id="posts" class="posts-expand">
     
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.sulishibaobei.com/git/git-120170907/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="少女雨">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/a.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="少女雨的博客">
-    </span>
-
     
+    
+    <div class="post-block page">
       <header class="post-header">
 
-        
-        
-          <h1 class="post-title" itemprop="name headline">git 打卡的第一天</h1>
-        
+	<h1 class="post-title" itemprop="name headline">git 打卡的第一天</h1>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-07T09:08:53+08:00">
-                2017-09-07
-              </time>
-            
 
-            
 
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Git/" itemprop="url" rel="index">
-                    <span itemprop="name">Git</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/git/git-120170907/" class="leancloud_visitors" data-flag-title="git 打卡的第一天">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-            <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-file-o"></i> 本文总阅读量
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
-            </span>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+</header>
 
       
       
-
       
-        <p>因为某种原因，所以不得不重新巩固下前端的基础知识，从最基本的学习还得额外的学习新知识，倍感压力之大。 昨天初略学习下git，算是自己学习的一个新知识。简单记录下，希望四海八荒的大神看过来，有错的请指导。</p>
+      <div class="post-body">
+        
+        
+          <p>因为某种原因，所以不得不重新巩固下前端的基础知识，从最基本的学习还得额外的学习新知识，倍感压力之大。 昨天初略学习下git，算是自己学习的一个新知识。简单记录下，希望四海八荒的大神看过来，有错的请指导。</p>
 <h2 id="git下载安装"><a href="#git下载安装" class="headerlink" title="git下载安装"></a>git下载安装</h2><p><a href="https://git-for-windows.github.io/" target="_blank" rel="external">git下载安装地址</a>下载好之后记得配置环境变量。<br><strong>git的作用主要是将项目保存到git目录中</strong><br><a id="more"></a></p>
 <h2 id="git介绍"><a href="#git介绍" class="headerlink" title="git介绍"></a>git介绍</h2><p><strong>主要分为三个块：</strong><br>[1] working directory(工作目录）  本地上存放项目的目录。<br>[2] staging area 暂存放区域    更新暂未提交的项目。<br>[3] git directory  git上存放项目的地方。<br>1.一般我们使用git都会将一些修改的文件保存在暂存区域，然后一并提交更新到git目录中。<br>2.安装好git之后，网页打开github，注册信息。登陆进去，接下来配置信息。<br>3.打开右上角，如下图点击settings。然后点击SSH and GPG keys ,配置SSH。打开cmd或者git bash。找不到git.bash的就在开始那里搜索或者在你安装的git文件里面打开git.bash.exe就一样。<br>4.在命令行输入：<font color="red">ssh-keygen -t rsa -C “你注册github时的邮箱名” </font>然后会提示你生产的key在id_rsa.pub文件中找。<br><img src="/images/git-1.png" alt="git"><br>5.在电脑中一个叫.ssh的文件里，然后复制黏贴在右边的key框里面，title就随便打。<br><img src="/images/git-2.png" alt="git"><br><img src="/images/git-3.png" alt="git"><br> 此时git的安装目录就为你的根目录。</p>
 <h2 id="配置用户信息："><a href="#配置用户信息：" class="headerlink" title="配置用户信息："></a>配置用户信息：</h2><p><code>git config --global user.name &quot;你注册时的用户名&quot;;</code><br><code>git config  --global user.email &quot;你的邮箱&quot;;</code><br>git里面提供了一个git config的命令专门用来配置或者读取相应的工作环境变量。<br>这些变量可以存放在三个地方：etc/gitconfig文件， git config –system读写的就是此文件；~/.gitconfig文件，git config –global 读写的就是此文件；<br>配置好信息后，可以通过git config –list 命令查看&nbsp;&nbsp; 如果git config user.name就是具体的查看某个环境变量的设定。<br><strong>若不知道如何使用git命令，可以git help看看。</strong> </p>
@@ -493,100 +393,15 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git add *（*是上传所有的本件，若是想具体的就写文件名）</div><div class="line">git commit  -m <span class="string">"version"</span>  提交文件</div><div class="line">git push</div></pre></td></tr></table></figure>
 <p> 这三步就完成git项目的提交。<br> 可以用git status命令查看当前文件的状态。<br> 所有的文件都可以先add到暂存区域，然后最后再一起commit。 </p>
 
+        
+      </div>
+      
+      
       
     </div>
     
     
     
-
-    
-
-    
-      <div>
-        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-  <div>谢谢你给我的支持，坚持原创技术分享，共同成长</div>
-  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
-    <span>Donate</span>
-  </button>
-  <div id="QR" style="display: none;">
-
-    
-      <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="/images/zhifubao.jpg" alt="少女雨 WeChat Pay"/>
-        <p>WeChat Pay</p>
-      </div>
-    
-
-    
-      <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="/images/weixin.jpg" alt="少女雨 Alipay"/>
-        <p>Alipay</p>
-      </div>
-    
-
-    
-
-  </div>
-</div>
-
-      </div>
-    
-
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/git/" rel="tag"><i class="fa fa-tag"></i> git</a>
-          
-            <a href="/tags/环境变量配置/" rel="tag"><i class="fa fa-tag"></i> 环境变量配置</a>
-          
-            <a href="/tags/基本git操作/" rel="tag"><i class="fa fa-tag"></i> 基本git操作</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/angular/pipe/pipe-120170907/" rel="next" title="滑稽的下午--Angular 2+管道的使用">
-                <i class="fa fa-chevron-left"></i> 滑稽的下午--Angular 2+管道的使用
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/webpack/wp-120170907/" rel="prev" title="webpack初略学习">
-                webpack初略学习 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-
-    <div class="post-spread">
-      
-    </div>
   </div>
 
 
@@ -956,10 +771,6 @@
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
-
-
 
   
 
