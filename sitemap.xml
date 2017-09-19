@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.sulishibaobei.com/wb/wb-120170907/</loc>
+    
+    <lastmod>2017-09-19T05:44:28.638Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.sulishibaobei.com/site/index.html</loc>
     
     <lastmod>2017-09-19T05:20:06.519Z</lastmod>
@@ -131,13 +138,6 @@
     <loc>http://www.sulishibaobei.com/git/git-120170907/</loc>
     
     <lastmod>2017-09-07T09:31:48.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.sulishibaobei.com/websocket/wb-120170907/</loc>
-    
-    <lastmod>2017-09-07T09:29:02.000Z</lastmod>
     
   </url>
   
