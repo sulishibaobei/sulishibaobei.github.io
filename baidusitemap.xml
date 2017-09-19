@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>http://www.sulishibaobei.com/js/js120170905/</loc>
+    <lastmod>2017-09-19T09:15:40.211Z</lastmod>
+    <data>
+        <display>
+        <title>前端面试中遇见的那些纯js题</title>
+        <pubTime>2017-09-05T03:08:53.000Z</pubTime>
+        
+        <tag>面试</tag>
+         
+        <tag>javascript</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端面试题整理" url="http://www.sulishibaobei.com/categories/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.sulishibaobei.com/index20170906/</loc>
     <lastmod>2017-09-19T07:27:57.913Z</lastmod>
     <data>
@@ -58,28 +80,6 @@
         <pubTime>2017-09-06T08:34:54.000Z</pubTime>
         
          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.sulishibaobei.com/js/js120170905/</loc>
-    <lastmod>2017-09-13T09:14:10.000Z</lastmod>
-    <data>
-        <display>
-        <title>前端面试中遇见的那些纯js题</title>
-        <pubTime>2017-09-05T03:08:53.000Z</pubTime>
-        
-        <tag>javascript</tag>
-         
-        <tag>面试</tag>
-         
-         
-           
-             
-              <breadCrumb title="前端面试题整理" url="http://www.sulishibaobei.com/categories/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86/"/>
-          
         </display>
     </data>
     </url>
@@ -351,11 +351,11 @@
         <title>简述alert和console.log的区别</title>
         <pubTime>2017-09-05T03:08:53.000Z</pubTime>
         
+        <tag>javascript</tag>
+         
         <tag>console.log</tag>
          
         <tag>alert</tag>
-         
-        <tag>javascript</tag>
          
          
            
