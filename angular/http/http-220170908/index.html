@@ -362,24 +362,124 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.sulishibaobei.com/angular/http/http-220170908/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="少女雨">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/a.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="少女雨的博客">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">Angular 4+ HttpClient</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <p>Angular 4.3.0-rc.0 版本已经发布🐦。在这个版本中，我们等到了一个令人兴奋的新功能 - HTTPClient API 的改进版本；<br>HttpClient 是已有 Angular HTTP API 的演进，它在一个单独的 @angular/common/http 包中。这是为了确保现有的代码库可以缓慢迁移到新的 API；<br>大多数前端应用都需要通过 HTTP 协议与后端服务器通讯。现代浏览器支持使用两种不同的 API 发起 HTTP 请求：XMLHttpRequest 接口和 fetch() API；<br><a id="more"></a><br>@angular/common/http中的HttpClient类，Angular 为应用程序提供了一个简化的 API 来实现 HTTP 功能。它基于浏览器提供的XMLHttpRequest接口。 HttpClient带来的其它优点包括：可测试性、强类型的请求和响应对象、发起请求与接收响应时的拦截器支持，以及更好的、基于可观察（Observable）对象的错误处理机制；<br>1.如何使用httpClient;</p>
+          <h1 class="post-title" itemprop="name headline">Angular 4+ HttpClient</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-08T09:08:53+08:00">
+                2017-09-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Angular-2/" itemprop="url" rel="index">
+                    <span itemprop="name">Angular 2+</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/angular/http/http-220170908/" class="leancloud_visitors" data-flag-title="Angular 4+ HttpClient">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 本文总阅读量
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Angular 4.3.0-rc.0 版本已经发布🐦。在这个版本中，我们等到了一个令人兴奋的新功能 - HTTPClient API 的改进版本；<br>HttpClient 是已有 Angular HTTP API 的演进，它在一个单独的 @angular/common/http 包中。这是为了确保现有的代码库可以缓慢迁移到新的 API；<br>大多数前端应用都需要通过 HTTP 协议与后端服务器通讯。现代浏览器支持使用两种不同的 API 发起 HTTP 请求：XMLHttpRequest 接口和 fetch() API；<br><a id="more"></a><br>@angular/common/http中的HttpClient类，Angular 为应用程序提供了一个简化的 API 来实现 HTTP 功能。它基于浏览器提供的XMLHttpRequest接口。 HttpClient带来的其它优点包括：可测试性、强类型的请求和响应对象、发起请求与接收响应时的拦截器支持，以及更好的、基于可观察（Observable）对象的错误处理机制；<br>1.如何使用httpClient;</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;NgModule&#125; from <span class="string">'@angular/core'</span>;</div><div class="line"><span class="keyword">import</span> &#123;BrowserModule&#125; from <span class="string">'@angular/platform-browser'</span>;</div><div class="line"><span class="keyword">import</span> &#123;HttpClientModule&#125; from <span class="string">'@angular/common/http'</span>;</div><div class="line"><span class="meta">@NgModule</span>(&#123;</div><div class="line">  imports: [</div><div class="line">    BrowserModule,</div><div class="line">    <span class="comment">// Include it under 'imports' in your application module</span></div><div class="line">    <span class="comment">// after BrowserModule.</span></div><div class="line">    HttpClientModule,</div><div class="line">  ],</div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="keyword">class</span> MyAppModule &#123;&#125;</div></pre></td></tr></table></figure>
 <p>注意：导入方式和HttpModule一样的，记得要在BrowserModule后面导入；区别是：在@angular/common/http 模块里面，而不是@angular/http中<br>这样我们可以使用这些啦：</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> HttpClient &#123;</div><div class="line">  request(first: <span class="built_in">string</span>|HttpRequest&lt;<span class="built_in">any</span>&gt;, url?: <span class="built_in">string</span>, options: &#123;...&#125;): Observable&lt;<span class="built_in">any</span>&gt;</div><div class="line">  <span class="keyword">delete</span>(url: <span class="built_in">string</span>, options: &#123;...&#125;): Observable&lt;<span class="built_in">any</span>&gt;</div><div class="line">  <span class="keyword">get</span>(url: <span class="built_in">string</span>, options: &#123;...&#125;): Observable&lt;<span class="built_in">any</span>&gt;</div><div class="line">  head(url: <span class="built_in">string</span>, options: &#123;...&#125;): Observable&lt;<span class="built_in">any</span>&gt;</div><div class="line">  jsonp&lt;T&gt;(url: <span class="built_in">string</span>, callbackParam: <span class="built_in">string</span>): Observable&lt;T&gt;</div><div class="line">  options(url: <span class="built_in">string</span>, options: &#123;...&#125;): Observable&lt;<span class="built_in">any</span>&gt;</div><div class="line">  patch(url: <span class="built_in">string</span>, body: <span class="built_in">any</span>|<span class="literal">null</span>, options: &#123;...&#125;): Observable&lt;<span class="built_in">any</span>&gt;</div><div class="line">  post(url: <span class="built_in">string</span>, body: <span class="built_in">any</span>|<span class="literal">null</span>, options: &#123;...&#125;): Observable&lt;<span class="built_in">any</span>&gt;</div><div class="line">  put(url: <span class="built_in">string</span>, body: <span class="built_in">any</span>|<span class="literal">null</span>, options: &#123;...&#125;): Observable&lt;<span class="built_in">any</span>&gt;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -406,15 +506,108 @@
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123;NgModule&#125; from <span class="string">'@angular/core'</span>;</div><div class="line"><span class="keyword">import</span> &#123;HTTP_INTERCEPTORS&#125; from <span class="string">'@angular/common/http'</span>;</div><div class="line"><span class="meta">@NgModule</span>(&#123;</div><div class="line">  providers: [&#123;</div><div class="line">    provide: HTTP_INTERCEPTORS,</div><div class="line">    useClass: NoopInterceptor,</div><div class="line">    multi: <span class="literal">true</span>,</div><div class="line">  &#125;],</div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="keyword">class</span> AppModule &#123;&#125;</div></pre></td></tr></table></figure>
 <p>providers里面配置我们的信息；<br>注意multi: true选项。这是必须的，因为它会告诉 Angular 这个 HTTP_INTERCEPTORS 表示的是一个数组，而不是单个的值；</p>
 
-        
-      </div>
-      
-      
       
     </div>
     
     
     
+   
+      <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>谢谢你给我的支持，坚持原创技术分享，共同成长</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/zhifubao.jpg" alt="少女雨 WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/weixin.jpg" alt="少女雨 Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Angular-2/" rel="tag"><i class="fa fa-tag"></i> Angular 2+</a>
+          
+            <a href="/tags/httpClient/" rel="tag"><i class="fa fa-tag"></i> httpClient</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/angular/pg-120170908/" rel="next" title="angular4 中自定义pagination组件">
+                <i class="fa fa-chevron-left"></i> angular4 中自定义pagination组件
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/angular/http/http-120170908/" rel="prev" title="Angular 4+ Http">
+                Angular 4+ Http <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -759,6 +952,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
 
   
 

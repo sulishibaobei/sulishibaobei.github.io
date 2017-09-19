@@ -369,24 +369,124 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.sulishibaobei.com/angular/http/http-120170908/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="少女雨">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/a.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="少女雨的博客">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">Angular 4+ Http</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <p>HTTP: 使应用能够对远端服务器发起相应的Http调用；<br>你要知道：HttpModule并不是Angular的核心模块，它是Angualr用来进行Web访问的一种可选方式，并位于一个名叫@angual/http的独立附属模块中；也就是说：使用http之前要引入此模块;<br><a id="more"></a></p>
+          <h1 class="post-title" itemprop="name headline">Angular 4+ Http</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-08T09:08:53+08:00">
+                2017-09-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Angular-2/" itemprop="url" rel="index">
+                    <span itemprop="name">Angular 2+</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/angular/http/http-120170908/" class="leancloud_visitors" data-flag-title="Angular 4+ Http">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 本文总阅读量
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>HTTP: 使应用能够对远端服务器发起相应的Http调用；<br>你要知道：HttpModule并不是Angular的核心模块，它是Angualr用来进行Web访问的一种可选方式，并位于一个名叫@angual/http的独立附属模块中；也就是说：使用http之前要引入此模块;<br><a id="more"></a></p>
 <h2 id="1-基本使用："><a href="#1-基本使用：" class="headerlink" title="1.基本使用："></a>1.基本使用：</h2><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; BrowserModule &#125; from <span class="string">'@angular/platform-browser'</span>;</div><div class="line"><span class="keyword">import</span> &#123; NgModule &#125; from <span class="string">'@angular/core'</span>;</div><div class="line"><span class="keyword">import</span> &#123;HttpModule&#125; from <span class="string">'@angular/http'</span>;  <span class="comment">/*引入它*/</span></div><div class="line"><span class="keyword">import</span> &#123; AppComponent &#125; from <span class="string">'./app.component'</span>;</div><div class="line"><span class="meta">@NgModule</span>(&#123;</div><div class="line">  declarations: [</div><div class="line">    AppComponent</div><div class="line">  ],</div><div class="line">  imports: [</div><div class="line">    BrowserModule,</div><div class="line">    HttpModule  <span class="comment">/*导入*/</span></div><div class="line">  ],</div><div class="line">  providers: [],</div><div class="line">  bootstrap: [AppComponent]</div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="keyword">class</span> AppModule &#123; &#125;</div></pre></td></tr></table></figure>
 <p>注意，现在HttpModule已经是根模块AppModule的imports数组的一部分了;</p>
 <h2 id="2-介绍模拟web-api-发送请求"><a href="#2-介绍模拟web-api-发送请求" class="headerlink" title="2.介绍模拟web api 发送请求"></a>2.介绍模拟web api 发送请求</h2><p>注意：是在你没有真实的远程服务请求地址时，自己模拟一个web服务，用于测试代码；倘若有真实的远程服务器，则不需要这个；</p>
@@ -444,15 +544,108 @@
 <p>为什么使用一个async管道呢？因为得到的是Observable对象，不是数组，*ngFor不能遍历可观察对象；<br>效果：<br><img src="/images/http-6.png" alt="http"><br>看完这个，大概知道：<br>Observable（可观察对象）是基于推送（Push）运行时执行（lazy）的多值集合；<br>关于操作符，我有话要说：<br>大部分RxJS操作符都不包括在Angular的Observable基本实现中，基本实现只包括Angular本身所需的功能，也就是，你需要的大多操作符都需要从rxjs中引入；</p>
 <h2 id="9-上述的例子，其实说的都是关于web-api-内存服务器的，占用内存的东西，速率都有点慢，如果你要从本地获取文件记住不要用这个；"><a href="#9-上述的例子，其实说的都是关于web-api-内存服务器的，占用内存的东西，速率都有点慢，如果你要从本地获取文件记住不要用这个；" class="headerlink" title="9.上述的例子，其实说的都是关于web api,内存服务器的，占用内存的东西，速率都有点慢，如果你要从本地获取文件记住不要用这个；"></a>9.上述的例子，其实说的都是关于web api,内存服务器的，占用内存的东西，速率都有点慢，如果你要从本地获取文件记住不要用这个；</h2><p>可以换用json文件获取：<br> 创建一个heroes.json，记得放在assets文件下：<br>{<br>  “data”: [<br>    { “id”: 1, “name”: “Windstorm” },<br>    { “id”: 2, “name”: “Bombasto” },<br>    { “id”: 3, “name”: “Magneta” },<br>    { “id”: 4, “name”: “Tornado” }<br>  ]<br>}<br>我们app.module.ts里面的：<br>   <code>InMemoryWebApiModule.forRoot(InMemoryDataService),</code><br>不用引入，引入之后会默认使用web api；<br>然后hero.service.ts中这样<br>private heroesUrl = ‘assets/heroes.json’;<br>其他的都是一样的；<br>这种方式对于请求静态的本地数据是比较有用的；如果是请求真是的远程服务器地址，url换成远程地址就可以；</p>
 
-        
-      </div>
-      
-      
       
     </div>
     
     
     
+   
+      <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>谢谢你给我的支持，坚持原创技术分享，共同成长</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/zhifubao.jpg" alt="少女雨 WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/weixin.jpg" alt="少女雨 Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Angular-2/" rel="tag"><i class="fa fa-tag"></i> Angular 2+</a>
+          
+            <a href="/tags/http/" rel="tag"><i class="fa fa-tag"></i> http</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/angular/http/http-220170908/" rel="next" title="Angular 4+ HttpClient">
+                <i class="fa fa-chevron-left"></i> Angular 4+ HttpClient
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/bootstrap/bt-120170908/" rel="prev" title="bootstrap简单图文环绕效果">
+                bootstrap简单图文环绕效果 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -822,6 +1015,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
 
   
 

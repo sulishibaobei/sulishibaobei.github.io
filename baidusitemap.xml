@@ -4,6 +4,30 @@
 
     
   <url>
+    <loc>http://www.sulishibaobei.com/index20170909/</loc>
+    <lastmod>2017-09-19T06:58:55.000Z</lastmod>
+    <data>
+        <display>
+        <title>关于个人博客的搭建</title>
+        <pubTime>2017-09-09T03:08:53.000Z</pubTime>
+        
+        <tag>node.js</tag>
+         
+        <tag>hexo</tag>
+         
+        <tag>next</tag>
+         
+         
+           
+             
+              <breadCrumb title="Hexo" url="http://www.sulishibaobei.com/categories/Hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.sulishibaobei.com/wb/wb-120170907/</loc>
     <lastmod>2017-09-19T05:44:28.638Z</lastmod>
     <data>
@@ -47,9 +71,9 @@
         <title>前端面试中遇见的那些纯js题</title>
         <pubTime>2017-09-05T03:08:53.000Z</pubTime>
         
-        <tag>面试</tag>
-         
         <tag>javascript</tag>
+         
+        <tag>面试</tag>
          
          
            
@@ -79,30 +103,6 @@
            
              
               <breadCrumb title="Angular 2+" url="http://www.sulishibaobei.com/categories/Angular-2/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.sulishibaobei.com/index20170909/</loc>
-    <lastmod>2017-09-09T04:17:06.000Z</lastmod>
-    <data>
-        <display>
-        <title>关于个人博客的搭建</title>
-        <pubTime>2017-09-09T03:08:53.000Z</pubTime>
-        
-        <tag>node.js</tag>
-         
-        <tag>hexo</tag>
-         
-        <tag>next</tag>
-         
-         
-           
-             
-              <breadCrumb title="Hexo" url="http://www.sulishibaobei.com/categories/Hexo/"/>
           
         </display>
     </data>
@@ -351,11 +351,11 @@
         <title>简述alert和console.log的区别</title>
         <pubTime>2017-09-05T03:08:53.000Z</pubTime>
         
-        <tag>javascript</tag>
-         
         <tag>console.log</tag>
          
         <tag>alert</tag>
+         
+        <tag>javascript</tag>
          
          
            
