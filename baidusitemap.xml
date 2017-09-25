@@ -3,9 +3,10 @@
 
 
     
+    
   <url>
     <loc>http://www.sulishibaobei.com/nginx/ng-120170925/</loc>
-    <lastmod>2017-09-25T07:07:27.000Z</lastmod>
+    <lastmod>2017-09-25T07:52:30.934Z</lastmod>
     <data>
         <display>
         <title>nginx第一课</title>
@@ -33,9 +34,9 @@
         <title>前端面试中遇见的那些纯js题</title>
         <pubTime>2017-09-05T03:08:53.000Z</pubTime>
         
-        <tag>面试</tag>
-         
         <tag>javascript</tag>
+         
+        <tag>面试</tag>
          
         <tag>字符串,数组,设计模式</tag>
          
@@ -57,11 +58,11 @@
         <title>教你如何使用正则表达式</title>
         <pubTime>2017-09-25T01:08:53.000Z</pubTime>
         
-        <tag>javascript</tag>
-         
         <tag>正则表达式</tag>
          
         <tag>Regex</tag>
+         
+        <tag>javascript</tag>
          
          
            
@@ -156,7 +157,6 @@
     </data>
     </url>
 
-    
     
   <url>
     <loc>http://www.sulishibaobei.com/angular/pg-120170908/</loc>
