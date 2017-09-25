@@ -4,12 +4,12 @@
 
     
   <url>
-    <loc>http://www.sulishibaobei.com/nginx/ng-120170905/</loc>
-    <lastmod>2017-09-25T06:35:20.572Z</lastmod>
+    <loc>http://www.sulishibaobei.com/nginx/ng-120170925/</loc>
+    <lastmod>2017-09-25T07:00:24.000Z</lastmod>
     <data>
         <display>
         <title>nginx第一课</title>
-        <pubTime>2017-09-05T03:08:53.000Z</pubTime>
+        <pubTime>2017-09-25T03:08:53.000Z</pubTime>
         
         <tag>nginx</tag>
          
@@ -57,11 +57,11 @@
         <title>教你如何使用正则表达式</title>
         <pubTime>2017-09-25T01:08:53.000Z</pubTime>
         
-        <tag>javascript</tag>
-         
         <tag>正则表达式</tag>
          
         <tag>Regex</tag>
+         
+        <tag>javascript</tag>
          
          
            
@@ -399,11 +399,11 @@
         <title>简述alert和console.log的区别</title>
         <pubTime>2017-09-05T03:08:53.000Z</pubTime>
         
+        <tag>javascript</tag>
+         
         <tag>console.log</tag>
          
         <tag>alert</tag>
-         
-        <tag>javascript</tag>
          
          
            

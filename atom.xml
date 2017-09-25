@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.sulishibaobei.com/"/>
-  <updated>2017-09-25T03:28:37.000Z</updated>
+  <updated>2017-09-25T07:00:24.000Z</updated>
   <id>http://www.sulishibaobei.com/</id>
   
   <author>
@@ -14,6 +14,45 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>nginx第一课</title>
+    <link href="http://www.sulishibaobei.com/nginx/ng-120170925/"/>
+    <id>http://www.sulishibaobei.com/nginx/ng-120170925/</id>
+    <published>2017-09-25T03:08:53.000Z</published>
+    <updated>2017-09-25T07:00:24.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>有这样一个问题，我的nicefish项目里面要从我的服务器<a href="http://112.74.180.53" target="_blank" rel="external">http://112.74.180.53</a> 里面去拿去数据，然后遇见了跨域；然后就想到了用nginx做一个代理去拿数据；<br>其实解决的办法由很多种，单单就跨域的这个问题的话，proxy.config.json也是可以解决，jsonp也可以解决，这里聊一聊我用nginx解决的过程；<br><a id="more"></a></p>
+<h2 id="nginx-下载"><a href="#nginx-下载" class="headerlink" title="nginx 下载"></a>nginx 下载</h2><p><a href="http://nginx.org/en/download.html" target="_blank" rel="external">戳这里</a><br>我下载的是1.12.1 ,哪个版本都可以<br>打开可以看到几个文件夹和一个可执行文件 ，向下面的一样；<br><img src="/images/nginx-1.png" alt="nginx"><br>html 文件里面主要放html代码或者项目的；<br>conf 主要是放置我们的配置文件；<br>我们切换到当前文件内运行nginx.exe或者nginx start默认的端口号是80，浏览器打开localhost 就可以看到一个页面，这时候运行的是html文件里面的index.html；如果想修改端口号，则是conf文件夹里的nginx.conf 下面会仔细来介绍这个配置文件的；</p>
+<p>打开nginx.conf文件：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div></pre></td><td class="code"><pre><div class="line">#user  nobody;</div><div class="line">worker_processes  1;  #允许生成的进程数2 ,默认数1</div><div class="line"></div><div class="line">#error_log  logs/error.log;  #指定日志路径，级别，这个设置可以放入全局块，http块，server块，级别以此为：debug|info|notice|warn|error|crit|alert|emerg</div><div class="line">#error_log  logs/error.log  notice;</div><div class="line">#error_log  logs/error.log  info;</div><div class="line"></div><div class="line">#pid        logs/nginx.pid;   #指定ngInx进程运行文件存放地址</div><div class="line">events &#123;                       #events块</div><div class="line">    worker_connections  1024;   #最大连接数  默认为512</div><div class="line">    #accept_mutex on;  #设置网络连接序列化，防止惊群现象发生，</div><div class="line">    # multi_accept on; # 设置一个进程是否同时接受多个网络连接，默认为off;</div><div class="line">    # use epoll;  #事件驱动模型， select|poll|kqueue|epoll|resig|/dev/poll|eventport;</div><div class="line">&#125;</div><div class="line"></div><div class="line">http &#123;      # http 块  可以嵌套多个server ,配置代理</div><div class="line">    include       mime.types;  #文件扩展名与文件类型映射表</div><div class="line">    default_type  application/octet-stream;  #默认文件类型，默认为text/plain</div><div class="line">    #proxy_method get;</div><div class="line">    #access_log off; # 取消服务日志</div><div class="line">    #log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '</div><div class="line">    #                  '$status $body_bytes_sent "$http_referer" '</div><div class="line">    #                  '"$http_user_agent" "$http_x_forwarded_for"';</div><div class="line">    # 自定义格式</div><div class="line">    #access_log  logs/access.log  main;  #combined为日志格式默认值</div><div class="line"></div><div class="line">    sendfile        on; #允许sendfile方式传输文件，默认值为off，可以在http块，server块，location块；</div><div class="line">    #tcp_nopush     on;</div><div class="line"></div><div class="line">    #keepalive_timeout  0;</div><div class="line">    keepalive_timeout  65; #链接超时时间，默认值为75s，可以在http块，server块,location块；</div><div class="line">    #sendfile_max_chunk 100k;  #每个进程每次调用传输数量不能大于设定的值，默认为0，即不设上限。</div><div class="line">    #gzip  on;</div><div class="line">    #upstream mysvr&#123;</div><div class="line">            #server 127.0.0.1:80;</div><div class="line">            #server 112.74.180.53:80;</div><div class="line">    #&#125;</div><div class="line">    server &#123;      # server块  配置虚拟主机的相关参数，一个http中可以有多个server</div><div class="line">        listen       80;  #监听端口</div><div class="line">        server_name  tomcat;   #监听地址</div><div class="line">        root  html;</div><div class="line">        index  index.html;</div><div class="line">        location /file &#123;    #配置请求的路由 以及各个页面的处理情况</div><div class="line">            proxy_pass  http://112.74.180.53:80;</div><div class="line">        &#125;</div><div class="line">        location /toutiao &#123;</div><div class="line">            proxy_pass http://v.juhe.cn;</div><div class="line"></div><div class="line">        &#125;</div><div class="line">        location ~* \.(js|css|png|gif|jpg|mp3|ogg|ttf|woff|woff2|html|json|map)$ &#123;</div><div class="line">              expires 30d;</div><div class="line">       &#125;</div><div class="line"></div><div class="line">        default_type 'text/html';</div><div class="line">        charset utf-8;</div><div class="line">       </div><div class="line">         # keepalive_timeout 120; #单链接请求上限次数</div><div class="line">       # location  ~*^.+$ &#123;       #请求的url过滤，正则匹配，~为区分大小写，~*为不区分大小写。</div><div class="line">               #root path; #根目录</div><div class="line">               #index vv.txt #设置默认页</div><div class="line">               #proxy_pass http://mysvr #请求转向mysvr定义的服务器列表</div><div class="line">               #deny 127.0.0.1; #拒绝的ip</div><div class="line">               #allow 172.18.5.54 #允许的ip</div><div class="line">         # &#125;</div><div class="line">       </div><div class="line">        #charset koi8-r;</div><div class="line">        #access_log  logs/host.access.log  main;</div><div class="line">        #error_page  404              /404.html;</div><div class="line"></div><div class="line">        # redirect server error pages to the static page /50x.html</div><div class="line">        #proxy_intercept_errors on;   #如果被代理服务器返回的状态码为400或者大于400，设置的error_page配置起作用。默认为off。</div><div class="line">        error_page   500 502 503 504  /50x.html; #错误页</div><div class="line"></div><div class="line">        location = /50x.html &#123;</div><div class="line">            root   html;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        # proxy the PHP scripts to Apache listening on 127.0.0.1:80</div><div class="line">        #</div><div class="line">        #location ~ \.php$ &#123;</div><div class="line">        #    proxy_pass   http://127.0.0.1;</div><div class="line">        #&#125;</div><div class="line"></div><div class="line">        # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000</div><div class="line">        #</div><div class="line">        #location ~ \.php$ &#123;</div><div class="line">        #    root           html;</div><div class="line">        #    fastcgi_pass   127.0.0.1:9000;</div><div class="line">        #    fastcgi_index  index.php;</div><div class="line">        #    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;</div><div class="line">        #    include        fastcgi_params;</div><div class="line">        #&#125;</div><div class="line"></div><div class="line">        # deny access to .htaccess files, if Apache's document root</div><div class="line">        # concurs with nginx's one</div><div class="line">        #</div><div class="line">        #location ~ /\.ht &#123;</div><div class="line">        #    deny  all;</div><div class="line">        #&#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    # another virtual host using mix of IP-, name-, and port-based configuration</div><div class="line">    #</div><div class="line">    #server &#123;</div><div class="line">    #    listen       8000;</div><div class="line">    #    listen       somename:8080;</div><div class="line">    #    server_name  somename  alias  another.alias;</div><div class="line"></div><div class="line">    #    location / &#123;</div><div class="line">    #        root   html;</div><div class="line">    #        index  index.html index.htm;</div><div class="line">    #    &#125;</div><div class="line">    #&#125;</div><div class="line"></div><div class="line"></div><div class="line">    # HTTPS server</div><div class="line">    #</div><div class="line">    #server &#123;</div><div class="line">    #    listen       443 ssl;</div><div class="line">    #    server_name  localhost;</div><div class="line"></div><div class="line">    #    ssl_certificate      cert.pem;</div><div class="line">    #    ssl_certificate_key  cert.key;</div><div class="line"></div><div class="line">    #    ssl_session_cache    shared:SSL:1m;</div><div class="line">    #    ssl_session_timeout  5m;</div><div class="line"></div><div class="line">    #    ssl_ciphers  HIGH:!aNULL:!MD5;</div><div class="line">    #    ssl_prefer_server_ciphers  on;</div><div class="line"></div><div class="line">    #    location / &#123;</div><div class="line">    #        root   html;</div><div class="line">    #        index  index.html index.htm;</div><div class="line">    #    &#125;</div><div class="line">    #&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>#</code>都是被注释的代码；<br>root  html;<br>index  index.html;<br>这就是为什么运行localhost会打开html里面index.html文件的原因，都是在配置文件里配置好的；<br>也就是如果我d盘有个项目，root换成d盘路径，打开的就是我的项目了；<br>`upstream mysvr{</p>
+<pre><code>#server 127.0.0.1:8081;
+server 112.74.180.53:80;
+</code></pre><p> }<br><code>看到有这样一段代码，被我注释掉了；
+其实是和这个一起使用的</code><br> location /file {    #配置请求的路由 以及各个页面的处理情况<br>            proxy_pass  <a href="http://112.74.180.53:80" target="_blank" rel="external">http://112.74.180.53:80</a>;<br>        }<br><code>如果上面的upstream mysvr不被注释，那么这段应该这么写：</code><br>location /file {    #配置请求的路由 以及各个页面的处理情况<br>            proxy_pass  <a href="http://mysvr" target="_blank" rel="external">http://mysvr</a>;<br>        }<br><code>能用到的每一行都在后面写了注释，跟着使用就可以啦；
+举个例子：我要去这个下面获取数据http://112.74.180.53/file/comment-mock.json
+注意看看我的location那里怎么配置的；
+proxy_pass  http://112.74.180.53:80; 将地址写在这里；
+location /file 表示只要遇见/file开头的请求就调用这个代理；这就是为什么配置了多个的原因：</code><br> location /file {    #配置请求的路由 以及各个页面的处理情况<br>            proxy_pass  <a href="http://112.74.180.53:80" target="_blank" rel="external">http://112.74.180.53:80</a>;<br>        }<br> location /toutiao {<br>            proxy_pass <a href="http://v.juhe.cn" target="_blank" rel="external">http://v.juhe.cn</a>;</p>
+<pre><code>}
+</code></pre><p>`<br>不同的文件，调用不同的；但是怎么知道是不是file开头呢？就是和我们的html里面的代码有关；<br>我们的url中这样写就可以啦：private url=’/file/comment-mock.json’;<br>碰到是这个请求的就会走入第一个配置啦；<br>这边也推荐几个觉得写得不错的文章，如果还有疑问，可以去这些文章中看一看；<br><a href="http://www.cnblogs.com/gabrielchen/p/5066120.html" target="_blank" rel="external">用nginx的反向代理机制解决前端跨域问题</a><br><a href="http://www.cnblogs.com/fanzhidongyzby/p/5194895.html" target="_blank" rel="external">nginx常用代理配置</a><br><a href="http://blog.csdn.net/zhangliangzi/article/details/52143358" target="_blank" rel="external">玩玩nginx</a><br>或者私信给我，我们一起来聊一聊；</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;有这样一个问题，我的nicefish项目里面要从我的服务器&lt;a href=&quot;http://112.74.180.53&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://112.74.180.53&lt;/a&gt; 里面去拿去数据，然后遇见了跨域；然后就想到了用nginx做一个代理去拿数据；&lt;br&gt;其实解决的办法由很多种，单单就跨域的这个问题的话，proxy.config.json也是可以解决，jsonp也可以解决，这里聊一聊我用nginx解决的过程；&lt;br&gt;
+    
+    </summary>
+    
+      <category term="前端那些微小事" scheme="http://www.sulishibaobei.com/categories/%E5%89%8D%E7%AB%AF%E9%82%A3%E4%BA%9B%E5%BE%AE%E5%B0%8F%E4%BA%8B/"/>
+    
+    
+      <category term="nginx" scheme="http://www.sulishibaobei.com/tags/nginx/"/>
+    
+      <category term="配置" scheme="http://www.sulishibaobei.com/tags/%E9%85%8D%E7%BD%AE/"/>
+    
+  </entry>
   
   <entry>
     <title>教你如何使用正则表达式</title>
@@ -36,11 +75,11 @@
       <category term="前端那些微小事" scheme="http://www.sulishibaobei.com/categories/%E5%89%8D%E7%AB%AF%E9%82%A3%E4%BA%9B%E5%BE%AE%E5%B0%8F%E4%BA%8B/"/>
     
     
-      <category term="javascript" scheme="http://www.sulishibaobei.com/tags/javascript/"/>
-    
       <category term="正则表达式" scheme="http://www.sulishibaobei.com/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
     
       <category term="Regex" scheme="http://www.sulishibaobei.com/tags/Regex/"/>
+    
+      <category term="javascript" scheme="http://www.sulishibaobei.com/tags/javascript/"/>
     
   </entry>
   
@@ -425,6 +464,40 @@
   </entry>
   
   <entry>
+    <title>git 打卡的第一天</title>
+    <link href="http://www.sulishibaobei.com/git/git-120170907/"/>
+    <id>http://www.sulishibaobei.com/git/git-120170907/</id>
+    <published>2017-09-07T01:08:53.000Z</published>
+    <updated>2017-09-07T09:31:48.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>因为某种原因，所以不得不重新巩固下前端的基础知识，从最基本的学习还得额外的学习新知识，倍感压力之大。 昨天初略学习下git，算是自己学习的一个新知识。简单记录下，希望四海八荒的大神看过来，有错的请指导。</p>
+<h2 id="git下载安装"><a href="#git下载安装" class="headerlink" title="git下载安装"></a>git下载安装</h2><p><a href="https://git-for-windows.github.io/" target="_blank" rel="external">git下载安装地址</a>下载好之后记得配置环境变量。<br><strong>git的作用主要是将项目保存到git目录中</strong><br><a id="more"></a></p>
+<h2 id="git介绍"><a href="#git介绍" class="headerlink" title="git介绍"></a>git介绍</h2><p><strong>主要分为三个块：</strong><br>[1] working directory(工作目录）  本地上存放项目的目录。<br>[2] staging area 暂存放区域    更新暂未提交的项目。<br>[3] git directory  git上存放项目的地方。<br>1.一般我们使用git都会将一些修改的文件保存在暂存区域，然后一并提交更新到git目录中。<br>2.安装好git之后，网页打开github，注册信息。登陆进去，接下来配置信息。<br>3.打开右上角，如下图点击settings。然后点击SSH and GPG keys ,配置SSH。打开cmd或者git bash。找不到git.bash的就在开始那里搜索或者在你安装的git文件里面打开git.bash.exe就一样。<br>4.在命令行输入：<font color="red">ssh-keygen -t rsa -C “你注册github时的邮箱名” </font>然后会提示你生产的key在id_rsa.pub文件中找。<br><img src="/images/git-1.png" alt="git"><br>5.在电脑中一个叫.ssh的文件里，然后复制黏贴在右边的key框里面，title就随便打。<br><img src="/images/git-2.png" alt="git"><br><img src="/images/git-3.png" alt="git"><br> 此时git的安装目录就为你的根目录。</p>
+<h2 id="配置用户信息："><a href="#配置用户信息：" class="headerlink" title="配置用户信息："></a>配置用户信息：</h2><p><code>git config --global user.name &quot;你注册时的用户名&quot;;</code><br><code>git config  --global user.email &quot;你的邮箱&quot;;</code><br>git里面提供了一个git config的命令专门用来配置或者读取相应的工作环境变量。<br>这些变量可以存放在三个地方：etc/gitconfig文件， git config –system读写的就是此文件；~/.gitconfig文件，git config –global 读写的就是此文件；<br>配置好信息后，可以通过git config –list 命令查看&nbsp;&nbsp; 如果git config user.name就是具体的查看某个环境变量的设定。<br><strong>若不知道如何使用git命令，可以git help看看。</strong> </p>
+<h2 id="git使用。"><a href="#git使用。" class="headerlink" title="git使用。"></a>git使用。</h2><p><img src="/images/git-4.png" alt="git"><br> 新建一个git 仓库，也可以导入一个本地项目。进入仓库<br> 复制这个地址<br><img src="/images/git-5.png" alt="git"><br> 然后打开cmd或者git.bash.exe，<br> 输入<code>git clone git@github.com:sulishibaobei/a.github.io.git</code> （上面复制的这串地址)<br> 就会在你的本地建立一个名为a.github.io的仓库，进入仓库，将你需要上传的代码拷贝进去 </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git add *（*是上传所有的本件，若是想具体的就写文件名）</div><div class="line">git commit  -m <span class="string">"version"</span>  提交文件</div><div class="line">git push</div></pre></td></tr></table></figure>
+<p> 这三步就完成git项目的提交。<br> 可以用git status命令查看当前文件的状态。<br> 所有的文件都可以先add到暂存区域，然后最后再一起commit。 </p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;因为某种原因，所以不得不重新巩固下前端的基础知识，从最基本的学习还得额外的学习新知识，倍感压力之大。 昨天初略学习下git，算是自己学习的一个新知识。简单记录下，希望四海八荒的大神看过来，有错的请指导。&lt;/p&gt;
+&lt;h2 id=&quot;git下载安装&quot;&gt;&lt;a href=&quot;#git下载安装&quot; class=&quot;headerlink&quot; title=&quot;git下载安装&quot;&gt;&lt;/a&gt;git下载安装&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://git-for-windows.github.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;git下载安装地址&lt;/a&gt;下载好之后记得配置环境变量。&lt;br&gt;&lt;strong&gt;git的作用主要是将项目保存到git目录中&lt;/strong&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Git" scheme="http://www.sulishibaobei.com/categories/Git/"/>
+    
+    
+      <category term="git" scheme="http://www.sulishibaobei.com/tags/git/"/>
+    
+      <category term="环境变量配置" scheme="http://www.sulishibaobei.com/tags/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE/"/>
+    
+      <category term="基本git操作" scheme="http://www.sulishibaobei.com/tags/%E5%9F%BA%E6%9C%ACgit%E6%93%8D%E4%BD%9C/"/>
+    
+  </entry>
+  
+  <entry>
     <title>nodejs+websocket实时聊天系统</title>
     <link href="http://www.sulishibaobei.com/wb/wb-120170907/"/>
     <id>http://www.sulishibaobei.com/wb/wb-120170907/</id>
@@ -546,40 +619,6 @@
       <category term="管道" scheme="http://www.sulishibaobei.com/tags/%E7%AE%A1%E9%81%93/"/>
     
       <category term="日期" scheme="http://www.sulishibaobei.com/tags/%E6%97%A5%E6%9C%9F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>git 打卡的第一天</title>
-    <link href="http://www.sulishibaobei.com/git/git-120170907/"/>
-    <id>http://www.sulishibaobei.com/git/git-120170907/</id>
-    <published>2017-09-07T01:08:53.000Z</published>
-    <updated>2017-09-07T09:31:48.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>因为某种原因，所以不得不重新巩固下前端的基础知识，从最基本的学习还得额外的学习新知识，倍感压力之大。 昨天初略学习下git，算是自己学习的一个新知识。简单记录下，希望四海八荒的大神看过来，有错的请指导。</p>
-<h2 id="git下载安装"><a href="#git下载安装" class="headerlink" title="git下载安装"></a>git下载安装</h2><p><a href="https://git-for-windows.github.io/" target="_blank" rel="external">git下载安装地址</a>下载好之后记得配置环境变量。<br><strong>git的作用主要是将项目保存到git目录中</strong><br><a id="more"></a></p>
-<h2 id="git介绍"><a href="#git介绍" class="headerlink" title="git介绍"></a>git介绍</h2><p><strong>主要分为三个块：</strong><br>[1] working directory(工作目录）  本地上存放项目的目录。<br>[2] staging area 暂存放区域    更新暂未提交的项目。<br>[3] git directory  git上存放项目的地方。<br>1.一般我们使用git都会将一些修改的文件保存在暂存区域，然后一并提交更新到git目录中。<br>2.安装好git之后，网页打开github，注册信息。登陆进去，接下来配置信息。<br>3.打开右上角，如下图点击settings。然后点击SSH and GPG keys ,配置SSH。打开cmd或者git bash。找不到git.bash的就在开始那里搜索或者在你安装的git文件里面打开git.bash.exe就一样。<br>4.在命令行输入：<font color="red">ssh-keygen -t rsa -C “你注册github时的邮箱名” </font>然后会提示你生产的key在id_rsa.pub文件中找。<br><img src="/images/git-1.png" alt="git"><br>5.在电脑中一个叫.ssh的文件里，然后复制黏贴在右边的key框里面，title就随便打。<br><img src="/images/git-2.png" alt="git"><br><img src="/images/git-3.png" alt="git"><br> 此时git的安装目录就为你的根目录。</p>
-<h2 id="配置用户信息："><a href="#配置用户信息：" class="headerlink" title="配置用户信息："></a>配置用户信息：</h2><p><code>git config --global user.name &quot;你注册时的用户名&quot;;</code><br><code>git config  --global user.email &quot;你的邮箱&quot;;</code><br>git里面提供了一个git config的命令专门用来配置或者读取相应的工作环境变量。<br>这些变量可以存放在三个地方：etc/gitconfig文件， git config –system读写的就是此文件；~/.gitconfig文件，git config –global 读写的就是此文件；<br>配置好信息后，可以通过git config –list 命令查看&nbsp;&nbsp; 如果git config user.name就是具体的查看某个环境变量的设定。<br><strong>若不知道如何使用git命令，可以git help看看。</strong> </p>
-<h2 id="git使用。"><a href="#git使用。" class="headerlink" title="git使用。"></a>git使用。</h2><p><img src="/images/git-4.png" alt="git"><br> 新建一个git 仓库，也可以导入一个本地项目。进入仓库<br> 复制这个地址<br><img src="/images/git-5.png" alt="git"><br> 然后打开cmd或者git.bash.exe，<br> 输入<code>git clone git@github.com:sulishibaobei/a.github.io.git</code> （上面复制的这串地址)<br> 就会在你的本地建立一个名为a.github.io的仓库，进入仓库，将你需要上传的代码拷贝进去 </p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git add *（*是上传所有的本件，若是想具体的就写文件名）</div><div class="line">git commit  -m <span class="string">"version"</span>  提交文件</div><div class="line">git push</div></pre></td></tr></table></figure>
-<p> 这三步就完成git项目的提交。<br> 可以用git status命令查看当前文件的状态。<br> 所有的文件都可以先add到暂存区域，然后最后再一起commit。 </p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;因为某种原因，所以不得不重新巩固下前端的基础知识，从最基本的学习还得额外的学习新知识，倍感压力之大。 昨天初略学习下git，算是自己学习的一个新知识。简单记录下，希望四海八荒的大神看过来，有错的请指导。&lt;/p&gt;
-&lt;h2 id=&quot;git下载安装&quot;&gt;&lt;a href=&quot;#git下载安装&quot; class=&quot;headerlink&quot; title=&quot;git下载安装&quot;&gt;&lt;/a&gt;git下载安装&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://git-for-windows.github.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;git下载安装地址&lt;/a&gt;下载好之后记得配置环境变量。&lt;br&gt;&lt;strong&gt;git的作用主要是将项目保存到git目录中&lt;/strong&gt;&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Git" scheme="http://www.sulishibaobei.com/categories/Git/"/>
-    
-    
-      <category term="git" scheme="http://www.sulishibaobei.com/tags/git/"/>
-    
-      <category term="环境变量配置" scheme="http://www.sulishibaobei.com/tags/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE/"/>
-    
-      <category term="基本git操作" scheme="http://www.sulishibaobei.com/tags/%E5%9F%BA%E6%9C%ACgit%E6%93%8D%E4%BD%9C/"/>
     
   </entry>
   
@@ -707,34 +746,6 @@
       <category term="Angular-cli" scheme="http://www.sulishibaobei.com/tags/Angular-cli/"/>
     
       <category term="工具" scheme="http://www.sulishibaobei.com/tags/%E5%B7%A5%E5%85%B7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>nginx第一课</title>
-    <link href="http://www.sulishibaobei.com/nginx/ng-120170905/"/>
-    <id>http://www.sulishibaobei.com/nginx/ng-120170905/</id>
-    <published>2017-09-05T03:08:53.000Z</published>
-    <updated>2017-09-25T06:35:20.572Z</updated>
-    
-    <content type="html"><![CDATA[<p>有这样一个问题，我的nicefish项目里面要从我的服务器<a href="http://112.74.180.53" target="_blank" rel="external">http://112.74.180.53</a> 里面去拿去数据，然后遇见了跨域；然后就想到了用nginx做一个代理去拿数据；<br>其实解决的办法由很多种，单单就跨域的这个问题的话，proxy.config.json也是可以解决，jsonp也可以解决，这里聊一聊我用nginx解决的过程；<br><a id="more"></a></p>
-<h2 id="nginx-下载"><a href="#nginx-下载" class="headerlink" title="nginx 下载"></a>nginx 下载</h2><p><a href="http://nginx.org/en/download.html" target="_blank" rel="external">戳这里</a><br>我下载的是1.12.1 ,哪个版本都可以<br>打开可以看到几个文件夹和一个可执行文件 ，向下面的一样；<br><img src="/images/nginx-1.png" alt="nginx"><br>html 文件里面主要放html代码或者项目的；<br>conf 主要是放置我们的配置文件；<br>我们切换到当前文件内运行nginx.exe或者nginx start默认的端口号是80，浏览器打开localhost 就可以看到一个页面，这时候运行的是html文件里面的index.html；如果想修改端口号，则是conf文件夹里的nginx.conf 下面会仔细来介绍这个配置文件的；</p>
-<p>打开nginx.conf文件：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div></pre></td><td class="code"><pre><div class="line">#user  nobody;</div><div class="line">worker_processes  1;  #允许生成的进程数2 ,默认数1</div><div class="line"></div><div class="line">#error_log  logs/error.log;  #指定日志路径，级别，这个设置可以放入全局块，http块，server块，级别以此为：debug|info|notice|warn|error|crit|alert|emerg</div><div class="line">#error_log  logs/error.log  notice;</div><div class="line">#error_log  logs/error.log  info;</div><div class="line"></div><div class="line">#pid        logs/nginx.pid;   #指定ngInx进程运行文件存放地址</div><div class="line">events &#123;                       #events块</div><div class="line">    worker_connections  1024;   #最大连接数  默认为512</div><div class="line">    #accept_mutex on;  #设置网络连接序列化，防止惊群现象发生，</div><div class="line">    # multi_accept on; # 设置一个进程是否同时接受多个网络连接，默认为off;</div><div class="line">    # use epoll;  #事件驱动模型， select|poll|kqueue|epoll|resig|/dev/poll|eventport;</div><div class="line">&#125;</div><div class="line"></div><div class="line">http &#123;      # http 块  可以嵌套多个server ,配置代理</div><div class="line">    include       mime.types;  #文件扩展名与文件类型映射表</div><div class="line">    default_type  application/octet-stream;  #默认文件类型，默认为text/plain</div><div class="line">    #proxy_method get;</div><div class="line">    #access_log off; # 取消服务日志</div><div class="line">    #log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '</div><div class="line">    #                  '$status $body_bytes_sent "$http_referer" '</div><div class="line">    #                  '"$http_user_agent" "$http_x_forwarded_for"';</div><div class="line">    # 自定义格式</div><div class="line">    #access_log  logs/access.log  main;  #combined为日志格式默认值</div><div class="line"></div><div class="line">    sendfile        on; #允许sendfile方式传输文件，默认值为off，可以在http块，server块，location块；</div><div class="line">    #tcp_nopush     on;</div><div class="line"></div><div class="line">    #keepalive_timeout  0;</div><div class="line">    keepalive_timeout  65; #链接超时时间，默认值为75s，可以在http块，server块,location块；</div><div class="line">    #sendfile_max_chunk 100k;  #每个进程每次调用传输数量不能大于设定的值，默认为0，即不设上限。</div><div class="line">    #gzip  on;</div><div class="line">    #upstream mysvr&#123;</div><div class="line">            #server 127.0.0.1:8081;</div><div class="line">            #server 112.74.180.53:80;</div><div class="line">    #&#125;</div><div class="line">    server &#123;      # server块  配置虚拟主机的相关参数，一个http中可以有多个server</div><div class="line">        listen       8081;  #监听端口</div><div class="line">        server_name  tomcat;   #监听地址</div><div class="line">        #root  D:/Users/uidp4983/nicefish/dist;</div><div class="line">        root  /var/http://www.sulishibaobei.com/nicefish/dist;</div><div class="line">        index  index.html;</div><div class="line">        </div><div class="line">        location /file &#123;    #配置请求的路由 以及各个页面的处理情况</div><div class="line">            proxy_pass  http://112.74.180.53:80;</div><div class="line">        &#125;</div><div class="line">        location /toutiao &#123;</div><div class="line">            proxy_pass http://v.juhe.cn;</div><div class="line"></div><div class="line">        &#125;</div><div class="line">        location ~* \.(js|css|png|gif|jpg|mp3|ogg|ttf|woff|woff2|html|json|map)$ &#123;</div><div class="line">              expires 30d;</div><div class="line">       &#125;</div><div class="line"></div><div class="line">        default_type 'text/html';</div><div class="line">        charset utf-8;</div><div class="line">       </div><div class="line">         # keepalive_timeout 120; #单链接请求上限次数</div><div class="line">       # location  ~*^.+$ &#123;       #请求的url过滤，正则匹配，~为区分大小写，~*为不区分大小写。</div><div class="line">               #root path; #根目录</div><div class="line">               #index vv.txt #设置默认页</div><div class="line">               #proxy_pass http://mysvr #请求转向mysvr定义的服务器列表</div><div class="line">               #deny 127.0.0.1; #拒绝的ip</div><div class="line">               #allow 172.18.5.54 #允许的ip</div><div class="line">         # &#125;</div><div class="line">       </div><div class="line">        #charset koi8-r;</div><div class="line">        #access_log  logs/host.access.log  main;</div><div class="line">        #error_page  404              /404.html;</div><div class="line"></div><div class="line">        # redirect server error pages to the static page /50x.html</div><div class="line">        #proxy_intercept_errors on;   #如果被代理服务器返回的状态码为400或者大于400，设置的error_page配置起作用。默认为off。</div><div class="line">        error_page   500 502 503 504  /50x.html; #错误页</div><div class="line"></div><div class="line">        location = /50x.html &#123;</div><div class="line">            root   html;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        # proxy the PHP scripts to Apache listening on 127.0.0.1:80</div><div class="line">        #</div><div class="line">        #location ~ \.php$ &#123;</div><div class="line">        #    proxy_pass   http://127.0.0.1;</div><div class="line">        #&#125;</div><div class="line"></div><div class="line">        # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000</div><div class="line">        #</div><div class="line">        #location ~ \.php$ &#123;</div><div class="line">        #    root           html;</div><div class="line">        #    fastcgi_pass   127.0.0.1:9000;</div><div class="line">        #    fastcgi_index  index.php;</div><div class="line">        #    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;</div><div class="line">        #    include        fastcgi_params;</div><div class="line">        #&#125;</div><div class="line"></div><div class="line">        # deny access to .htaccess files, if Apache's document root</div><div class="line">        # concurs with nginx's one</div><div class="line">        #</div><div class="line">        #location ~ /\.ht &#123;</div><div class="line">        #    deny  all;</div><div class="line">        #&#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    # another virtual host using mix of IP-, name-, and port-based configuration</div><div class="line">    #</div><div class="line">    #server &#123;</div><div class="line">    #    listen       8000;</div><div class="line">    #    listen       somename:8080;</div><div class="line">    #    server_name  somename  alias  another.alias;</div><div class="line"></div><div class="line">    #    location / &#123;</div><div class="line">    #        root   html;</div><div class="line">    #        index  index.html index.htm;</div><div class="line">    #    &#125;</div><div class="line">    #&#125;</div><div class="line"></div><div class="line"></div><div class="line">    # HTTPS server</div><div class="line">    #</div><div class="line">    #server &#123;</div><div class="line">    #    listen       443 ssl;</div><div class="line">    #    server_name  localhost;</div><div class="line"></div><div class="line">    #    ssl_certificate      cert.pem;</div><div class="line">    #    ssl_certificate_key  cert.key;</div><div class="line"></div><div class="line">    #    ssl_session_cache    shared:SSL:1m;</div><div class="line">    #    ssl_session_timeout  5m;</div><div class="line"></div><div class="line">    #    ssl_ciphers  HIGH:!aNULL:!MD5;</div><div class="line">    #    ssl_prefer_server_ciphers  on;</div><div class="line"></div><div class="line">    #    location / &#123;</div><div class="line">    #        root   html;</div><div class="line">    #        index  index.html index.htm;</div><div class="line">    #    &#125;</div><div class="line">    #&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;有这样一个问题，我的nicefish项目里面要从我的服务器&lt;a href=&quot;http://112.74.180.53&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://112.74.180.53&lt;/a&gt; 里面去拿去数据，然后遇见了跨域；然后就想到了用nginx做一个代理去拿数据；&lt;br&gt;其实解决的办法由很多种，单单就跨域的这个问题的话，proxy.config.json也是可以解决，jsonp也可以解决，这里聊一聊我用nginx解决的过程；&lt;br&gt;
-    
-    </summary>
-    
-      <category term="前端那些微小事" scheme="http://www.sulishibaobei.com/categories/%E5%89%8D%E7%AB%AF%E9%82%A3%E4%BA%9B%E5%BE%AE%E5%B0%8F%E4%BA%8B/"/>
-    
-    
-      <category term="nginx" scheme="http://www.sulishibaobei.com/tags/nginx/"/>
-    
-      <category term="配置" scheme="http://www.sulishibaobei.com/tags/%E9%85%8D%E7%BD%AE/"/>
     
   </entry>
   
@@ -1010,11 +1021,11 @@
       <category term="前端那些微小事" scheme="http://www.sulishibaobei.com/categories/%E5%89%8D%E7%AB%AF%E9%82%A3%E4%BA%9B%E5%BE%AE%E5%B0%8F%E4%BA%8B/"/>
     
     
+      <category term="javascript" scheme="http://www.sulishibaobei.com/tags/javascript/"/>
+    
       <category term="console.log" scheme="http://www.sulishibaobei.com/tags/console-log/"/>
     
       <category term="alert" scheme="http://www.sulishibaobei.com/tags/alert/"/>
-    
-      <category term="javascript" scheme="http://www.sulishibaobei.com/tags/javascript/"/>
     
   </entry>
   
