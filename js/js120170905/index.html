@@ -137,7 +137,7 @@
 <meta property="og:image" content="http://www.sulishibaobei.com/images/js-11.png">
 <meta property="og:image" content="http://www.sulishibaobei.com/images/js-12.png">
 <meta property="og:image" content="http://www.sulishibaobei.com/images/js-13.png">
-<meta property="og:updated_time" content="2017-09-25T01:46:36.000Z">
+<meta property="og:updated_time" content="2017-09-25T03:31:28.749Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端面试中遇见的那些纯js题">
 <meta name="twitter:description" content="js 定义类有哪些常用的方法？1.工厂方式12345678910111213function Car()&amp;#123;    var ocar=new Obejct;  //不用括号    ocar.color=&apos;blue&apos;;    ocar.doors=4;    ocar.showColor=function()&amp;#123;        this.color;    &amp;#125;    ret">
@@ -731,7 +731,9 @@ var _hmt = _hmt || [];
 <p>好了，所有的字符串的方法都在这里呀；</p>
 <h2 id="判断一个字符串中出现次数最多的字符，统计这个次数"><a href="#判断一个字符串中出现次数最多的字符，统计这个次数" class="headerlink" title="判断一个字符串中出现次数最多的字符，统计这个次数"></a>判断一个字符串中出现次数最多的字符，统计这个次数</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str = <span class="string">'asdfdffhwfeuwdasdsaaaaaaaa'</span>;</div><div class="line">    <span class="keyword">var</span> json = &#123;&#125;;</div><div class="line">    <span class="comment">//遍历str拆解其中的每一个字符，将其中某个字符得到值及其出现的次数拿出来作为json的key和value</span></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; str.length; i++) &#123;</div><div class="line">      <span class="comment">//判断json中是否有当前str值</span></div><div class="line">      <span class="keyword">if</span> (!json[str.charAt(i)]) &#123;</div><div class="line">        <span class="comment">//如果不存在，就将当前值添加到json中去；</span></div><div class="line">        json[str.charAt(i)] = <span class="number">1</span>;</div><div class="line">      &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="comment">//else的话就让数组中已有的当前值的index值++；</span></div><div class="line">        json[str.charAt(i)]++;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">console</span>.log(json); </div><div class="line">    <span class="comment">//储存出现次数最多的值和次数</span></div><div class="line">    <span class="keyword">var</span> iMax = <span class="number">0</span>;</div><div class="line">    <span class="keyword">var</span> iIndex = <span class="string">''</span>;</div><div class="line">    <span class="comment">//遍历json 使用打擂算法统计需要的值</span></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> json) &#123;</div><div class="line">      <span class="comment">//如果当前项大于下一项</span></div><div class="line">      <span class="keyword">if</span> (json[i] &gt; iMax) &#123;</div><div class="line">        <span class="comment">//让当前值更改为出现次数最多的值</span></div><div class="line">        iMax = json[i];</div><div class="line">        iIndex = i;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//打印最终结果</span></div><div class="line">    <span class="built_in">console</span>.log (<span class="string">'出现最多的值是'</span>+ iIndex+ <span class="string">'出现的次数为'</span>+iMax); <span class="comment">//出现最多的值是a出现的次数为10</span></div></pre></td></tr></table></figure>
 <p>看看json 里面存入的值：<br><img src="/images/js-13.png" alt="js"></p>
-<h2 id="编写一个方法，求一个字符串的字节长度"><a href="#编写一个方法，求一个字符串的字节长度" class="headerlink" title="编写一个方法，求一个字符串的字节长度"></a>编写一个方法，求一个字符串的字节长度</h2>
+<h2 id="编写一个方法，求一个字符串的字节长度"><a href="#编写一个方法，求一个字符串的字节长度" class="headerlink" title="编写一个方法，求一个字符串的字节长度"></a>编写一个方法，求一个字符串的字节长度</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str=<span class="string">"22来那个"</span>;</div><div class="line">   <span class="built_in">console</span>.log(getStrlen(str)); <span class="comment">//3 5</span></div><div class="line">   <span class="function"><span class="keyword">function</span> <span class="title">getStrlen</span>(<span class="params">str</span>)</span>&#123;</div><div class="line">     <span class="keyword">var</span> json=&#123;<span class="attr">len</span>:<span class="number">0</span>&#125;;</div><div class="line">     <span class="keyword">var</span> re=<span class="regexp">/[\u4e00-\u9fa5]/</span>;</div><div class="line">     <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;str.length;i++)&#123;</div><div class="line">       <span class="keyword">if</span>(re.test(str.charAt(i)))&#123;</div><div class="line">         json[<span class="string">'len'</span>]++;</div><div class="line">       &#125;</div><div class="line">     &#125;;</div><div class="line">     <span class="keyword">return</span> json[<span class="string">'len'</span>]+<span class="string">" "</span>+str.length;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<p>关于里面的正则表达式，可以<a href="http://www.sulishibaobei.com/js/zhengze20170925/">看这里</a></p>
+
       
     </div>
     
@@ -795,8 +797,8 @@ var _hmt = _hmt || [];
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/js/console20170905/" rel="next" title="简述alert和console.log的区别">
-                <i class="fa fa-chevron-left"></i> 简述alert和console.log的区别
+              <a href="/angular/style/component-style20170902/" rel="next" title="Angular 2+ 设置组件样式的那些事">
+                <i class="fa fa-chevron-left"></i> Angular 2+ 设置组件样式的那些事
               </a>
             
           </div>
@@ -805,8 +807,8 @@ var _hmt = _hmt || [];
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/index20170906/" rel="prev" title="关于个人博客的搭建">
-                关于个人博客的搭建 <i class="fa fa-chevron-right"></i>
+              <a href="/js/console20170905/" rel="prev" title="简述alert和console.log的区别">
+                简述alert和console.log的区别 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

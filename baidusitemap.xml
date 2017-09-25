@@ -4,32 +4,8 @@
 
     
   <url>
-    <loc>http://www.sulishibaobei.com/js/zhengze20170925/</loc>
-    <lastmod>2017-09-25T03:06:19.183Z</lastmod>
-    <data>
-        <display>
-        <title>教你如何使用正则表达式</title>
-        <pubTime>2017-09-25T01:08:53.000Z</pubTime>
-        
-        <tag>javascript</tag>
-         
-        <tag>正则表达式</tag>
-         
-        <tag>Regex</tag>
-         
-         
-           
-             
-              <breadCrumb title="前端那些微小事" url="http://www.sulishibaobei.com/categories/%E5%89%8D%E7%AB%AF%E9%82%A3%E4%BA%9B%E5%BE%AE%E5%B0%8F%E4%BA%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://www.sulishibaobei.com/js/js120170905/</loc>
-    <lastmod>2017-09-25T01:46:36.000Z</lastmod>
+    <lastmod>2017-09-25T03:31:28.749Z</lastmod>
     <data>
         <display>
         <title>前端面试中遇见的那些纯js题</title>
@@ -45,6 +21,30 @@
            
              
               <breadCrumb title="前端面试题整理" url="http://www.sulishibaobei.com/categories/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.sulishibaobei.com/js/zhengze20170925/</loc>
+    <lastmod>2017-09-25T03:28:37.000Z</lastmod>
+    <data>
+        <display>
+        <title>教你如何使用正则表达式</title>
+        <pubTime>2017-09-25T01:08:53.000Z</pubTime>
+        
+        <tag>正则表达式</tag>
+         
+        <tag>Regex</tag>
+         
+        <tag>javascript</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端那些微小事" url="http://www.sulishibaobei.com/categories/%E5%89%8D%E7%AB%AF%E9%82%A3%E4%BA%9B%E5%BE%AE%E5%B0%8F%E4%BA%8B/"/>
           
         </display>
     </data>
@@ -377,11 +377,11 @@
         <title>简述alert和console.log的区别</title>
         <pubTime>2017-09-05T03:08:53.000Z</pubTime>
         
+        <tag>javascript</tag>
+         
         <tag>console.log</tag>
          
         <tag>alert</tag>
-         
-        <tag>javascript</tag>
          
          
            
