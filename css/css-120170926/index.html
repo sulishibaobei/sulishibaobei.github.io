@@ -153,7 +153,9 @@ var _hmt = _hmt || [];
 <meta property="og:image" content="http://www.sulishibaobei.com/images/html-4.png">
 <meta property="og:image" content="http://www.sulishibaobei.com/images/html-5.png">
 <meta property="og:image" content="http://www.sulishibaobei.com/images/html-6.png">
-<meta property="og:updated_time" content="2017-09-26T04:09:00.823Z">
+<meta property="og:image" content="http://www.sulishibaobei.com/images/html-7.png">
+<meta property="og:image" content="http://www.sulishibaobei.com/css/css-120170926/images/html-8.png">
+<meta property="og:updated_time" content="2017-09-26T04:26:24.256Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端面试中常见的那些HTML&#x2F;CSS题">
 <meta name="twitter:description" content="什么是盒子模型？一般面试都会问：盒子模型你是怎么理解的？盒子模型分为两种：W3C(标准的)盒子模型和IE(怪异)盒子模型">
@@ -458,8 +460,8 @@ var _hmt = _hmt || [];
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CSS/" itemprop="url" rel="index">
-                    <span itemprop="name">CSS</span>
+                  <a href="/categories/前端面试题整理/" itemprop="url" rel="index">
+                    <span itemprop="name">前端面试题整理</span>
                   </a>
                 </span>
 
@@ -525,6 +527,12 @@ var _hmt = _hmt || [];
 </ul>
 </blockquote>
 <p>另外还有一点：css3的伸缩盒模型指的是<a href="http://www.sulishibaobei.com/css/fb-120170908/">FlexBox</a>,想了解的戳链接</p>
+<h2 id="为什么样式定义开头要定义-margin-0-padding-0"><a href="#为什么样式定义开头要定义-margin-0-padding-0" class="headerlink" title="为什么样式定义开头要定义* {margin:0;padding:0;}"></a>为什么样式定义开头要定义* {margin:0;padding:0;}</h2><p>是用来清除所有元素的默认内外边距；<br>举一个例子：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"div1"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">div</span>&#123;</div><div class="line">           <span class="attribute">width</span>: <span class="number">100px</span>;</div><div class="line">           <span class="attribute">height</span>: <span class="number">200px</span>;</div><div class="line">           <span class="attribute">background</span>: red;</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
+<p>这时候我们可以看看效果：<br><img src="/images/html-7.png" alt="html"><br>这时候，我们并没有给div设置margin和padding,但是确有一个边距存在，这就是浏览器给我们的默认边距；<br>当我们设置这样一句：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">*&#123;</div><div class="line">           <span class="attribute">margin</span>: <span class="number">0</span>;</div><div class="line">           <span class="attribute">padding</span>: <span class="number">0</span>;</div><div class="line">       &#125;</div></pre></td></tr></table></figure></p>
+<p><img src="images/html-8.png" alt="html"><br>看到效果了吧，也就是设置这样一句的作用;<br>例外平常还有两中比较常见的设置方法，可能有些人会这样设置：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">html</span>&#123;</div><div class="line">    <span class="attribute">margin</span>:<span class="number">0</span>;</div><div class="line">    <span class="attribute">padding</span>:<span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这种方式是没用的，并不能清除脏边距；<br>还有一种<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span>&#123;</div><div class="line">    <span class="attribute">margin</span>:<span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这种方式是有效地，不同的浏览器，不同的兼容性，从代码通用性来说，设置*号是最好的方式；</p>
 
       
     </div>
@@ -825,7 +833,7 @@ var _hmt = _hmt || [];
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是盒子模型？"><span class="nav-number">1.</span> <span class="nav-text">什么是盒子模型？</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是盒子模型？"><span class="nav-number">1.</span> <span class="nav-text">什么是盒子模型？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么样式定义开头要定义-margin-0-padding-0"><span class="nav-number">2.</span> <span class="nav-text">为什么样式定义开头要定义* {margin:0;padding:0;}</span></a></li></ol></div>
             
 
           </div>
