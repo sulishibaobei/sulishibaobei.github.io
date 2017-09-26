@@ -247,6 +247,73 @@
   </entry>
   
   <entry>
+    <title>bootstrap简单图文环绕效果</title>
+    <link href="http://www.sulishibaobei.com/bootstrap/bt-120170908/"/>
+    <id>http://www.sulishibaobei.com/bootstrap/bt-120170908/</id>
+    <published>2017-09-08T01:08:53.000Z</published>
+    <updated>2017-09-08T13:16:02.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>一.下载bootstrap-3.3.7<br>二.在html页面引入css,js;<br>eg:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">src</span>=<span class="string">"bootstrap-3.3.7-dist/css/bootstrap.min.css"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"jquery.min.js"</span>&gt;</span><span class="xml"><span class="tag">&lt;/ <span class="attr">script</span>&gt;</span> </span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"bootstrap-3.3.7-dist/js/bootstrap.min.js"</span>&gt;</span><span class="xml"><span class="tag">&lt;/ <span class="attr">script</span>&gt;</span></span></div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>注意：因为会用到jquery，所以引入了jquery .js;<br>三.body部分的代码是这样的：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">style</span>=<span class="string">"margin: 10px;padding: 0px"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span>  </div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>/&gt;</span></div></pre></td></tr></table></figure></p>
+<p>简单解析下：<br>  body里包含两个div ,一个在左边排列(用于放图片)，一个在右边排列(用于放文字);都用class名进行区分啦，left和right;<br>简单的给两个div添加点样式： </p>
+<pre><code class="css"><span class="selector-class">.left</span>  { 
+  <span class="attribute">float </span>:  left ; 
+  <span class="attribute">max-width </span>:  <span class="number">43%</span> ; 
+  <span class="attribute">padding-left </span>:  <span class="number">5px</span> ;  
+     } 
+ <span class="selector-class">.right</span>{ 
+ <span class="attribute">margin-left </span>:  <span class="number">5px</span> ;
+     }
+</code></pre>
+<p>现在还看不出什么效果;<br>给第一个div里添加图片;<br><code>&lt; img src=”index.jpg” class=”img-responsive” alt=”图像”&gt; </code><br>给第二个div添加文字，里面的文字是采用Boostrap的样式; </p>
+<pre><code class="html"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span>
+                <span class="tag">&lt;<span class="name">h1</span>&gt;</span>图文环绕<span class="tag">&lt;/<span class="name">h1</span>&gt;</span>
+                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span>
+                  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-6 col-md-offset-3"</span> <span class="attr">style</span>=<span class="string">" box-shadow: inset 1px -1px 1px #ccc, inset -1px 1px 1px #ccc;"</span>&gt;</span>
+                        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span>
+                            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-6"</span> <span class="attr">style</span>=<span class="string">" box-shadow: inset 1px -1px 1px #ccc, inset -1px 1px 1px #ccc;"</span>&gt;</span>
+                                <span class="tag">&lt;<span class="name">p</span>&gt;</span>&amp;nbsp;&amp;nbsp;&amp;nbsp;风雨中走过却不安世事的心<span class="tag">&lt;/<span class="name">p</span>&gt;</span>
+                            <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+                      <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+                               <span class="tag">&lt;<span class="name">p</span>&gt;</span>&amp;nbsp;&amp;nbsp;&amp;nbsp;我还是很喜欢你，像风走了三千米不问归期 我希望有个如你一般的人如山间清爽的风如古城温暖的光从清晨到夜晚由山野到书房只要最后是你就好 <span class="tag">&lt;/<span class="name">p</span>&gt;</span>
+                 <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-6 col-sm-offset-3"</span> <span class="attr">style</span>=<span class="string">"box-shadow: inset 1px -1px 1px #ccc, inset -1px 1px 1px #ccc;"</span>&gt;</span>
+                      <span class="tag">&lt;<span class="name">p</span>&gt;</span>&amp;nbsp;&amp;nbsp;&amp;nbsp;我觉得这个世界美好无比。晴时满树花开，雨天一湖涟漪，阳光席卷城市，微风穿越指间，入夜每个电台播放的情歌，沿途每条山路铺开的影子，全部是你不经意写的一字一句，留我年复一年朗读。这世界是你的遗嘱，而我是你唯一的遗物。
+                      <span class="tag">&lt;/<span class="name">p</span>&gt;</span>
+                      <span class="tag">&lt;<span class="name">p</span>&gt;</span>&amp;nbsp;&amp;nbsp;一个人的记忆就是座城市，时间腐蚀着一切建筑，把高楼和道路全部沙化。如果你不往前走，就会被沙子掩埋。所以我们泪流满面，步步回头，可是只能往前走 <span class="tag">&lt;/<span class="name">p</span>&gt;</span>
+               <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+               <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"clearfix visible-xs"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+                  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-6 col-md-offset-3"</span> <span class="attr">style</span>=<span class="string">" box-shadow:inset 1px -1px 1px #ccc, inset -1px 1px 1px #ccc;"</span>&gt;</span>
+                   <span class="tag">&lt;<span class="name">p</span>&gt;</span>&amp;nbsp;&amp;nbsp;&amp;nbsp;你燃烧，我陪你焚成灰烬。你熄灭，我陪你低落尘埃。你出生，我陪你徒步人海。你沉默，我陪你一言不发，你欢笑，我陪你山呼海啸。你衰老，我陪你满目疮痍。你逃避，我陪你隐入夜晚。你离开，我只能等待。 <span class="tag">&lt;/<span class="name">p</span>&gt;</span>
+               <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+             <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-6 col-sm-offset-3"</span> <span class="attr">style</span>=<span class="string">"box-shadow: inset 1px -1px 1px #ccc, inset -1px 1px 1px #ccc;"</span>&gt;</span>
+                 <span class="tag">&lt;<span class="name">p</span>&gt;</span>我希望买的鞋子是你渴望的颜色。我希望拨通电话时你恰好在想我。我希望说早安你也刚起床。我希望写的书是你欣赏的故事。我希望关灯的刹那你正泛起困意。我希望买的水果你永远觉得是甜的。我希望点的歌都是你喜欢唱的。我希望我希望的是你希望的。
+                  <span class="tag">&lt;/<span class="name">p</span>&gt;</span>
+             <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+             <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"clearfix visible-xs"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+    <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+  <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+</code></pre>
+<p>采用的是bootstrap的架构： container&gt; row&gt; column&nbsp;<br>将css样式也写在标签上，所以有点看起来复杂，其实很简单，这几段文字的结构都一样。<br>看看运行效果：<br><img src="/images/bt-1.png" alt="bt"><br>拖动页面试试<br><img src="/images/bt-2.png" alt="bt"><br>你可以通过控制台随意拖动页面的宽度，看看文字的适配程度。<br><a href="https://github.com/sulishibaobei/bootstrap/tree/master/bootstrap%20by%20around" target="_blank" rel="external">源码</a><br>另外有两个免费网站模板也可以看看，在同一个github路径下</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;一.下载bootstrap-3.3.7&lt;br&gt;二.在html页面引入css,js;&lt;br&gt;eg:&lt;br&gt;&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;link&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;src&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;bootstrap-3.3.7-dist/css/bootstrap.min.css&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;text/javascript&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;src&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;jquery.min.js&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;xml&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/ &lt;span class=&quot;attr&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt; &lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;text/javascript&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;src&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;bootstrap-3.3.7-dist/js/bootstrap.min.js&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;xml&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/ &lt;span class=&quot;attr&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Bootstrap" scheme="http://www.sulishibaobei.com/categories/Bootstrap/"/>
+    
+    
+      <category term="bootstrap" scheme="http://www.sulishibaobei.com/tags/bootstrap/"/>
+    
+      <category term="图文环绕" scheme="http://www.sulishibaobei.com/tags/%E5%9B%BE%E6%96%87%E7%8E%AF%E7%BB%95/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Angular 4+ Http</title>
     <link href="http://www.sulishibaobei.com/angular/http/http-120170908/"/>
     <id>http://www.sulishibaobei.com/angular/http/http-120170908/</id>
@@ -328,6 +395,40 @@
   </entry>
   
   <entry>
+    <title>angular4 中自定义pagination组件</title>
+    <link href="http://www.sulishibaobei.com/angular/pg-120170908/"/>
+    <id>http://www.sulishibaobei.com/angular/pg-120170908/</id>
+    <published>2017-09-08T01:08:53.000Z</published>
+    <updated>2017-09-08T15:01:32.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/fengjing-3.jpg" alt="fengjing"></p>
+<p><div class="image-caption">你用Angular 吗?</div><br><a id="more"></a><br><br>一.介绍<br>一个基于angular4 开发的可以分页的组件。组件的好处就是可以复用，复用…..作为一个前端码农，开始的分页功能实现是我用jquery写的，其他同事用的时候都要将我的代码拷贝过去，于是我被鄙视了。为了不继续被鄙视就开始了尝试。<br>二.基本功能<br>1.根据规定的每页数据条数，分页显示数据<br>2.上下页操作数据<br>直接上界面图可能清晰点：<br><img src="http://upload-images.jianshu.io/upload_images/4116930-2fe57ab69ccdcb87.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" data-original-src="http://upload-images.jianshu.io/upload_images/4116930-2fe57ab69ccdcb87.png?imageMogr2/auto-orient/strip" data-image-slug="2fe57ab69ccdcb87" data-width="1338" data-height="655"> </p>
+<p><div class="image-caption">项目截图</div><br>根据图片进行讲解下：根据你总数据条数:totalNum; 每页显示条数:pageSize,通过组件会自动给你分页显示。<br>eg：总数41 条数据,每页显示10条数据，则是分成5页。如果想每页显示7条，则会分成6页。<br>三.简要代码<br>架构目录图：<br><img src="http://upload-images.jianshu.io/upload_images/4116930-fed7af4e2c9f5530.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" data-original-src="http://upload-images.jianshu.io/upload_images/4116930-fed7af4e2c9f5530.png?imageMogr2/auto-orient/strip" data-image-slug="fed7af4e2c9f5530" data-width="360" data-height="351"> </p>
+<p><div class="image-caption">项目目录</div><br>有两个组件：pagination和page;&nbsp; pagination是用来显示前面数据的，page是用来下面分页的。<br>pagination.html示例代码：<br><img src="http://upload-images.jianshu.io/upload_images/4116930-7fc90a6263bba71b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" data-original-src="http://upload-images.jianshu.io/upload_images/4116930-7fc90a6263bba71b.png?imageMogr2/auto-orient/strip" data-image-slug="7fc90a6263bba71b" data-width="1517" data-height="603"> </p>
+<p><div class="image-caption">数据显示部分代码</div><br>ngb-xxx不用在意，是用的ng-bootstrap，只是为了让界面好看点。其实就是一个简单的table用来显示数据。*ngFor用来取数据，懂Angular 的人应该都会，这不是重点就不介绍了。<br>&lt;page&gt;&lt;/page&gt;&nbsp;<br>这里是引入page组件。但是传入了一些属性值；关于模板语法，依赖注入，自定义事件就不介绍了。只要知道这里是：pagination组件向page组件传入了几个值：pageSize(页面显示数据条数)，totalNum(总数据条数),curPage(当前页码 ），totalPage(总页码),pageData(每页显示数据)<br>其中pageSize和pageData是一样的，只是后面为了操作，多传了一个值；<br>那么：pageSize等值都是哪里来的呢，当然是pagination.ts里定义的：<br><img src="http://upload-images.jianshu.io/upload_images/4116930-a003c8ca2a6946ae.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" data-original-src="http://upload-images.jianshu.io/upload_images/4116930-a003c8ca2a6946ae.png?imageMogr2/auto-orient/strip" data-image-slug="a003c8ca2a6946ae" data-width="948" data-height="296"> </p>
+<p><div class="image-caption">pagination.ts代码</div><br>代码中的page就是你获得到得数据，自然totalNum就会等于数据的长度。依次算出来就好了。 pagination组件算是完成了，现在就来看看page是怎么接收到数据并进行操作的。<br>page.html页面的代码：<br><img src="http://upload-images.jianshu.io/upload_images/4116930-bdee3bc2c0eaf98c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" data-original-src="http://upload-images.jianshu.io/upload_images/4116930-bdee3bc2c0eaf98c.png?imageMogr2/auto-orient/strip" data-image-slug="bdee3bc2c0eaf98c" data-width="1753" data-height="404"> </p>
+<p><div class="image-caption">page.ts 分页数据的html</div><br>其实很简单：就一个a标签显示条数，页数的，三个button,一个显示上一页，一个页数，一个下一页。每个按钮都绑定了一个changePage事件；<br>看一下实现部分的代码：<br><img src="http://upload-images.jianshu.io/upload_images/4116930-012ecce551a391ef.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" data-original-src="http://upload-images.jianshu.io/upload_images/4116930-012ecce551a391ef.png?imageMogr2/auto-orient/strip" data-image-slug="012ecce551a391ef" data-width="1664" data-height="1269"> </p>
+<p><div class="image-caption">page.ts分页实现部分代码</div><br>@Input是接收pagination.html组件传过来的数据。@Output是定义pagination.html页面定义的changeCurPage事件。<br>通过三个if else判断，对传多来的数据进行处理。其实就分为：数据只够显示一页；数据显示到最后一页；数据刷新到中间页码；这三种情况下的操作。<br>好了，基本就完成了。有些东西也是借助网友的想法，但是思路大致都是这样。现在我改变条数和数据量看看：<br><img src="http://upload-images.jianshu.io/upload_images/4116930-a5a797d4493a0cb9.png" alt="" data-original-src="http://upload-images.jianshu.io/upload_images/4116930-a5a797d4493a0cb9.png" data-image-slug="a5a797d4493a0cb9"> </p>
+<p><div class="image-caption">&nbsp; 项目截图</div><br>详情代码及效果：<a href="https://github.com/sulishibaobei/pagination" target="_blank" rel="external">https://github.com/sulishibaobei/pagination</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;/images/fengjing-3.jpg&quot; alt=&quot;fengjing&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;div class=&quot;image-caption&quot;&gt;你用Angular 吗?&lt;/div&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Angular 2+" scheme="http://www.sulishibaobei.com/categories/Angular-2/"/>
+    
+    
+      <category term="Angular2+" scheme="http://www.sulishibaobei.com/tags/Angular2/"/>
+    
+      <category term="分页组件" scheme="http://www.sulishibaobei.com/tags/%E5%88%86%E9%A1%B5%E7%BB%84%E4%BB%B6/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Angular 4+ HttpClient</title>
     <link href="http://www.sulishibaobei.com/angular/http/http-220170908/"/>
     <id>http://www.sulishibaobei.com/angular/http/http-220170908/</id>
@@ -374,107 +475,6 @@
       <category term="Angular 2+" scheme="http://www.sulishibaobei.com/tags/Angular-2/"/>
     
       <category term="httpClient" scheme="http://www.sulishibaobei.com/tags/httpClient/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>angular4 中自定义pagination组件</title>
-    <link href="http://www.sulishibaobei.com/angular/pg-120170908/"/>
-    <id>http://www.sulishibaobei.com/angular/pg-120170908/</id>
-    <published>2017-09-08T01:08:53.000Z</published>
-    <updated>2017-09-08T15:01:32.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="/images/fengjing-3.jpg" alt="fengjing"></p>
-<p><div class="image-caption">你用Angular 吗?</div><br><a id="more"></a><br><br>一.介绍<br>一个基于angular4 开发的可以分页的组件。组件的好处就是可以复用，复用…..作为一个前端码农，开始的分页功能实现是我用jquery写的，其他同事用的时候都要将我的代码拷贝过去，于是我被鄙视了。为了不继续被鄙视就开始了尝试。<br>二.基本功能<br>1.根据规定的每页数据条数，分页显示数据<br>2.上下页操作数据<br>直接上界面图可能清晰点：<br><img src="http://upload-images.jianshu.io/upload_images/4116930-2fe57ab69ccdcb87.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" data-original-src="http://upload-images.jianshu.io/upload_images/4116930-2fe57ab69ccdcb87.png?imageMogr2/auto-orient/strip" data-image-slug="2fe57ab69ccdcb87" data-width="1338" data-height="655"> </p>
-<p><div class="image-caption">项目截图</div><br>根据图片进行讲解下：根据你总数据条数:totalNum; 每页显示条数:pageSize,通过组件会自动给你分页显示。<br>eg：总数41 条数据,每页显示10条数据，则是分成5页。如果想每页显示7条，则会分成6页。<br>三.简要代码<br>架构目录图：<br><img src="http://upload-images.jianshu.io/upload_images/4116930-fed7af4e2c9f5530.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" data-original-src="http://upload-images.jianshu.io/upload_images/4116930-fed7af4e2c9f5530.png?imageMogr2/auto-orient/strip" data-image-slug="fed7af4e2c9f5530" data-width="360" data-height="351"> </p>
-<p><div class="image-caption">项目目录</div><br>有两个组件：pagination和page;&nbsp; pagination是用来显示前面数据的，page是用来下面分页的。<br>pagination.html示例代码：<br><img src="http://upload-images.jianshu.io/upload_images/4116930-7fc90a6263bba71b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" data-original-src="http://upload-images.jianshu.io/upload_images/4116930-7fc90a6263bba71b.png?imageMogr2/auto-orient/strip" data-image-slug="7fc90a6263bba71b" data-width="1517" data-height="603"> </p>
-<p><div class="image-caption">数据显示部分代码</div><br>ngb-xxx不用在意，是用的ng-bootstrap，只是为了让界面好看点。其实就是一个简单的table用来显示数据。*ngFor用来取数据，懂Angular 的人应该都会，这不是重点就不介绍了。<br>&lt;page&gt;&lt;/page&gt;&nbsp;<br>这里是引入page组件。但是传入了一些属性值；关于模板语法，依赖注入，自定义事件就不介绍了。只要知道这里是：pagination组件向page组件传入了几个值：pageSize(页面显示数据条数)，totalNum(总数据条数),curPage(当前页码 ），totalPage(总页码),pageData(每页显示数据)<br>其中pageSize和pageData是一样的，只是后面为了操作，多传了一个值；<br>那么：pageSize等值都是哪里来的呢，当然是pagination.ts里定义的：<br><img src="http://upload-images.jianshu.io/upload_images/4116930-a003c8ca2a6946ae.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" data-original-src="http://upload-images.jianshu.io/upload_images/4116930-a003c8ca2a6946ae.png?imageMogr2/auto-orient/strip" data-image-slug="a003c8ca2a6946ae" data-width="948" data-height="296"> </p>
-<p><div class="image-caption">pagination.ts代码</div><br>代码中的page就是你获得到得数据，自然totalNum就会等于数据的长度。依次算出来就好了。 pagination组件算是完成了，现在就来看看page是怎么接收到数据并进行操作的。<br>page.html页面的代码：<br><img src="http://upload-images.jianshu.io/upload_images/4116930-bdee3bc2c0eaf98c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" data-original-src="http://upload-images.jianshu.io/upload_images/4116930-bdee3bc2c0eaf98c.png?imageMogr2/auto-orient/strip" data-image-slug="bdee3bc2c0eaf98c" data-width="1753" data-height="404"> </p>
-<p><div class="image-caption">page.ts 分页数据的html</div><br>其实很简单：就一个a标签显示条数，页数的，三个button,一个显示上一页，一个页数，一个下一页。每个按钮都绑定了一个changePage事件；<br>看一下实现部分的代码：<br><img src="http://upload-images.jianshu.io/upload_images/4116930-012ecce551a391ef.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" data-original-src="http://upload-images.jianshu.io/upload_images/4116930-012ecce551a391ef.png?imageMogr2/auto-orient/strip" data-image-slug="012ecce551a391ef" data-width="1664" data-height="1269"> </p>
-<p><div class="image-caption">page.ts分页实现部分代码</div><br>@Input是接收pagination.html组件传过来的数据。@Output是定义pagination.html页面定义的changeCurPage事件。<br>通过三个if else判断，对传多来的数据进行处理。其实就分为：数据只够显示一页；数据显示到最后一页；数据刷新到中间页码；这三种情况下的操作。<br>好了，基本就完成了。有些东西也是借助网友的想法，但是思路大致都是这样。现在我改变条数和数据量看看：<br><img src="http://upload-images.jianshu.io/upload_images/4116930-a5a797d4493a0cb9.png" alt="" data-original-src="http://upload-images.jianshu.io/upload_images/4116930-a5a797d4493a0cb9.png" data-image-slug="a5a797d4493a0cb9"> </p>
-<p><div class="image-caption">&nbsp; 项目截图</div><br>详情代码及效果：<a href="https://github.com/sulishibaobei/pagination" target="_blank" rel="external">https://github.com/sulishibaobei/pagination</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;/images/fengjing-3.jpg&quot; alt=&quot;fengjing&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;div class=&quot;image-caption&quot;&gt;你用Angular 吗?&lt;/div&gt;&lt;br&gt;
-    
-    </summary>
-    
-      <category term="Angular 2+" scheme="http://www.sulishibaobei.com/categories/Angular-2/"/>
-    
-    
-      <category term="Angular2+" scheme="http://www.sulishibaobei.com/tags/Angular2/"/>
-    
-      <category term="分页组件" scheme="http://www.sulishibaobei.com/tags/%E5%88%86%E9%A1%B5%E7%BB%84%E4%BB%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>bootstrap简单图文环绕效果</title>
-    <link href="http://www.sulishibaobei.com/bootstrap/bt-120170908/"/>
-    <id>http://www.sulishibaobei.com/bootstrap/bt-120170908/</id>
-    <published>2017-09-08T01:08:53.000Z</published>
-    <updated>2017-09-08T13:16:02.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>一.下载bootstrap-3.3.7<br>二.在html页面引入css,js;<br>eg:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">src</span>=<span class="string">"bootstrap-3.3.7-dist/css/bootstrap.min.css"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"jquery.min.js"</span>&gt;</span><span class="xml"><span class="tag">&lt;/ <span class="attr">script</span>&gt;</span> </span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"bootstrap-3.3.7-dist/js/bootstrap.min.js"</span>&gt;</span><span class="xml"><span class="tag">&lt;/ <span class="attr">script</span>&gt;</span></span></div></pre></td></tr></table></figure></p>
-<a id="more"></a>
-<p>注意：因为会用到jquery，所以引入了jquery .js;<br>三.body部分的代码是这样的：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">style</span>=<span class="string">"margin: 10px;padding: 0px"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span>  </div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>/&gt;</span></div></pre></td></tr></table></figure></p>
-<p>简单解析下：<br>  body里包含两个div ,一个在左边排列(用于放图片)，一个在右边排列(用于放文字);都用class名进行区分啦，left和right;<br>简单的给两个div添加点样式： </p>
-<pre><code class="css"><span class="selector-class">.left</span>  { 
-  <span class="attribute">float </span>:  left ; 
-  <span class="attribute">max-width </span>:  <span class="number">43%</span> ; 
-  <span class="attribute">padding-left </span>:  <span class="number">5px</span> ;  
-     } 
- <span class="selector-class">.right</span>{ 
- <span class="attribute">margin-left </span>:  <span class="number">5px</span> ;
-     }
-</code></pre>
-<p>现在还看不出什么效果;<br>给第一个div里添加图片;<br><code>&lt; img src=”index.jpg” class=”img-responsive” alt=”图像”&gt; </code><br>给第二个div添加文字，里面的文字是采用Boostrap的样式; </p>
-<pre><code class="html"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span>
-                <span class="tag">&lt;<span class="name">h1</span>&gt;</span>图文环绕<span class="tag">&lt;/<span class="name">h1</span>&gt;</span>
-                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span>
-                  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-6 col-md-offset-3"</span> <span class="attr">style</span>=<span class="string">" box-shadow: inset 1px -1px 1px #ccc, inset -1px 1px 1px #ccc;"</span>&gt;</span>
-                        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span>
-                            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-6"</span> <span class="attr">style</span>=<span class="string">" box-shadow: inset 1px -1px 1px #ccc, inset -1px 1px 1px #ccc;"</span>&gt;</span>
-                                <span class="tag">&lt;<span class="name">p</span>&gt;</span>&amp;nbsp;&amp;nbsp;&amp;nbsp;风雨中走过却不安世事的心<span class="tag">&lt;/<span class="name">p</span>&gt;</span>
-                            <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
-                      <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
-                               <span class="tag">&lt;<span class="name">p</span>&gt;</span>&amp;nbsp;&amp;nbsp;&amp;nbsp;我还是很喜欢你，像风走了三千米不问归期 我希望有个如你一般的人如山间清爽的风如古城温暖的光从清晨到夜晚由山野到书房只要最后是你就好 <span class="tag">&lt;/<span class="name">p</span>&gt;</span>
-                 <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
-                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-6 col-sm-offset-3"</span> <span class="attr">style</span>=<span class="string">"box-shadow: inset 1px -1px 1px #ccc, inset -1px 1px 1px #ccc;"</span>&gt;</span>
-                      <span class="tag">&lt;<span class="name">p</span>&gt;</span>&amp;nbsp;&amp;nbsp;&amp;nbsp;我觉得这个世界美好无比。晴时满树花开，雨天一湖涟漪，阳光席卷城市，微风穿越指间，入夜每个电台播放的情歌，沿途每条山路铺开的影子，全部是你不经意写的一字一句，留我年复一年朗读。这世界是你的遗嘱，而我是你唯一的遗物。
-                      <span class="tag">&lt;/<span class="name">p</span>&gt;</span>
-                      <span class="tag">&lt;<span class="name">p</span>&gt;</span>&amp;nbsp;&amp;nbsp;一个人的记忆就是座城市，时间腐蚀着一切建筑，把高楼和道路全部沙化。如果你不往前走，就会被沙子掩埋。所以我们泪流满面，步步回头，可是只能往前走 <span class="tag">&lt;/<span class="name">p</span>&gt;</span>
-               <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
-               <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"clearfix visible-xs"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>
-                  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-6 col-md-offset-3"</span> <span class="attr">style</span>=<span class="string">" box-shadow:inset 1px -1px 1px #ccc, inset -1px 1px 1px #ccc;"</span>&gt;</span>
-                   <span class="tag">&lt;<span class="name">p</span>&gt;</span>&amp;nbsp;&amp;nbsp;&amp;nbsp;你燃烧，我陪你焚成灰烬。你熄灭，我陪你低落尘埃。你出生，我陪你徒步人海。你沉默，我陪你一言不发，你欢笑，我陪你山呼海啸。你衰老，我陪你满目疮痍。你逃避，我陪你隐入夜晚。你离开，我只能等待。 <span class="tag">&lt;/<span class="name">p</span>&gt;</span>
-               <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
-             <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-xs-6 col-sm-offset-3"</span> <span class="attr">style</span>=<span class="string">"box-shadow: inset 1px -1px 1px #ccc, inset -1px 1px 1px #ccc;"</span>&gt;</span>
-                 <span class="tag">&lt;<span class="name">p</span>&gt;</span>我希望买的鞋子是你渴望的颜色。我希望拨通电话时你恰好在想我。我希望说早安你也刚起床。我希望写的书是你欣赏的故事。我希望关灯的刹那你正泛起困意。我希望买的水果你永远觉得是甜的。我希望点的歌都是你喜欢唱的。我希望我希望的是你希望的。
-                  <span class="tag">&lt;/<span class="name">p</span>&gt;</span>
-             <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
-             <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"clearfix visible-xs"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>
-    <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
-  <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
-</code></pre>
-<p>采用的是bootstrap的架构： container&gt; row&gt; column&nbsp;<br>将css样式也写在标签上，所以有点看起来复杂，其实很简单，这几段文字的结构都一样。<br>看看运行效果：<br><img src="/images/bt-1.png" alt="bt"><br>拖动页面试试<br><img src="/images/bt-2.png" alt="bt"><br>你可以通过控制台随意拖动页面的宽度，看看文字的适配程度。<br><a href="https://github.com/sulishibaobei/bootstrap/tree/master/bootstrap%20by%20around" target="_blank" rel="external">源码</a><br>另外有两个免费网站模板也可以看看，在同一个github路径下</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;一.下载bootstrap-3.3.7&lt;br&gt;二.在html页面引入css,js;&lt;br&gt;eg:&lt;br&gt;&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;link&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;src&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;bootstrap-3.3.7-dist/css/bootstrap.min.css&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;text/javascript&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;src&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;jquery.min.js&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;xml&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/ &lt;span class=&quot;attr&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt; &lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;text/javascript&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;src&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;bootstrap-3.3.7-dist/js/bootstrap.min.js&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;xml&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/ &lt;span class=&quot;attr&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Bootstrap" scheme="http://www.sulishibaobei.com/categories/Bootstrap/"/>
-    
-    
-      <category term="bootstrap" scheme="http://www.sulishibaobei.com/tags/bootstrap/"/>
-    
-      <category term="图文环绕" scheme="http://www.sulishibaobei.com/tags/%E5%9B%BE%E6%96%87%E7%8E%AF%E7%BB%95/"/>
     
   </entry>
   
@@ -641,6 +641,47 @@
   </entry>
   
   <entry>
+    <title>滑稽的下午--Angular 2+管道的使用</title>
+    <link href="http://www.sulishibaobei.com/angular/pipe/pipe-120170907/"/>
+    <id>http://www.sulishibaobei.com/angular/pipe/pipe-120170907/</id>
+    <published>2017-09-07T01:08:53.000Z</published>
+    <updated>2017-09-07T09:32:58.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>注:所有的angular 2+ 其实就包含了4,是向上兼容的；</p>
+<p><img src="/images/pipe-1.png" alt="pipe"><br>让一个component组件里的时间显示当前时间并自动刷新。<br><strong>过程:</strong><br>1.首先获取当前时间 new Date();<br>2.弄个定时器隔一秒刷新呀；</p>
+<a id="more"></a>
+<p> <code>app.component.ts中这样写到：</code></p>
+ <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">InitialTime= <span class="keyword">new</span>  <span class="built_in">Date</span>();  <span class="comment">// 获取当前时间  </span></div><div class="line">data:string;</div><div class="line"> getTime(m)&#123;   <span class="comment">// 判断获取的分钟数是否小于10，小于10只会显示一位数，前面自动补0 </span></div><div class="line">      <span class="keyword">if</span> (m&amp;lt;<span class="number">10</span> )&#123;</div><div class="line">        m =<span class="string">"0"</span>+ m;</div><div class="line">         <span class="keyword">this</span> .data= <span class="keyword">this</span> .InitialTime.getHours()+<span class="string">":"</span>+m;   <span class="comment">// 显示时间(小时+分钟) eg   17:15 </span></div><div class="line">   &#125;</div><div class="line">     <span class="keyword">else</span>  &#123;</div><div class="line">         <span class="keyword">this</span> .data= <span class="keyword">this</span> .InitialTime.getHours()+<span class="string">":"</span>+ <span class="keyword">this</span> .InitialTime.getMinutes();     <span class="comment">// 显示时间(小时+分钟) eg   17:15 </span></div><div class="line">   &#125; </div><div class="line"> &#125;</div><div class="line"> <span class="keyword">constructor</span>()&#123;</div><div class="line">      <span class="keyword">this</span> .getTime( <span class="keyword">this</span> .InitialTime.getMinutes()); <span class="comment">// 运行上面方法让时间显示 </span></div><div class="line">    setInterval(()=&amp;gt;&#123;  <span class="comment">// 设置定时器，隔1秒刷新一次，好实时监控时间 </span></div><div class="line">              <span class="keyword">this</span> .InitialTime= <span class="keyword">new</span>  <span class="built_in">Date</span>();</div><div class="line">               <span class="keyword">this</span> .getTime( <span class="keyword">this</span>  .InitialTime.getMinutes());                              </div><div class="line">             &#125;, <span class="number">1000</span> );                </div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p><code>app.component.html中这样写：</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&amp;lt;span class="time"&amp;gt; &#123;&#123; date &#125;&#125;&amp;lt;/span&amp;gt;</div></pre></td></tr></table></figure>
+<p>然后变成我想要的效果了，可是代码我自己都嫌长，而且还是用传统js方法写的。后来就想不是angular里面有Pipe管道吗，是不是可以试试。<br><code>app.component.ts是这样写的。</code> </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">time:any=<span class="built_in">Date</span>.now();  <span class="comment">// 获取当前时间 </span></div><div class="line"> <span class="keyword">constructor</span>()&#123;</div><div class="line">    setInterval(() =&amp;gt;&#123;  <span class="comment">// 设置定时器，隔1秒刷新一次，好实时监控时间 </span></div><div class="line">          <span class="comment">//   this.birthday = new Date();       </span></div><div class="line">           <span class="keyword">this</span> .time=<span class="built_in">Date</span>.now();   <span class="comment">// Date里面自带方法                   </span></div><div class="line">              &#125;,<span class="number">1000</span> );  </div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<p><code>app.component.html是这样写的：</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&amp;lt;span class="time"&amp;gt; &#123;&#123;time | date:"HH:mm" &#125;&#125;&amp;lt;/span&amp;gt;</div></pre></td></tr></table></figure>
+<p><strong>注：</strong><br>|是管道标示符。angular里面提供了内置的datePipe管道可以供我们使用<br>  HH：mm 表示输出小时和分钟；yy:MM:dd&nbsp; 表示输出年月日<br>  详情可以看看官网的管道介绍里面关于DatePipe Api的介绍。<br>  同样的效果，代码量就大大减少，所以学习还是在完成的基础上多尝试。耶~~~<br>  后续会有详细的关于管道学习的<a href="">更多文章</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;注:所有的angular 2+ 其实就包含了4,是向上兼容的；&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/pipe-1.png&quot; alt=&quot;pipe&quot;&gt;&lt;br&gt;让一个component组件里的时间显示当前时间并自动刷新。&lt;br&gt;&lt;strong&gt;过程:&lt;/strong&gt;&lt;br&gt;1.首先获取当前时间 new Date();&lt;br&gt;2.弄个定时器隔一秒刷新呀；&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Angular 2+" scheme="http://www.sulishibaobei.com/categories/Angular-2/"/>
+    
+    
+      <category term="Angular 2+" scheme="http://www.sulishibaobei.com/tags/Angular-2/"/>
+    
+      <category term="pipe" scheme="http://www.sulishibaobei.com/tags/pipe/"/>
+    
+      <category term="管道" scheme="http://www.sulishibaobei.com/tags/%E7%AE%A1%E9%81%93/"/>
+    
+      <category term="日期" scheme="http://www.sulishibaobei.com/tags/%E6%97%A5%E6%9C%9F/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Css3雪碧图</title>
     <link href="http://www.sulishibaobei.com/css/sp-120170907/"/>
     <id>http://www.sulishibaobei.com/css/sp-120170907/</id>
@@ -679,47 +720,6 @@
       <category term="雪碧图" scheme="http://www.sulishibaobei.com/tags/%E9%9B%AA%E7%A2%A7%E5%9B%BE/"/>
     
       <category term="gulp" scheme="http://www.sulishibaobei.com/tags/gulp/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>滑稽的下午--Angular 2+管道的使用</title>
-    <link href="http://www.sulishibaobei.com/angular/pipe/pipe-120170907/"/>
-    <id>http://www.sulishibaobei.com/angular/pipe/pipe-120170907/</id>
-    <published>2017-09-07T01:08:53.000Z</published>
-    <updated>2017-09-07T09:32:58.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>注:所有的angular 2+ 其实就包含了4,是向上兼容的；</p>
-<p><img src="/images/pipe-1.png" alt="pipe"><br>让一个component组件里的时间显示当前时间并自动刷新。<br><strong>过程:</strong><br>1.首先获取当前时间 new Date();<br>2.弄个定时器隔一秒刷新呀；</p>
-<a id="more"></a>
-<p> <code>app.component.ts中这样写到：</code></p>
- <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">InitialTime= <span class="keyword">new</span>  <span class="built_in">Date</span>();  <span class="comment">// 获取当前时间  </span></div><div class="line">data:string;</div><div class="line"> getTime(m)&#123;   <span class="comment">// 判断获取的分钟数是否小于10，小于10只会显示一位数，前面自动补0 </span></div><div class="line">      <span class="keyword">if</span> (m&amp;lt;<span class="number">10</span> )&#123;</div><div class="line">        m =<span class="string">"0"</span>+ m;</div><div class="line">         <span class="keyword">this</span> .data= <span class="keyword">this</span> .InitialTime.getHours()+<span class="string">":"</span>+m;   <span class="comment">// 显示时间(小时+分钟) eg   17:15 </span></div><div class="line">   &#125;</div><div class="line">     <span class="keyword">else</span>  &#123;</div><div class="line">         <span class="keyword">this</span> .data= <span class="keyword">this</span> .InitialTime.getHours()+<span class="string">":"</span>+ <span class="keyword">this</span> .InitialTime.getMinutes();     <span class="comment">// 显示时间(小时+分钟) eg   17:15 </span></div><div class="line">   &#125; </div><div class="line"> &#125;</div><div class="line"> <span class="keyword">constructor</span>()&#123;</div><div class="line">      <span class="keyword">this</span> .getTime( <span class="keyword">this</span> .InitialTime.getMinutes()); <span class="comment">// 运行上面方法让时间显示 </span></div><div class="line">    setInterval(()=&amp;gt;&#123;  <span class="comment">// 设置定时器，隔1秒刷新一次，好实时监控时间 </span></div><div class="line">              <span class="keyword">this</span> .InitialTime= <span class="keyword">new</span>  <span class="built_in">Date</span>();</div><div class="line">               <span class="keyword">this</span> .getTime( <span class="keyword">this</span>  .InitialTime.getMinutes());                              </div><div class="line">             &#125;, <span class="number">1000</span> );                </div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<p><code>app.component.html中这样写：</code></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&amp;lt;span class="time"&amp;gt; &#123;&#123; date &#125;&#125;&amp;lt;/span&amp;gt;</div></pre></td></tr></table></figure>
-<p>然后变成我想要的效果了，可是代码我自己都嫌长，而且还是用传统js方法写的。后来就想不是angular里面有Pipe管道吗，是不是可以试试。<br><code>app.component.ts是这样写的。</code> </p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">time:any=<span class="built_in">Date</span>.now();  <span class="comment">// 获取当前时间 </span></div><div class="line"> <span class="keyword">constructor</span>()&#123;</div><div class="line">    setInterval(() =&amp;gt;&#123;  <span class="comment">// 设置定时器，隔1秒刷新一次，好实时监控时间 </span></div><div class="line">          <span class="comment">//   this.birthday = new Date();       </span></div><div class="line">           <span class="keyword">this</span> .time=<span class="built_in">Date</span>.now();   <span class="comment">// Date里面自带方法                   </span></div><div class="line">              &#125;,<span class="number">1000</span> );  </div><div class="line"> &#125;</div></pre></td></tr></table></figure>
-<p><code>app.component.html是这样写的：</code></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&amp;lt;span class="time"&amp;gt; &#123;&#123;time | date:"HH:mm" &#125;&#125;&amp;lt;/span&amp;gt;</div></pre></td></tr></table></figure>
-<p><strong>注：</strong><br>|是管道标示符。angular里面提供了内置的datePipe管道可以供我们使用<br>  HH：mm 表示输出小时和分钟；yy:MM:dd&nbsp; 表示输出年月日<br>  详情可以看看官网的管道介绍里面关于DatePipe Api的介绍。<br>  同样的效果，代码量就大大减少，所以学习还是在完成的基础上多尝试。耶~~~<br>  后续会有详细的关于管道学习的<a href="">更多文章</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;注:所有的angular 2+ 其实就包含了4,是向上兼容的；&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/images/pipe-1.png&quot; alt=&quot;pipe&quot;&gt;&lt;br&gt;让一个component组件里的时间显示当前时间并自动刷新。&lt;br&gt;&lt;strong&gt;过程:&lt;/strong&gt;&lt;br&gt;1.首先获取当前时间 new Date();&lt;br&gt;2.弄个定时器隔一秒刷新呀；&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Angular 2+" scheme="http://www.sulishibaobei.com/categories/Angular-2/"/>
-    
-    
-      <category term="Angular 2+" scheme="http://www.sulishibaobei.com/tags/Angular-2/"/>
-    
-      <category term="pipe" scheme="http://www.sulishibaobei.com/tags/pipe/"/>
-    
-      <category term="管道" scheme="http://www.sulishibaobei.com/tags/%E7%AE%A1%E9%81%93/"/>
-    
-      <category term="日期" scheme="http://www.sulishibaobei.com/tags/%E6%97%A5%E6%9C%9F/"/>
     
   </entry>
   
@@ -833,11 +833,11 @@
       <category term="前端那些微小事" scheme="http://www.sulishibaobei.com/categories/%E5%89%8D%E7%AB%AF%E9%82%A3%E4%BA%9B%E5%BE%AE%E5%B0%8F%E4%BA%8B/"/>
     
     
+      <category term="javascript" scheme="http://www.sulishibaobei.com/tags/javascript/"/>
+    
       <category term="console.log" scheme="http://www.sulishibaobei.com/tags/console-log/"/>
     
       <category term="alert" scheme="http://www.sulishibaobei.com/tags/alert/"/>
-    
-      <category term="javascript" scheme="http://www.sulishibaobei.com/tags/javascript/"/>
     
   </entry>
   
@@ -846,7 +846,7 @@
     <link href="http://www.sulishibaobei.com/js/js120170905/"/>
     <id>http://www.sulishibaobei.com/js/js120170905/</id>
     <published>2017-09-05T03:08:53.000Z</published>
-    <updated>2017-09-25T04:23:20.297Z</updated>
+    <updated>2017-09-26T08:56:37.106Z</updated>
     
     <content type="html"><![CDATA[<h2 id="js-定义类有哪些常用的方法？"><a href="#js-定义类有哪些常用的方法？" class="headerlink" title="js 定义类有哪些常用的方法？"></a>js 定义类有哪些常用的方法？</h2><h3 id="1-工厂方式"><a href="#1-工厂方式" class="headerlink" title="1.工厂方式"></a>1.工厂方式</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Car</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> ocar=<span class="keyword">new</span> Obejct;  <span class="comment">//不用括号</span></div><div class="line">    ocar.color=<span class="string">'blue'</span>;</div><div class="line">    ocar.doors=<span class="number">4</span>;</div><div class="line">    ocar.showColor=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">this</span>.color;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> ocar;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> car1=Car();</div><div class="line"><span class="keyword">var</span> car2=Car();</div><div class="line"><span class="built_in">console</span>.log(car1);  <span class="comment">//&#123;color: "blue", doors: 4, snowColor: ƒ&#125;  f指的是function()</span></div><div class="line"><span class="built_in">console</span>.log(car2);  <span class="comment">//&#123;color: "blue", doors: 4, snowColor: ƒ&#125;</span></div></pre></td></tr></table></figure>
 <a id="more"></a>
@@ -1069,6 +1069,10 @@
 <h2 id="给String对象定义一个repeatify方法。该方法接收一个整数参数，作为字符串重复的次数，最后返回重复指定次数的字符串"><a href="#给String对象定义一个repeatify方法。该方法接收一个整数参数，作为字符串重复的次数，最后返回重复指定次数的字符串" class="headerlink" title="给String对象定义一个repeatify方法。该方法接收一个整数参数，作为字符串重复的次数，最后返回重复指定次数的字符串"></a>给String对象定义一个repeatify方法。该方法接收一个整数参数，作为字符串重复的次数，最后返回重复指定次数的字符串</h2><p>例如：console.log(‘hello’.repeatify(3));<br>输出：hellohellohello.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">String</span>.prototype.repeatify=<span class="built_in">String</span>.prototype.repeatify || <span class="function"><span class="keyword">function</span>(<span class="params">times</span>)</span>&#123;</div><div class="line">   <span class="keyword">var</span> str=<span class="string">''</span>;</div><div class="line">   <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;times;i++)&#123;</div><div class="line">       str+=<span class="keyword">this</span>;</div><div class="line">   &#125;</div><div class="line">   <span class="keyword">return</span> str;</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'hello'</span>.repeatify(<span class="number">3</span>)) <span class="comment">//hellohellohello</span></div></pre></td></tr></table></figure></p>
 <h2 id="下面这段代码的结果是什么？为什么？"><a href="#下面这段代码的结果是什么？为什么？" class="headerlink" title="下面这段代码的结果是什么？为什么？"></a>下面这段代码的结果是什么？为什么？</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</div><div class="line">     <span class="built_in">console</span>.log(a); <span class="comment">//undefined</span></div><div class="line">     <span class="built_in">console</span>.log(foo()); <span class="comment">//2</span></div><div class="line">     <span class="keyword">var</span> a=<span class="number">1</span>;</div><div class="line">     <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</div><div class="line">       <span class="keyword">return</span> <span class="number">2</span>;</div><div class="line">     &#125;</div><div class="line">   &#125;</div><div class="line">   test();</div></pre></td></tr></table></figure>
 <p>变量和函数的声明都被提前至函数体的顶部，而同时变量并没有被赋值；因此，当打印变量a时，它虽然存在于函数体，仍然是Undefined;</p>
+<p>##怎么添加，移动，移除，复制，创建和查找节点？<br>1)创建新节点<br>createDocumentFragment()  //创建一个DOM片段<br>createElement() //创建一个具体的元素<br>createTextNode()  //创建一个文本节点<br>2)添加，移除，替换，插入<br>appendChild() //添加<br>removeChild() //移除<br>replaceChild() //替换<br>insertBefore() //插入<br>3)查找<br>getElementsByTagName() //通过标签名称<br>getElementsByName() //通过元素的Name属性的值<br>getElementById() //通过元素Id,唯一性；<br>现在还有一个通用的：querySelector() //可以是类名，id名，标签名；</p>
+<h2 id="jQuery的事件委托方法on-live-delegate以及bind之间有什么区别"><a href="#jQuery的事件委托方法on-live-delegate以及bind之间有什么区别" class="headerlink" title="jQuery的事件委托方法on,live,delegate以及bind之间有什么区别?"></a>jQuery的事件委托方法on,live,delegate以及bind之间有什么区别?</h2><p>随着Dom结构的复杂化，有许多新的元素动态的添加进来，直接用click事件会发现新添加的元素并不能直接取到，这里就需要用到事件委托的方法；<br>什么是事件委托呢？<br>假定有一个dom结构是这样的body&gt;div&gt;a，如果点击a标签，click事件会从a一直冒泡到div和body,因此，发生在a上面的单击事件，div和body同样也可以处理，就可以是事件委托。具体来说，事件委托是事件目标本身不处理事件，而是将事件交于其父元素或者祖先元素处理，甚至根元素(document)；<br>先直接看看代码：<br>1.bind:作用是在选择到得元素上绑定事件类型的监听函数，<br>bind(type,[data],function(eventObject))<br>type:事件类型，如click，change,mouseover等；<br>data:传入监听函数的参数，通过event.data取到，可选;<br>function:监听函数，可传入event对象，这里的event是jquery封装的event对象，与原生的event对象有区别，使用时得注意；<br>源码：<br>bind:function(types,data,fn){<br>    return this.on(types,null,data,fn);<br>}<br>这里其实也是调用了on方法；<br>bind的特点就是会把监听器绑定到目标元素上，有一个绑一个，在页面上的元素不会动态添加的时候使用它没什么问题。但如果列表中动态增加一个“列表元素5”，点击它是没有反应的，必须再bind一次才行。<br>2.live<br>live(type,[data],fn)<br>源码：<br>live:function(types,data,fn){<br>    jQuery(this.context).on(types,this.selector,data,fn);<br>    return this;<br>}<br>可以看到Live方法并没有将监听器绑定到自己身上；而是绑定到this.context上，Live正是利用了事件委托机制来完成事件监听处理，把节点都委托给了document，添加新的元素不必再绑定一次监听；<br>缺点也是有的：默认把事件绑定到$(document)元素，如果DOM嵌套结构很深，事件冒泡通过大量祖先元素会导致性能损失；只能放在直接选择的元素后面，不能在连缀的DOM遍历方法后面使用；即$(“#table td”).live…可以，但$(“#table”).find(“td”).live…不行；<br>而且$()函数会找到当前页面中的所有td元素并创建jQuery对象，但在确认事件目标时却不用这个td元素集合，而是使用选择符表达式与event.target或其祖先元素进行比较，因而生成这个jQuery对象会造成不必要的开销;<br>解决的办法就是在$(document).ready()方法外部调用.live()，使其形成一个闭包，例如<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">$</span>)</span>&#123;</div><div class="line">    $(<span class="string">"table td"</span>).live(<span class="string">"click"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="comment">/*显示更多信息*/</span>&#125;);</div><div class="line">&#125;)(jQuery);</div></pre></td></tr></table></figure></p>
+<p>3 delegate<br>为了解决bind方法的局限性，jquery1.3引入了live方法，而后为了解决”事件传播链过长”问题，jquery1.4方法又指定了上下文，而为了解决无谓生成元素集合问题，jquery1.4.2引入了delegate；<br>将监听事件绑定在就近的父级元素上，源码:<br>delegate: function( selector, types, data, fn ) {<br>return this.on( types, selector, data, fn );<br>}<br>是这样使用的：$(“table”).delegate(“td”,”click”,function(){/<em>显示更多信息</em>/});<br>直接将目标元素选择符(‘td’),事件(‘click’)以及处理程序与’受施方’(table)绑定在一起了；</p>
+<p>4 on<br>on(type,[selector],[data],fn)参数和delegate差不多，但是有细微区别;type和select换了位置，其次，select变成了可选项；而且与bind的效果一样，event.currenttarget对象是自己；</p>
 ]]></content>
     
     <summary type="html">
@@ -1080,9 +1084,9 @@
       <category term="前端面试题整理" scheme="http://www.sulishibaobei.com/categories/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86/"/>
     
     
-      <category term="javascript" scheme="http://www.sulishibaobei.com/tags/javascript/"/>
-    
       <category term="面试" scheme="http://www.sulishibaobei.com/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+      <category term="javascript" scheme="http://www.sulishibaobei.com/tags/javascript/"/>
     
       <category term="字符串,数组,设计模式" scheme="http://www.sulishibaobei.com/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2-%E6%95%B0%E7%BB%84-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     

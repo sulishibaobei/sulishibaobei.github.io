@@ -4,6 +4,30 @@
 
     
   <url>
+    <loc>http://www.sulishibaobei.com/js/js120170905/</loc>
+    <lastmod>2017-09-26T08:56:37.106Z</lastmod>
+    <data>
+        <display>
+        <title>前端面试中遇见的那些纯js题</title>
+        <pubTime>2017-09-05T03:08:53.000Z</pubTime>
+        
+        <tag>面试</tag>
+         
+        <tag>javascript</tag>
+         
+        <tag>字符串,数组,设计模式</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端面试题整理" url="http://www.sulishibaobei.com/categories/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.sulishibaobei.com/css/css-120170926/</loc>
     <lastmod>2017-09-26T07:29:39.000Z</lastmod>
     <data>
@@ -45,30 +69,6 @@
            
              
               <breadCrumb title="前端那些微小事" url="http://www.sulishibaobei.com/categories/%E5%89%8D%E7%AB%AF%E9%82%A3%E4%BA%9B%E5%BE%AE%E5%B0%8F%E4%BA%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.sulishibaobei.com/js/js120170905/</loc>
-    <lastmod>2017-09-25T04:23:20.297Z</lastmod>
-    <data>
-        <display>
-        <title>前端面试中遇见的那些纯js题</title>
-        <pubTime>2017-09-05T03:08:53.000Z</pubTime>
-        
-        <tag>javascript</tag>
-         
-        <tag>面试</tag>
-         
-        <tag>字符串,数组,设计模式</tag>
-         
-         
-           
-             
-              <breadCrumb title="前端面试题整理" url="http://www.sulishibaobei.com/categories/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98%E6%95%B4%E7%90%86/"/>
           
         </display>
     </data>
@@ -424,11 +424,11 @@
         <title>简述alert和console.log的区别</title>
         <pubTime>2017-09-05T03:08:53.000Z</pubTime>
         
+        <tag>javascript</tag>
+         
         <tag>console.log</tag>
          
         <tag>alert</tag>
-         
-        <tag>javascript</tag>
          
          
            
