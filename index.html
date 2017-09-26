@@ -660,23 +660,14 @@ var _hmt = _hmt || [];
 
       
         
-          
-            <h2 id="什么是盒子模型？"><a href="#什么是盒子模型？" class="headerlink" title="什么是盒子模型？"></a>什么是盒子模型？</h2><p>一般面试都会问：盒子模型你是怎么理解的？<br>盒子模型分为两种：W3C(标准的)盒子模型和IE(怪异)盒子模型<br><img src="/images/html-1.png" alt="html"><br>有图可知，标准的盒子模型包含margin,border,padding,content，并别content部分不包含其他部分；<br>例如一个盒子模型如下：margin:20px;border:10px;padding:10px;width:200px;height:100px;<br>如果用w3c计算盒子模型占用为：宽度为：20<em>2+10</em>2+10<em>2+200=280px;高度为：20</em>2+10<em>2+10</em>2+100=180px;<br>盒子的实际宽度为：10<em>2+10</em>2+200=240px; 因为实际的宽度margin是不计算在内；在IE6以上统一<br>盒子的实际高度为：10<em>2+10</em>2+100=140px;<br>所以：标准盒子模型下，元素的宽度等于content的宽度；盒子模型占据的位置计算方式是2<em>margin+2</em>border+2<em>padding+width/height;<br>盒子的实际大小：2</em>border+2<em>padding+width/height<br><img src="/images/html-2.png" alt="html"><br>有图可知IE盒子模型包含padding，margin，border，content四部分，但是ie盒子模型的content已经计算border和padding在内。<br>还是上面那一题，如果采用IE盒子模型方式计算，盒子需占据的位置宽度为：20</em>2+200=240px; 高度为：20*2+100=140px;<br>盒子的实际大小为：宽 200px; 高100px；<br>所以:IE盒子模型下，元素的宽度实际上包含了content+padding+border在内，所以计算的时候实际不需要再加上padding,border;<br>w3c可能也认识到这种差异性，所以允许我们事先定义盒子模型的解析方式；<br>box-sizing:content-box(default) | border-box | inherit<br>content-box:让元素维持W3C的标准模型；<br>border-box：让元素维持IE传统盒子模型;<br>接下来通过代码来看一看差别：<br>来一段基本的代码：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"div1"</span>&gt;</span>content-box<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"div2"</span>&gt;</span>border-box<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">*&#123;</div><div class="line">            <span class="attribute">margin</span>:<span class="number">0</span>;</div><div class="line">            <span class="attribute">padding</span>:<span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">div</span>&#123;</div><div class="line">            <span class="attribute">width</span>: <span class="number">200px</span>;</div><div class="line">            <span class="attribute">height</span>: <span class="number">100px</span>;</div><div class="line">            <span class="attribute">background</span>: red;</div><div class="line">            <span class="attribute">margin</span>: <span class="number">20px</span>;</div><div class="line">            <span class="attribute">padding</span>: <span class="number">20px</span>;</div><div class="line">            <span class="attribute">border</span>: <span class="number">10px</span> solid black;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这一段简单的代码，来看看效果：<br><img src="/images/html-3.png" alt="html"><br>这时候，两个div显示的效果是一样的，默认都是采用content-box方式解析的；<br>接下来改变代码看一看：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-id">#div2</span>&#123;</div><div class="line">  <span class="attribute">box-sizing</span>: border-box;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>先来看看效果图：<br><img src="/images/html-4.png" alt="html"><br>从肉眼直观来看，第二个盒子显然比第一个盒子小了许多，但是我们要用网页设计的观点来解释这个问题的话就可以看下面两张图：<br><img src="/images/html-5.png" alt="html"><br>这是第一个div的图；<br><img src="/images/html-6.png" alt="html"><br>这是第二个div的图；<br>这就是为什么我们上面的题算出来的结果是那样的；IE下认为一个盒子的宽度应该是包含content,padding和border在内的；所以第二张图的时候，padding和border都侵蚀了元素的内容部分；<br>最后总结一点：</p>
-<blockquote>
-<ul>
-<li><p>w3c中的盒子模型占用的大小：margin + border + padding + width/height;<br>width: margin2 + border2 + padding2 + width;<br>height: margin2 + border2 + padding2 + height;<br>w3c中盒子模型的实际大小：border + padding + width/height;<br>width: border2 + padding2 + width;<br>height: border2 + padding2 + height;<br>w3c中盒子模型的内容区域的大小：width/height<br>width: width;<br>height: height;</p>
-</li>
-<li><p>IE 盒子模型占用的宽度：margin + content-width/height;<br>width: margin2 + width;<br>height: margin2 + height;<br>IE 盒子模型的实际大小：content-width/height<br>width: width;<br>height: height;</p>
-</li>
-</ul>
-</blockquote>
-<p>另外还有一点：css3的伸缩盒模型指的是<a href="http://www.sulishibaobei.com/css/fb-120170908/">FlexBox</a>,想了解的戳链接</p>
-
-          
+          <h2 id="什么是盒子模型？"><a href="#什么是盒子模型？" class="headerlink" title="什么是盒子模型？"></a>什么是盒子模型？</h2><p>一般面试都会问：盒子模型你是怎么理解的？<br>盒子模型分为两种：W3C(标准的)盒子模型和IE(怪异)盒子模型<br><img src="/images/html-1.png" alt="html"><br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/css/css-120170926/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1357,165 +1348,6 @@ var _hmt = _hmt || [];
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.sulishibaobei.com/angular/pg-120170908/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="少女雨">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/a.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="少女雨的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/angular/pg-120170908/" itemprop="url">angular4 中自定义pagination组件</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-08T09:08:53+08:00">
-                2017-09-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Angular-2/" itemprop="url" rel="index">
-                    <span itemprop="name">Angular 2+</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/angular/pg-120170908/" class="leancloud_visitors" data-flag-title="angular4 中自定义pagination组件">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><img src="/images/fengjing-3.jpg" alt="fengjing"></p>
-<p><div class="image-caption">你用Angular 吗?</div><br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/angular/pg-120170908/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-   
-     
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://www.sulishibaobei.com/bootstrap/bt-120170908/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1623,6 +1455,164 @@ var _hmt = _hmt || [];
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/bootstrap/bt-120170908/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+   
+     
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.sulishibaobei.com/angular/http/http-120170908/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="少女雨">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/a.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="少女雨的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/angular/http/http-120170908/" itemprop="url">Angular 4+ Http</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-08T09:08:53+08:00">
+                2017-09-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Angular-2/" itemprop="url" rel="index">
+                    <span itemprop="name">Angular 2+</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/angular/http/http-120170908/" class="leancloud_visitors" data-flag-title="Angular 4+ Http">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>HTTP: 使应用能够对远端服务器发起相应的Http调用；<br>你要知道：HttpModule并不是Angular的核心模块，它是Angualr用来进行Web访问的一种可选方式，并位于一个名叫@angual/http的独立附属模块中；也就是说：使用http之前要引入此模块;<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/angular/http/http-120170908/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1832,7 +1822,7 @@ var _hmt = _hmt || [];
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.sulishibaobei.com/angular/http/http-120170908/">
+    <link itemprop="mainEntityOfPage" href="http://www.sulishibaobei.com/angular/pg-120170908/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="少女雨">
@@ -1851,7 +1841,7 @@ var _hmt = _hmt || [];
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/angular/http/http-120170908/" itemprop="url">Angular 4+ Http</a></h1>
+                <a class="post-title-link" href="/angular/pg-120170908/" itemprop="url">angular4 中自定义pagination组件</a></h1>
         
 
         <div class="post-meta">
@@ -1903,7 +1893,7 @@ var _hmt = _hmt || [];
 
           
           
-             <span id="/angular/http/http-120170908/" class="leancloud_visitors" data-flag-title="Angular 4+ Http">
+             <span id="/angular/pg-120170908/" class="leancloud_visitors" data-flag-title="angular4 中自定义pagination组件">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1935,10 +1925,11 @@ var _hmt = _hmt || [];
 
       
         
-          <p>HTTP: 使应用能够对远端服务器发起相应的Http调用；<br>你要知道：HttpModule并不是Angular的核心模块，它是Angualr用来进行Web访问的一种可选方式，并位于一个名叫@angual/http的独立附属模块中；也就是说：使用http之前要引入此模块;<br>
+          <p><img src="/images/fengjing-3.jpg" alt="fengjing"></p>
+<p><div class="image-caption">你用Angular 吗?</div><br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/angular/http/http-120170908/#more" rel="contents">
+            <a class="btn" href="/angular/pg-120170908/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>

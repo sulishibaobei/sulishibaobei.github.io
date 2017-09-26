@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[前端面试中常见的那些HTML/CSS题]]></title>
     <url>%2Fcss%2Fcss-120170926%2F</url>
-    <content type="text"><![CDATA[什么是盒子模型？一般面试都会问：盒子模型你是怎么理解的？盒子模型分为两种：W3C(标准的)盒子模型和IE(怪异)盒子模型有图可知，标准的盒子模型包含margin,border,padding,content，并别content部分不包含其他部分；例如一个盒子模型如下：margin:20px;border:10px;padding:10px;width:200px;height:100px;如果用w3c计算盒子模型占用为：宽度为：202+102+102+200=280px;高度为：202+102+102+100=180px;盒子的实际宽度为：102+102+200=240px; 因为实际的宽度margin是不计算在内；在IE6以上统一盒子的实际高度为：102+102+100=140px;所以：标准盒子模型下，元素的宽度等于content的宽度；盒子模型占据的位置计算方式是2margin+2border+2padding+width/height;盒子的实际大小：2border+2padding+width/height有图可知IE盒子模型包含padding，margin，border，content四部分，但是ie盒子模型的content已经计算border和padding在内。还是上面那一题，如果采用IE盒子模型方式计算，盒子需占据的位置宽度为：202+200=240px; 高度为：20*2+100=140px;盒子的实际大小为：宽 200px; 高100px；所以:IE盒子模型下，元素的宽度实际上包含了content+padding+border在内，所以计算的时候实际不需要再加上padding,border;w3c可能也认识到这种差异性，所以允许我们事先定义盒子模型的解析方式；box-sizing:content-box(default) | border-box | inheritcontent-box:让元素维持W3C的标准模型；border-box：让元素维持IE传统盒子模型;接下来通过代码来看一看差别：来一段基本的代码： 12&lt;div id="div1"&gt;content-box&lt;/div&gt;&lt;div id="div2"&gt;border-box&lt;/div&gt; 123456789101112*&#123; margin:0; padding:0;&#125;div&#123; width: 200px; height: 100px; background: red; margin: 20px; padding: 20px; border: 10px solid black;&#125; 这一段简单的代码，来看看效果：这时候，两个div显示的效果是一样的，默认都是采用content-box方式解析的；接下来改变代码看一看：123#div2&#123; box-sizing: border-box;&#125; 先来看看效果图：从肉眼直观来看，第二个盒子显然比第一个盒子小了许多，但是我们要用网页设计的观点来解释这个问题的话就可以看下面两张图：这是第一个div的图；这是第二个div的图；这就是为什么我们上面的题算出来的结果是那样的；IE下认为一个盒子的宽度应该是包含content,padding和border在内的；所以第二张图的时候，padding和border都侵蚀了元素的内容部分；最后总结一点： w3c中的盒子模型占用的大小：margin + border + padding + width/height;width: margin2 + border2 + padding2 + width;height: margin2 + border2 + padding2 + height;w3c中盒子模型的实际大小：border + padding + width/height;width: border2 + padding2 + width;height: border2 + padding2 + height;w3c中盒子模型的内容区域的大小：width/heightwidth: width;height: height; IE 盒子模型占用的宽度：margin + content-width/height;width: margin2 + width;height: margin2 + height;IE 盒子模型的实际大小：content-width/heightwidth: width;height: height; 另外还有一点：css3的伸缩盒模型指的是FlexBox,想了解的戳链接]]></content>
+    <content type="text"><![CDATA[什么是盒子模型？一般面试都会问：盒子模型你是怎么理解的？盒子模型分为两种：W3C(标准的)盒子模型和IE(怪异)盒子模型有图可知，标准的盒子模型包含margin,border,padding,content，并别content部分不包含其他部分；例如一个盒子模型如下：margin:20px;border:10px;padding:10px;width:200px;height:100px;如果用w3c计算盒子模型占用为：宽度为：20x2+10x2+10x2+200=280px;高度为：20x2+10x2+10x2+100=180px;盒子的实际宽度为：10x2+10x2+200=240px; 因为实际的宽度margin是不计算在内；在IE6以上统一盒子的实际高度为：10x2+10x2+100=140px;所以：标准盒子模型下，元素的宽度等于content的宽度；盒子模型占据的位置计算方式是2margin+2border+2padding+width/height;盒子的实际大小：2xborder+2xpadding+width/height有图可知IE盒子模型包含padding，margin，border，content四部分，但是ie盒子模型的content已经计算border和padding在内。还是上面那一题，如果采用IE盒子模型方式计算，盒子需占据的位置宽度为：202+200=240px; 高度为：20*2+100=140px;盒子的实际大小为：宽 200px; 高100px；所以:IE盒子模型下，元素的宽度实际上包含了content+padding+border在内，所以计算的时候实际不需要再加上padding,border;w3c可能也认识到这种差异性，所以允许我们事先定义盒子模型的解析方式；box-sizing:content-box(default) | border-box | inheritcontent-box:让元素维持W3C的标准模型；border-box：让元素维持IE传统盒子模型;接下来通过代码来看一看差别：来一段基本的代码： 12&lt;div id="div1"&gt;content-box&lt;/div&gt;&lt;div id="div2"&gt;border-box&lt;/div&gt; 123456789101112*&#123; margin:0; padding:0;&#125;div&#123; width: 200px; height: 100px; background: red; margin: 20px; padding: 20px; border: 10px solid black;&#125; 这一段简单的代码，来看看效果：这时候，两个div显示的效果是一样的，默认都是采用content-box方式解析的；接下来改变代码看一看：123#div2&#123; box-sizing: border-box;&#125; 先来看看效果图：从肉眼直观来看，第二个盒子显然比第一个盒子小了许多，但是我们要用网页设计的观点来解释这个问题的话就可以看下面两张图：这是第一个div的图；这是第二个div的图；这就是为什么我们上面的题算出来的结果是那样的；IE下认为一个盒子的宽度应该是包含content,padding和border在内的；所以第二张图的时候，padding和border都侵蚀了元素的内容部分；最后总结一点： w3c中的盒子模型占用的大小：margin + border + padding + width/height;width: margin2 + border2 + padding2 + width;height: margin2 + border2 + padding2 + height;w3c中盒子模型的实际大小：border + padding + width/height;width: border2 + padding2 + width;height: border2 + padding2 + height;w3c中盒子模型的内容区域的大小：width/heightwidth: width;height: height; IE 盒子模型占用的宽度：margin + content-width/height;width: margin2 + width;height: margin2 + height;IE 盒子模型的实际大小：content-width/heightwidth: width;height: height; 另外还有一点：css3的伸缩盒模型指的是FlexBox,想了解的戳链接]]></content>
       <categories>
         <category>CSS</category>
       </categories>
@@ -77,18 +77,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[angular4 中自定义pagination组件]]></title>
-    <url>%2Fangular%2Fpg-120170908%2F</url>
-    <content type="text"><![CDATA[你用Angular 吗?一.介绍一个基于angular4 开发的可以分页的组件。组件的好处就是可以复用，复用…..作为一个前端码农，开始的分页功能实现是我用jquery写的，其他同事用的时候都要将我的代码拷贝过去，于是我被鄙视了。为了不继续被鄙视就开始了尝试。二.基本功能1.根据规定的每页数据条数，分页显示数据2.上下页操作数据直接上界面图可能清晰点： 项目截图根据图片进行讲解下：根据你总数据条数:totalNum; 每页显示条数:pageSize,通过组件会自动给你分页显示。eg：总数41 条数据,每页显示10条数据，则是分成5页。如果想每页显示7条，则会分成6页。三.简要代码架构目录图： 项目目录有两个组件：pagination和page;&nbsp; pagination是用来显示前面数据的，page是用来下面分页的。pagination.html示例代码： 数据显示部分代码ngb-xxx不用在意，是用的ng-bootstrap，只是为了让界面好看点。其实就是一个简单的table用来显示数据。*ngFor用来取数据，懂Angular 的人应该都会，这不是重点就不介绍了。&lt;page&gt;&lt;/page&gt;&nbsp;这里是引入page组件。但是传入了一些属性值；关于模板语法，依赖注入，自定义事件就不介绍了。只要知道这里是：pagination组件向page组件传入了几个值：pageSize(页面显示数据条数)，totalNum(总数据条数),curPage(当前页码 ），totalPage(总页码),pageData(每页显示数据)其中pageSize和pageData是一样的，只是后面为了操作，多传了一个值；那么：pageSize等值都是哪里来的呢，当然是pagination.ts里定义的： pagination.ts代码代码中的page就是你获得到得数据，自然totalNum就会等于数据的长度。依次算出来就好了。 pagination组件算是完成了，现在就来看看page是怎么接收到数据并进行操作的。page.html页面的代码： page.ts 分页数据的html其实很简单：就一个a标签显示条数，页数的，三个button,一个显示上一页，一个页数，一个下一页。每个按钮都绑定了一个changePage事件；看一下实现部分的代码： page.ts分页实现部分代码@Input是接收pagination.html组件传过来的数据。@Output是定义pagination.html页面定义的changeCurPage事件。通过三个if else判断，对传多来的数据进行处理。其实就分为：数据只够显示一页；数据显示到最后一页；数据刷新到中间页码；这三种情况下的操作。好了，基本就完成了。有些东西也是借助网友的想法，但是思路大致都是这样。现在我改变条数和数据量看看： &nbsp; 项目截图详情代码及效果：https://github.com/sulishibaobei/pagination]]></content>
-      <categories>
-        <category>Angular 2+</category>
-      </categories>
-      <tags>
-        <tag>Angular2+</tag>
-        <tag>分页组件</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[bootstrap简单图文环绕效果]]></title>
     <url>%2Fbootstrap%2Fbt-120170908%2F</url>
     <content type="text"><![CDATA[一.下载bootstrap-3.3.7二.在html页面引入css,js;eg:123&lt;link src="bootstrap-3.3.7-dist/css/bootstrap.min.css"&gt;&lt;script type="text/javascript" src="jquery.min.js"&gt;&lt;/ script&gt; &lt;script type="text/javascript" src="bootstrap-3.3.7-dist/js/bootstrap.min.js"&gt;&lt;/ script&gt; 注意：因为会用到jquery，所以引入了jquery .js;三.body部分的代码是这样的：123456&lt;body style="margin: 10px;padding: 0px"&gt; &lt;div class="left"&gt; &lt;/div&gt; &lt;div class="right"&gt; &lt;/div&gt;&lt;body/&gt; 简单解析下： body里包含两个div ,一个在左边排列(用于放图片)，一个在右边排列(用于放文字);都用class名进行区分啦，left和right;简单的给两个div添加点样式： .left { float : left ; max-width : 43% ; padding-left : 5px ; } .right{ margin-left : 5px ; } 现在还看不出什么效果;给第一个div里添加图片;&lt; img src=”index.jpg” class=”img-responsive” alt=”图像”&gt; 给第二个div添加文字，里面的文字是采用Boostrap的样式; &lt;div class="container"&gt; &lt;h1&gt;图文环绕&lt;/h1&gt; &lt;div class="row"&gt; &lt;div class="col-xs-6 col-md-offset-3" style=" box-shadow: inset 1px -1px 1px #ccc, inset -1px 1px 1px #ccc;"&gt; &lt;div class="row"&gt; &lt;div class="col-md-6" style=" box-shadow: inset 1px -1px 1px #ccc, inset -1px 1px 1px #ccc;"&gt; &lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;风雨中走过却不安世事的心&lt;/p&gt; &lt;/div&gt; &lt;/div&gt; &lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;我还是很喜欢你，像风走了三千米不问归期 我希望有个如你一般的人如山间清爽的风如古城温暖的光从清晨到夜晚由山野到书房只要最后是你就好 &lt;/p&gt; &lt;/div&gt; &lt;div class="col-xs-6 col-sm-offset-3" style="box-shadow: inset 1px -1px 1px #ccc, inset -1px 1px 1px #ccc;"&gt; &lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;我觉得这个世界美好无比。晴时满树花开，雨天一湖涟漪，阳光席卷城市，微风穿越指间，入夜每个电台播放的情歌，沿途每条山路铺开的影子，全部是你不经意写的一字一句，留我年复一年朗读。这世界是你的遗嘱，而我是你唯一的遗物。 &lt;/p&gt; &lt;p&gt;&amp;nbsp;&amp;nbsp;一个人的记忆就是座城市，时间腐蚀着一切建筑，把高楼和道路全部沙化。如果你不往前走，就会被沙子掩埋。所以我们泪流满面，步步回头，可是只能往前走 &lt;/p&gt; &lt;/div&gt; &lt;div class="clearfix visible-xs"&gt;&lt;/div&gt; &lt;div class="col-xs-6 col-md-offset-3" style=" box-shadow:inset 1px -1px 1px #ccc, inset -1px 1px 1px #ccc;"&gt; &lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;你燃烧，我陪你焚成灰烬。你熄灭，我陪你低落尘埃。你出生，我陪你徒步人海。你沉默，我陪你一言不发，你欢笑，我陪你山呼海啸。你衰老，我陪你满目疮痍。你逃避，我陪你隐入夜晚。你离开，我只能等待。 &lt;/p&gt; &lt;/div&gt; &lt;div class="col-xs-6 col-sm-offset-3" style="box-shadow: inset 1px -1px 1px #ccc, inset -1px 1px 1px #ccc;"&gt; &lt;p&gt;我希望买的鞋子是你渴望的颜色。我希望拨通电话时你恰好在想我。我希望说早安你也刚起床。我希望写的书是你欣赏的故事。我希望关灯的刹那你正泛起困意。我希望买的水果你永远觉得是甜的。我希望点的歌都是你喜欢唱的。我希望我希望的是你希望的。 &lt;/p&gt; &lt;/div&gt; &lt;div class="clearfix visible-xs"&gt;&lt;/div&gt; &lt;/div&gt; &lt;/div&gt; 采用的是bootstrap的架构： container&gt; row&gt; column&nbsp;将css样式也写在标签上，所以有点看起来复杂，其实很简单，这几段文字的结构都一样。看看运行效果：拖动页面试试你可以通过控制台随意拖动页面的宽度，看看文字的适配程度。源码另外有两个免费网站模板也可以看看，在同一个github路径下]]></content>
@@ -110,6 +98,18 @@
       <tags>
         <tag>Angular 2+</tag>
         <tag>http</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[angular4 中自定义pagination组件]]></title>
+    <url>%2Fangular%2Fpg-120170908%2F</url>
+    <content type="text"><![CDATA[你用Angular 吗?一.介绍一个基于angular4 开发的可以分页的组件。组件的好处就是可以复用，复用…..作为一个前端码农，开始的分页功能实现是我用jquery写的，其他同事用的时候都要将我的代码拷贝过去，于是我被鄙视了。为了不继续被鄙视就开始了尝试。二.基本功能1.根据规定的每页数据条数，分页显示数据2.上下页操作数据直接上界面图可能清晰点： 项目截图根据图片进行讲解下：根据你总数据条数:totalNum; 每页显示条数:pageSize,通过组件会自动给你分页显示。eg：总数41 条数据,每页显示10条数据，则是分成5页。如果想每页显示7条，则会分成6页。三.简要代码架构目录图： 项目目录有两个组件：pagination和page;&nbsp; pagination是用来显示前面数据的，page是用来下面分页的。pagination.html示例代码： 数据显示部分代码ngb-xxx不用在意，是用的ng-bootstrap，只是为了让界面好看点。其实就是一个简单的table用来显示数据。*ngFor用来取数据，懂Angular 的人应该都会，这不是重点就不介绍了。&lt;page&gt;&lt;/page&gt;&nbsp;这里是引入page组件。但是传入了一些属性值；关于模板语法，依赖注入，自定义事件就不介绍了。只要知道这里是：pagination组件向page组件传入了几个值：pageSize(页面显示数据条数)，totalNum(总数据条数),curPage(当前页码 ），totalPage(总页码),pageData(每页显示数据)其中pageSize和pageData是一样的，只是后面为了操作，多传了一个值；那么：pageSize等值都是哪里来的呢，当然是pagination.ts里定义的： pagination.ts代码代码中的page就是你获得到得数据，自然totalNum就会等于数据的长度。依次算出来就好了。 pagination组件算是完成了，现在就来看看page是怎么接收到数据并进行操作的。page.html页面的代码： page.ts 分页数据的html其实很简单：就一个a标签显示条数，页数的，三个button,一个显示上一页，一个页数，一个下一页。每个按钮都绑定了一个changePage事件；看一下实现部分的代码： page.ts分页实现部分代码@Input是接收pagination.html组件传过来的数据。@Output是定义pagination.html页面定义的changeCurPage事件。通过三个if else判断，对传多来的数据进行处理。其实就分为：数据只够显示一页；数据显示到最后一页；数据刷新到中间页码；这三种情况下的操作。好了，基本就完成了。有些东西也是借助网友的想法，但是思路大致都是这样。现在我改变条数和数据量看看： &nbsp; 项目截图详情代码及效果：https://github.com/sulishibaobei/pagination]]></content>
+      <categories>
+        <category>Angular 2+</category>
+      </categories>
+      <tags>
+        <tag>Angular2+</tag>
+        <tag>分页组件</tag>
       </tags>
   </entry>
   <entry>
@@ -211,9 +211,9 @@
         <category>前端那些微小事</category>
       </categories>
       <tags>
-        <tag>javascript</tag>
         <tag>console.log</tag>
         <tag>alert</tag>
+        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -224,8 +224,8 @@
         <category>前端面试题整理</category>
       </categories>
       <tags>
-        <tag>面试</tag>
         <tag>javascript</tag>
+        <tag>面试</tag>
         <tag>字符串,数组,设计模式</tag>
       </tags>
   </entry>
