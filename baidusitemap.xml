@@ -3,6 +3,30 @@
 
 
     
+  <url>
+    <loc>http://www.sulishibaobei.com/css/css-120170926/</loc>
+    <lastmod>2017-09-26T04:05:08.861Z</lastmod>
+    <data>
+        <display>
+        <title>前端面试中常见的那些HTML/CSS题</title>
+        <pubTime>2017-09-26T02:08:53.000Z</pubTime>
+        
+        <tag>CSS</tag>
+         
+        <tag>HTML5</tag>
+         
+        <tag>面试题</tag>
+         
+         
+           
+             
+              <breadCrumb title="CSS" url="http://www.sulishibaobei.com/categories/CSS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
     
     
   <url>
@@ -35,9 +59,9 @@
         <title>前端面试中遇见的那些纯js题</title>
         <pubTime>2017-09-05T03:08:53.000Z</pubTime>
         
-        <tag>javascript</tag>
-         
         <tag>面试</tag>
+         
+        <tag>javascript</tag>
          
         <tag>字符串,数组,设计模式</tag>
          
@@ -59,11 +83,11 @@
         <title>教你如何使用正则表达式</title>
         <pubTime>2017-09-25T01:08:53.000Z</pubTime>
         
+        <tag>javascript</tag>
+         
         <tag>正则表达式</tag>
          
         <tag>Regex</tag>
-         
-        <tag>javascript</tag>
          
          
            
