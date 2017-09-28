@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://www.sulishibaobei.com/css/css-120170926/</loc>
-    <lastmod>2017-09-28T04:02:20.492Z</lastmod>
+    <lastmod>2017-09-28T04:15:53.339Z</lastmod>
     <data>
         <display>
         <title>前端面试中常见的那些HTML/CSS题</title>
@@ -83,11 +83,11 @@
         <title>教你如何使用正则表达式</title>
         <pubTime>2017-09-25T01:08:53.000Z</pubTime>
         
-        <tag>javascript</tag>
-         
         <tag>正则表达式</tag>
          
         <tag>Regex</tag>
+         
+        <tag>javascript</tag>
          
          
            
@@ -424,11 +424,11 @@
         <title>简述alert和console.log的区别</title>
         <pubTime>2017-09-05T03:08:53.000Z</pubTime>
         
+        <tag>javascript</tag>
+         
         <tag>console.log</tag>
          
         <tag>alert</tag>
-         
-        <tag>javascript</tag>
          
          
            
