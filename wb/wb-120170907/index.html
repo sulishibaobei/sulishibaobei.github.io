@@ -1,0 +1,1545 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="google-site-verification" content="2mW9mcWKEPuFK_HVf6zCZ8XqtoK5v9WWsSGmauh1WGc" />
+<meta name="theme-color" content="#222">
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3e5ef9b9913f4947eb812ab76c9fbf99";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="nodejs,websocket," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="少女雨的博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/a.jpg?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="介绍下websocket：  webSocket协议本质上是一个基于tcp的协议;  建立一个websocket连接，大体的过程： 1.客户端浏览器首先向服务器发起一个http请求，这个请求和平常的请求有什么不同呢？ 多了一点附加头信息：”upgrade:web Socket” 表明我这申请的是一个websocket的http请求； 2.服务器收到请求后，解析这些附加的头信息，然后产生应答信息返回">
+<meta name="keywords" content="nodejs,websocket">
+<meta property="og:type" content="article">
+<meta property="og:title" content="nodejs+websocket实时聊天系统">
+<meta property="og:url" content="http://www.sulishibaobei.com/wb/wb-120170907/index.html">
+<meta property="og:site_name" content="少女雨的博客">
+<meta property="og:description" content="介绍下websocket：  webSocket协议本质上是一个基于tcp的协议;  建立一个websocket连接，大体的过程： 1.客户端浏览器首先向服务器发起一个http请求，这个请求和平常的请求有什么不同呢？ 多了一点附加头信息：”upgrade:web Socket” 表明我这申请的是一个websocket的http请求； 2.服务器收到请求后，解析这些附加的头信息，然后产生应答信息返回">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://www.sulishibaobei.com/images/websocket-1.png">
+<meta property="og:updated_time" content="2017-09-19T05:44:30.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="nodejs+websocket实时聊天系统">
+<meta name="twitter:description" content="介绍下websocket：  webSocket协议本质上是一个基于tcp的协议;  建立一个websocket连接，大体的过程： 1.客户端浏览器首先向服务器发起一个http请求，这个请求和平常的请求有什么不同呢？ 多了一点附加头信息：”upgrade:web Socket” 表明我这申请的是一个websocket的http请求； 2.服务器收到请求后，解析这些附加的头信息，然后产生应答信息返回">
+<meta name="twitter:image" content="http://www.sulishibaobei.com/images/websocket-1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Sulishibaobei'
+    },
+    algolia: {
+      applicationID: 'MYAWI631K2',
+      apiKey: 'b1bd6d9a14214fd15ff7e1cf6128d8e7',
+      indexName: 'Content',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.sulishibaobei.com/wb/wb-120170907/"/>
+
+
+
+
+
+
+
+  <title>nodejs+websocket实时聊天系统 | 少女雨的博客</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?3e5ef9b9913f4947eb812ab76c9fbf99";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">少女雨的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">爱生活爱远方爱自由更爱你</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-主页">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            主页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-关于">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-标签">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-归档">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-展示">
+          <a href="/site/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            展示
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-日程">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-有料">
+          <a href="/something" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            有料
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-公益404">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.sulishibaobei.com/wb/wb-120170907/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="少女雨">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/a.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="少女雨的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">nodejs+websocket实时聊天系统</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-07T09:08:53+08:00">
+                2017-09-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/html5/" itemprop="url" rel="index">
+                    <span itemprop="name">html5</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/wb/wb-120170907/" class="leancloud_visitors" data-flag-title="nodejs+websocket实时聊天系统">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 本文总阅读量
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="介绍下websocket："><a href="#介绍下websocket：" class="headerlink" title="介绍下websocket："></a>介绍下websocket：</h2><p>  webSocket协议本质上是一个基于tcp的协议; </p>
+<h2 id="建立一个websocket连接，大体的过程："><a href="#建立一个websocket连接，大体的过程：" class="headerlink" title="建立一个websocket连接，大体的过程："></a>建立一个websocket连接，大体的过程：</h2><p> 1.客户端浏览器首先向服务器发起一个http请求，这个请求和平常的请求有什么不同呢？<br> 多了一点附加头信息：”upgrade:web Socket” 表明我这申请的是一个websocket的http请求；<br> 2.服务器收到请求后，解析这些附加的头信息，然后产生应答信息返回给客户端，这样，连接就建立了；<br> 3.双方就可以通过这个连接通道自由的信息传递，这个连接会一直存在，直到一方自动关闭连接； </p>
+<a id="more"></a>
+<h3 id="客户端到服务端："><a href="#客户端到服务端：" class="headerlink" title="客户端到服务端："></a>客户端到服务端：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">GET /demo HTTP/<span class="number">1.1</span></div><div class="line">Host: example.com</div><div class="line">Connection: Upgrade</div><div class="line">Sec-WebSocket-Key2: <span class="number">12998</span> <span class="number">5</span> Y3 <span class="number">1</span> .P00</div><div class="line">Upgrade: WebSocket</div><div class="line">Sec-WebSocket-Key1: <span class="number">4</span>@<span class="number">1</span> <span class="number">46546</span>xW%<span class="number">0</span>l <span class="number">1</span> <span class="number">5</span></div><div class="line">Origin: http:<span class="comment">//example.com</span></div><div class="line">[<span class="number">8</span>-byte security key]</div></pre></td></tr></table></figure>
+<h3 id="服务端到客户端："><a href="#服务端到客户端：" class="headerlink" title="服务端到客户端："></a>服务端到客户端：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">HTTP/<span class="number">1.1</span> <span class="number">101</span> WebSocket Protocol Handshake</div><div class="line">Upgrade: WebSocket</div><div class="line">Connection: Upgrade</div><div class="line">WebSocket-Origin: http:<span class="comment">//example.com</span></div><div class="line">WebSocket-Location: ws:<span class="comment">//example.com/demo</span></div><div class="line">[<span class="number">16</span>-byte hash response]</div></pre></td></tr></table></figure>
+<p>从客户端到服务端请求的信息里面包含：‘Sec-webSocket-key1”,”Sec-WebSocket-key2”和“[8-byte security key]”这样的信息；这是客户端浏览器需要向服务端提供的握手信息，服务端解析这些头信息，并且在握手的过程中依据这些信息生成一个16位的安全密钥并返回给客户端，以表明服务器端获取了客户端的请求；<br><strong>大致步骤：</strong> </p>
+<ol>
+<li>逐个字符读取 Sec-WebSocket-Key1 头信息中的值，将数值型字符连接到一起放到一个临时字符串里，同时统计所有空格的数量；</li>
+<li>将在第 1 步里生成的数字字符串转换成一个整型数字，然后除以第 1 步里统计出来的空格数量，将得到的浮点数转换成整数型；</li>
+<li>将第 2 步里生成的整型值转换为符合网络传输的网络字节数组；</li>
+<li>对 Sec-WebSocket-Key2 头信息同样进行第 1 到第 3 步的操作，得到另外一个网络字节数组；</li>
+<li>将 [8-byte security key] 和在第 3，第 4 步里生成的网络字节数组合并成一个 16 字节的数组；</li>
+<li>对第 5 步生成的字节数组使用 MD5 算法生成一个哈希值，这个哈希值就作为安全密钥返回给客户端，以表明服务器端获取了客户端的请求，同意创建 WebSocket 连接</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span>  wsServer = <span class="string">'ws://localhost:8888/Demo'</span>;  <span class="comment">//连接地址</span></div><div class="line"><span class="keyword">var</span>  websocket = <span class="keyword">new</span> WebSocket(wsServer);   <span class="comment">//建立连接</span></div><div class="line">websocket.onopen = <span class="function"><span class="keyword">function</span> (<span class="params">evt</span>) </span>&#123; onOpen(evt) &#125;;  <span class="comment">//4个事件</span></div><div class="line">websocket.onclose = <span class="function"><span class="keyword">function</span> (<span class="params">evt</span>) </span>&#123; onClose(evt) &#125;; </div><div class="line">websocket.onmessage = <span class="function"><span class="keyword">function</span> (<span class="params">evt</span>) </span>&#123; onMessage(evt) &#125;; </div><div class="line">websocket.onerror = <span class="function"><span class="keyword">function</span> (<span class="params">evt</span>) </span>&#123; onError(evt) &#125;; </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">onOpen</span>(<span class="params">evt</span>) </span>&#123; </div><div class="line"><span class="built_in">console</span>.log(<span class="string">"Connected to WebSocket server."</span>); </div><div class="line">&#125; </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">onClose</span>(<span class="params">evt</span>) </span>&#123; </div><div class="line"><span class="built_in">console</span>.log(<span class="string">"Disconnected"</span>); </div><div class="line">&#125; </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">onMessage</span>(<span class="params">evt</span>) </span>&#123; </div><div class="line"><span class="built_in">console</span>.log(<span class="string">'Retrieved data from server: '</span> + evt.data); </div><div class="line">&#125; </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">onError</span>(<span class="params">evt</span>) </span>&#123; </div><div class="line"><span class="built_in">console</span>.log(<span class="string">'Error occured: '</span> + evt.data); </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>浏览器的支持情况： </p>
+<table>
+<thead>
+<tr>
+<th>浏览器</th>
+<th>支持情况</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Chrome</td>
+<td>Supported in version 4+</td>
+</tr>
+<tr>
+<td>Firefox</td>
+<td>Supported in version 4+</td>
+</tr>
+<tr>
+<td>Internet Explorer</td>
+<td>Supported in version 10+</td>
+</tr>
+<tr>
+<td>Opera</td>
+<td>Supported in version 10+</td>
+</tr>
+<tr>
+<td>Safari</td>
+<td>Supported in version 5+</td>
+</tr>
+</tbody>
+</table>
+<h2 id="正文来了：基于websocket制作的简单聊天系统；"><a href="#正文来了：基于websocket制作的简单聊天系统；" class="headerlink" title="正文来了：基于websocket制作的简单聊天系统；"></a>正文来了：基于websocket制作的简单聊天系统；</h2><h3 id="简单的界面，大致效果就是这样的："><a href="#简单的界面，大致效果就是这样的：" class="headerlink" title="简单的界面，大致效果就是这样的："></a>简单的界面，大致效果就是这样的：</h3><p><img src="/images/websocket-1.png" alt="websocket"></p>
+<h3 id="实现逻辑代码："><a href="#实现逻辑代码：" class="headerlink" title="实现逻辑代码："></a>实现逻辑代码：</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> ws = <span class="keyword">new</span> WebSocket(<span class="string">'ws://127.0.0.1:8082'</span>);</div><div class="line">    ws.onopen = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"连接服务器成功"</span>);</div><div class="line">    &#125;</div><div class="line">                ws.onmessage = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</div><div class="line">                    value1.removeAttribute(<span class="string">"readOnly"</span>);</div><div class="line">                    <span class="keyword">var</span> time = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">                    mess.innerHTML += time.toUTCString() + <span class="string">":"</span> + e.data + <span class="string">"&amp;lt;br&amp;gt;"</span>;</div><div class="line">                    <span class="built_in">document</span>.getElementById(<span class="string">"send"</span>).onclick = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</div><div class="line">                        ws.send(input.value + <span class="string">"说:"</span> + value1.value);</div><div class="line">                        value1.value = <span class="string">" "</span>;</div><div class="line">                    &#125;</div><div class="line">                    <span class="built_in">document</span>.onkeydown = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</div><div class="line">                        e = e || <span class="built_in">window</span>.event;</div><div class="line">                        <span class="keyword">if</span> (e.keyCode == <span class="number">13</span>) &#123;</div><div class="line">                            <span class="built_in">document</span>.getElementById(<span class="string">"send"</span>).onclick();</div><div class="line">                            <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">                        &#125;</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">                ws.onclose = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</div><div class="line">                    <span class="built_in">console</span>.log(<span class="string">"服务器关闭"</span>);</div><div class="line">                &#125;</div><div class="line">                ws.onerror = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">                    <span class="built_in">console</span>.log(<span class="string">"连接出错"</span>);</div><div class="line">     &#125;</div></pre></td></tr></table></figure>
+<p>连接地址：ws://127.0.0.1:8082&nbsp; 那是哪里来的呢？（注意http请求则是写成<a href="http://xxx,https请求则是https://xxx；ws当然是ws://xxx);wbsocket只是客服端，地址当然是从我们的服务端给的呀；" target="_blank" rel="external">http://xxx,https请求则是https://xxx；ws当然是ws://xxx);wbsocket只是客服端，地址当然是从我们的服务端给的呀；</a><br>服务端的搭建采用了一个这样的库： <code>nodejs-websocket</code> </p>
+<ol>
+<li><code>npm isntall -g nodejs-websocket</code></li>
+<li><p>在js页面引入它 </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"> <span class="keyword">var</span> ws = <span class="built_in">require</span>(<span class="string">"nodejs-websocket"</span> );  </div><div class="line"> <span class="string">``</span><span class="string">` </span></div><div class="line"> 3. 创建一个服务 </div><div class="line"></div><div class="line">`<span class="string">``</span>javascript </div><div class="line"> <span class="keyword">var</span> server = ws.createServer(<span class="function"><span class="keyword">function</span> (<span class="params">conn</span>) </span>&#123;</div><div class="line">    conn.on(<span class="string">'text'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">str</span>) </span>&#123;</div><div class="line">    &#125;)</div><div class="line"></div><div class="line">    conn.on(<span class="string">"close"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">code, reason</span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"关闭连接"</span>);</div><div class="line">    &#125;)</div><div class="line">    conn.on(<span class="string">"error"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">code, reason</span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"异常关闭"</span>);</div><div class="line">    &#125;);</div><div class="line">&#125;).listen(<span class="number">8082</span>);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"websocket连接完毕"</span>)</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="websocket连接算是建立啦！"><a href="#websocket连接算是建立啦！" class="headerlink" title="websocket连接算是建立啦！"></a>websocket连接算是建立啦！</h3><p>下面展示下具体代码：<br><code>client.html</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"ie=edge"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">href</span>=<span class="string">"bootstrap-3.3.7-dist/css/bootstrap.min.css"</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"bootstrap-3.3.7-dist/js/bootstrap.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></div><div class="line">        <span class="selector-class">.kuang</span> &#123;</div><div class="line">            <span class="attribute">width</span>: <span class="number">600px</span>;</div><div class="line">            <span class="attribute">min-height</span>: <span class="number">50px</span>;</div><div class="line">            <span class="attribute">max-height</span>: <span class="number">296px</span>;</div><div class="line">            <span class="attribute">border</span>: <span class="number">1px</span> solid;</div><div class="line">            <span class="attribute">float</span>: left;</div><div class="line">            <span class="attribute">display</span>: block;</div><div class="line">            <span class="attribute">position</span>: relative;</div><div class="line">            <span class="attribute">overflow-y</span>: scroll;</div><div class="line">        &#125;</div><div class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></div><div class="line">              <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"jumbotron  bg-dark"</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">h1</span> <span class="attr">class</span>=<span class="string">"jumbotron-heading"</span>&gt;</span>WebSocket chat,欢迎使用:<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">              <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"input-group text-left"</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">label</span>&gt;</span>输入用户名：<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"name"</span> /&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">"conn"</span>&gt;</span>连接<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">"close"</span>&gt;</span>断开<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"input-group text-muted"</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"kuang"</span> <span class="attr">id</span>=<span class="string">"mess"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">         <span class="tag">&lt;<span class="name">hr</span> <span class="attr">class</span>=<span class="string">"featurette-divider"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"input-group text-left"</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">class</span>=<span class="string">"value"</span> <span class="attr">id</span>=<span class="string">"value1"</span> /&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">"send"</span>&gt;</span>发送<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">        <span class="keyword">var</span> input = <span class="built_in">document</span>.getElementById(<span class="string">"name"</span>);</div><div class="line">        <span class="keyword">var</span> conn = <span class="built_in">document</span>.getElementById(<span class="string">"conn"</span>);</div><div class="line">        <span class="keyword">var</span> close = <span class="built_in">document</span>.getElementById(<span class="string">"close"</span>);</div><div class="line">        <span class="keyword">var</span> mess = <span class="built_in">document</span>.getElementById(<span class="string">"mess"</span>);</div><div class="line">        <span class="keyword">var</span> value1 = <span class="built_in">document</span>.getElementById(<span class="string">"value1"</span>);</div><div class="line">        <span class="keyword">var</span> pattern = <span class="regexp">/^[\u4e00-\u9fa5]&#123;2,10&#125;$/</span>;</div><div class="line">        close.disabled = <span class="literal">true</span>;</div><div class="line">        <span class="keyword">if</span> (<span class="built_in">window</span>.WebSocket) &#123;</div><div class="line">            conn.onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">                <span class="keyword">if</span> (!pattern.test(input.value)) &#123;</div><div class="line">                    alert(<span class="string">"名称不能为空且必须为中文"</span>);</div><div class="line">                    <span class="keyword">return</span>;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">var</span> ws = <span class="keyword">new</span> WebSocket(<span class="string">'ws://127.0.0.1:8082'</span>);</div><div class="line">                conn.disabled = <span class="literal">true</span>;</div><div class="line">                close.disabled = <span class="literal">false</span>;</div><div class="line">                ws.onopen = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</div><div class="line">                    <span class="built_in">console</span>.log(<span class="string">"连接服务器成功"</span>);</div><div class="line">                    ws.send(input.value);</div><div class="line">                    input.setAttribute(<span class="string">"readOnly"</span>, <span class="string">'true'</span>);</div><div class="line">                    value1.setAttribute(<span class="string">"readOnly"</span>, <span class="string">'true'</span>);</div><div class="line">                &#125;</div><div class="line">                ws.onmessage = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</div><div class="line">                    value1.removeAttribute(<span class="string">"readOnly"</span>);</div><div class="line">                    <span class="keyword">var</span> time = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">                    mess.innerHTML += time.toUTCString() + <span class="string">":"</span> + e.data + <span class="string">"&lt;br&gt;"</span>;</div><div class="line">                    <span class="built_in">document</span>.getElementById(<span class="string">"send"</span>).onclick = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</div><div class="line">                        ws.send(input.value + <span class="string">"说:"</span> + value1.value);</div><div class="line">                        value1.value = <span class="string">" "</span>;</div><div class="line">                    &#125;</div><div class="line">                    <span class="built_in">document</span>.onkeydown = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</div><div class="line">                        e = e || <span class="built_in">window</span>.event;</div><div class="line">                        <span class="keyword">if</span> (e.keyCode == <span class="number">13</span>) &#123;</div><div class="line">                            <span class="built_in">document</span>.getElementById(<span class="string">"send"</span>).onclick();</div><div class="line">                            <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">                        &#125;</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">                ws.onclose = <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</div><div class="line">                    <span class="built_in">console</span>.log(<span class="string">"服务器关闭"</span>);</div><div class="line">                &#125;</div><div class="line">                ws.onerror = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">                    <span class="built_in">console</span>.log(<span class="string">"连接出错"</span>);</div><div class="line">                &#125;</div><div class="line"> </div><div class="line">                close.onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">                    ws.onclose();</div><div class="line">                    ws.send(input.value + <span class="string">'close'</span> + <span class="string">"了连接"</span>);</div><div class="line">                    input.removeAttribute(<span class="string">"readOnly"</span>);</div><div class="line">                    conn.disabled = <span class="literal">false</span>;</div><div class="line">                    close.disabled = <span class="literal">true</span>;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><code>server.js</code> </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> ws = <span class="built_in">require</span>(<span class="string">"nodejs-websocket"</span>);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"开始建立连接..."</span>);</div><div class="line"><span class="keyword">var</span> str1 = <span class="literal">null</span>, str2 = <span class="literal">null</span>, clientReady = <span class="literal">false</span>, serverReady = <span class="literal">false</span>;</div><div class="line"><span class="keyword">var</span> a = [];</div><div class="line"><span class="keyword">var</span> server = ws.createServer(<span class="function"><span class="keyword">function</span> (<span class="params">conn</span>) </span>&#123;</div><div class="line">    conn.on(<span class="string">'text'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">str</span>) </span>&#123;</div><div class="line">          a.push(str);</div><div class="line">        <span class="keyword">if</span> (!clientReady) &#123;</div><div class="line">            <span class="keyword">if</span> (a[<span class="number">0</span>] === str) &#123;</div><div class="line">                str1 = conn;</div><div class="line">                clientReady = <span class="literal">true</span>;</div><div class="line">                str1.sendText(<span class="string">"欢迎你"</span> + str);</div><div class="line">                </div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!serverReady) &#123;</div><div class="line">            <span class="keyword">if</span> (str.indexOf(<span class="string">'close'</span>) &amp;gt;= <span class="number">0</span>) &#123;    </div><div class="line">                     a.splice(<span class="number">2</span>,<span class="number">1</span>);</div><div class="line">                     clientReady = <span class="literal">false</span>;</div><div class="line">                     str1=<span class="literal">null</span>;   </div><div class="line">                     <span class="keyword">return</span>;</div><div class="line">                &#125;</div><div class="line">            <span class="keyword">if</span> (a[<span class="number">1</span>] === str) &#123;</div><div class="line">                str2 = conn;</div><div class="line">                serverReady = <span class="literal">true</span>;</div><div class="line">                str2.sendText(<span class="string">"欢迎你"</span> + str);</div><div class="line">                str1.sendText(str + <span class="string">"在线啦，你们可以聊天啦"</span>);</div><div class="line">                <span class="keyword">return</span>;</div><div class="line">            &#125; </div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (clientReady &amp;amp;&amp;amp; serverReady) &#123;</div><div class="line">                str2.sendText(str);</div><div class="line">                str1.sendText(str);</div><div class="line">                <span class="keyword">if</span> (str.indexOf(<span class="string">'close'</span>) &amp;gt;= <span class="number">0</span>) &#123;</div><div class="line">                    a.splice(<span class="number">2</span>, a.length);</div><div class="line">                    <span class="keyword">var</span> len = a.length;</div><div class="line">                    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &amp;lt; len; i++) &#123;</div><div class="line">                        <span class="comment">// 定位该元素位置</span></div><div class="line">                        <span class="keyword">if</span> (str.indexOf(a[i])&amp;gt;=<span class="number">0</span>) &#123;     </div><div class="line">                           a.splice(i,<span class="number">1</span>);</div><div class="line">                           <span class="keyword">if</span>(i==<span class="number">0</span>)&#123;</div><div class="line">                               str1=str2;</div><div class="line">                           &#125;</div><div class="line">                           serverReady = <span class="literal">false</span>; </div><div class="line">                           str2=<span class="literal">null</span>;</div><div class="line">                           <span class="keyword">return</span>;</div><div class="line">                        &#125;</div><div class="line">                      </div><div class="line">                    &#125; </div><div class="line">                &#125;</div><div class="line">            &#125;       </div><div class="line">    &#125;)</div><div class="line">    conn.on(<span class="string">"close"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">code, reason</span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"关闭连接"</span>);</div><div class="line">        clientReady = <span class="literal">false</span>;</div><div class="line">        serverReady = <span class="literal">false</span>;</div><div class="line">    &#125;)</div><div class="line">    conn.on(<span class="string">"error"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">code, reason</span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">"异常关闭"</span>);</div><div class="line">    &#125;);</div><div class="line">&#125;).listen(<span class="number">8082</span>);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">"websocket连接完毕"</span>)</div></pre></td></tr></table></figure>
+<p>实现双人聊天，client.html开启两个窗口就行！<br>详细代码在<a href="https://github.com/sulishibaobei/websocket" target="_blank" rel="external">github</a></p>
+
+      
+    </div>
+    
+    
+    
+   
+     
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>谢谢你给我的支持，坚持原创技术分享，共同成长</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/zhifubao.jpg" alt="少女雨 WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/weixin.jpg" alt="少女雨 Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/nodejs/" rel="tag"><i class="fa fa-tag"></i> nodejs</a>
+          
+            <a href="/tags/websocket/" rel="tag"><i class="fa fa-tag"></i> websocket</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/git/git-120170907/" rel="next" title="git 打卡的第一天">
+                <i class="fa fa-chevron-left"></i> git 打卡的第一天
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/css/sp-120170907/" rel="prev" title="Css3雪碧图">
+                Css3雪碧图 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="uyan_frame"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <img class="site-author-image" itemprop="image"
+              src="/images/a.jpg"
+              alt="少女雨" />
+          
+            <p class="site-author-name" itemprop="name">少女雨</p>
+            <p class="site-description motion-element" itemprop="description">12级毕业生，南方姑娘，前端程序媛，前途堪忧的代码洁癖者;</p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives">
+            
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">45</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/sulishibaobei/" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="380571249@qq.com" target="_blank" title="E-Mail">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>
+                  
+                    
+                      E-Mail
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/xiaoyu051027/profile?rightmod=1&wvr=6&mod=personinfo/" target="_blank" title="weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                    
+                      weibo
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://blog.csdn.net/sulishibaobei/" target="_blank" title="CSDN">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      CSDN
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.cnblogs.com/sulishibaobei/" target="_blank" title="博客园">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      博客园
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/e6c53e37e95b/" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      简书
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://segmentfault.com/blog/angular4" title="Angular 4.x 修仙之路" target="_blank">Angular 4.x 修仙之路</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍下websocket："><span class="nav-number">1.</span> <span class="nav-text">介绍下websocket：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#建立一个websocket连接，大体的过程："><span class="nav-number">2.</span> <span class="nav-text">建立一个websocket连接，大体的过程：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#客户端到服务端："><span class="nav-number">2.1.</span> <span class="nav-text">客户端到服务端：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务端到客户端："><span class="nav-number">2.2.</span> <span class="nav-text">服务端到客户端：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正文来了：基于websocket制作的简单聊天系统；"><span class="nav-number">3.</span> <span class="nav-text">正文来了：基于websocket制作的简单聊天系统；</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简单的界面，大致效果就是这样的："><span class="nav-number">3.1.</span> <span class="nav-text">简单的界面，大致效果就是这样的：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现逻辑代码："><span class="nav-number">3.2.</span> <span class="nav-text">实现逻辑代码：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#websocket连接算是建立啦！"><span class="nav-number">3.3.</span> <span class="nav-text">websocket连接算是建立啦！</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">少女雨</span>
+
+  
+</div>
+ 
+
+ 
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>本站访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 本站总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+  
+  <script type="text/javascript" src="/lib/three/three.min.js"></script>
+
+  
+  <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+    
+
+    
+      <!-- UY BEGIN -->
+      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2142986"></script>
+      <!-- UY END -->
+    
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine@1.1.4/dist/Valine.min.js"></script>
+  <script type="text/javascript">
+    new Valine({
+        av: AV,
+        el: '#vcomments' ,
+        verify: true,
+        notify: true,
+        app_id: 'oYvo5UGPyqh0hJS4PjPlUEUi-gzGzoHsz',
+        app_key: 'pvthlFHzxUG7QED17mtXdnYo',
+        placeholder: 'Comment input placeholder'
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === '') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("oYvo5UGPyqh0hJS4PjPlUEUi-gzGzoHsz", "pvthlFHzxUG7QED17mtXdnYo");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <script type="text/javascript" src="/js/src/love.js"></script>
+</body>
+</html>
