@@ -557,6 +557,172 @@ var _hmt = _hmt || [];
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.sulishibaobei.com/html/120180411/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="少女雨">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/a.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="少女雨的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/html/120180411/" itemprop="url">移动端打造0.5px的线</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-11T09:08:53+08:00">
+                2018-04-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Bootstrap/" itemprop="url" rel="index">
+                    <span itemprop="name">Bootstrap</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/html/120180411/" class="leancloud_visitors" data-flag-title="移动端打造0.5px的线">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>一：前言：最近慢慢的接触移动端的项目了。作为一个伪前端。算是比较老的</p>
+<blockquote>
+<ul>
+<li>怎么实现0.5px的线呢？PC端都是直接1px。不会出现0.5px的情况。这时候一般使用伪元素来显示</li>
+</ul>
+</blockquote>
+<h3 id="顶部是0-5px的线是怎么实现的呢？"><a href="#顶部是0-5px的线是怎么实现的呢？" class="headerlink" title="顶部是0.5px的线是怎么实现的呢？"></a>顶部是0.5px的线是怎么实现的呢？</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">     <span class="tag">&lt;<span class="name">li</span>&gt;</span>测试一下测试一下<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">     <span class="tag">&lt;<span class="name">li</span>&gt;</span>测试一下测试一下<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">     <span class="tag">&lt;<span class="name">li</span>&gt;</span>测试一下测试一下<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">     <span class="tag">&lt;<span class="name">li</span>&gt;</span>测试一下测试一下<span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"> <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">li</span> &#123;</div><div class="line">        <span class="attribute">height</span>: <span class="number">28px</span>;</div><div class="line">        <span class="attribute">line-height</span>: <span class="number">28px</span>;</div><div class="line">        <span class="attribute">text-align</span>: center;</div><div class="line">        <span class="attribute">padding</span>: <span class="number">5px</span>;</div><div class="line">        <span class="attribute">position</span>: relative;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="selector-tag">li</span><span class="selector-pseudo">:after</span> &#123;</div><div class="line">        <span class="attribute">content</span>: <span class="string">" "</span>;</div><div class="line">        <span class="attribute">width</span>: <span class="number">200%</span>;</div><div class="line">        <span class="attribute">height</span>: <span class="number">1px</span>;</div><div class="line">        <span class="attribute">background</span>: <span class="number">#ddd</span>;</div><div class="line">        <span class="attribute">display</span>: block;</div><div class="line">        <span class="attribute">transform</span>: <span class="built_in">scale</span>(0.5);</div><div class="line">        <span class="attribute">-webkot-transform</span>: <span class="built_in">scaleY</span>(0.5);</div><div class="line">        <span class="attribute">position</span>: absolute;</div><div class="line">        <span class="attribute">left</span>: <span class="number">0</span>;</div><div class="line">        <span class="attribute">transform-origin</span>: left;</div><div class="line">         <span class="attribute">-webkit-transform-origin</span>: left;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>看看效果<br><img src="/images/20180627-1.png" alt="html"></p>
+<p>伪元素一定要使用占位符才会生效的。按照这种写法，管你要前后左右的0.5px的线都可以实现</p>
+<h3 id="0-5px的边框线如何实现"><a href="#0-5px的边框线如何实现" class="headerlink" title="0.5px的边框线如何实现"></a>0.5px的边框线如何实现</h3><p>html代码还是和上面一样的。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line">&lt;!<span class="selector-tag">--</span>第一种<span class="selector-tag">--</span>&gt;</div><div class="line"> <span class="selector-tag">li</span> &#123;</div><div class="line">            <span class="attribute">height</span>: <span class="number">28px</span>;</div><div class="line">            <span class="attribute">line-height</span>: <span class="number">28px</span>;</div><div class="line">            <span class="attribute">text-align</span>: center;</div><div class="line">            <span class="attribute">padding</span>: <span class="number">5px</span>;</div><div class="line">            <span class="attribute">position</span>: relative;</div><div class="line">        &#125;</div><div class="line">        </div><div class="line">    <span class="selector-tag">li</span><span class="selector-pseudo">:after</span> &#123;</div><div class="line">            <span class="attribute">content</span>: <span class="string">" "</span>;</div><div class="line">            <span class="attribute">width</span>: <span class="number">200%</span>;</div><div class="line">            <span class="attribute">height</span>: <span class="number">200%</span>;</div><div class="line">            <span class="attribute">display</span>: block;</div><div class="line">            <span class="attribute">transform</span>: <span class="built_in">scale</span>(0.5);</div><div class="line">            <span class="attribute">-webkot-transform</span>: <span class="built_in">scaleY</span>(0.5);</div><div class="line">            <span class="attribute">position</span>: absolute;</div><div class="line">            <span class="attribute">left</span>: <span class="number">0</span>;</div><div class="line">            <span class="attribute">top</span>: <span class="number">0</span>;</div><div class="line">            <span class="attribute">transform-origin</span>: <span class="number">0</span> <span class="number">0</span>;</div><div class="line">            <span class="attribute">-webkit-transform-origin</span>: <span class="number">0</span> <span class="number">0</span>;</div><div class="line">            <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#3188e8</span>;</div><div class="line">            <span class="attribute">border-radius</span>: <span class="number">22px</span>;</div><div class="line">            <span class="attribute">box-sizing</span>: border-box;</div><div class="line">        &#125;</div><div class="line">    &lt;!<span class="selector-tag">--</span>第二种<span class="selector-tag">--</span>&gt;</div><div class="line">     <span class="selector-class">.first</span> &#123;</div><div class="line">            <span class="attribute">position</span>: relative;</div><div class="line">            <span class="attribute">font-size</span>: <span class="number">16px</span>;</div><div class="line">    &#125;</div><div class="line">        </div><div class="line">    <span class="selector-class">.first</span> <span class="selector-class">.first-div</span><span class="selector-pseudo">:after</span> &#123;</div><div class="line">            <span class="attribute">content</span>: <span class="string">""</span>;</div><div class="line">            <span class="attribute">position</span>: absolute;</div><div class="line">            <span class="attribute">top</span>: -<span class="number">50%</span>;</div><div class="line">            <span class="attribute">bottom</span>: -<span class="number">50%</span>;</div><div class="line">            <span class="attribute">left</span>: -<span class="number">50%</span>;</div><div class="line">            <span class="attribute">right</span>: -<span class="number">50%</span>;</div><div class="line">            <span class="attribute">width</span>: <span class="number">200%</span>;</div><div class="line">            <span class="attribute">height</span>: <span class="number">200%</span>;</div><div class="line">            <span class="attribute">-webkit-transform</span>: <span class="built_in">scale</span>(0.5);</div><div class="line">            <span class="attribute">transform</span>: <span class="built_in">scale</span>(0.5);</div><div class="line">            <span class="attribute">border</span>: solid <span class="number">1px</span> <span class="number">#3188e8</span>;</div><div class="line">            <span class="attribute">border-radius</span>: <span class="number">22px</span>;</div><div class="line">            <span class="attribute">box-sizing</span>: border-box;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<p>用了两种写法，但是效果都是一样的。个人比较喜欢第一种<br>看看效果<br><img src="/images/20180626-2.png" alt="html"></p>
+<p>如果有其他好的方法后续会分享的。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+   
+     
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://www.sulishibaobei.com/css/css-120170926/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1348,7 +1514,7 @@ var _hmt = _hmt || [];
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.sulishibaobei.com/angular/pg-120170908/">
+    <link itemprop="mainEntityOfPage" href="http://www.sulishibaobei.com/angular/http/http-120170908/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="少女雨">
@@ -1367,7 +1533,7 @@ var _hmt = _hmt || [];
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/angular/pg-120170908/" itemprop="url">angular4 中自定义pagination组件</a></h1>
+                <a class="post-title-link" href="/angular/http/http-120170908/" itemprop="url">Angular 4+ Http</a></h1>
         
 
         <div class="post-meta">
@@ -1419,7 +1585,7 @@ var _hmt = _hmt || [];
 
           
           
-             <span id="/angular/pg-120170908/" class="leancloud_visitors" data-flag-title="angular4 中自定义pagination组件">
+             <span id="/angular/http/http-120170908/" class="leancloud_visitors" data-flag-title="Angular 4+ Http">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1451,11 +1617,10 @@ var _hmt = _hmt || [];
 
       
         
-          <p><img src="/images/fengjing-3.jpg" alt="fengjing"></p>
-<p><div class="image-caption">你用Angular 吗?</div><br>
+          <p>HTTP: 使应用能够对远端服务器发起相应的Http调用；<br>你要知道：HttpModule并不是Angular的核心模块，它是Angualr用来进行Web访问的一种可选方式，并位于一个名叫@angual/http的独立附属模块中；也就是说：使用http之前要引入此模块;<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/angular/pg-120170908/#more" rel="contents">
+            <a class="btn" href="/angular/http/http-120170908/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1665,7 +1830,7 @@ var _hmt = _hmt || [];
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.sulishibaobei.com/angular/http/http-120170908/">
+    <link itemprop="mainEntityOfPage" href="http://www.sulishibaobei.com/angular/pg-120170908/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="少女雨">
@@ -1684,7 +1849,7 @@ var _hmt = _hmt || [];
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/angular/http/http-120170908/" itemprop="url">Angular 4+ Http</a></h1>
+                <a class="post-title-link" href="/angular/pg-120170908/" itemprop="url">angular4 中自定义pagination组件</a></h1>
         
 
         <div class="post-meta">
@@ -1736,7 +1901,7 @@ var _hmt = _hmt || [];
 
           
           
-             <span id="/angular/http/http-120170908/" class="leancloud_visitors" data-flag-title="Angular 4+ Http">
+             <span id="/angular/pg-120170908/" class="leancloud_visitors" data-flag-title="angular4 中自定义pagination组件">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1768,168 +1933,11 @@ var _hmt = _hmt || [];
 
       
         
-          <p>HTTP: 使应用能够对远端服务器发起相应的Http调用；<br>你要知道：HttpModule并不是Angular的核心模块，它是Angualr用来进行Web访问的一种可选方式，并位于一个名叫@angual/http的独立附属模块中；也就是说：使用http之前要引入此模块;<br>
+          <p><img src="/images/fengjing-3.jpg" alt="fengjing"></p>
+<p><div class="image-caption">你用Angular 吗?</div><br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/angular/http/http-120170908/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-   
-     
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.sulishibaobei.com/angular/http/http-220170908/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="少女雨">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/a.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="少女雨的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/angular/http/http-220170908/" itemprop="url">Angular 4+ HttpClient</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-08T09:08:53+08:00">
-                2017-09-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Angular-2/" itemprop="url" rel="index">
-                    <span itemprop="name">Angular 2+</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/angular/http/http-220170908/" class="leancloud_visitors" data-flag-title="Angular 4+ HttpClient">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Angular 4.3.0-rc.0 版本已经发布🐦。在这个版本中，我们等到了一个令人兴奋的新功能 - HTTPClient API 的改进版本；<br>HttpClient 是已有 Angular HTTP API 的演进，它在一个单独的 @angular/common/http 包中。这是为了确保现有的代码库可以缓慢迁移到新的 API；<br>大多数前端应用都需要通过 HTTP 协议与后端服务器通讯。现代浏览器支持使用两种不同的 API 发起 HTTP 请求：XMLHttpRequest 接口和 fetch() API；<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/angular/http/http-220170908/#more" rel="contents">
+            <a class="btn" href="/angular/pg-120170908/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1972,7 +1980,7 @@ var _hmt = _hmt || [];
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2021,7 +2029,7 @@ var _hmt = _hmt || [];
             
               <a href="/archives">
             
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">21</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2043,7 +2051,7 @@ var _hmt = _hmt || [];
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">45</span>
+                <span class="site-state-item-count">47</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -2179,7 +2187,7 @@ var _hmt = _hmt || [];
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
