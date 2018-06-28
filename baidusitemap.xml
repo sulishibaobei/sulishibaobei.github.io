@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://www.sulishibaobei.com/html/120180411/</loc>
-    <lastmod>2018-06-27T10:11:59.661Z</lastmod>
+    <lastmod>2018-06-28T02:45:43.347Z</lastmod>
     <data>
         <display>
         <title>移动端打造0.5px的线</title>
@@ -18,7 +18,27 @@
          
            
              
-              <breadCrumb title="Bootstrap" url="http://www.sulishibaobei.com/categories/Bootstrap/"/>
+              <breadCrumb title="html5" url="http://www.sulishibaobei.com/categories/html5/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.sulishibaobei.com/html/220180412/</loc>
+    <lastmod>2018-06-28T02:45:41.980Z</lastmod>
+    <data>
+        <display>
+        <title>仿商城关闭动画效果</title>
+        <pubTime>2018-04-12T01:08:53.000Z</pubTime>
+        
+        <tag>transform</tag>
+         
+         
+           
+             
+              <breadCrumb title="html5" url="http://www.sulishibaobei.com/categories/html5/"/>
           
         </display>
     </data>

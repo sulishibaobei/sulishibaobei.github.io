@@ -513,7 +513,7 @@ var _hmt = _hmt || [];
       
         <h2 id="认识一些元字符"><a href="#认识一些元字符" class="headerlink" title="认识一些元字符"></a>认识一些元字符</h2><p><code>\b</code> 表示单词开头或者结尾，也就是单词的分界处；虽然通常英文的单词是由空格，标点符号或者换行来分隔的，但是\b并不匹配这些单词分隔符中的任何一个，它只匹配一个位置；例如：\bhi\b<br><code>*</code> 代表<em>前边的内容可以连续重复使用任意次以使整个表达式得到匹配;.</em>连在一起就意味着任意数量的不包含换行的字符；例如：\bhi\b.<em>\bLucy\b 表示：一个单词hi,然后是任意个任意字符(但不能是换行)，最后是Lucy这个单词。<br><code>\d</code> 表示匹配是一个数字（0,或1，…);<br><code>\s</code> 匹配任意的空白符，包括空格，制表符，换行符，中文全角空格等；<br><code>\w</code> 匹配字母或数字或下划线或汉字等；<br><code>+</code> 匹配重复1次或更多次。<br><a id="more"></a><br><img src="/images/zz-1.png" alt="zz"><br>如果我们同时使用元字符，就可以构造出更强大的表达式，例如：<br>0\d\d-\d\d\d\d\d\d\d\d 匹配这样的字符串：以0开头，然后中间有两个数字，然后一个连接符“-” ,最后是8个数字；为了不写这么麻烦，我们也可以这样：0\d{2}-\d{8},这里\d后面的{2}({8})的意思是前面\d必须连续重复匹配2次(8次)；<br>\ba\w</em>\b 匹配以字符a开头的单词–先是某个单词开始出(\b),然后是字母a，然后是任意数字的字母或者数字(\w<em>),最后是单词结束处(\b);<br>\d+ 匹配一个或更多连续的数字。<br>\b\w{6}\b 匹配刚好6个字符的单词；<br>^\d{5,12}$ 匹配5到12个数字；<br>如果想查找元字符本身如</em>等，这时就要用到字符转义；用\来取消这些字符特殊的意义；*，\等；<br><img src="/images/zz-2.png" alt="zz"><br>如果想要查找数字，字母或数字，空白就很简单了；<br>[aeiou]就匹配任何一个英文元音字母，[.?!]匹配标点符号(.或?或!)；<br>[0-9]代表的含义就是和\d一样的；表示匹配一位数字；<br>[a-z0-9A-Z_]也就完全等同于\w<br><img src="/images/zz-3.png" alt="zz"><br><img src="/images/zz-5.png" alt="zz"></p>
 <h2 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a>修饰符</h2><p>修饰符用于执行区分大小写和全局匹配<br><img src="/images/zz-4.png" alt="zz"></p>
-<p>RedExp对象方法<br><img src="/images/zz-6.png" alt="zz"><br>其实个人觉得正则表达式如果不是到非必要的时候，只要会使用简单的就可以啦，复杂一点的会读就行；<br>如果想了解更多复杂的功能，可以看这个人的；<br><a href="http://www.jb51.net/tools/zhengze.html" target="_blank" rel="external">正则表达式30分钟入门教程</a></p>
+<p>RedExp对象方法<br><img src="/images/zz-6.png" alt="zz"><br>其实个人觉得正则表达式如果不是到非必要的时候，只要会使用简单的就可以啦，复杂一点的会读就行；<br>如果想了解更多复杂的功能，可以看这个人的；<br><a href="http://www.jb51.net/tools/zhengze.html" target="_blank" rel="noopener">正则表达式30分钟入门教程</a></p>
 
       
     </div>
@@ -672,7 +672,7 @@ var _hmt = _hmt || [];
             
               <a href="/archives">
             
-                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -694,7 +694,7 @@ var _hmt = _hmt || [];
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">47</span>
+                <span class="site-state-item-count">48</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
