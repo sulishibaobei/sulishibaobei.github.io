@@ -4,8 +4,30 @@
 
     
   <url>
+    <loc>http://www.sulishibaobei.com/html/420180416/</loc>
+    <lastmod>2018-07-04T09:22:26.216Z</lastmod>
+    <data>
+        <display>
+        <title>城市搜索</title>
+        <pubTime>2018-04-16T12:08:00.000Z</pubTime>
+        
+        <tag>城市搜索导航</tag>
+         
+        <tag>移动端</tag>
+         
+         
+           
+             
+              <breadCrumb title="html5" url="http://www.sulishibaobei.com/categories/html5/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.sulishibaobei.com/html/320180414/</loc>
-    <lastmod>2018-07-04T06:50:02.189Z</lastmod>
+    <lastmod>2018-07-04T06:53:06.330Z</lastmod>
     <data>
         <display>
         <title>css控制显示多少行</title>
@@ -147,11 +169,11 @@
         <title>教你如何使用正则表达式</title>
         <pubTime>2017-09-25T01:08:53.000Z</pubTime>
         
+        <tag>javascript</tag>
+         
         <tag>正则表达式</tag>
          
         <tag>Regex</tag>
-         
-        <tag>javascript</tag>
          
          
            
@@ -488,11 +510,11 @@
         <title>简述alert和console.log的区别</title>
         <pubTime>2017-09-05T03:08:53.000Z</pubTime>
         
-        <tag>javascript</tag>
-         
         <tag>console.log</tag>
          
         <tag>alert</tag>
+         
+        <tag>javascript</tag>
          
          
            
