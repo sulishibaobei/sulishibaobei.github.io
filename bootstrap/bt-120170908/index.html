@@ -507,9 +507,9 @@ var _hmt = _hmt || [];
       
 
       
-        <p>一.下载bootstrap-3.3.7<br>二.在html页面引入css,js;<br>eg:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">src</span>=<span class="string">"bootstrap-3.3.7-dist/css/bootstrap.min.css"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"jquery.min.js"</span>&gt;</span><span class="xml"><span class="tag">&lt;/ <span class="attr">script</span>&gt;</span> </span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"bootstrap-3.3.7-dist/js/bootstrap.min.js"</span>&gt;</span><span class="xml"><span class="tag">&lt;/ <span class="attr">script</span>&gt;</span></span></span></span><br></pre></td></tr></table></figure></p>
+        <p>一.下载bootstrap-3.3.7<br>二.在html页面引入css,js;<br>eg:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">src</span>=<span class="string">"bootstrap-3.3.7-dist/css/bootstrap.min.css"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"jquery.min.js"</span>&gt;</span><span class="xml"><span class="tag">&lt;/ <span class="attr">script</span>&gt;</span> </span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"bootstrap-3.3.7-dist/js/bootstrap.min.js"</span>&gt;</span><span class="xml"><span class="tag">&lt;/ <span class="attr">script</span>&gt;</span></span></div></pre></td></tr></table></figure></p>
 <a id="more"></a>
-<p>注意：因为会用到jquery，所以引入了jquery .js;<br>三.body部分的代码是这样的：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">style</span>=<span class="string">"margin: 10px;padding: 0px"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>/&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>注意：因为会用到jquery，所以引入了jquery .js;<br>三.body部分的代码是这样的：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">style</span>=<span class="string">"margin: 10px;padding: 0px"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span>  </div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>/&gt;</span></div></pre></td></tr></table></figure></p>
 <p>简单解析下：<br>  body里包含两个div ,一个在左边排列(用于放图片)，一个在右边排列(用于放文字);都用class名进行区分啦，left和right;<br>简单的给两个div添加点样式： </p>
 <pre><code class="css"><span class="selector-class">.left</span>  { 
   <span class="attribute">float </span>:  left ; 
@@ -549,7 +549,7 @@ var _hmt = _hmt || [];
     <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
   <span class="tag">&lt;/<span class="name">div</span>&gt;</span>
 </code></pre>
-<p>采用的是bootstrap的架构： container&gt; row&gt; column&nbsp;<br>将css样式也写在标签上，所以有点看起来复杂，其实很简单，这几段文字的结构都一样。<br>看看运行效果：<br><img src="/images/bt-1.png" alt="bt"><br>拖动页面试试<br><img src="/images/bt-2.png" alt="bt"><br>你可以通过控制台随意拖动页面的宽度，看看文字的适配程度。<br><a href="https://github.com/sulishibaobei/bootstrap/tree/master/bootstrap%20by%20around" target="_blank" rel="noopener">源码</a><br>另外有两个免费网站模板也可以看看，在同一个github路径下</p>
+<p>采用的是bootstrap的架构： container&gt; row&gt; column&nbsp;<br>将css样式也写在标签上，所以有点看起来复杂，其实很简单，这几段文字的结构都一样。<br>看看运行效果：<br><img src="/images/bt-1.png" alt="bt"><br>拖动页面试试<br><img src="/images/bt-2.png" alt="bt"><br>你可以通过控制台随意拖动页面的宽度，看看文字的适配程度。<br><a href="https://github.com/sulishibaobei/bootstrap/tree/master/bootstrap%20by%20around" target="_blank" rel="external">源码</a><br>另外有两个免费网站模板也可以看看，在同一个github路径下</p>
 
       
     </div>
@@ -612,8 +612,8 @@ var _hmt = _hmt || [];
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/angular/http/http-120170908/" rel="next" title="Angular 4+ Http">
-                <i class="fa fa-chevron-left"></i> Angular 4+ Http
+              <a href="/angular/http/http-220170908/" rel="next" title="Angular 4+ HttpClient">
+                <i class="fa fa-chevron-left"></i> Angular 4+ HttpClient
               </a>
             
           </div>
@@ -622,8 +622,8 @@ var _hmt = _hmt || [];
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/css/fb-120170908/" rel="prev" title="Flexible Box布局基础知识详解">
-                Flexible Box布局基础知识详解 <i class="fa fa-chevron-right"></i>
+              <a href="/angular/pg-120170908/" rel="prev" title="angular4 中自定义pagination组件">
+                angular4 中自定义pagination组件 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -697,7 +697,7 @@ var _hmt = _hmt || [];
             
               <a href="/archives">
             
-                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -719,7 +719,7 @@ var _hmt = _hmt || [];
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">52</span>
+                <span class="site-state-item-count">45</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

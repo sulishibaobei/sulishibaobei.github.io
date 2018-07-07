@@ -521,7 +521,7 @@ var _hmt = _hmt || [];
 <p><div class="image-caption">pagination.ts代码</div><br>代码中的page就是你获得到得数据，自然totalNum就会等于数据的长度。依次算出来就好了。 pagination组件算是完成了，现在就来看看page是怎么接收到数据并进行操作的。<br>page.html页面的代码：<br><img src="http://upload-images.jianshu.io/upload_images/4116930-bdee3bc2c0eaf98c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" data-original-src="http://upload-images.jianshu.io/upload_images/4116930-bdee3bc2c0eaf98c.png?imageMogr2/auto-orient/strip" data-image-slug="bdee3bc2c0eaf98c" data-width="1753" data-height="404"> </p>
 <p><div class="image-caption">page.ts 分页数据的html</div><br>其实很简单：就一个a标签显示条数，页数的，三个button,一个显示上一页，一个页数，一个下一页。每个按钮都绑定了一个changePage事件；<br>看一下实现部分的代码：<br><img src="http://upload-images.jianshu.io/upload_images/4116930-012ecce551a391ef.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="" data-original-src="http://upload-images.jianshu.io/upload_images/4116930-012ecce551a391ef.png?imageMogr2/auto-orient/strip" data-image-slug="012ecce551a391ef" data-width="1664" data-height="1269"> </p>
 <p><div class="image-caption">page.ts分页实现部分代码</div><br>@Input是接收pagination.html组件传过来的数据。@Output是定义pagination.html页面定义的changeCurPage事件。<br>通过三个if else判断，对传多来的数据进行处理。其实就分为：数据只够显示一页；数据显示到最后一页；数据刷新到中间页码；这三种情况下的操作。<br>好了，基本就完成了。有些东西也是借助网友的想法，但是思路大致都是这样。现在我改变条数和数据量看看：<br><img src="http://upload-images.jianshu.io/upload_images/4116930-a5a797d4493a0cb9.png" alt="" data-original-src="http://upload-images.jianshu.io/upload_images/4116930-a5a797d4493a0cb9.png" data-image-slug="a5a797d4493a0cb9"> </p>
-<p><div class="image-caption">&nbsp; 项目截图</div><br>详情代码及效果：<a href="https://github.com/sulishibaobei/pagination" target="_blank" rel="noopener">https://github.com/sulishibaobei/pagination</a></p>
+<p><div class="image-caption">&nbsp; 项目截图</div><br>详情代码及效果：<a href="https://github.com/sulishibaobei/pagination" target="_blank" rel="external">https://github.com/sulishibaobei/pagination</a></p>
 
       
     </div>
@@ -584,8 +584,8 @@ var _hmt = _hmt || [];
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/webpack/wp-120170907/" rel="next" title="webpack初略学习">
-                <i class="fa fa-chevron-left"></i> webpack初略学习
+              <a href="/bootstrap/bt-120170908/" rel="next" title="bootstrap简单图文环绕效果">
+                <i class="fa fa-chevron-left"></i> bootstrap简单图文环绕效果
               </a>
             
           </div>
@@ -594,8 +594,8 @@ var _hmt = _hmt || [];
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/angular/http/http-220170908/" rel="prev" title="Angular 4+ HttpClient">
-                Angular 4+ HttpClient <i class="fa fa-chevron-right"></i>
+              <a href="/css/fb-120170908/" rel="prev" title="Flexible Box布局基础知识详解">
+                Flexible Box布局基础知识详解 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -669,7 +669,7 @@ var _hmt = _hmt || [];
             
               <a href="/archives">
             
-                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -691,7 +691,7 @@ var _hmt = _hmt || [];
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">52</span>
+                <span class="site-state-item-count">45</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
