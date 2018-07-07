@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://www.sulishibaobei.com/html/720180424/</loc>
+    <lastmod>2018-07-07T08:49:31.088Z</lastmod>
+    <data>
+        <display>
+        <title>css 实现垂直居中</title>
+        <pubTime>2018-04-24T12:08:53.000Z</pubTime>
+        
+        <tag>垂直居中</tag>
+         
+         
+           
+             
+              <breadCrumb title="css3" url="http://www.sulishibaobei.com/categories/css3/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.sulishibaobei.com/html/620180420/</loc>
     <lastmod>2018-07-07T05:38:39.274Z</lastmod>
     <data>
@@ -211,11 +231,11 @@
         <title>教你如何使用正则表达式</title>
         <pubTime>2017-09-25T01:08:53.000Z</pubTime>
         
+        <tag>javascript</tag>
+         
         <tag>正则表达式</tag>
          
         <tag>Regex</tag>
-         
-        <tag>javascript</tag>
          
          
            
@@ -552,11 +572,11 @@
         <title>简述alert和console.log的区别</title>
         <pubTime>2017-09-05T03:08:53.000Z</pubTime>
         
-        <tag>javascript</tag>
-         
         <tag>console.log</tag>
          
         <tag>alert</tag>
+         
+        <tag>javascript</tag>
          
          
            
