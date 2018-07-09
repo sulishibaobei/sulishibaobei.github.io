@@ -660,8 +660,7 @@ var _hmt = _hmt || [];
 
       
         
-          
-            <blockquote>
+          <blockquote>
 <ul>
 <li>介绍几种css实现垂直居中的方法。</li>
 </ul>
@@ -671,190 +670,9 @@ var _hmt = _hmt || [];
 </ol>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span></div><div class="line">      垂直居中垂直居中垂直居中垂直居中垂直居中垂直居中</div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box</span> &#123;</div><div class="line">           <span class="attribute">width</span>: <span class="number">100px</span>;</div><div class="line">           <span class="attribute">height</span>: <span class="number">100px</span>;</div><div class="line">           <span class="attribute">background</span>: red;</div><div class="line">           <span class="attribute">line-height</span>: <span class="number">100px</span>;</div><div class="line">           <span class="attribute">text-align</span>: center;</div><div class="line">       &#125;</div></pre></td></tr></table></figure>
-<p><img src="/images/20180707-1.png" alt="html"></p>
-<ol>
-<li>display: table-cell和vertical-align: middle结合使用。实现多行居中</li>
-</ol>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">p</span>&gt;</span>垂直居中垂直居中垂直居中垂直居中垂直居中垂直居中<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">p</span>&gt;</span>垂直居中垂直居中垂直居中垂直居中垂直居中垂直居中<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">   <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box</span> &#123;</div><div class="line">           <span class="attribute">width</span>: <span class="number">500px</span>;</div><div class="line">           <span class="attribute">height</span>: <span class="number">100px</span>;</div><div class="line">           <span class="attribute">background</span>: red;</div><div class="line">           <span class="attribute">display</span>: table-cell;</div><div class="line">           <span class="attribute">vertical-align</span>: middle;</div><div class="line">       &#125;</div></pre></td></tr></table></figure>
-<p><img src="/images/20180707-2.png" alt="html"></p>
-<ol>
-<li>display: flex和align-items: Center ，justify-content: center实现元素水平垂直居中。 适用场景比较比较广泛。单行多行都可以。</li>
-</ol>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">500px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</div><div class="line">    <span class="attribute">background</span>: red;</div><div class="line">    <span class="attribute">display</span>: flex;</div><div class="line">    <span class="attribute">justify-content</span>: center;</div><div class="line">    <span class="attribute">align-items</span>: Center;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><img src="/images/20180707-3.png" alt="html"></p>
-<ol>
-<li>绝对定位和margin。使用于已经知道盒子宽高的情况下，让盒子居中。</li>
-</ol>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="selector-class">.box</span> &#123;</div><div class="line">           <span class="attribute">width</span>: <span class="number">500px</span>;</div><div class="line">           <span class="attribute">height</span>: <span class="number">100px</span>;</div><div class="line">           <span class="attribute">background</span>: red;</div><div class="line">           <span class="attribute">position</span>: relative;</div><div class="line">       &#125;</div><div class="line">       </div><div class="line">       <span class="selector-class">.box</span> <span class="selector-tag">p</span> &#123;</div><div class="line">           <span class="attribute">position</span>: absolute;</div><div class="line">           <span class="attribute">width</span>: <span class="number">300px</span>;</div><div class="line">           <span class="attribute">height</span>: <span class="number">50px</span>;</div><div class="line">           <span class="attribute">left</span>: <span class="number">50%</span>;</div><div class="line">           <span class="attribute">top</span>: <span class="number">50%</span>;</div><div class="line">           <span class="attribute">margin-left</span>: -<span class="number">150px</span>;</div><div class="line">           <span class="attribute">margin-top</span>: -<span class="number">25px</span>;</div><div class="line">           <span class="attribute">text-align</span>: center;</div><div class="line">           <span class="attribute">border</span>:<span class="number">1px</span> solid <span class="number">#ddd</span>;</div><div class="line">       &#125;</div></pre></td></tr></table></figure>
-<p><img src="/images/20180707-4.png" alt="html"></p>
-<ol>
-<li>translate  依据位移来实现</li>
-</ol>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"> <span class="selector-class">.box</span> &#123;</div><div class="line">            <span class="attribute">width</span>: <span class="number">500px</span>;</div><div class="line">            <span class="attribute">height</span>: <span class="number">100px</span>;</div><div class="line">            <span class="attribute">background</span>: red;</div><div class="line">            <span class="attribute">position</span>: relative;</div><div class="line">        &#125;</div><div class="line">       </div><div class="line">        <span class="selector-class">.box</span> <span class="selector-tag">p</span> &#123;</div><div class="line">            <span class="attribute">position</span>: absolute;</div><div class="line">            <span class="attribute">top</span>: <span class="number">50%</span>;</div><div class="line">            <span class="attribute">left</span>: <span class="number">50%</span>;</div><div class="line">            <span class="attribute">width</span>: <span class="number">100%</span>;</div><div class="line">            <span class="attribute">transform</span>: <span class="built_in">translate</span>(-50%, -50%);</div><div class="line">            <span class="attribute">text-align</span>: center;</div><div class="line">        &#125;</div><div class="line">``` </div><div class="line"></div><div class="line">6. 依据<span class="selector-tag">margin</span><span class="selector-pseudo">:auto</span>来实现</div><div class="line"></div><div class="line">```<span class="selector-tag">css</span></div><div class="line">  <span class="selector-class">.box</span> &#123;</div><div class="line">            <span class="attribute">width</span>: <span class="number">500px</span>;</div><div class="line">            <span class="attribute">height</span>: <span class="number">100px</span>;</div><div class="line">            <span class="attribute">background</span>: red;</div><div class="line">            <span class="attribute">position</span>: relative;</div><div class="line">            <span class="attribute">display</span>: flex;</div><div class="line">        &#125;</div><div class="line">        <span class="selector-class">.box</span> <span class="selector-tag">p</span> &#123;</div><div class="line">            <span class="attribute">margin</span>: auto;</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
-<p>平常实现水平居中都用到这个。若想实现垂直居中， display: flex和margin就能实现。</p>
-<p>其实还有可以通过占位符来实现。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-   
-     
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.sulishibaobei.com/html/520180420/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="少女雨">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/a.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="少女雨的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/html/520180420/" itemprop="url">移动端实现下拉加载</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-20T20:08:53+08:00">
-                2018-04-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/html5/" itemprop="url" rel="index">
-                    <span itemprop="name">html5</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/html/520180420/" class="leancloud_visitors" data-flag-title="移动端实现下拉加载">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<ul>
-<li>使用dropload.min.js实现上下拉刷新加载页面</li>
-</ul>
-</blockquote>
-<p><img src="/images/20180705-1.gif" alt="html">  </p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/html/520180420/#more" rel="contents">
+            <a class="btn" href="/html/720180424/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1018,6 +836,169 @@ var _hmt = _hmt || [];
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/html/620180420/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+   
+     
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.sulishibaobei.com/html/520180420/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="少女雨">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/a.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="少女雨的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/html/520180420/" itemprop="url">移动端实现下拉加载</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-20T20:08:53+08:00">
+                2018-04-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/html5/" itemprop="url" rel="index">
+                    <span itemprop="name">html5</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/html/520180420/" class="leancloud_visitors" data-flag-title="移动端实现下拉加载">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<ul>
+<li>使用dropload.min.js实现上下拉刷新加载页面</li>
+</ul>
+</blockquote>
+<p><img src="/images/20180705-1.gif" alt="html">  </p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/html/520180420/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
