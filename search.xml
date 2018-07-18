@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Javascript TypeOf 深究]]></title>
+    <url>%2Fhtml%2F620180420%2F</url>
+    <content type="text"><![CDATA[typeOf可能返回的类型 number ,string, object, boolean,function ,undefined 1.number类型很容易判断typeof 3.14 === ‘number’ //truetypeof Infinity === ‘number’; //truetypeof NaN === ‘number’; //true 2.string类型typeof typeof 3.14 === ‘string’ //true 因为所有的typeof返回的类型都是string类型的。typeof “” === “string” //true 3.objecttypeof null === ‘object’ //truetypeof [1,2] === ‘object’ //true Array,Null等特殊对象使用typeof一律返回object 4.booleantypeof true === ‘boolean’; 5.undefindtypeof a === ‘undefined’ //true因为没有事先被声明var a=undefined; typeof a === ‘undefined’ 6.functiontypeof Date === ‘function’ //truetypeof function a(){} //‘function’ 加深理解的话，可以看下面这个。https://www.cnblogs.com/xcr1234/p/5527816.html#commentform]]></content>
+      <categories>
+        <category>html5</category>
+      </categories>
+      <tags>
+        <tag>typeOf</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[移动端实现下拉加载]]></title>
     <url>%2Fhtml%2F520180420%2F</url>
     <content type="text"><![CDATA[使用dropload.min.js实现上下拉刷新加载页面 代码全部只有主要代码1234567891011121314151617181920212223&lt;input type="hidden" id="pageSize" value="10" /&gt;&lt;input type="hidden" id="pageNum" value="1" /&gt;&lt;input type="hidden" id="totalPages" value="100" /&gt;&lt;section class="clear wrapper-box" id="wrapper"&gt; &lt;div class="scroll-box"&gt; &lt;ul class="photograph-list"&gt; &lt;li&gt; &lt;div class="display-box"&gt; &lt;div class="box-nine pho-info"&gt; &lt;p style="padding-bottom:0.15rem"&gt;&lt;strong&gt;测试数据&lt;/strong&gt;&lt;span class="status"&gt;待确认&lt;/span&gt;&lt;/p&gt; &lt;p style="padding-bottom:0.1rem"&gt;&lt;span&gt;测试时间：&lt;/span&gt;&lt;span&gt;9月18日 13:00-13:30&lt;/span&gt;&lt;/p&gt; &lt;p&gt;&lt;span&gt;测试人：&lt;/span&gt;&lt;span&gt;周杰伦（歌手）&lt;/span&gt;&lt;/p&gt; &lt;/div&gt; &lt;div class="box-one pho-call"&gt; &lt;img src="images/call@2x.png" class="call"&gt; &lt;p class="callPhone"&gt;打电话&lt;/p&gt; &lt;/div&gt; &lt;/div&gt; &lt;/li&gt; &lt;!--可以复制n个li标签试试--&gt; &lt;/ul&gt; &lt;/div&gt; &lt;/section&gt; css代码就不贴出来。就是平常的css样式。提一点dropload的css123456789101112131415161718192021222324252627282930313233343536.dropload-up,.dropload-down &#123; position: relative; height: 0; overflow: hidden; font-size: 0.24rem; /* 开启硬件加速 */ -webkit-transform: translateZ(0); transform: translateZ(0);&#125;.dropload-down &#123; height: 0.88rem;&#125;.dropload-refresh,.dropload-update,.dropload-load,.dropload-noData &#123; height: 0.88rem; line-height: 0.88rem; text-align: center;&#125;.dropload-load .loading &#123; display: inline-block; height: 0.3rem; width: 0.3rem; border-radius: 100%; margin: 0.12rem; border: 0.04rem solid #666; border-bottom-color: transparent; vertical-align: middle; -webkit-animation: rotate 0.75s linear infinite; animation: rotate 0.75s linear infinite;&#125; 重点是js代码。记得引入jquery和dropload.min.js 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061droploadData(); // 下拉刷新 function droploadData() &#123; var pageNum = parseInt($("#pageNum").val()), totalPages = parseInt($("#totalPages").val()); var dropload = $('#wrapper').dropload(&#123; scrollArea: window, //绑定元素自身 distance: 100, threshold: 200, domDown: &#123; //往下拉 domClass: 'dropload-down', domRefresh: '&lt;div class="dropload-refresh"&gt;↑上拉加载更多&lt;/div&gt;', domLoad: '&lt;div class="dropload-load"&gt;&lt;span class="loading"&gt;&lt;/span&gt;加载中...&lt;/div&gt;', domNoData: '&lt;div class="dropload-noData"&gt;已经全部加载完毕&lt;/div&gt;' &#125;, domUp: &#123; //往上拉 domClass: 'dropload-up', domRefresh: '&lt;div class = "dropload-refresh"&gt; ↓下拉刷新 &lt;/div&gt;', domUpdate: '&lt;div class = "dropload-update"&gt; ↑释放更新 &lt;/div&gt;', domLoad: '&lt;div class = "dropload-load"&gt; &lt;span class="loading"&gt;&lt;/span&gt;加载中… &lt;/div&gt;' &#125;, loadDownFn: function(me) &#123; //往下拉的方法 pageNum++; if (pageNum &lt;= totalPages) &#123; loadData(pageNum, function(data) &#123; $("#wrapper").find("ul").append(data); me.resetload(); // 每次数据加载完，必须重置 &#125;) &#125; else &#123; me.lock(); //锁定dropload me.noData(); me.resetload(); // 每次数据加载完，必须重置 &#125; &#125;, loadUpFn: function(me) &#123; //往下拉的方法 pageNum++; if (pageNum &lt;= totalPages) &#123; loadData(pageNum, function(data) &#123; $("#wrapper").find("ul").prepend(data); me.resetload(); // 每次数据加载完，必须重置 &#125;) &#125; else &#123; me.lock(); me.noData(); me.resetload(); // 每次数据加载完，必须重置 &#125; &#125; &#125;); &#125; function loadData(pageNum, callback) &#123; //模拟数据 setTimeout(function() &#123; var data = []; for (var i = pageNum; i &lt; 10; i++) &#123; data.push('&lt;li&gt;&lt;div class="display-box"&gt;&lt;div class="box-nine pho-info"&gt;&lt;p style="padding-bottom:0.15rem"&gt;&lt;strong&gt;kkOne&lt;/strong&gt;&lt;span class="status"&gt;待确认&lt;/span&gt;&lt;/p&gt;&lt;p style="padding-bottom:0.1rem"&gt;&lt;span&gt;相约时间：&lt;/span&gt;&lt;span&gt;9月18日 13:00-13:30&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span&gt;逛街人：&lt;/span&gt;&lt;span&gt;mary（俱乐部）&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;&lt;div class="box-one pho-call"&gt;&lt;img src="images/call@2x.png" class="call"&gt;&lt;p class="callPhone"&gt;打电话&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/li&gt;'); &#125; callback(data); &#125;, 1000); &#125; 注意一点的是，下拉和上拉有时候并不是同时存在的。根据自己的方式选中上拉还是下拉。每一次加入数据都需要调用resetload（）；me.noData(); 和 me.noData(true); 表示当前无数据，也就是会在下方出现 （暂无数据）的表示 me.noData(false);则表示有数据，这时不会显示（暂无数据）。如果使用了me.unlock() ，则需要调用me.noData(false)才能继续功能最近试用了淘宝的sui moblie框架，里面也有下拉刷新，无限滚动功能。感觉也不错。只是现在框架不维护可惜了。]]></content>
@@ -210,19 +221,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[git 打卡的第一天]]></title>
-    <url>%2Fgit%2Fgit-120170907%2F</url>
-    <content type="text"><![CDATA[因为某种原因，所以不得不重新巩固下前端的基础知识，从最基本的学习还得额外的学习新知识，倍感压力之大。 昨天初略学习下git，算是自己学习的一个新知识。简单记录下，希望四海八荒的大神看过来，有错的请指导。 git下载安装git下载安装地址下载好之后记得配置环境变量。git的作用主要是将项目保存到git目录中 git介绍主要分为三个块：[1] working directory(工作目录） 本地上存放项目的目录。[2] staging area 暂存放区域 更新暂未提交的项目。[3] git directory git上存放项目的地方。1.一般我们使用git都会将一些修改的文件保存在暂存区域，然后一并提交更新到git目录中。2.安装好git之后，网页打开github，注册信息。登陆进去，接下来配置信息。3.打开右上角，如下图点击settings。然后点击SSH and GPG keys ,配置SSH。打开cmd或者git bash。找不到git.bash的就在开始那里搜索或者在你安装的git文件里面打开git.bash.exe就一样。4.在命令行输入：ssh-keygen -t rsa -C “你注册github时的邮箱名” 然后会提示你生产的key在id_rsa.pub文件中找。5.在电脑中一个叫.ssh的文件里，然后复制黏贴在右边的key框里面，title就随便打。 此时git的安装目录就为你的根目录。 配置用户信息：git config --global user.name &quot;你注册时的用户名&quot;;git config --global user.email &quot;你的邮箱&quot;;git里面提供了一个git config的命令专门用来配置或者读取相应的工作环境变量。这些变量可以存放在三个地方：etc/gitconfig文件， git config –system读写的就是此文件；~/.gitconfig文件，git config –global 读写的就是此文件；配置好信息后，可以通过git config –list 命令查看&nbsp;&nbsp; 如果git config user.name就是具体的查看某个环境变量的设定。若不知道如何使用git命令，可以git help看看。 git使用。 新建一个git 仓库，也可以导入一个本地项目。进入仓库 复制这个地址 然后打开cmd或者git.bash.exe， 输入git clone git@github.com:sulishibaobei/a.github.io.git （上面复制的这串地址) 就会在你的本地建立一个名为a.github.io的仓库，进入仓库，将你需要上传的代码拷贝进去 123git add *（*是上传所有的本件，若是想具体的就写文件名）git commit -m "version" 提交文件git push 这三步就完成git项目的提交。 可以用git status命令查看当前文件的状态。 所有的文件都可以先add到暂存区域，然后最后再一起commit。]]></content>
-      <categories>
-        <category>Git</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-        <tag>环境变量配置</tag>
-        <tag>基本git操作</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[滑稽的下午--Angular 2+管道的使用]]></title>
     <url>%2Fangular%2Fpipe%2Fpipe-120170907%2F</url>
     <content type="text"><![CDATA[注:所有的angular 2+ 其实就包含了4,是向上兼容的； 让一个component组件里的时间显示当前时间并自动刷新。过程:1.首先获取当前时间 new Date();2.弄个定时器隔一秒刷新呀； app.component.ts中这样写到： 123456789101112131415161718InitialTime= new Date(); // 获取当前时间 data:string; getTime(m)&#123; // 判断获取的分钟数是否小于10，小于10只会显示一位数，前面自动补0 if (m&amp;lt;10 )&#123; m ="0"+ m; this .data= this .InitialTime.getHours()+":"+m; // 显示时间(小时+分钟) eg 17:15 &#125; else &#123; this .data= this .InitialTime.getHours()+":"+ this .InitialTime.getMinutes(); // 显示时间(小时+分钟) eg 17:15 &#125; &#125; constructor()&#123; this .getTime( this .InitialTime.getMinutes()); // 运行上面方法让时间显示 setInterval(()=&amp;gt;&#123; // 设置定时器，隔1秒刷新一次，好实时监控时间 this .InitialTime= new Date(); this .getTime( this .InitialTime.getMinutes()); &#125;, 1000 ); &#125; app.component.html中这样写： 1&amp;lt;span class="time"&amp;gt; &#123;&#123; date &#125;&#125;&amp;lt;/span&amp;gt; 然后变成我想要的效果了，可是代码我自己都嫌长，而且还是用传统js方法写的。后来就想不是angular里面有Pipe管道吗，是不是可以试试。app.component.ts是这样写的。 1234567time:any=Date.now(); // 获取当前时间 constructor()&#123; setInterval(() =&amp;gt;&#123; // 设置定时器，隔1秒刷新一次，好实时监控时间 // this.birthday = new Date(); this .time=Date.now(); // Date里面自带方法 &#125;,1000 ); &#125; app.component.html是这样写的： 1&amp;lt;span class="time"&amp;gt; &#123;&#123;time | date:"HH:mm" &#125;&#125;&amp;lt;/span&amp;gt; 注：|是管道标示符。angular里面提供了内置的datePipe管道可以供我们使用 HH：mm 表示输出小时和分钟；yy:MM:dd&nbsp; 表示输出年月日 详情可以看看官网的管道介绍里面关于DatePipe Api的介绍。 同样的效果，代码量就大大减少，所以学习还是在完成的基础上多尝试。耶~~~ 后续会有详细的关于管道学习的更多文章]]></content>
@@ -234,6 +232,19 @@
         <tag>pipe</tag>
         <tag>管道</tag>
         <tag>日期</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[git 打卡的第一天]]></title>
+    <url>%2Fgit%2Fgit-120170907%2F</url>
+    <content type="text"><![CDATA[因为某种原因，所以不得不重新巩固下前端的基础知识，从最基本的学习还得额外的学习新知识，倍感压力之大。 昨天初略学习下git，算是自己学习的一个新知识。简单记录下，希望四海八荒的大神看过来，有错的请指导。 git下载安装git下载安装地址下载好之后记得配置环境变量。git的作用主要是将项目保存到git目录中 git介绍主要分为三个块：[1] working directory(工作目录） 本地上存放项目的目录。[2] staging area 暂存放区域 更新暂未提交的项目。[3] git directory git上存放项目的地方。1.一般我们使用git都会将一些修改的文件保存在暂存区域，然后一并提交更新到git目录中。2.安装好git之后，网页打开github，注册信息。登陆进去，接下来配置信息。3.打开右上角，如下图点击settings。然后点击SSH and GPG keys ,配置SSH。打开cmd或者git bash。找不到git.bash的就在开始那里搜索或者在你安装的git文件里面打开git.bash.exe就一样。4.在命令行输入：ssh-keygen -t rsa -C “你注册github时的邮箱名” 然后会提示你生产的key在id_rsa.pub文件中找。5.在电脑中一个叫.ssh的文件里，然后复制黏贴在右边的key框里面，title就随便打。 此时git的安装目录就为你的根目录。 配置用户信息：git config --global user.name &quot;你注册时的用户名&quot;;git config --global user.email &quot;你的邮箱&quot;;git里面提供了一个git config的命令专门用来配置或者读取相应的工作环境变量。这些变量可以存放在三个地方：etc/gitconfig文件， git config –system读写的就是此文件；~/.gitconfig文件，git config –global 读写的就是此文件；配置好信息后，可以通过git config –list 命令查看&nbsp;&nbsp; 如果git config user.name就是具体的查看某个环境变量的设定。若不知道如何使用git命令，可以git help看看。 git使用。 新建一个git 仓库，也可以导入一个本地项目。进入仓库 复制这个地址 然后打开cmd或者git.bash.exe， 输入git clone git@github.com:sulishibaobei/a.github.io.git （上面复制的这串地址) 就会在你的本地建立一个名为a.github.io的仓库，进入仓库，将你需要上传的代码拷贝进去 123git add *（*是上传所有的本件，若是想具体的就写文件名）git commit -m "version" 提交文件git push 这三步就完成git项目的提交。 可以用git status命令查看当前文件的状态。 所有的文件都可以先add到暂存区域，然后最后再一起commit。]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+        <tag>环境变量配置</tag>
+        <tag>基本git操作</tag>
       </tags>
   </entry>
   <entry>
