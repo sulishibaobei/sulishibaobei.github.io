@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="google-site-verification" content="2mW9mcWKEPuFK_HVf6zCZ8XqtoK5v9WWsSGmauh1WGc" />
+<meta name="theme-color" content="#222">
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?3e5ef9b9913f4947eb812ab76c9fbf99";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="移动端,下拉加载," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="少女雨的博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/a.jpg?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="使用dropload.min.js实现上下拉刷新加载页面">
+<meta name="keywords" content="移动端,下拉加载">
+<meta property="og:type" content="article">
+<meta property="og:title" content="移动端实现下拉加载">
+<meta property="og:url" content="http://www.sulishibaobei.com/jjs/520180420/index.html">
+<meta property="og:site_name" content="少女雨的博客">
+<meta property="og:description" content="使用dropload.min.js实现上下拉刷新加载页面">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://www.sulishibaobei.com/images/20180705-1.gif">
+<meta property="og:updated_time" content="2018-07-27T06:31:11.344Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="移动端实现下拉加载">
+<meta name="twitter:description" content="使用dropload.min.js实现上下拉刷新加载页面">
+<meta name="twitter:image" content="http://www.sulishibaobei.com/images/20180705-1.gif">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Sulishibaobei'
+    },
+    algolia: {
+      applicationID: 'MYAWI631K2',
+      apiKey: 'b1bd6d9a14214fd15ff7e1cf6128d8e7',
+      indexName: 'Content',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.sulishibaobei.com/jjs/520180420/"/>
+
+
+
+
+
+
+
+  <title>移动端实现下拉加载 | 少女雨的博客</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?3e5ef9b9913f4947eb812ab76c9fbf99";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">少女雨的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">爱生活爱远方爱自由更爱你</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-主页">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            主页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-关于">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-标签">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-归档">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-展示">
+          <a href="/site/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            展示
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-日程">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-有料">
+          <a href="/something" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            有料
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-公益404">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.sulishibaobei.com/jjs/520180420/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="少女雨">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/a.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="少女雨的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">移动端实现下拉加载</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-20T20:08:53+08:00">
+                2018-04-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/html5/" itemprop="url" rel="index">
+                    <span itemprop="name">html5</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/jjs/520180420/" class="leancloud_visitors" data-flag-title="移动端实现下拉加载">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 本文总阅读量
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<ul>
+<li>使用dropload.min.js实现上下拉刷新加载页面</li>
+</ul>
+</blockquote>
+<p><img src="/images/20180705-1.gif" alt="html">  </p>
+<a id="more"></a>
+<p>代码全部只有主要代码<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">id</span>=<span class="string">"pageSize"</span> <span class="attr">value</span>=<span class="string">"10"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">id</span>=<span class="string">"pageNum"</span> <span class="attr">value</span>=<span class="string">"1"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">id</span>=<span class="string">"totalPages"</span> <span class="attr">value</span>=<span class="string">"100"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">section</span> <span class="attr">class</span>=<span class="string">"clear wrapper-box"</span> <span class="attr">id</span>=<span class="string">"wrapper"</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"scroll-box"</span>&gt;</span></div><div class="line">              <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"photograph-list"</span>&gt;</span></div><div class="line">                  <span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">                      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"display-box"</span>&gt;</span></div><div class="line">                          <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box-nine pho-info"</span>&gt;</span></div><div class="line">                              <span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">"padding-bottom:0.15rem"</span>&gt;</span><span class="tag">&lt;<span class="name">strong</span>&gt;</span>测试数据<span class="tag">&lt;/<span class="name">strong</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"status"</span>&gt;</span>待确认<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">                              <span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">"padding-bottom:0.1rem"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>测试时间：<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>9月18日 13:00-13:30<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">                              <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>测试人：<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">span</span>&gt;</span>周杰伦（歌手）<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">                          <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">                          <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box-one pho-call"</span>&gt;</span></div><div class="line">                              <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"images/call@2x.png"</span> <span class="attr">class</span>=<span class="string">"call"</span>&gt;</span></div><div class="line">                              <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"callPhone"</span>&gt;</span>打电话<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">                          <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">                      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">                  <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">                 <span class="comment">&lt;!--可以复制n个li标签试试--&gt;</span> </div><div class="line">              <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">          <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">section</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>css代码就不贴出来。就是平常的css样式。提一点dropload的css<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.dropload-up</span>,</div><div class="line"><span class="selector-class">.dropload-down</span> &#123;</div><div class="line">    <span class="attribute">position</span>: relative;</div><div class="line">    <span class="attribute">height</span>: <span class="number">0</span>;</div><div class="line">    <span class="attribute">overflow</span>: hidden;</div><div class="line">    <span class="attribute">font-size</span>: <span class="number">0.24rem</span>;</div><div class="line">    <span class="comment">/* 开启硬件加速 */</span></div><div class="line">    <span class="attribute">-webkit-transform</span>: <span class="built_in">translateZ</span>(0);</div><div class="line">    <span class="attribute">transform</span>: <span class="built_in">translateZ</span>(0);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.dropload-down</span> &#123;</div><div class="line">    <span class="attribute">height</span>: <span class="number">0.88rem</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.dropload-refresh</span>,</div><div class="line"><span class="selector-class">.dropload-update</span>,</div><div class="line"><span class="selector-class">.dropload-load</span>,</div><div class="line"><span class="selector-class">.dropload-noData</span> &#123;</div><div class="line">    <span class="attribute">height</span>: <span class="number">0.88rem</span>;</div><div class="line">    <span class="attribute">line-height</span>: <span class="number">0.88rem</span>;</div><div class="line">    <span class="attribute">text-align</span>: center;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-class">.dropload-load</span> <span class="selector-class">.loading</span> &#123;</div><div class="line">    <span class="attribute">display</span>: inline-block;</div><div class="line">    <span class="attribute">height</span>: <span class="number">0.3rem</span>;</div><div class="line">    <span class="attribute">width</span>: <span class="number">0.3rem</span>;</div><div class="line">    <span class="attribute">border-radius</span>: <span class="number">100%</span>;</div><div class="line">    <span class="attribute">margin</span>: <span class="number">0.12rem</span>;</div><div class="line">    <span class="attribute">border</span>: <span class="number">0.04rem</span> solid <span class="number">#666</span>;</div><div class="line">    <span class="attribute">border-bottom-color</span>: transparent;</div><div class="line">    <span class="attribute">vertical-align</span>: middle;</div><div class="line">    <span class="attribute">-webkit-animation</span>: rotate <span class="number">0.75s</span> linear infinite;</div><div class="line">    <span class="attribute">animation</span>: rotate <span class="number">0.75s</span> linear infinite;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>重点是js代码。记得引入jquery和dropload.min.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div></pre></td><td class="code"><pre><div class="line">droploadData();</div><div class="line"></div><div class="line">   <span class="comment">// 下拉刷新</span></div><div class="line">   <span class="function"><span class="keyword">function</span> <span class="title">droploadData</span>(<span class="params"></span>) </span>&#123;</div><div class="line">       <span class="keyword">var</span> pageNum = <span class="built_in">parseInt</span>($(<span class="string">"#pageNum"</span>).val()),</div><div class="line">           totalPages = <span class="built_in">parseInt</span>($(<span class="string">"#totalPages"</span>).val());</div><div class="line">       <span class="keyword">var</span> dropload = $(<span class="string">'#wrapper'</span>).dropload(&#123;</div><div class="line">           <span class="attr">scrollArea</span>: <span class="built_in">window</span>, <span class="comment">//绑定元素自身</span></div><div class="line">           distance: <span class="number">100</span>,</div><div class="line">           <span class="attr">threshold</span>: <span class="number">200</span>,</div><div class="line">           <span class="attr">domDown</span>: &#123;  <span class="comment">//往下拉</span></div><div class="line">               domClass: <span class="string">'dropload-down'</span>,</div><div class="line">               <span class="attr">domRefresh</span>: <span class="string">'&lt;div class="dropload-refresh"&gt;↑上拉加载更多&lt;/div&gt;'</span>,</div><div class="line">               <span class="attr">domLoad</span>: <span class="string">'&lt;div class="dropload-load"&gt;&lt;span class="loading"&gt;&lt;/span&gt;加载中...&lt;/div&gt;'</span>,</div><div class="line">               <span class="attr">domNoData</span>: <span class="string">'&lt;div class="dropload-noData"&gt;已经全部加载完毕&lt;/div&gt;'</span></div><div class="line">           &#125;,</div><div class="line">           <span class="attr">domUp</span>: &#123;  <span class="comment">//往上拉</span></div><div class="line">               domClass: <span class="string">'dropload-up'</span>,</div><div class="line">               <span class="attr">domRefresh</span>: <span class="string">'&lt;div class = "dropload-refresh"&gt; ↓下拉刷新 &lt;/div&gt;'</span>,</div><div class="line">               <span class="attr">domUpdate</span>: <span class="string">'&lt;div class = "dropload-update"&gt; ↑释放更新 &lt;/div&gt;'</span>,</div><div class="line">               <span class="attr">domLoad</span>: <span class="string">'&lt;div class = "dropload-load"&gt; &lt;span class="loading"&gt;&lt;/span&gt;加载中… &lt;/div&gt;'</span></div><div class="line"></div><div class="line">           &#125;,</div><div class="line">           <span class="attr">loadDownFn</span>: <span class="function"><span class="keyword">function</span>(<span class="params">me</span>) </span>&#123;  <span class="comment">//往下拉的方法</span></div><div class="line">               pageNum++;</div><div class="line">               <span class="keyword">if</span> (pageNum &lt;= totalPages) &#123;</div><div class="line">                   loadData(pageNum, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</div><div class="line">                       $(<span class="string">"#wrapper"</span>).find(<span class="string">"ul"</span>).append(data);</div><div class="line">                       me.resetload(); <span class="comment">// 每次数据加载完，必须重置</span></div><div class="line">                   &#125;)</div><div class="line">               &#125; <span class="keyword">else</span> &#123;</div><div class="line">                   me.lock();  <span class="comment">//锁定dropload</span></div><div class="line">                   me.noData();</div><div class="line">                   me.resetload(); <span class="comment">// 每次数据加载完，必须重置</span></div><div class="line">               &#125;</div><div class="line">           &#125;,</div><div class="line">           <span class="attr">loadUpFn</span>: <span class="function"><span class="keyword">function</span>(<span class="params">me</span>) </span>&#123; <span class="comment">//往下拉的方法</span></div><div class="line">                   pageNum++;</div><div class="line">                   <span class="keyword">if</span> (pageNum &lt;= totalPages) &#123;</div><div class="line">                       loadData(pageNum, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</div><div class="line">                           $(<span class="string">"#wrapper"</span>).find(<span class="string">"ul"</span>).prepend(data);</div><div class="line">                           me.resetload(); <span class="comment">// 每次数据加载完，必须重置</span></div><div class="line">                       &#125;)</div><div class="line">                   &#125; <span class="keyword">else</span> &#123;</div><div class="line">                       me.lock();</div><div class="line">                       me.noData();</div><div class="line">                       me.resetload(); <span class="comment">// 每次数据加载完，必须重置</span></div><div class="line">                   &#125;  </div><div class="line">           &#125;</div><div class="line">       &#125;);</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   <span class="function"><span class="keyword">function</span> <span class="title">loadData</span>(<span class="params">pageNum, callback</span>) </span>&#123;  <span class="comment">//模拟数据</span></div><div class="line">       setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">           <span class="keyword">var</span> data = [];</div><div class="line">           <span class="keyword">for</span> (<span class="keyword">var</span> i = pageNum; i &lt; <span class="number">10</span>; i++) &#123;</div><div class="line">               data.push(<span class="string">'&lt;li&gt;&lt;div class="display-box"&gt;&lt;div class="box-nine pho-info"&gt;&lt;p style="padding-bottom:0.15rem"&gt;&lt;strong&gt;kkOne&lt;/strong&gt;&lt;span class="status"&gt;待确认&lt;/span&gt;&lt;/p&gt;&lt;p style="padding-bottom:0.1rem"&gt;&lt;span&gt;相约时间：&lt;/span&gt;&lt;span&gt;9月18日 13:00-13:30&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span&gt;逛街人：&lt;/span&gt;&lt;span&gt;mary（俱乐部）&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;&lt;div class="box-one pho-call"&gt;&lt;img src="images/call@2x.png" class="call"&gt;&lt;p class="callPhone"&gt;打电话&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/li&gt;'</span>);</div><div class="line">           &#125;</div><div class="line">           callback(data);</div><div class="line">       &#125;, <span class="number">1000</span>);</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<h3 id="注意一点的是，下拉和上拉有时候并不是同时存在的。根据自己的方式选中上拉还是下拉。"><a href="#注意一点的是，下拉和上拉有时候并不是同时存在的。根据自己的方式选中上拉还是下拉。" class="headerlink" title="注意一点的是，下拉和上拉有时候并不是同时存在的。根据自己的方式选中上拉还是下拉。"></a>注意一点的是，下拉和上拉有时候并不是同时存在的。根据自己的方式选中上拉还是下拉。</h3><h3 id="每一次加入数据都需要调用resetload（）；"><a href="#每一次加入数据都需要调用resetload（）；" class="headerlink" title="每一次加入数据都需要调用resetload（）；"></a>每一次加入数据都需要调用resetload（）；</h3><h3 id="me-noData-和-me-noData-true-表示当前无数据，也就是会在下方出现-（暂无数据）的表示-me-noData-false-则表示有数据，这时不会显示（暂无数据）。如果使用了me-unlock-，则需要调用me-noData-false-才能继续功能"><a href="#me-noData-和-me-noData-true-表示当前无数据，也就是会在下方出现-（暂无数据）的表示-me-noData-false-则表示有数据，这时不会显示（暂无数据）。如果使用了me-unlock-，则需要调用me-noData-false-才能继续功能" class="headerlink" title="me.noData(); 和 me.noData(true); 表示当前无数据，也就是会在下方出现 （暂无数据）的表示 me.noData(false);则表示有数据，这时不会显示（暂无数据）。如果使用了me.unlock() ，则需要调用me.noData(false)才能继续功能"></a>me.noData(); 和 me.noData(true); 表示当前无数据，也就是会在下方出现 （暂无数据）的表示 me.noData(false);则表示有数据，这时不会显示（暂无数据）。如果使用了me.unlock() ，则需要调用me.noData(false)才能继续功能</h3><h3 id="最近试用了淘宝的sui-moblie框架，里面也有下拉刷新，无限滚动功能。感觉也不错。只是现在框架不维护可惜了。"><a href="#最近试用了淘宝的sui-moblie框架，里面也有下拉刷新，无限滚动功能。感觉也不错。只是现在框架不维护可惜了。" class="headerlink" title="最近试用了淘宝的sui moblie框架，里面也有下拉刷新，无限滚动功能。感觉也不错。只是现在框架不维护可惜了。"></a>最近试用了淘宝的sui moblie框架，里面也有下拉刷新，无限滚动功能。感觉也不错。只是现在框架不维护可惜了。</h3>
+      
+    </div>
+    
+    
+    
+   
+     
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>谢谢你给我的支持，坚持原创技术分享，共同成长</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/zhifubao.jpg" alt="少女雨 WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/weixin.jpg" alt="少女雨 Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/移动端/" rel="tag"><i class="fa fa-tag"></i> 移动端</a>
+          
+            <a href="/tags/下拉加载/" rel="tag"><i class="fa fa-tag"></i> 下拉加载</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/jjs/420180416/" rel="next" title="城市搜索">
+                <i class="fa fa-chevron-left"></i> 城市搜索
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/jjs/620180420/" rel="prev" title="Javascript TypeOf 深究">
+                Javascript TypeOf 深究 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="uyan_frame"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <img class="site-author-image" itemprop="image"
+              src="/images/a.jpg"
+              alt="少女雨" />
+          
+            <p class="site-author-name" itemprop="name">少女雨</p>
+            <p class="site-description motion-element" itemprop="description">12级毕业生，南方姑娘，前端程序媛，前途堪忧的代码洁癖者;</p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/archives">
+            
+                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">57</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/sulishibaobei/" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="380571249@qq.com" target="_blank" title="E-Mail">
+                  
+                    <i class="fa fa-fw fa-envelope"></i>
+                  
+                    
+                      E-Mail
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/xiaoyu051027/profile?rightmod=1&wvr=6&mod=personinfo/" target="_blank" title="weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                    
+                      weibo
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://blog.csdn.net/sulishibaobei/" target="_blank" title="CSDN">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      CSDN
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.cnblogs.com/sulishibaobei/" target="_blank" title="博客园">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      博客园
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/e6c53e37e95b/" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      简书
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://segmentfault.com/blog/angular4" title="Angular 4.x 修仙之路" target="_blank">Angular 4.x 修仙之路</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#注意一点的是，下拉和上拉有时候并不是同时存在的。根据自己的方式选中上拉还是下拉。"><span class="nav-number">1.</span> <span class="nav-text">注意一点的是，下拉和上拉有时候并不是同时存在的。根据自己的方式选中上拉还是下拉。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#每一次加入数据都需要调用resetload（）；"><span class="nav-number">2.</span> <span class="nav-text">每一次加入数据都需要调用resetload（）；</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#me-noData-和-me-noData-true-表示当前无数据，也就是会在下方出现-（暂无数据）的表示-me-noData-false-则表示有数据，这时不会显示（暂无数据）。如果使用了me-unlock-，则需要调用me-noData-false-才能继续功能"><span class="nav-number">3.</span> <span class="nav-text">me.noData(); 和 me.noData(true); 表示当前无数据，也就是会在下方出现 （暂无数据）的表示 me.noData(false);则表示有数据，这时不会显示（暂无数据）。如果使用了me.unlock() ，则需要调用me.noData(false)才能继续功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最近试用了淘宝的sui-moblie框架，里面也有下拉刷新，无限滚动功能。感觉也不错。只是现在框架不维护可惜了。"><span class="nav-number">4.</span> <span class="nav-text">最近试用了淘宝的sui moblie框架，里面也有下拉刷新，无限滚动功能。感觉也不错。只是现在框架不维护可惜了。</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">少女雨</span>
+
+  
+</div>
+ 
+
+ 
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>本站访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 本站总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+  
+  <script type="text/javascript" src="/lib/three/three.min.js"></script>
+
+  
+  <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+    
+
+    
+      <!-- UY BEGIN -->
+      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2142986"></script>
+      <!-- UY END -->
+    
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine@1.1.4/dist/Valine.min.js"></script>
+  <script type="text/javascript">
+    new Valine({
+        av: AV,
+        el: '#vcomments' ,
+        verify: true,
+        notify: true,
+        app_id: 'oYvo5UGPyqh0hJS4PjPlUEUi-gzGzoHsz',
+        app_key: 'pvthlFHzxUG7QED17mtXdnYo',
+        placeholder: 'Comment input placeholder'
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === '') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("oYvo5UGPyqh0hJS4PjPlUEUi-gzGzoHsz", "pvthlFHzxUG7QED17mtXdnYo");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <script type="text/javascript" src="/js/src/love.js"></script>
+</body>
+</html>
