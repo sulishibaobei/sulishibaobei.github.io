@@ -4,14 +4,34 @@
 
     
   <url>
-    <loc>http://www.sulishibaobei.com/jjs/920180620/</loc>
-    <lastmod>2018-07-30T04:00:21.761Z</lastmod>
+    <loc>http://www.sulishibaobei.com/jjs/1120180702/</loc>
+    <lastmod>2018-08-13T06:24:02.080Z</lastmod>
     <data>
         <display>
-        <title>地址筛选</title>
-        <pubTime>2018-06-20T11:20:53.000Z</pubTime>
+        <title>prompt提示框</title>
+        <pubTime>2018-07-02T10:20:53.000Z</pubTime>
         
-        <tag>选择地址</tag>
+        <tag>提示框</tag>
+         
+         
+           
+             
+              <breadCrumb title="html5" url="http://www.sulishibaobei.com/categories/html5/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.sulishibaobei.com/jjs/1020180622/</loc>
+    <lastmod>2018-08-02T02:44:57.781Z</lastmod>
+    <data>
+        <display>
+        <title>css实现两端对齐</title>
+        <pubTime>2018-06-22T12:20:53.000Z</pubTime>
+        
+        <tag>兼容移动端</tag>
          
          
            
@@ -25,7 +45,7 @@
     
   <url>
     <loc>http://www.sulishibaobei.com/problem/120180711/</loc>
-    <lastmod>2018-07-27T06:31:11.372Z</lastmod>
+    <lastmod>2018-07-30T04:02:08.037Z</lastmod>
     <data>
         <display>
         <title>问题详情录</title>
@@ -37,6 +57,26 @@
            
              
               <breadCrumb title="前端" url="http://www.sulishibaobei.com/categories/%E5%89%8D%E7%AB%AF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.sulishibaobei.com/jjs/920180620/</loc>
+    <lastmod>2018-07-30T04:00:21.761Z</lastmod>
+    <data>
+        <display>
+        <title>地址筛选</title>
+        <pubTime>2018-06-20T11:20:53.000Z</pubTime>
+        
+        <tag>选择地址</tag>
+         
+         
+           
+             
+              <breadCrumb title="html5" url="http://www.sulishibaobei.com/categories/html5/"/>
           
         </display>
     </data>
@@ -293,11 +333,11 @@
         <title>教你如何使用正则表达式</title>
         <pubTime>2017-09-25T01:08:53.000Z</pubTime>
         
-        <tag>javascript</tag>
-         
         <tag>正则表达式</tag>
          
         <tag>Regex</tag>
+         
+        <tag>javascript</tag>
          
          
            
@@ -634,11 +674,11 @@
         <title>简述alert和console.log的区别</title>
         <pubTime>2017-09-05T03:08:53.000Z</pubTime>
         
+        <tag>javascript</tag>
+         
         <tag>console.log</tag>
          
         <tag>alert</tag>
-         
-        <tag>javascript</tag>
          
          
            
