@@ -511,12 +511,12 @@ var _hmt = _hmt || [];
       
         <p>以前写过一个webstorm借助angular-cli搭建angular2.0项目的博客。 后来许久没有接触过angular，现在拾起来的时候发现已经更新，用法变了。所以来记录下，以免其他友看到照成误区。这也是说明一个道理，别人写下的东西你不一定适用，因为技术的东西说变就变，谁知道的。</p>
 <h2 id="1-基于Node环境，安装angular-cli。-nbsp-新版的已经变成安装-angular-cli。所以安装时：npm-install-d-angular-cli"><a href="#1-基于Node环境，安装angular-cli。-nbsp-新版的已经变成安装-angular-cli。所以安装时：npm-install-d-angular-cli" class="headerlink" title="[1]基于Node环境，安装angular-cli。&nbsp; 新版的已经变成安装@angular/cli。所以安装时：npm install -d @angular/cli"></a>[1]基于Node环境，安装angular-cli。&nbsp; 新版的已经变成安装@angular/cli。所以安装时：<code>npm install -d @angular/cli</code></h2><a id="more"></a>
-<p>那么问题来了，一大堆错误，说缺少pathon和visual studio。还有说版本不兼容的，所以建议node的版本不要太高，也不用太低。第一次我用的7以上的版本说不支持。然后换成6.0以上也是不支持。最后换成6.9几用的好好的。并不是所有人的电脑安装都会出问题的。 既然说缺少pathon那就安装吧。推荐一个网友的解决办法，我也是参照这个解决的，就不重复啰嗦<a href="http://www.cnblogs.com/liangxiaojie/p/4595406.html" target="_blank" rel="noopener">看这里</a>;说到底会出错的原因都是因为npm是国外的，需要FQ，会有那么一丝丝不稳定。<br>不过建议大家先安装cnpm在装，就什么问题都，没有了。<br><code>npm install -g cnpm</code><br><code>cnpm install -g @angular/cli</code></p>
+<p>那么问题来了，一大堆错误，说缺少pathon和visual studio。还有说版本不兼容的，所以建议node的版本不要太高，也不用太低。第一次我用的7以上的版本说不支持。然后换成6.0以上也是不支持。最后换成6.9几用的好好的。并不是所有人的电脑安装都会出问题的。 既然说缺少pathon那就安装吧。推荐一个网友的解决办法，我也是参照这个解决的，就不重复啰嗦<a href="http://www.cnblogs.com/liangxiaojie/p/4595406.html" target="_blank" rel="external">看这里</a>;说到底会出错的原因都是因为npm是国外的，需要FQ，会有那么一丝丝不稳定。<br>不过建议大家先安装cnpm在装，就什么问题都，没有了。<br><code>npm install -g cnpm</code><br><code>cnpm install -g @angular/cli</code></p>
 <h2 id="ng命令"><a href="#ng命令" class="headerlink" title="ng命令"></a>ng命令</h2><p>安装好angular/cli之后，就可以用ng命令啦。<br>例如：ng –version 查看版本号<br>ng help 帮助 </p>
 <p><strong>当然最重要的还是用它创建工程。ng new 工程名;</strong><br>然后会自动帮你创建所有的依赖，搭建成一个简单的模板，大概这样<br><img src="/images/angular-1.png" alt="angular-cli"><br>node-modules会自动帮你创建，只是耗时比较长，建议一次下载多次copy。<br>运行项目试试，进入你的工程目录下，然后ng serve; 默认是开启localhost:4200的。<br>所以浏览器里打开localhost:4200就可以啦。</p>
 <p><img src="/images/angular-2.png" alt="angular-cli"><br>这是最简单的项目啦，当然你可以继续创建命令 </p>
 <p><img src="/images/angular-3.png" alt="angular-cli"><br>例如运行<code>ng g c user</code></p>
-<p><img src="/images/angular-4.png" alt="angular-cli"><br>它是四个四个创建的，配套吗！！ 后续介绍一篇文章专门讲<a href="http://blog.csdn.net/sulishibaobei/article/details/77246482" target="_blank" rel="noopener">angular-cli</a>的<br>这些文件工程太大了，运行时可以打压，<code>ng serve --prod --aot</code> 也是可以的。<br>好了就介绍这些基础的，其实后面的使用并没有改变太多啦<br>之前在博客园中也介绍过关于在webstorm中如何开发angular项目，如果想在webstorm中使用，可以去看看<br>目前我使用VScode ，觉得挺好的！！</p>
+<p><img src="/images/angular-4.png" alt="angular-cli"><br>它是四个四个创建的，配套吗！！ 后续介绍一篇文章专门讲<a href="http://blog.csdn.net/sulishibaobei/article/details/77246482" target="_blank" rel="external">angular-cli</a>的<br>这些文件工程太大了，运行时可以打压，<code>ng serve --prod --aot</code> 也是可以的。<br>好了就介绍这些基础的，其实后面的使用并没有改变太多啦<br>之前在博客园中也介绍过关于在webstorm中如何开发angular项目，如果想在webstorm中使用，可以去看看<br>目前我使用VScode ，觉得挺好的！！</p>
 
       
     </div>
@@ -675,7 +675,7 @@ var _hmt = _hmt || [];
             
               <a href="/archives">
             
-                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -686,7 +686,7 @@ var _hmt = _hmt || [];
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -697,7 +697,7 @@ var _hmt = _hmt || [];
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">63</span>
+                <span class="site-state-item-count">45</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
