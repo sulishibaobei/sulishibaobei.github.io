@@ -557,7 +557,7 @@ var _hmt = _hmt || [];
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.sulishibaobei.com/css/css-120170926/">
+    <link itemprop="mainEntityOfPage" href="http://www.sulishibaobei.com/jjs/1320181001/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="少女雨">
@@ -576,7 +576,7 @@ var _hmt = _hmt || [];
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/css/css-120170926/" itemprop="url">前端面试中常见的那些HTML/CSS题</a></h1>
+                <a class="post-title-link" href="/jjs/1320181001/" itemprop="url">文字识别</a></h1>
         
 
         <div class="post-meta">
@@ -588,8 +588,8 @@ var _hmt = _hmt || [];
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-26T10:08:53+08:00">
-                2017-09-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-01T20:08:53+08:00">
+                2018-10-01
               </time>
             
 
@@ -611,8 +611,8 @@ var _hmt = _hmt || [];
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端面试题整理/" itemprop="url" rel="index">
-                    <span itemprop="name">前端面试题整理</span>
+                  <a href="/categories/文字识别/" itemprop="url" rel="index">
+                    <span itemprop="name">文字识别</span>
                   </a>
                 </span>
 
@@ -628,7 +628,7 @@ var _hmt = _hmt || [];
 
           
           
-             <span id="/css/css-120170926/" class="leancloud_visitors" data-flag-title="前端面试中常见的那些HTML/CSS题">
+             <span id="/jjs/1320181001/" class="leancloud_visitors" data-flag-title="文字识别">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -660,10 +660,357 @@ var _hmt = _hmt || [];
 
       
         
-          <h2 id="什么是盒子模型？"><a href="#什么是盒子模型？" class="headerlink" title="什么是盒子模型？"></a>什么是盒子模型？</h2><p>一般面试都会问：盒子模型你是怎么理解的？<br>盒子模型分为两种：W3C(标准的)盒子模型和IE(怪异)盒子模型<br><img src="/images/html-1.png" alt="html"><br>
+          
+            <blockquote>
+<ul>
+<li>最近接到一个新的需求，做证件照识别，身份证照和头像比对。<br>详细介绍下几点：<br>1.文字识别和人脸比对调用的百度云的接口<a href="http://ai.baidu.com/forum/topic/show/867951" target="_blank" rel="external">http://ai.baidu.com/forum/topic/show/867951</a><br>2.本地采用nginx转发的请求。IOS拍照的时候文件体积比较大，nginx可能会报413错误（nginx 413 Request Entity Too Large ）<br>解决办法<a href="https://blog.csdn.net/testcs_dn/article/details/78366272" target="_blank" rel="external">https://blog.csdn.net/testcs_dn/article/details/78366272</a><br>3.上传的图片全部都转成base64且需去掉前缀</li>
+</ul>
+</blockquote>
+<p>####案例展示</p>
+<ol>
+<li>识别身份证试试</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"w100 dashed"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"w30 title bold"</span>&gt;</span>上传身份证：<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"w100 tc  mt10"</span> <span class="attr">style</span>=<span class="string">"height: 130px;background: #fff"</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"w50 fl relative"</span> <span class="attr">style</span>=<span class="string">"height:100%;border:1px solid #ddd"</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">span</span>&gt;</span></div><div class="line">                        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"images/front.png"</span> <span class="attr">alt</span>=<span class="string">""</span> <span class="attr">style</span>=<span class="string">"width:60px;height: 30px;display: block;padding-left: 32%; padding-top: 13%;"</span> /&gt;</span></div><div class="line">                        <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn-white relative"</span>&gt;</span></div><div class="line">                            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">accept</span>=<span class="string">"image/*"</span> <span class="attr">id</span>=<span class="string">"imgCard"</span>/&gt;</span>上传身份证正面</div><div class="line">                        <span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">                        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">"frontCard"</span> <span class="attr">class</span>=<span class="string">"w100"</span> <span class="attr">style</span>=<span class="string">"display: none"</span>&gt;</span></div><div class="line">                        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">id</span>=<span class="string">"frontCardValid"</span> <span class="attr">name</span>=<span class="string">"frontCard"</span> /&gt;</span></div><div class="line">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>都是一些简单的样式，可以忽略。因为这不是重点。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div></pre></td><td class="code"><pre><div class="line">  $(<span class="string">"body"</span>).on(<span class="string">'change'</span>, <span class="string">'#imgCard'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="keyword">if</span> (<span class="keyword">this</span>.files &amp;&amp; <span class="keyword">this</span>.files[<span class="number">0</span>]) &#123;</div><div class="line">                <span class="comment">//压缩</span></div><div class="line">                <span class="keyword">var</span> objUrl = getObjectURL(<span class="keyword">this</span>.files[<span class="number">0</span>]);</div><div class="line">                $(<span class="string">'#frontCard'</span>).attr(<span class="string">'src'</span>, objUrl); <span class="comment">//显示在界面</span></div><div class="line">                $(<span class="string">"#frontCardValid"</span>).val(objUrl);</div><div class="line">                <span class="keyword">var</span> image = <span class="keyword">new</span> Image();</div><div class="line">                image.src = objUrl;</div><div class="line">                image.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">                        IDCardRecognition(compress(image));</div><div class="line">                    &#125;</div><div class="line">            &#125;</div><div class="line">    &#125;)</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">IDCardRecognition</span>(<span class="params">file</span>) </span>&#123;</div><div class="line">    $.ajax(&#123;</div><div class="line">        <span class="attr">url</span>: <span class="string">"https://aip.baidubce.com/rest/2.0/ocr/v1/idcard?  access_token=24.126331b6c9f698cf8408591f33343dab.2592000.1540865247.282335-14247222"</span>, <span class="comment">//路径   </span></div><div class="line">        type: <span class="string">"POST"</span>, <span class="comment">//提交方式 </span></div><div class="line">        data: &#123;</div><div class="line">            <span class="string">'id_card_side'</span>: <span class="string">'front'</span>,  <span class="comment">//代表请求的是身份证正面</span></div><div class="line">            <span class="string">'image'</span>: file,</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">success</span>: <span class="function"><span class="keyword">function</span>(<span class="params">result</span>) </span>&#123;</div><div class="line">            <span class="keyword">var</span> info = result.words_result;</div><div class="line">            alert(info);</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">error</span>: <span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(error);</div><div class="line">        &#125;,</div><div class="line"></div><div class="line">    &#125;);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getObjectURL</span>(<span class="params">file</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> url = <span class="literal">null</span>;</div><div class="line">    <span class="keyword">if</span> (<span class="built_in">window</span>.createObjectURL != <span class="literal">undefined</span>) &#123; <span class="comment">// basic</span></div><div class="line">        url = <span class="built_in">window</span>.createObjectURL(file);</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">window</span>.URL != <span class="literal">undefined</span>) &#123; <span class="comment">// mozilla(firefox)</span></div><div class="line">        url = <span class="built_in">window</span>.URL.createObjectURL(file);</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">window</span>.webkitURL != <span class="literal">undefined</span>) &#123; <span class="comment">// webkit or chrome</span></div><div class="line">        url = <span class="built_in">window</span>.webkitURL.createObjectURL(file);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> url;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">compress</span>(<span class="params">image</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> height = image.height;</div><div class="line">    <span class="keyword">var</span> width = image.width;</div><div class="line">    <span class="keyword">var</span> canvas = <span class="built_in">document</span>.createElement(<span class="string">'canvas'</span>);</div><div class="line">    canvas.width = width;</div><div class="line">    canvas.height = height;</div><div class="line">    <span class="keyword">var</span> ctx = canvas.getContext(<span class="string">'2d'</span>);</div><div class="line">    ctx.fillStyle = <span class="string">'#FFF'</span>; <span class="comment">//绘制背景色</span></div><div class="line">    ctx.fillRect(<span class="number">0</span>, <span class="number">0</span>, canvas.width, canvas.height);</div><div class="line">    ctx.drawImage(image, <span class="number">0</span>, <span class="number">0</span>, canvas.width, canvas.height);</div><div class="line">    <span class="comment">//0.5为压缩的质量比例，范围是0~1。</span></div><div class="line">    <span class="keyword">var</span> imgBase = canvas.toDataURL(<span class="string">"image/jpeg"</span>, <span class="number">0.5</span>);</div><div class="line">    <span class="keyword">var</span> arr = imgBase.split(<span class="string">","</span>);</div><div class="line">    <span class="keyword">return</span> arr[<span class="number">1</span>];</div><div class="line"></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<ol>
+<li>图像数据要求：base64编码后进行urlencode，要求base64编码和urlencode后大小不超过4M，最短边至少15px，最长边最大4096px,支持jpg/png/bmp格式。 </li>
+<li>手机拍照出来的文件一般比较大，记得压缩下。（ps:亲测，压缩后的文件请求返回数据一般控制在3s内。本人IOS手机拍出来的文件体积基本在1M到5M之间，有些无法识别出来，能识别的响应也比较慢，大多超过5s）。</li>
+<li>用ajax传文件到后台要防止文件过来，传过去导致接收的数据为null。 （前后端配合的情况下才会出现。tomaca文件上传限制大小是原因之一）<br>请求到的结果是一个这样的情况：<br><img src="/images/vue/20181012-1.png" alt="图"></li>
+</ol>
+<p>PS：后面也尝试了许多的模板，社保卡识别，银行卡识别，学信网招聘识别。调的接口不一样而已。有些百度没有提供的模板，需要自定义。详情参考api，10分钟以内学会。</p>
+<ol>
+<li>人脸识别</li>
+</ol>
+<p>手机随意拍一张照片，和身份证上面照片比对。拍照的图片一直比对不成功就要注意采用活体检测。<br>这些都要求拍出来的照片清晰度比较。<br>接口掉头方法类似。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+   
+     
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.sulishibaobei.com/jjs/1220180713/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="少女雨">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/a.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="少女雨的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/jjs/1220180713/" itemprop="url">自定义表头</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-13T18:20:53+08:00">
+                2018-07-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/html5/" itemprop="url" rel="index">
+                    <span itemprop="name">html5</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/jjs/1220180713/" class="leancloud_visitors" data-flag-title="自定义表头">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<ul>
+<li>有时候遇见表格表头比较多的时候，我们的产品会要求自定义表格内容。用户选择什么，表格内容就显示什么</li>
+</ul>
+</blockquote>
+<p><img src="/images/20180822-1.gif" alt="效果图"></p>
+<ol>
+<li>样式采用bootstrap，简单且丑</li>
+<li>代码<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"mb10 mt10  customTable "</span>&gt;</span>自定义列表<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"hasDataList"</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">table</span> <span class="attr">class</span>=<span class="string">"table-box"</span> <span class="attr">cellpadding</span>=<span class="string">"0"</span> <span class="attr">cellpadding</span>=<span class="string">"0"</span> <span class="attr">width</span>=<span class="string">"0"</span> <span class="attr">border</span>=<span class="string">"0"</span>&gt;</span></div><div class="line">           <span class="tag">&lt;<span class="name">thead</span>&gt;</span></div><div class="line">               <span class="tag">&lt;<span class="name">tr</span> <span class="attr">id</span>=<span class="string">"diyTblTrJs1"</span>&gt;</span></div><div class="line">                   <span class="tag">&lt;<span class="name">td</span>&gt;</span>序号<span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">                   <span class="tag">&lt;<span class="name">td</span>&gt;</span>编号<span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">                   <span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"xm"</span>&gt;</span>姓名<span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">               <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line">           <span class="tag">&lt;/<span class="name">thead</span>&gt;</span></div><div class="line">           <span class="tag">&lt;<span class="name">tbody</span>&gt;</span></div><div class="line">               <span class="tag">&lt;<span class="name">tr</span>&gt;</span></div><div class="line">                   <span class="tag">&lt;<span class="name">td</span>&gt;</span>1<span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">                   <span class="tag">&lt;<span class="name">td</span>&gt;</span>0643253<span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">                   <span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"xm"</span>&gt;</span>张三<span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">               <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line">               <span class="tag">&lt;<span class="name">tr</span>&gt;</span></div><div class="line">                   <span class="tag">&lt;<span class="name">td</span>&gt;</span>2<span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">                   <span class="tag">&lt;<span class="name">td</span>&gt;</span>0643253<span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">                   <span class="tag">&lt;<span class="name">td</span> <span class="attr">class</span>=<span class="string">"xm"</span>&gt;</span>李四<span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">               <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line">           <span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></div><div class="line">       <span class="tag">&lt;/<span class="name">table</span>&gt;</span></div><div class="line">   <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"modal fade"</span> <span class="attr">id</span>=<span class="string">"myModalTableList"</span> <span class="attr">tabindex</span>=<span class="string">"-1"</span> <span class="attr">role</span>=<span class="string">"dialog"</span> <span class="attr">aria-labelledby</span>=<span class="string">"myModalLabel"</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"modal-dialog"</span> <span class="attr">role</span>=<span class="string">"document"</span>&gt;</span></div><div class="line">           <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"modal-content"</span> <span class="attr">style</span>=<span class="string">"width:675px"</span>&gt;</span></div><div class="line">               <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"modal-header no-border"</span>&gt;</span></div><div class="line">                   <span class="tag">&lt;<span class="name">h5</span>&gt;</span>自定义列表</div><div class="line">                       <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"close"</span> <span class="attr">data-dismiss</span>=<span class="string">"modal"</span> <span class="attr">aria-label</span>=<span class="string">"Close"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">aria-hidden</span>=<span class="string">"true"</span>&gt;</span>×<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">                   <span class="tag">&lt;/<span class="name">h5</span>&gt;</span></div><div class="line">               <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">               <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"modal-body line-28"</span>&gt;</span></div><div class="line">                   <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"fw700"</span>&gt;</span>选择需要显示的信息<span class="tag">&lt;<span class="name">label</span> <span class="attr">class</span>=<span class="string">"ml20"</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">"checkAll"</span> <span class="attr">value</span>=<span class="string">""</span> /&gt;</span>全选<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">                   <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"clearfix"</span> <span class="attr">id</span>=<span class="string">"cjDivListCheckBox"</span>&gt;</span></div><div class="line">                       <span class="tag">&lt;<span class="name">label</span> <span class="attr">class</span>=<span class="string">"fl w25 pr20"</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">"table-list"</span> <span class="attr">value</span>=<span class="string">"xm"</span> <span class="attr">data-lname</span>=<span class="string">"姓名"</span> /&gt;</span>姓名<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">                   <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">                   <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"clearfix mt20 tc footbtn"</span>&gt;</span></div><div class="line">                       <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-primary mr5"</span> <span class="attr">id</span>=<span class="string">"btnYs"</span> <span class="attr">onclick</span>=<span class="string">"divListQr(1, 'hasDataList', 'myModalTableList');"</span>&gt;</span>确认<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">                       <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-white"</span> <span class="attr">data-dismiss</span>=<span class="string">"modal"</span> <span class="attr">aria-label</span>=<span class="string">"Close"</span>&gt;</span>取消<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">                   <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">               <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">           <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">       <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">   <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>一个表格，一个弹框，一个button。这是精简后的代码；</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">divListQr</span>(<span class="params">listType, dataListStr, modalStr</span>) </span>&#123;  </div><div class="line">           <span class="keyword">var</span> tdArr = [];</div><div class="line">           <span class="keyword">var</span> tdNameArr = [];</div><div class="line">           $(<span class="string">"input[name='table-list']:checked"</span>).each(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="comment">//存弹框选中的值</span></div><div class="line">               <span class="keyword">var</span> tdKey = $(<span class="keyword">this</span>).val();</div><div class="line">               tdArr.push(tdKey);</div><div class="line">               tdNameArr.push($(<span class="keyword">this</span>).data(<span class="string">"lname"</span>));</div><div class="line">           &#125;);</div><div class="line">           showTableTd(tdArr, dataListStr, modalStr);</div><div class="line">           $(<span class="string">"#diyTblTrJs1"</span>).html($(<span class="string">"#diyTblTrJs1"</span>).html()); <span class="comment">//值显示</span></div><div class="line">       &#125;</div><div class="line"></div><div class="line">       <span class="function"><span class="keyword">function</span> <span class="title">showTableTd</span>(<span class="params">tdArr, dataListStr, modalStr</span>) </span>&#123;  <span class="comment">//控制列表的</span></div><div class="line">           $(<span class="string">"input[name='table-list']"</span>).each(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">               <span class="keyword">var</span> tdKey = $(<span class="keyword">this</span>).val();</div><div class="line">               <span class="keyword">if</span> ($.inArray(tdKey, tdArr) == <span class="number">-1</span>) &#123; <span class="comment">//控制列表的显示隐藏</span></div><div class="line">                   $(<span class="string">"#"</span> + dataListStr + <span class="string">" ."</span> + tdKey).hide();</div><div class="line">               &#125; <span class="keyword">else</span> &#123;</div><div class="line">                   $(<span class="string">"#"</span> + dataListStr + <span class="string">" ."</span> + tdKey).show();</div><div class="line">               &#125;</div><div class="line">           &#125;);</div><div class="line">           $(<span class="string">"#"</span> + modalStr).modal(<span class="string">"hide"</span>);</div><div class="line">       &#125;</div></pre></td></tr></table></figure>
+<p>这边是写死的，就会导致数据其实也是一次性取到的，可以改成动态的。</p>
+<p>详细代码：</p>
+<p> <a href="https://github.com/sulishibaobei/customTable" target="_blank" rel="external">https://github.com/sulishibaobei/customTable</a> </p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+   
+     
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.sulishibaobei.com/problem/120180711/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="少女雨">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/a.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="少女雨的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/problem/120180711/" itemprop="url">问题详情录</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-11T20:08:53+08:00">
+                2018-07-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/problem/120180711/" class="leancloud_visitors" data-flag-title="问题详情录">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <ol>
+<li><p>本地使用uploadifive上传插件，上传视屏到七牛云时报错。<br>本地是采用了nginx做代理的。上传图片可以成功，使用却出错。<br>报错提示：413 Request Entity Too Large<br>原来是nginx对上传的文件大小有限制，配置的时候加上client_max_body_size 20m;<br>控制视频的上传大小。不一定是20M</p>
+</li>
+<li><p>上传文件的时候，点击弹框会延迟3s~5s。<br>这是谷歌浏览器的问题。谷歌浏览器会验证文件类型<br>解决办法补全限制文件类型  images/*  ==》  images/png,images/jpeg 等</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/css/css-120170926/#more" rel="contents">
+            <a class="btn" href="/problem/120180711/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -715,7 +1062,7 @@ var _hmt = _hmt || [];
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.sulishibaobei.com/nginx/ng-120170925/">
+    <link itemprop="mainEntityOfPage" href="http://www.sulishibaobei.com/jjs/1120180702/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="少女雨">
@@ -734,7 +1081,7 @@ var _hmt = _hmt || [];
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/nginx/ng-120170925/" itemprop="url">nginx第一课</a></h1>
+                <a class="post-title-link" href="/jjs/1120180702/" itemprop="url">prompt提示框</a></h1>
         
 
         <div class="post-meta">
@@ -746,8 +1093,8 @@ var _hmt = _hmt || [];
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-25T11:08:53+08:00">
-                2017-09-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-02T18:20:53+08:00">
+                2018-07-02
               </time>
             
 
@@ -769,8 +1116,8 @@ var _hmt = _hmt || [];
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端那些微小事/" itemprop="url" rel="index">
-                    <span itemprop="name">前端那些微小事</span>
+                  <a href="/categories/html5/" itemprop="url" rel="index">
+                    <span itemprop="name">html5</span>
                   </a>
                 </span>
 
@@ -786,7 +1133,7 @@ var _hmt = _hmt || [];
 
           
           
-             <span id="/nginx/ng-120170925/" class="leancloud_visitors" data-flag-title="nginx第一课">
+             <span id="/jjs/1120180702/" class="leancloud_visitors" data-flag-title="prompt提示框">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -818,10 +1165,15 @@ var _hmt = _hmt || [];
 
       
         
-          <p>有这样一个问题，我的nicefish项目里面要从我的服务器<a href="http://112.74.180.53" target="_blank" rel="external">http://112.74.180.53</a> 里面去拿去数据，然后遇见了跨域；然后就想到了用nginx做一个代理去拿数据；<br>其实解决的办法由很多种，单单就跨域的这个问题的话，proxy.config.json也是可以解决，jsonp也可以解决，这里聊一聊我用nginx解决的过程；<br>
+          <blockquote>
+<ul>
+<li>最近项目中有很多地方需要用到prompt框。之前写的时候都是需要引一个css，一个js。标签还需要写在页面上。对此开发很有意见。所以封装了下。</li>
+</ul>
+</blockquote>
+<h4 id="依据项目要求，暂只有三种状态"><a href="#依据项目要求，暂只有三种状态" class="headerlink" title="依据项目要求，暂只有三种状态"></a>依据项目要求，暂只有三种状态</h4><p>如下：<br><img src="/images/20180813-1.gif" alt="效果图"><br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/nginx/ng-120170925/#more" rel="contents">
+            <a class="btn" href="/jjs/1120180702/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -873,7 +1225,7 @@ var _hmt = _hmt || [];
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.sulishibaobei.com/js/zhengze20170925/">
+    <link itemprop="mainEntityOfPage" href="http://www.sulishibaobei.com/jjs/1020180622/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="少女雨">
@@ -892,7 +1244,7 @@ var _hmt = _hmt || [];
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/js/zhengze20170925/" itemprop="url">教你如何使用正则表达式</a></h1>
+                <a class="post-title-link" href="/jjs/1020180622/" itemprop="url">css实现两端对齐</a></h1>
         
 
         <div class="post-meta">
@@ -904,8 +1256,8 @@ var _hmt = _hmt || [];
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-25T09:08:53+08:00">
-                2017-09-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-22T20:20:53+08:00">
+                2018-06-22
               </time>
             
 
@@ -927,8 +1279,8 @@ var _hmt = _hmt || [];
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端那些微小事/" itemprop="url" rel="index">
-                    <span itemprop="name">前端那些微小事</span>
+                  <a href="/categories/html5/" itemprop="url" rel="index">
+                    <span itemprop="name">html5</span>
                   </a>
                 </span>
 
@@ -944,7 +1296,7 @@ var _hmt = _hmt || [];
 
           
           
-             <span id="/js/zhengze20170925/" class="leancloud_visitors" data-flag-title="教你如何使用正则表达式">
+             <span id="/jjs/1020180622/" class="leancloud_visitors" data-flag-title="css实现两端对齐">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -976,10 +1328,15 @@ var _hmt = _hmt || [];
 
       
         
-          <h2 id="认识一些元字符"><a href="#认识一些元字符" class="headerlink" title="认识一些元字符"></a>认识一些元字符</h2><p><code>\b</code> 表示单词开头或者结尾，也就是单词的分界处；虽然通常英文的单词是由空格，标点符号或者换行来分隔的，但是\b并不匹配这些单词分隔符中的任何一个，它只匹配一个位置；例如：\bhi\b<br><code>*</code> 代表<em>前边的内容可以连续重复使用任意次以使整个表达式得到匹配;.</em>连在一起就意味着任意数量的不包含换行的字符；例如：\bhi\b.<em>\bLucy\b 表示：一个单词hi,然后是任意个任意字符(但不能是换行)，最后是Lucy这个单词。<br><code>\d</code> 表示匹配是一个数字（0,或1，…);<br><code>\s</code> 匹配任意的空白符，包括空格，制表符，换行符，中文全角空格等；<br><code>\w</code> 匹配字母或数字或下划线或汉字等；<br><code>+</code> 匹配重复1次或更多次。<br>
+          <blockquote>
+<ul>
+<li>项目中很多时候都需要实现两端对齐。</li>
+</ul>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">           <span class="tag">&lt;<span class="name">label</span>&gt;</span>应聘者：<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">           <span class="tag">&lt;<span class="name">span</span>&gt;</span>那些神奇的歌声在把我召唤<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">       <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">           <span class="tag">&lt;<span class="name">label</span>&gt;</span>招聘者：<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">           <span class="tag">&lt;<span class="name">span</span>&gt;</span>这里有与世无争的笑颜;娇艳的花开满山间<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">       <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">           <span class="tag">&lt;<span class="name">label</span>&gt;</span>主要责任人：<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">           <span class="tag">&lt;<span class="name">span</span>&gt;</span>彩虹下的歌声笑语中嘹亮<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">       <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">           <span class="tag">&lt;<span class="name">label</span>&gt;</span>事件：<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">           <span class="tag">&lt;<span class="name">span</span>&gt;</span>拉起低下头抿嘴笑的姑娘<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">       <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">li</span>&gt;</span></div><div class="line">           <span class="tag">&lt;<span class="name">label</span>&gt;</span>事件彩虹：<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">           <span class="tag">&lt;<span class="name">span</span>&gt;</span>编一支花环为她戴在头上<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">       <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">   <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/js/zhengze20170925/#more" rel="contents">
+            <a class="btn" href="/jjs/1020180622/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1031,7 +1388,7 @@ var _hmt = _hmt || [];
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.sulishibaobei.com/angular/style/component-120170908/">
+    <link itemprop="mainEntityOfPage" href="http://www.sulishibaobei.com/jjs/920180620/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="少女雨">
@@ -1050,7 +1407,7 @@ var _hmt = _hmt || [];
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/angular/style/component-120170908/" itemprop="url">Angular 4 自定义组件封装遇见的一些事儿</a></h1>
+                <a class="post-title-link" href="/jjs/920180620/" itemprop="url">地址筛选</a></h1>
         
 
         <div class="post-meta">
@@ -1062,8 +1419,8 @@ var _hmt = _hmt || [];
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-08T11:05:53+08:00">
-                2017-09-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-20T19:20:53+08:00">
+                2018-06-20
               </time>
             
 
@@ -1085,8 +1442,8 @@ var _hmt = _hmt || [];
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Angular-2/" itemprop="url" rel="index">
-                    <span itemprop="name">Angular 2+</span>
+                  <a href="/categories/html5/" itemprop="url" rel="index">
+                    <span itemprop="name">html5</span>
                   </a>
                 </span>
 
@@ -1102,7 +1459,7 @@ var _hmt = _hmt || [];
 
           
           
-             <span id="/angular/style/component-120170908/" class="leancloud_visitors" data-flag-title="Angular 4 自定义组件封装遇见的一些事儿">
+             <span id="/jjs/920180620/" class="leancloud_visitors" data-flag-title="地址筛选">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1134,11 +1491,15 @@ var _hmt = _hmt || [];
 
       
         
-          <p><img src="/images/fengjing-2.jpg" alt="sf"></p>
-<p><div class="image-caption">你用Angular 吗？</div><br>
+          <blockquote>
+<ul>
+<li>最近项目中需要一个选择地址的弹框，自己先随便写了下，数据均为模拟。</li>
+</ul>
+</blockquote>
+<p>大致效果：<br><img src="/images/20180730-1.gif" alt="html"></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/angular/style/component-120170908/#more" rel="contents">
+            <a class="btn" href="/jjs/920180620/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1190,7 +1551,7 @@ var _hmt = _hmt || [];
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.sulishibaobei.com/css/fb-120170908/">
+    <link itemprop="mainEntityOfPage" href="http://www.sulishibaobei.com/jjs/820180611/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="少女雨">
@@ -1209,7 +1570,7 @@ var _hmt = _hmt || [];
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/css/fb-120170908/" itemprop="url">Flexible Box布局基础知识详解</a></h1>
+                <a class="post-title-link" href="/jjs/820180611/" itemprop="url">纯前端控制的数字验证</a></h1>
         
 
         <div class="post-meta">
@@ -1221,8 +1582,8 @@ var _hmt = _hmt || [];
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-08T10:08:53+08:00">
-                2017-09-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-11T20:08:53+08:00">
+                2018-06-11
               </time>
             
 
@@ -1244,8 +1605,8 @@ var _hmt = _hmt || [];
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CSS/" itemprop="url" rel="index">
-                    <span itemprop="name">CSS</span>
+                  <a href="/categories/html5/" itemprop="url" rel="index">
+                    <span itemprop="name">html5</span>
                   </a>
                 </span>
 
@@ -1261,7 +1622,7 @@ var _hmt = _hmt || [];
 
           
           
-             <span id="/css/fb-120170908/" class="leancloud_visitors" data-flag-title="Flexible Box布局基础知识详解">
+             <span id="/jjs/820180611/" class="leancloud_visitors" data-flag-title="纯前端控制的数字验证">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1293,10 +1654,15 @@ var _hmt = _hmt || [];
 
       
         
-          <h2 id="1-基本概念，借用阮一峰老师的一张图："><a href="#1-基本概念，借用阮一峰老师的一张图：" class="headerlink" title="1.基本概念，借用阮一峰老师的一张图："></a>1.基本概念，借用阮一峰老师的一张图：</h2><p><img src="/images/fb-1.png" alt="fb"><br>
+          <blockquote>
+<ul>
+<li>今日要实现一个纯字母和数字的前端验证。很多时候我们看到的验证都是后端传图片过来前端验证的。但是有些安全性要求不是很高的页面往往就不需要后端支持。</li>
+</ul>
+</blockquote>
+<p><img src="/images/20180724-1.gif" alt="html"></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/css/fb-120170908/#more" rel="contents">
+            <a class="btn" href="/jjs/820180611/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1348,7 +1714,7 @@ var _hmt = _hmt || [];
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.sulishibaobei.com/angular/http/http-220170908/">
+    <link itemprop="mainEntityOfPage" href="http://www.sulishibaobei.com/jjs/720180426/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="少女雨">
@@ -1367,7 +1733,7 @@ var _hmt = _hmt || [];
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/angular/http/http-220170908/" itemprop="url">Angular 4+ HttpClient</a></h1>
+                <a class="post-title-link" href="/jjs/720180426/" itemprop="url">css实现纯三角</a></h1>
         
 
         <div class="post-meta">
@@ -1379,8 +1745,8 @@ var _hmt = _hmt || [];
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-08T09:08:53+08:00">
-                2017-09-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-26T11:08:53+08:00">
+                2018-04-26
               </time>
             
 
@@ -1402,8 +1768,8 @@ var _hmt = _hmt || [];
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Angular-2/" itemprop="url" rel="index">
-                    <span itemprop="name">Angular 2+</span>
+                  <a href="/categories/html5/" itemprop="url" rel="index">
+                    <span itemprop="name">html5</span>
                   </a>
                 </span>
 
@@ -1419,7 +1785,7 @@ var _hmt = _hmt || [];
 
           
           
-             <span id="/angular/http/http-220170908/" class="leancloud_visitors" data-flag-title="Angular 4+ HttpClient">
+             <span id="/jjs/720180426/" class="leancloud_visitors" data-flag-title="css实现纯三角">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1451,10 +1817,10 @@ var _hmt = _hmt || [];
 
       
         
-          <p>Angular 4.3.0-rc.0 版本已经发布🐦。在这个版本中，我们等到了一个令人兴奋的新功能 - HTTPClient API 的改进版本；<br>HttpClient 是已有 Angular HTTP API 的演进，它在一个单独的 @angular/common/http 包中。这是为了确保现有的代码库可以缓慢迁移到新的 API；<br>大多数前端应用都需要通过 HTTP 协议与后端服务器通讯。现代浏览器支持使用两种不同的 API 发起 HTTP 请求：XMLHttpRequest 接口和 fetch() API；<br>
+          <h3 id="使用css实现一个三角形"><a href="#使用css实现一个三角形" class="headerlink" title="使用css实现一个三角形"></a>使用css实现一个三角形</h3><p>具体的效果是这样的：<br><img src="/images/20180718-1.png" alt="html"><br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/angular/http/http-220170908/#more" rel="contents">
+            <a class="btn" href="/jjs/720180426/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1506,7 +1872,7 @@ var _hmt = _hmt || [];
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.sulishibaobei.com/bootstrap/bt-120170908/">
+    <link itemprop="mainEntityOfPage" href="http://www.sulishibaobei.com/jjs/620180420/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="少女雨">
@@ -1525,7 +1891,7 @@ var _hmt = _hmt || [];
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/bootstrap/bt-120170908/" itemprop="url">bootstrap简单图文环绕效果</a></h1>
+                <a class="post-title-link" href="/jjs/620180420/" itemprop="url">Javascript TypeOf 深究</a></h1>
         
 
         <div class="post-meta">
@@ -1537,8 +1903,8 @@ var _hmt = _hmt || [];
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-08T09:08:53+08:00">
-                2017-09-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-20T20:08:53+08:00">
+                2018-04-20
               </time>
             
 
@@ -1560,8 +1926,8 @@ var _hmt = _hmt || [];
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Bootstrap/" itemprop="url" rel="index">
-                    <span itemprop="name">Bootstrap</span>
+                  <a href="/categories/html5/" itemprop="url" rel="index">
+                    <span itemprop="name">html5</span>
                   </a>
                 </span>
 
@@ -1577,7 +1943,7 @@ var _hmt = _hmt || [];
 
           
           
-             <span id="/bootstrap/bt-120170908/" class="leancloud_visitors" data-flag-title="bootstrap简单图文环绕效果">
+             <span id="/jjs/620180420/" class="leancloud_visitors" data-flag-title="Javascript TypeOf 深究">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1609,327 +1975,15 @@ var _hmt = _hmt || [];
 
       
         
-          <p>一.下载bootstrap-3.3.7<br>二.在html页面引入css,js;<br>eg:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">src</span>=<span class="string">"bootstrap-3.3.7-dist/css/bootstrap.min.css"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"jquery.min.js"</span>&gt;</span><span class="xml"><span class="tag">&lt;/ <span class="attr">script</span>&gt;</span> </span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"bootstrap-3.3.7-dist/js/bootstrap.min.js"</span>&gt;</span><span class="xml"><span class="tag">&lt;/ <span class="attr">script</span>&gt;</span></span></div></pre></td></tr></table></figure></p>
+          <blockquote>
+<ul>
+<li>typeOf可能返回的类型 number ,string, object, boolean,function ,undefined</li>
+</ul>
+</blockquote>
+<p>1.number类型很容易判断<br>typeof 3.14  === ‘number’  //true<br>typeof Infinity === ‘number’; //true<br>typeof NaN === ‘number’;  //true</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/bootstrap/bt-120170908/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-   
-     
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.sulishibaobei.com/angular/pg-120170908/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="少女雨">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/a.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="少女雨的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/angular/pg-120170908/" itemprop="url">angular4 中自定义pagination组件</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-08T09:08:53+08:00">
-                2017-09-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Angular-2/" itemprop="url" rel="index">
-                    <span itemprop="name">Angular 2+</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/angular/pg-120170908/" class="leancloud_visitors" data-flag-title="angular4 中自定义pagination组件">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><img src="/images/fengjing-3.jpg" alt="fengjing"></p>
-<p><div class="image-caption">你用Angular 吗?</div><br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/angular/pg-120170908/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-   
-     
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.sulishibaobei.com/angular/http/http-120170908/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="少女雨">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/a.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="少女雨的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/angular/http/http-120170908/" itemprop="url">Angular 4+ Http</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-08T09:08:53+08:00">
-                2017-09-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Angular-2/" itemprop="url" rel="index">
-                    <span itemprop="name">Angular 2+</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/angular/http/http-120170908/" class="leancloud_visitors" data-flag-title="Angular 4+ Http">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>HTTP: 使应用能够对远端服务器发起相应的Http调用；<br>你要知道：HttpModule并不是Angular的核心模块，它是Angualr用来进行Web访问的一种可选方式，并位于一个名叫@angual/http的独立附属模块中；也就是说：使用http之前要引入此模块;<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/angular/http/http-120170908/#more" rel="contents">
+            <a class="btn" href="/jjs/620180420/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1972,7 +2026,7 @@ var _hmt = _hmt || [];
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2021,7 +2075,7 @@ var _hmt = _hmt || [];
             
               <a href="/archives">
             
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">34</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2032,7 +2086,7 @@ var _hmt = _hmt || [];
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -2043,7 +2097,7 @@ var _hmt = _hmt || [];
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">45</span>
+                <span class="site-state-item-count">64</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
