@@ -660,31 +660,18 @@ var _hmt = _hmt || [];
 
       
         
-          
-            <blockquote>
+          <blockquote>
 <ul>
-<li>最近接到一个新的需求，做证件照识别，身份证照和头像比对。<br>详细介绍下几点：<br>1.文字识别和人脸比对调用的百度云的接口<a href="http://ai.baidu.com/forum/topic/show/867951" target="_blank" rel="external">http://ai.baidu.com/forum/topic/show/867951</a><br>2.本地采用nginx转发的请求。IOS拍照的时候文件体积比较大，nginx可能会报413错误（nginx 413 Request Entity Too Large ）<br>解决办法<a href="https://blog.csdn.net/testcs_dn/article/details/78366272" target="_blank" rel="external">https://blog.csdn.net/testcs_dn/article/details/78366272</a><br>3.上传的图片全部都转成base64且需去掉前缀</li>
+<li>最近接到一个新的需求，做证件照识别，身份证照和头像比对。<br>详细介绍下几点： 1.文字识别和人脸比对调用的百度云的接口<a href="http://ai.baidu.com/forum/topic/show/867951" target="_blank" rel="external">http://ai.baidu.com/forum/topic/show/867951</a> 2.本地采用 nginx 转发的请求。IOS 拍照的时候文件体积比较大，nginx 可能会报 413 错误（nginx 413 Request Entity Too Large ）<br>解决办法<a href="https://blog.csdn.net/testcs_dn/article/details/78366272" target="_blank" rel="external">https://blog.csdn.net/testcs_dn/article/details/78366272</a> 3.上传的图片全部都转成 base64 且需去掉前缀</li>
 </ul>
 </blockquote>
-<p>####案例展示</p>
-<ol>
-<li>识别身份证试试</li>
-</ol>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"w100 dashed"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"w30 title bold"</span>&gt;</span>上传身份证：<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"w100 tc  mt10"</span> <span class="attr">style</span>=<span class="string">"height: 130px;background: #fff"</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"w50 fl relative"</span> <span class="attr">style</span>=<span class="string">"height:100%;border:1px solid #ddd"</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">span</span>&gt;</span></div><div class="line">                        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"images/front.png"</span> <span class="attr">alt</span>=<span class="string">""</span> <span class="attr">style</span>=<span class="string">"width:60px;height: 30px;display: block;padding-left: 32%; padding-top: 13%;"</span> /&gt;</span></div><div class="line">                        <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn-white relative"</span>&gt;</span></div><div class="line">                            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">accept</span>=<span class="string">"image/*"</span> <span class="attr">id</span>=<span class="string">"imgCard"</span>/&gt;</span>上传身份证正面</div><div class="line">                        <span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">                        <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">"frontCard"</span> <span class="attr">class</span>=<span class="string">"w100"</span> <span class="attr">style</span>=<span class="string">"display: none"</span>&gt;</span></div><div class="line">                        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">id</span>=<span class="string">"frontCardValid"</span> <span class="attr">name</span>=<span class="string">"frontCard"</span> /&gt;</span></div><div class="line">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>都是一些简单的样式，可以忽略。因为这不是重点。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div></pre></td><td class="code"><pre><div class="line">  $(<span class="string">"body"</span>).on(<span class="string">'change'</span>, <span class="string">'#imgCard'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="keyword">if</span> (<span class="keyword">this</span>.files &amp;&amp; <span class="keyword">this</span>.files[<span class="number">0</span>]) &#123;</div><div class="line">                <span class="comment">//压缩</span></div><div class="line">                <span class="keyword">var</span> objUrl = getObjectURL(<span class="keyword">this</span>.files[<span class="number">0</span>]);</div><div class="line">                $(<span class="string">'#frontCard'</span>).attr(<span class="string">'src'</span>, objUrl); <span class="comment">//显示在界面</span></div><div class="line">                $(<span class="string">"#frontCardValid"</span>).val(objUrl);</div><div class="line">                <span class="keyword">var</span> image = <span class="keyword">new</span> Image();</div><div class="line">                image.src = objUrl;</div><div class="line">                image.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">                        IDCardRecognition(compress(image));</div><div class="line">                    &#125;</div><div class="line">            &#125;</div><div class="line">    &#125;)</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">IDCardRecognition</span>(<span class="params">file</span>) </span>&#123;</div><div class="line">    $.ajax(&#123;</div><div class="line">        <span class="attr">url</span>: <span class="string">"https://aip.baidubce.com/rest/2.0/ocr/v1/idcard?  access_token=24.126331b6c9f698cf8408591f33343dab.2592000.1540865247.282335-14247222"</span>, <span class="comment">//路径   </span></div><div class="line">        type: <span class="string">"POST"</span>, <span class="comment">//提交方式 </span></div><div class="line">        data: &#123;</div><div class="line">            <span class="string">'id_card_side'</span>: <span class="string">'front'</span>,  <span class="comment">//代表请求的是身份证正面</span></div><div class="line">            <span class="string">'image'</span>: file,</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">success</span>: <span class="function"><span class="keyword">function</span>(<span class="params">result</span>) </span>&#123;</div><div class="line">            <span class="keyword">var</span> info = result.words_result;</div><div class="line">            alert(info);</div><div class="line">        &#125;,</div><div class="line">        <span class="attr">error</span>: <span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(error);</div><div class="line">        &#125;,</div><div class="line"></div><div class="line">    &#125;);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getObjectURL</span>(<span class="params">file</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> url = <span class="literal">null</span>;</div><div class="line">    <span class="keyword">if</span> (<span class="built_in">window</span>.createObjectURL != <span class="literal">undefined</span>) &#123; <span class="comment">// basic</span></div><div class="line">        url = <span class="built_in">window</span>.createObjectURL(file);</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">window</span>.URL != <span class="literal">undefined</span>) &#123; <span class="comment">// mozilla(firefox)</span></div><div class="line">        url = <span class="built_in">window</span>.URL.createObjectURL(file);</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">window</span>.webkitURL != <span class="literal">undefined</span>) &#123; <span class="comment">// webkit or chrome</span></div><div class="line">        url = <span class="built_in">window</span>.webkitURL.createObjectURL(file);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> url;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">compress</span>(<span class="params">image</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> height = image.height;</div><div class="line">    <span class="keyword">var</span> width = image.width;</div><div class="line">    <span class="keyword">var</span> canvas = <span class="built_in">document</span>.createElement(<span class="string">'canvas'</span>);</div><div class="line">    canvas.width = width;</div><div class="line">    canvas.height = height;</div><div class="line">    <span class="keyword">var</span> ctx = canvas.getContext(<span class="string">'2d'</span>);</div><div class="line">    ctx.fillStyle = <span class="string">'#FFF'</span>; <span class="comment">//绘制背景色</span></div><div class="line">    ctx.fillRect(<span class="number">0</span>, <span class="number">0</span>, canvas.width, canvas.height);</div><div class="line">    ctx.drawImage(image, <span class="number">0</span>, <span class="number">0</span>, canvas.width, canvas.height);</div><div class="line">    <span class="comment">//0.5为压缩的质量比例，范围是0~1。</span></div><div class="line">    <span class="keyword">var</span> imgBase = canvas.toDataURL(<span class="string">"image/jpeg"</span>, <span class="number">0.5</span>);</div><div class="line">    <span class="keyword">var</span> arr = imgBase.split(<span class="string">","</span>);</div><div class="line">    <span class="keyword">return</span> arr[<span class="number">1</span>];</div><div class="line"></div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<ol>
-<li>图像数据要求：base64编码后进行urlencode，要求base64编码和urlencode后大小不超过4M，最短边至少15px，最长边最大4096px,支持jpg/png/bmp格式。 </li>
-<li>手机拍照出来的文件一般比较大，记得压缩下。（ps:亲测，压缩后的文件请求返回数据一般控制在3s内。本人IOS手机拍出来的文件体积基本在1M到5M之间，有些无法识别出来，能识别的响应也比较慢，大多超过5s）。</li>
-<li>用ajax传文件到后台要防止文件过来，传过去导致接收的数据为null。 （前后端配合的情况下才会出现。tomaca文件上传限制大小是原因之一）<br>请求到的结果是一个这样的情况：<br><img src="/images/vue/20181012-1.png" alt="图"></li>
-</ol>
-<p>PS：后面也尝试了许多的模板，社保卡识别，银行卡识别，学信网招聘识别。调的接口不一样而已。有些百度没有提供的模板，需要自定义。详情参考api，10分钟以内学会。</p>
-<ol>
-<li>人脸识别</li>
-</ol>
-<p>手机随意拍一张照片，和身份证上面照片比对。拍照的图片一直比对不成功就要注意采用活体检测。<br>这些都要求拍出来的照片清晰度比较。<br>接口掉头方法类似。</p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/jjs/1320181001/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1872,7 +1859,7 @@ var _hmt = _hmt || [];
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.sulishibaobei.com/jjs/620180420/">
+    <link itemprop="mainEntityOfPage" href="http://www.sulishibaobei.com/jjs/520180420/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="少女雨">
@@ -1891,7 +1878,7 @@ var _hmt = _hmt || [];
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/jjs/620180420/" itemprop="url">Javascript TypeOf 深究</a></h1>
+                <a class="post-title-link" href="/jjs/520180420/" itemprop="url">移动端实现下拉加载</a></h1>
         
 
         <div class="post-meta">
@@ -1943,7 +1930,7 @@ var _hmt = _hmt || [];
 
           
           
-             <span id="/jjs/620180420/" class="leancloud_visitors" data-flag-title="Javascript TypeOf 深究">
+             <span id="/jjs/520180420/" class="leancloud_visitors" data-flag-title="移动端实现下拉加载">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1977,13 +1964,13 @@ var _hmt = _hmt || [];
         
           <blockquote>
 <ul>
-<li>typeOf可能返回的类型 number ,string, object, boolean,function ,undefined</li>
+<li>使用dropload.min.js实现上下拉刷新加载页面</li>
 </ul>
 </blockquote>
-<p>1.number类型很容易判断<br>typeof 3.14  === ‘number’  //true<br>typeof Infinity === ‘number’; //true<br>typeof NaN === ‘number’;  //true</p>
+<p><img src="/images/20180705-1.gif" alt="html">  </p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/jjs/620180420/#more" rel="contents">
+            <a class="btn" href="/jjs/520180420/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
